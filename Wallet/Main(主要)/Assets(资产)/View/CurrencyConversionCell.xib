@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CurrencyConversionCell" customModule="Wallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l40-lX-79X">
+                        <rect key="frame" x="10" y="0.0" width="300" height="149.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g6F-ur-dWM">
+                                <rect key="frame" x="20" y="50" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dF1-Vr-w2X"/>
+                                    <constraint firstAttribute="width" constant="50" id="msk-cm-wYN"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Als-fV-4Pq">
+                                <rect key="frame" x="80" y="66.5" width="35.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Als-fV-4Pq" firstAttribute="leading" secondItem="g6F-ur-dWM" secondAttribute="trailing" constant="10" id="XLH-MJ-1EC"/>
+                            <constraint firstItem="Als-fV-4Pq" firstAttribute="centerY" secondItem="g6F-ur-dWM" secondAttribute="centerY" id="lpk-x5-wfI"/>
+                            <constraint firstItem="g6F-ur-dWM" firstAttribute="centerY" secondItem="l40-lX-79X" secondAttribute="centerY" id="sGx-mm-53g"/>
+                            <constraint firstItem="g6F-ur-dWM" firstAttribute="leading" secondItem="l40-lX-79X" secondAttribute="leading" constant="20" id="sdH-GC-CzJ"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGw-uL-gou">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                        <state key="highlighted" backgroundImage="ic_Home_backgroundColor"/>
+                        <connections>
+                            <action selector="ConversionOnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ax3-qu-rRV"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FGw-uL-gou" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Edc-40-pN7"/>
+                    <constraint firstAttribute="trailing" secondItem="FGw-uL-gou" secondAttribute="trailing" id="LoM-dr-kVb"/>
+                    <constraint firstItem="l40-lX-79X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="M3G-WY-G4O"/>
+                    <constraint firstItem="l40-lX-79X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="SJ3-jM-bCB"/>
+                    <constraint firstItem="FGw-uL-gou" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cAR-HG-U8K"/>
+                    <constraint firstAttribute="bottom" secondItem="l40-lX-79X" secondAttribute="bottom" id="kp5-bq-rnQ"/>
+                    <constraint firstAttribute="bottom" secondItem="FGw-uL-gou" secondAttribute="bottom" id="rl5-Ij-Wxq"/>
+                    <constraint firstAttribute="trailing" secondItem="l40-lX-79X" secondAttribute="trailing" constant="10" id="wMu-Da-QCp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backgroundVw" destination="l40-lX-79X" id="O8e-fb-LRk"/>
+                <outlet property="coin_name" destination="Als-fV-4Pq" id="iEk-S3-2Mx"/>
+                <outlet property="conversionButton" destination="FGw-uL-gou" id="6Tt-3r-aEq"/>
+                <outlet property="iconImageView" destination="g6F-ur-dWM" id="Hem-fV-hWT"/>
+            </connections>
+            <point key="canvasLocation" x="-323" y="48"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_Home_backgroundColor" width="59" height="31"/>
+    </resources>
+</document>
