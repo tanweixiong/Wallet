@@ -58,7 +58,7 @@ class WLTabBarController: UITabBarController {
         salesNavigationVC.tabBarItem.image=UIImage(named: normalArray[4])?.withRenderingMode(UIImageRenderingMode.alwaysOriginal);
         salesNavigationVC.tabBarItem.selectedImage=UIImage(named: selectedArray[4])?.withRenderingMode(UIImageRenderingMode.alwaysOriginal);
         
-        let items=[storePlatformNavigationVC,informationNavigationVC,salesNavigationVC,coinTransactionNavigationVC,mineNavigationVC];
+        let items=[storePlatformNavigationVC,informationNavigationVC,coinTransactionNavigationVC,mineNavigationVC];
         self.viewControllers=items;
 //        self.navigationController?.navigationBar.tintColor=UIColor.white
         //.自定义工具栏
