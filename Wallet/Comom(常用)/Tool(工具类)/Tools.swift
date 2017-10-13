@@ -185,12 +185,16 @@ class Tools: NSObject {
     }
     
     //读取归档
-    class func getPlaceOnFile(_ file:String) ->Any
+    class func getPlaceOnFile(_ file:String) ->AnyObject
     {
         let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
         let filePath = (path as NSString).appendingPathComponent(file + ".plist")
-        let data =  NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as Any
-        return data
+        let data =  NSKeyedUnarchiver.unarchiveObject(withFile: filePath)
+        if data != nil {
+             return NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as AnyObject
+        }else{
+             return NSNull()
+        }
     }
     
     //根据ID进行排序

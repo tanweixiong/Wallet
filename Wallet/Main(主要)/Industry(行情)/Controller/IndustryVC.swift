@@ -33,12 +33,16 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
     
     //首页数据
     func getMarkertData(){
-        let json = Tools.getPlaceOnFile(R_UserDefaults_Market_Key) as!NSArray
-        let data = ["data":json]
-        let responseData = Mapper<IndustryListModel>().map(JSONObject: data)
-        if responseData?.data?.count != 0 {
-            self.dataScore = responseData!.data as! NSMutableArray
-            self.tableView.reloadData()
+        if Tools.getPlaceOnFile(R_UserDefaults_Market_Key) is NSNull {
+            self.getData()
+        }else{
+            let json = Tools.getPlaceOnFile(R_UserDefaults_Market_Key) as!NSArray
+            let data = ["data":json]
+            let responseData = Mapper<IndustryListModel>().map(JSONObject: data)
+            if responseData?.data?.count != 0 {
+                self.dataScore = responseData!.data as! NSMutableArray
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -58,9 +62,8 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
             }else{
                 SVProgressHUD.showInfo(withStatus: responseData?.msg)
             }
-            self.tableView.mj_header.endRefreshing()
         }) { (error) in
-            self.tableView.mj_header.endRefreshing()
+
         }
     }
     
