@@ -19,6 +19,11 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
         static let textFieldHeight: CGFloat = YMAKE(50)
         static let fillet: CGFloat = 10
         static let space: CGFloat = 14
+        static let backBtnRect: CGRect = CGRect.init(x: 10, y: 27, width: 25, height: 25)
+    }
+    
+    struct ViewStyle {
+        static let topViewHeightRatio = 0.25
     }
     
     var time:Int = 60
@@ -32,6 +37,7 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         self.title = LanguageHelper.getString(key: "create_wallet")
         self.navBarBgAlpha = "1"
         
@@ -51,10 +57,10 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
               self.getCodeButton.isEnabled = false;
               self.setTimeCountDown()
            }, failture: { (error) in
-//                WLError("获取验证码失败")
+                WLError("获取验证码失败")
            })
         }else{
-//           WLError("请输入正确的手机号码")
+            WLInfo("请输入正确的手机号码")
         }
     }
     
@@ -79,6 +85,12 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
     }
     
     func checkInput() -> Bool{
+        
+        if !Tools.validateMobile(mobile: accountTextField.text!) && !Tools.validatePassword(password: passwordTextField.text!) && walletNameTextField.text?.characters.count == 0 && codeTextField.text?.characters.count == 0{
+            WLInfo(LanguageHelper.getString(key: "input_can_not_be_empty"))
+            return false
+        }
+        
         if !Tools.validateMobile(mobile: accountTextField.text!) {
             WLInfo(LanguageHelper.getString(key: "enter_phone"))
             return false
@@ -134,6 +146,29 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
             self.time = 0
         }
     }
+    
+    lazy var topView: UIView =  {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64))
+        view.backgroundColor = R_UIThemeColor
+        let backBtn = UIButton(type: .custom)
+        backBtn.setBackgroundImage(UIImage.init(named: "cuowu"), for: .normal)
+        backBtn.frame = CreateWalletUX.backBtnRect
+        backBtn.addTarget(self, action: #selector(backToLogin), for: .touchUpInside)
+        view.addSubview(backBtn)
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 32, width: SCREEN_WIDTH, height: 18))
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.text = "创建钱包"
+        view.addSubview(label)
+        return view
+    }()
+    
+    // MARK: - EventResponse
+    func backToLogin() {
+        self.dismiss(animated: true, completion: nil)
+    }
   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -147,6 +182,7 @@ extension CreateWalletVC {
     func createUI() {
         self.view.backgroundColor = UIColor.R_UIColorFromRGB(color: 0xF3F7F8)
         
+        self.view.addSubview(topView)
         self.view.addSubview(walletNameTextField)
         self.view.addSubview(passwordTextField)
         self.view.addSubview(accountTextField)
@@ -154,12 +190,18 @@ extension CreateWalletVC {
         self.view.addSubview(codeTextField)
         self.view.addSubview(createWallet)
         
+        self.topView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.view.snp.top).offset(0)
+            make.height.equalTo(64)
+        }
+        
         walletNameTextField.textColor = R_UIFontLightColor
         walletNameTextField.backgroundColor = UIColor.white
         walletNameTextField.font = UIFont.systemFont(ofSize: CreateWalletUX.textFieldFont)
         walletNameTextField.layer.cornerRadius = CreateWalletUX.fillet;
         walletNameTextField.layer.borderWidth = 0.5
-        walletNameTextField.keyboardType = .asciiCapable
+//        walletNameTextField.keyboardType = .asciiCapable
 //        walletNameTextField.isSecureTextEntry = true
         walletNameTextField.layer.borderColor = UIColor(white: 1, alpha: 0.3).cgColor;
         walletNameTextField.placeholder = LanguageHelper.getString(key: "wallet_name")
@@ -171,7 +213,7 @@ extension CreateWalletVC {
         walletNameTextField.leftView = walletNameLeftView
         walletNameTextField.leftViewMode = .always
         walletNameTextField.snp.makeConstraints{ (make) -> Void in
-            make.top.equalTo(self.view.snp.top).offset(YMAKE(CreateWalletUX.space))
+            make.top.equalTo(topView.snp.bottom).offset(YMAKE(CreateWalletUX.space))
             make.centerX.equalTo(self.view.snp.centerX)
             make.width.equalTo(CreateWalletUX.textFieldWidth)
             make.height.equalTo(CreateWalletUX.textFieldHeight)

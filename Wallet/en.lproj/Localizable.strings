@@ -209,6 +209,7 @@
 "write_address" = "Please fill in the address of the payee";
 "write_amount" = "Please fill in the amount of the payee";
 "transaction" = "transaction";
+"input_can_not_be_empty" = "The input can not be empty";
 
 
 

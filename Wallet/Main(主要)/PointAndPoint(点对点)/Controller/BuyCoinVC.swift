@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import EaseUI
+//import EaseUI
 
 class BuyCoinVC: WLMainViewController,UIScrollViewDelegate {
     
@@ -40,8 +40,8 @@ class BuyCoinVC: WLMainViewController,UIScrollViewDelegate {
     }
     
     func buyHandle(){
-        let chatController = EaseMessageViewController(conversationChatter: "tanweixiong", conversationType: EMConversationType(rawValue: 0))! 
-        self.navigationController?.pushViewController(chatController, animated: true)
+//        let chatController = EaseMessageViewController(conversationChatter: "tanweixiong", conversationType: EMConversationType(rawValue: 0))! 
+//        self.navigationController?.pushViewController(chatController, animated: true)
     }
     
    fileprivate(set) lazy var coinView:BuyCoinUserInfoVw = {

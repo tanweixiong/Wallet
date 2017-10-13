@@ -22,10 +22,23 @@ class Tools: NSObject {
     
     //判断是否为电话号码
     class func validateMobile(mobile: String) -> Bool {
-        //手机号以13,15,17,18开头，八个 \d 数字字符
-        let phoneRegex = "^((13[0-9])|(15[^4,\\D]) |(17[0,0-9])|(18[0,0-9]))\\d{8}$"
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
-        return phoneTest.evaluate(with: mobile)
+        //电话号码
+        let MOBILE = "^1(3[0-9]|4[57]|5[0-35-9]|8[0-9]|7[0678])\\d{8}$"
+        //中国电信
+        let CM = "(^1(3[4-9]|4[7]|5[0-27-9]|7[8]|8[2-478])\\d{8}$)|(^1705\\d{7}$)"
+        //中国联通
+        let CU = "(^1(3[0-2]|4[5]|5[56]|7[6]|8[56])\\d{8}$)|(^1709\\d{7}$)"
+        if Tools.isValidateByRegex(regex: MOBILE, mobile: mobile) || Tools.isValidateByRegex(regex: CM, mobile: mobile) || Tools.isValidateByRegex(regex: CU, mobile: mobile) {
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    //获取服务器价格格式不包含符号
+    class func getConversionPriceFormat(_ price:String)-> String {
+        let newPrice = String(format: "%.2f", NSString(string:price).floatValue/100)
+        return newPrice
     }
     
     //判断是否为密码
@@ -40,6 +53,12 @@ class Tools: NSObject {
         let passwordRegex = "^\\d{6}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordTest.evaluate(with: code)
+    }
+    
+    //判断正则
+    class func isValidateByRegex(regex: String,mobile:String)-> Bool {
+        let pre = NSPredicate(format: "SELF MATCHES %@", regex)
+        return pre.evaluate(with: mobile)
     }
     
     //图片data转化字符串
@@ -69,12 +88,6 @@ class Tools: NSObject {
     //获取价格的格式包含符号
     class func getConversionPriceFormatSymbol(_ price:String)-> String {
         let newPrice = String(format: "¥%.2f", NSString(string:price).floatValue/100)
-        return newPrice
-    }
-    
-    //获取服务器价格格式不包含符号
-    class func getConversionPriceFormat(_ price:String)-> String {
-        let newPrice = String(format: "%.2f", NSString(string:price).floatValue/100)
         return newPrice
     }
     

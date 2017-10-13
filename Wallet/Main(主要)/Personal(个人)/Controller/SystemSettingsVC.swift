@@ -20,7 +20,7 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
         LanguageHelper.getString(key: "language")
 //        ,LanguageHelper.getString(key: "coin")
         ,LanguageHelper.getString(key: "modify_login_passsword")
-        ,LanguageHelper.getString(key: "to_set_paypwd")
+        ,LanguageHelper.getString(key: "set_pay_password")
     ]
     
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
 //            self.navigationController?.pushViewController(vc, animated: true)
         }else{
             let forgetPwdVC = ForgetPwdViewController()
-            forgetPwdVC.viewType = ForgetPwdViewType(rawValue:indexPath.section - 2)!
+            forgetPwdVC.viewType = ForgetPwdViewType(rawValue:0)!
             forgetPwdVC.topView.midLabel.text = titleArray[indexPath.section] as? String
             self.present(forgetPwdVC, animated: true, completion: nil)
         }

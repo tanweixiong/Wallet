@@ -103,7 +103,9 @@ class ManageWalletsVC: WLMainViewController,UITableViewDelegate,UITableViewDataS
     
     func createWallets(){
         let vc = CreateWalletVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true) { 
+            
+        }
     }
     
     func addFootView()  {

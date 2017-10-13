@@ -19,7 +19,7 @@ target 'Wallet' do
   pod 'ObjectMapper', '~> 2.2'
   pod 'MJExtension'
   pod 'RxSwift'
-  pod 'EaseUI', :git => 'https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git'
+  pod 'SDWebImage'
 
   # Pods for Wallet
 

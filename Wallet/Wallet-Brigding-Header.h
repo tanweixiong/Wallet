@@ -17,5 +17,4 @@
 #import "LJXPhotoAlbum.h"
 #import "ZFReOrderTableView.h"
 #import "PlaceholderTextView.h"
-#import <HyphenateLite/HyphenateLite.h>
 #endif

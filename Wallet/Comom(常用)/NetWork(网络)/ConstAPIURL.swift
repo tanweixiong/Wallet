@@ -13,7 +13,7 @@ struct ConstAPI {
     static let kAPIBaseURL: String = "http://47.52.59.119:9099/dhswallet/"
     
     //开发
-//    static let kAPIBaseURL: String = "http://192.168.10.244:8080/dhs-wallet/dhswallet/"
+//    static let kAPIBaseURL: String = "http://192.168.10.220:80/dhs-wallet/dhswallet/"
     
     static let kAPIRegister = kAPIBaseURL + "user/add.do"   //注册接口
     static let kAPILogin = kAPIBaseURL + "user/login.do" //登录接口

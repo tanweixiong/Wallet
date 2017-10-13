@@ -34,13 +34,16 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转入云币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUt-hW-873">
-                                    <rect key="frame" x="20" y="45" width="69.5" height="21"/>
+                                    <rect key="frame" x="20" y="45" width="83" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="83" id="O78-K9-7YR"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JAI-FT-e6V">
-                                    <rect key="frame" x="109.5" y="41" width="245.5" height="30"/>
+                                    <rect key="frame" x="123" y="41" width="232" height="30"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -59,13 +62,13 @@
                             <rect key="frame" x="0.0" y="222.5" width="375" height="111"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="币种数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTx-mu-eq8">
-                                    <rect key="frame" x="20" y="45" width="69.5" height="21"/>
+                                    <rect key="frame" x="20" y="45" width="83" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AaL-YR-KGX">
-                                    <rect key="frame" x="110" y="41" width="245.5" height="30"/>
+                                    <rect key="frame" x="123.5" y="41" width="232" height="30"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -84,13 +87,13 @@
                             <rect key="frame" x="0.0" y="111" width="375" height="111.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转出金币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMu-e4-AKZ">
-                                    <rect key="frame" x="20" y="45" width="69.5" height="21"/>
+                                    <rect key="frame" x="20" y="45" width="83" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKV-JN-LVp">
-                                    <rect key="frame" x="109" y="40.5" width="245.5" height="30"/>
+                                    <rect key="frame" x="122.5" y="40.5" width="232" height="30"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -111,6 +114,7 @@
                         <constraint firstItem="T9L-Xv-P6j" firstAttribute="top" secondItem="5q0-9p-vDY" secondAttribute="bottom" id="0Jc-3e-5rd"/>
                         <constraint firstItem="5q0-9p-vDY" firstAttribute="width" secondItem="eGT-B3-NpB" secondAttribute="width" id="0z4-lY-mUI"/>
                         <constraint firstItem="5q0-9p-vDY" firstAttribute="leading" secondItem="h6W-OZ-Hor" secondAttribute="leading" id="336-9e-5Q5"/>
+                        <constraint firstItem="PMu-e4-AKZ" firstAttribute="width" secondItem="AUt-hW-873" secondAttribute="width" id="448-xh-vTf"/>
                         <constraint firstItem="T9L-Xv-P6j" firstAttribute="width" secondItem="eGT-B3-NpB" secondAttribute="width" id="6VC-92-jm9"/>
                         <constraint firstAttribute="trailing" secondItem="5q0-9p-vDY" secondAttribute="trailing" id="EEf-VZ-Xeo"/>
                         <constraint firstAttribute="trailing" secondItem="eGT-B3-NpB" secondAttribute="trailing" id="KLg-Dq-yAa"/>
@@ -118,6 +122,7 @@
                         <constraint firstItem="5q0-9p-vDY" firstAttribute="top" secondItem="eGT-B3-NpB" secondAttribute="bottom" id="Ox2-xn-CpT"/>
                         <constraint firstItem="eGT-B3-NpB" firstAttribute="top" secondItem="h6W-OZ-Hor" secondAttribute="top" id="ZaM-Ak-mWF"/>
                         <constraint firstItem="eGT-B3-NpB" firstAttribute="leading" secondItem="h6W-OZ-Hor" secondAttribute="leading" id="aq8-6B-jy6"/>
+                        <constraint firstItem="nTx-mu-eq8" firstAttribute="width" secondItem="AUt-hW-873" secondAttribute="width" id="fkL-x8-sxx"/>
                         <constraint firstItem="T9L-Xv-P6j" firstAttribute="height" secondItem="eGT-B3-NpB" secondAttribute="height" id="gCd-Ep-HTC"/>
                         <constraint firstAttribute="bottom" secondItem="T9L-Xv-P6j" secondAttribute="bottom" id="lSx-cQ-S2n"/>
                         <constraint firstItem="T9L-Xv-P6j" firstAttribute="leading" secondItem="h6W-OZ-Hor" secondAttribute="leading" id="mYQ-Mh-7bw"/>
@@ -148,7 +153,7 @@
                 <constraint firstAttribute="trailing" secondItem="VMr-jx-Kol" secondAttribute="trailing" constant="20" id="w8o-Ov-zaX"/>
                 <constraint firstItem="VMr-jx-Kol" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="y7I-Xc-mCS"/>
             </constraints>
-            <point key="canvasLocation" x="-123" y="-16"/>
+            <point key="canvasLocation" x="72" y="-167"/>
         </view>
     </objects>
 </document>

@@ -63,7 +63,7 @@ class AddAContactVC: WLMainViewController,LBXScanViewControllerDelegate {
             let contacts_id = contacts_idTF.text!
             let contacts_name = contacts_nameTF.text!
             let remarks = remarksTF.text!
-            let parameters:[String:Any] = ["user_id":user_id,"contacts_id":contacts_id,"contacts_name":contacts_name,"remarks":remarks]
+            let parameters:[String:String] = ["user_id":user_id,"contacts_id":contacts_id,"contacts_name":contacts_name,"remarks":remarks]
             NetWorkTool.request(.post, URLString: ConstAPI.kAPIMyAddContacts, parameters: parameters, showIndicator: true, success: { (json) in
                 let responseData = Mapper<ResponseData>().map(JSONObject: json)
                 if let code = responseData?.code {

@@ -49,8 +49,20 @@ class LoginVC: WLMainViewController {
             self.login()
         }else{
             self.navigationController?.navigationBar.isHidden = false
-            let vc = sender.tag == 1 ? CreateWalletVC() : ForgetPasswordVC()
-            self.navigationController?.pushViewController(vc, animated: true)
+            if sender.tag == 1 {
+                let vc = CreateWalletVC()
+//                self.pushNextViewController(vc, true)
+                self.present(vc, animated: true, completion: {
+                    
+                })
+            }else{
+                let vc = ForgetPwdViewController()
+                vc.viewType = .getBackLoginPwd
+                vc.topView.midLabel.text = "找回登录密码"
+                self.present(vc, animated: true, completion: { 
+                    
+                })
+            }
         }
     }
     

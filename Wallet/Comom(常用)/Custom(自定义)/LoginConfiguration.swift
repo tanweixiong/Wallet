@@ -13,17 +13,17 @@ class LoginConfiguration: NSObject {
     static let shared = LoginConfiguration.init()
     
     func relatedConfiguration(){
-        self.chatSettings()
+//        self.chatSettings()
     }
     
-    fileprivate func chatSettings(){
-         EMClient.shared().login(withUsername: "tanweifeng", password: "123456") { (aUsername, aError) in
-            if (aError != nil) {
-                print("登录成功")
-            }else{
-                print("登录失败")
-            }
-        }
-    }
+//    fileprivate func chatSettings(){
+//         EMClient.shared().login(withUsername: "tanweifeng", password: "123456") { (aUsername, aError) in
+//            if (aError != nil) {
+//                print("登录成功")
+//            }else{
+//                print("登录失败")
+//            }
+//        }
+//    }
     
 }

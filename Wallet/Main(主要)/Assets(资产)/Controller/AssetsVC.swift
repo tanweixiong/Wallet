@@ -138,11 +138,15 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
             vc.title = LanguageHelper.getString(key: "scan")
             vc.scanStyle = vc.setCustomLBScan()
             vc.scanResultDelegate = self
+            vc.navBarBgAlpha = "1"
             self.pushNextViewController(vc, true)
         }
         
         PopupView.addCell(withIcon: UIImage.init(named: "home_wallet"), text:  LanguageHelper.getString(key: "create_wallet")) {
-             self.pushNextViewController(CreateWalletVC(), true)
+//             self.pushNextViewController(CreateWalletVC(), true)
+            self.present(CreateWalletVC(), animated: true, completion: { 
+                
+            })
         }
         
         PopupView.popupView()

@@ -29,7 +29,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqS-l0-bpx">
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqS-l0-bpx">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <connections>
                                         <action selector="addMarket:" destination="iN0-l3-epB" eventType="touchUpInside" id="prV-cY-okG"/>
@@ -65,7 +65,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wuv-4i-9Hj">
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wuv-4i-9Hj">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <connections>
                                         <action selector="editMarket:" destination="iN0-l3-epB" eventType="touchUpInside" id="irl-NU-CYF"/>

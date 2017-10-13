@@ -187,14 +187,14 @@
 
 - (void)reorderCurrentRowToIndexPath:(NSIndexPath*)toIndexPath
 {
+    if (toIndexPath.row == 0&&toIndexPath.section == 0) {
+        return;
+    }
+    
     if (!toIndexPath) {
         return;
     }
     [self.tableView beginUpdates];
-    
-    if (toIndexPath.row == 0&&toIndexPath.section == 0) {
-        return;
-    }
     
     //同一个section 直接交换,然后move
     if (toIndexPath.section == _sourceIndexPath.section)

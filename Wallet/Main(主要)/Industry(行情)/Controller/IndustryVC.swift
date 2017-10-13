@@ -130,7 +130,7 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
                 let vc = addMarketVC()
                 vc.delegate = self
                 self.pushNextViewController(vc, true)
-            }else{
+            }else if sender.tag == 2{
                let vc = editMarketVC()
                 vc.delegate = self
                self.pushNextViewController(vc, true)

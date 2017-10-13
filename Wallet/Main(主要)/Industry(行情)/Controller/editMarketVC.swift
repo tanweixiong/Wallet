@@ -60,10 +60,14 @@ class editMarketVC: WLMainViewController,UITableViewDataSource,UITableViewDelega
     
     func zfReOrderTableViewBeginMove(_ beginIndexPath: IndexPath!) {
         self.beginIndexPath = beginIndexPath
+//        let cell = self.reOrderView.tableView.cellForRow(at: beginIndexPath) as! editMarketCell
+//        cell.lineView.isHidden = true
     }
     
     func zfReOrderTableViewEndMove(_ endIndexPath: IndexPath!) {
         self.exchangeArray.exchangeObject(at: endIndexPath.row, withObjectAt: self.beginIndexPath.row)
+//        let cell = self.reOrderView.tableView.cellForRow(at: endIndexPath) as! editMarketCell
+//        cell.lineView.isHidden = false
     }
     
     override func rightTextBtn(_ sender: UIBarButtonItem) {
@@ -97,6 +101,7 @@ class editMarketVC: WLMainViewController,UITableViewDataSource,UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: editMarketCellIdentifier, for: indexPath) as! editMarketCell
         cell.backgroundColor = R_UIThemeColor
+        cell.selectionStyle = .none
         let array:NSArray = self.dataScore[indexPath.section] as! NSArray
         let data:NSDictionary = array[indexPath.row] as! NSDictionary
         cell.titleLabel.text = data["coin_name"] as? String

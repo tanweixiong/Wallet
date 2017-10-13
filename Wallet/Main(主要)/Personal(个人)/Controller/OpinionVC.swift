@@ -50,9 +50,9 @@ class OpinionVC: WLMainViewController,YYTextViewDelegate {
     override func rightTextBtn(_ sender: UIBarButtonItem) {
         if checkInput() {
             let user_id = UserDefaults.standard.getUserInfo().userId
-            let contact = phoneAndMailTF.text
-            let feed = textView?.text
-            let parameters:[String:Any] = ["feed_type":self.feed_type,"feed":feed!,"contact":contact!,"user_id":user_id]
+//            let contact = phoneAndMailTF.text
+//            let feed = textView?.text
+            let parameters:[String:Any] = ["feed_type":self.feed_type,"feed":"1","contact":"1","user_id":user_id]
             NetWorkTool.request(.post, URLString: ConstAPI.kAPIFeedsAdd, parameters: parameters, showIndicator: true, success: { (json) in
                 let responseData = Mapper<ResponseData>().map(JSONObject: json)
                 if responseData?.code == 100 {
