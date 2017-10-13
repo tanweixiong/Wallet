@@ -127,6 +127,7 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
     lazy var marketModificationView: MarketModificationView = {
         let view = Bundle.main.loadNibNamed("MarketModificationView", owner: nil, options: nil)?.last as! MarketModificationView
         view.isHidden = true
+        view.frame = (UIApplication.shared.keyWindow?.bounds)!
         view.backgroundColor = UIColor.R_UIRGBColor(red: 0, green: 0, blue: 0, alpha: 0.6)
         view.marketModificationBlock = { (sender) in
             if sender.tag == 1 {
