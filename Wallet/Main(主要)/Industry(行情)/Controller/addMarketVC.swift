@@ -24,7 +24,7 @@ class addMarketVC: WLMainViewController,UITableViewDelegate,UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "add_market"
+        self.title = LanguageHelper.getString(key: "add_market")
         self.navBarBgAlpha = "1"
         self.view.addSubview(tableView)
         self.getData()
