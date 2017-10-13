@@ -21,6 +21,7 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         self.navBarBgAlpha = "0"
         self.view.addSubview(tableView)
+        tableView.addSubview(footView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -118,7 +119,22 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
         tableView.register(PersonalCell.self, forCellReuseIdentifier:self.personalCellIdentifier)
         tableView.backgroundColor = UIColor.R_UIRGBColor(red: 243, green: 247, blue: 248, alpha: 1)
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
-        tableView.tableFooterView = UIView()
         return tableView
     }()
+    
+    lazy var footView:UIView = {
+       let view = UIView(frame: CGRect(x: 0, y: SCREEN_HEIGHT - YMAKE(45) - 44 - 20, width: SCREEN_WIDTH, height: YMAKE(45)))
+       let button = UIButton(frame: CGRect(x: 20, y: 0, width: SCREEN_WIDTH - 40, height: YMAKE(45)))
+       button.setTitle("退出登录", for: .normal)
+       button.backgroundColor = R_UIThemeColor
+       button.setTitleColor(UIColor.white, for: .normal)
+       button.addTarget(self, action: #selector(PersonalVC.loginOutHandle), for: .touchUpInside)
+       button.layer.cornerRadius = 5
+       view.addSubview(button)
+       return view
+    }()
+    
+    func loginOutHandle(){
+        LoginVC.switchRootVCToLoginVC()
+    }
 }

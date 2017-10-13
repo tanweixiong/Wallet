@@ -42,12 +42,12 @@
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Assets(%E8%B5%84%E4%BA%A7)/Controller/TransactionCoinVC.swift"
-                  timestampString = "529558133.348974"
+                  timestampString = "529574296.253695"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "77"
                   endingLineNumber = "77"
-                  offsetFromSymbolStart = "738">
+                  offsetFromSymbolStart = "664">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -57,60 +57,12 @@
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Assets(%E8%B5%84%E4%BA%A7)/Controller/TransactionCoinVC.swift"
-                  timestampString = "529558133.355003"
+                  timestampString = "529574296.255513"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "78"
                   endingLineNumber = "78"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Wallet/Comom(&#x5e38;&#x7528;)/NetWork(&#x7f51;&#x7edc;)/NetWorkTool.swift"
-            timestampString = "529482179.202215"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "requestData(_:URLString:parameters:showIndicator:success:failture:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Wallet.NetWorkTool.requestData (Alamofire.HTTPMethod, URLString : Swift.String, parameters : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, showIndicator : Swift.Bool, success : (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; (), failture : (Swift.Error) -&gt; ()) -&gt; ()"
-                  moduleName = "Wallet"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Comom(%E5%B8%B8%E7%94%A8)/NetWork(%E7%BD%91%E7%BB%9C)/NetWorkTool.swift"
-                  timestampString = "529558133.363638"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "1059">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Wallet.NetWorkTool.(requestData (Alamofire.HTTPMethod, URLString : Swift.String, parameters : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, showIndicator : Swift.Bool, success : (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; (), failture : (Swift.Error) -&gt; ()) -&gt; ()).(closure #2)"
-                  moduleName = "Wallet"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Comom(%E5%B8%B8%E7%94%A8)/NetWork(%E7%BD%91%E7%BB%9C)/NetWorkTool.swift"
-                  timestampString = "529558133.365774"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "54">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -122,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Personal(&#x4e2a;&#x4eba;)/Controller/AddAContactVC.swift"
-            timestampString = "529482298.623125"
+            timestampString = "529574232.39016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "rightTextBtn(_:)"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "scanFinished(scanResult:error:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -138,12 +90,12 @@
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Personal(%E4%B8%AA%E4%BA%BA)/Controller/AddAContactVC.swift"
-                  timestampString = "529558133.371"
+                  timestampString = "529574296.26009"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "232">
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "172">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -153,12 +105,12 @@
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Personal(%E4%B8%AA%E4%BA%BA)/Controller/AddAContactVC.swift"
-                  timestampString = "529558133.373294"
+                  timestampString = "529574296.261872"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "398">
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "296">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -170,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Personal(&#x4e2a;&#x4eba;)/Controller/AddAContactVC.swift"
-            timestampString = "529482306.157403"
+            timestampString = "529574232.39016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "rightTextBtn(_:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "scanFinished(scanResult:error:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
