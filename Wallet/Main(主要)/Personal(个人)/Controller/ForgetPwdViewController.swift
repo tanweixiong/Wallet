@@ -215,7 +215,7 @@ class ForgetPwdViewController: UIViewController {
         
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "modifying_password") , maskType: .black)
         
-        NetWorkTool.requestData(.post, URLString: url, parameters: paramters, showIndicator: true, success: { (json) in
+        NetWorkTool.requestData(requestType: .post, URLString: url, parameters: paramters, showIndicator: true, success: { (json) in
             
             let responseData = Mapper<ResponseData>().map(JSONObject: json)
             
@@ -241,7 +241,7 @@ class ForgetPwdViewController: UIViewController {
         
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "modifying_password"), maskType: .black)
         
-        NetWorkTool.requestData(.post, URLString: url, parameters: nil, showIndicator: true, success: { (json) in
+        NetWorkTool.requestData(requestType: .post, URLString: url, parameters: nil, showIndicator: true, success: { (json) in
             
             let responseData = Mapper<ResponseData>().map(JSONObject: json)
             
@@ -278,7 +278,7 @@ class ForgetPwdViewController: UIViewController {
         
         let paramters = ["phone" : phoneNo]
         
-        NetWorkTool.requestData(.get, URLString: ConstAPI.kAPIGetAuthorizeCode, parameters: paramters, showIndicator: true, success: { (json) in
+        NetWorkTool.requestData(requestType: .get, URLString: ConstAPI.kAPIGetAuthorizeCode, parameters: paramters, showIndicator: true, success: { (json) in
             
             let result = Mapper<ResponseData>().map(JSONObject: json)
             

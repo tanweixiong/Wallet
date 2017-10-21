@@ -53,7 +53,7 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
         if Tools.validateMobile(mobile: accountTextField.text!)  {
            let parameter = ["phone":accountTextField.text!]
            let url = ConstAPI.kAPIGetAuthorizeCode
-           NetWorkTool.requestData(.post, URLString:url , parameters: parameter, showIndicator: false, success: { (success) in
+           NetWorkTool.requestData(requestType: .post, URLString:url , parameters: parameter, showIndicator: false, success: { (success) in
               self.getCodeButton.isEnabled = false;
               self.setTimeCountDown()
            }, failture: { (error) in
@@ -68,7 +68,27 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
         if checkInput() {
         let paramters = ["phone":accountTextField.text!,"password":passwordTextField.text!,"code":codeTextField.text!,"username":walletNameTextField.text!]
             
-         NetWorkTool.requestData(.post, URLString: ConstAPI.kAPIRegister, parameters: paramters, showIndicator: true, success: { (json) in
+         NetWorkTool.requestData(requestType: .post, URLString: ConstAPI.kAPIRegister, parameters: paramters, showIndicator: true, success: { (json) in
+                let responseData = Mapper<ResponseData>().map(JSONObject: json)
+                if let code = responseData?.code {
+                    if code == 100 {
+                        WLSuccess(responseData?.msg)
+                        self.navigationController?.popViewController(animated: true)
+                    } else {
+                        WLInfo(responseData?.msg)
+                    }
+                }
+            }, failture: { (error) in
+                
+            })
+        }
+    }
+    
+    func registerMall(){
+        if checkInput() {
+            let paramters = ["phone":accountTextField.text!,"password":passwordTextField.text!,"code":codeTextField.text!,"username":walletNameTextField.text!]
+            
+            NetWorkTool.requestData(requestType: .post, URLString: ConstAPI.kAPIEmailAdd, parameters: paramters, showIndicator: true, success: { (json) in
                 let responseData = Mapper<ResponseData>().map(JSONObject: json)
                 if let code = responseData?.code {
                     if code == 100 {

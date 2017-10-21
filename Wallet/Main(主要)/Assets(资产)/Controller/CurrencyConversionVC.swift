@@ -32,7 +32,7 @@ class CurrencyConversionVC: WLMainViewController,UITableViewDelegate,UITableView
     func getData(){
         let user_id = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":user_id]
-        NetWorkTool.request(.get, URLString: ConstAPI.kAPICoinlist, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPICoinlist, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<AssetsDetailsModel>().map(JSONObject: json)
             if responseData?.code == 100 {
                 self.dataScore.addObjects(from: (responseData?.data)!)

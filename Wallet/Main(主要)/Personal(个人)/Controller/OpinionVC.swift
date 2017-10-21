@@ -52,8 +52,8 @@ class OpinionVC: WLMainViewController,YYTextViewDelegate {
             let user_id = UserDefaults.standard.getUserInfo().userId
             let contact = phoneAndMailTF.text!
             let feed:String = (textView?.text!)!
-            let parameters:[String:Any] = ["feed_type":self.feed_type,"feed":feed,"contact":contact,"user_id":user_id]
-            NetWorkTool.request(.post, URLString: ConstAPI.kAPIFeedsAdd, parameters: parameters, showIndicator: true, success: { (json) in
+            let parameters:[String:Any] = ["feed_type":self.feed_type,"feed":"你好","contact":"将卡上的","user_id":user_id]
+            NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIFeedsAdd, parameters: parameters, showIndicator: true, success: { (json) in
                 let responseData = Mapper<ResponseData>().map(JSONObject: json)
                 if responseData?.code == 100 {
                     let time: TimeInterval = 0.5

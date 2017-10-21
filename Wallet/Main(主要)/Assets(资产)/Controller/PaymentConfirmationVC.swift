@@ -78,7 +78,7 @@ class PaymentConfirmationVC: UIViewController,ZCTradeViewDelegate {
             let payPassword = pwd
             let parameters = ["serialNumber":serialNumber,"payPassword":payPassword,"userId":userId]
             SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
-            NetWorkTool.request(.post, URLString:ConstAPI.kAPITrans, parameters: parameters, showIndicator: true, success: { (json) in
+            NetWorkTool.request(requestType: .post, URLString:ConstAPI.kAPITrans, parameters: parameters, showIndicator: true, success: { (json) in
                 SVProgressHUD.dismiss()
                 let responseData = Mapper<PaymentConfirmationModel>().map(JSONObject: json)
                 

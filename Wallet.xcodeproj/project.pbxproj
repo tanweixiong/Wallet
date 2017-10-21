@@ -26,6 +26,7 @@
 		230ACA901F551727005D590F /* NetWorkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230ACA8F1F551727005D590F /* NetWorkTool.swift */; };
 		230ACA931F551B15005D590F /* WLProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230ACA921F551B15005D590F /* WLProgressHUD.swift */; };
 		230ACA951F5554F3005D590F /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230ACA941F5554F3005D590F /* ForgetPasswordVC.swift */; };
+		230B05A41F9463C000BDCDE7 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B05A31F9463C000BDCDE7 /* BaseURL.swift */; };
 		230B19081F58F71C008D6159 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B19071F58F71C008D6159 /* ContactsVC.swift */; };
 		230B190B1F58F740008D6159 /* ContactsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B19091F58F740008D6159 /* ContactsViewCell.swift */; };
 		230B190C1F58F740008D6159 /* ContactsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 230B190A1F58F740008D6159 /* ContactsViewCell.xib */; };
@@ -234,6 +235,7 @@
 		230ACA8F1F551727005D590F /* NetWorkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkTool.swift; sourceTree = "<group>"; };
 		230ACA921F551B15005D590F /* WLProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLProgressHUD.swift; sourceTree = "<group>"; };
 		230ACA941F5554F3005D590F /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
+		230B05A31F9463C000BDCDE7 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		230B19071F58F71C008D6159 /* ContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		230B19091F58F740008D6159 /* ContactsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewCell.swift; sourceTree = "<group>"; };
 		230B190A1F58F740008D6159 /* ContactsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewCell.xib; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			children = (
 				2309379C1F5D21DA00F354ED /* ConstAPIURL.swift */,
 				230ACA8F1F551727005D590F /* NetWorkTool.swift */,
+				230B05A31F9463C000BDCDE7 /* BaseURL.swift */,
 			);
 			path = "NetWork(网络)";
 			sourceTree = "<group>";
@@ -1491,6 +1494,7 @@
 				236996171F6A23300034C120 /* UXPasscodeViewController.swift in Sources */,
 				2317C8EB1F8B1FA200EC96AE /* SalesCoinVC.swift in Sources */,
 				230937A31F5D299400F354ED /* ResponseData.swift in Sources */,
+				230B05A41F9463C000BDCDE7 /* BaseURL.swift in Sources */,
 				230B19081F58F71C008D6159 /* ContactsVC.swift in Sources */,
 				231AFDCD1F8DB95A0032EE7E /* LoginConfiguration.swift in Sources */,
 				238DB4401F4D4F3200ECA2C4 /* PersonalVC.swift in Sources */,

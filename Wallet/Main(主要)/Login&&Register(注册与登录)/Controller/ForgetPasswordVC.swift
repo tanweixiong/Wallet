@@ -45,7 +45,7 @@ class ForgetPasswordVC: WLMainViewController {
         if Tools.validateMobile(mobile: accountTextField.text!)  {
             let parameter = ["phone":accountTextField.text!]
             let url = ConstAPI.kAPIGetAuthorizeCode
-            NetWorkTool.requestData(.post, URLString:url , parameters: parameter, showIndicator: false, success: { (success) in
+            NetWorkTool.requestData(requestType: .post, URLString:url , parameters: parameter, showIndicator: false, success: { (success) in
                 self.getCodeButton.isEnabled = false;
                 self.setTimeCountDown()
             }, failture: { (error) in
@@ -59,7 +59,7 @@ class ForgetPasswordVC: WLMainViewController {
     func forgetPasswordOnClick() {
         if checkInput() {
            let paramters = ["phone" : accountTextField.text! ,"newPassword1" : passwordTextField.text!, "code" : codeTextField.text!, "newPassword2" : passwordTextField.text!]
-           NetWorkTool.requestData(.post, URLString: ConstAPI.kAPIRetrieveLoginPwd, parameters: paramters, showIndicator: true, success: { (json) in
+           NetWorkTool.requestData(requestType: .post, URLString: ConstAPI.kAPIRetrieveLoginPwd, parameters: paramters, showIndicator: true, success: { (json) in
             
             let responseData = Mapper<ResponseData>().map(JSONObject: json)
             

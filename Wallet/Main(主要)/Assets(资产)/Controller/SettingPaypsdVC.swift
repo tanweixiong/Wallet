@@ -48,7 +48,7 @@ class SettingPaypsdVC: WLMainViewController {
         let password = password
         let parameters = ["userId":userId,"password":password]
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
-        NetWorkTool.request(.post, URLString: ConstAPI.kAPIAddPaymentPwd, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIAddPaymentPwd, parameters: parameters, showIndicator: true, success: { (json) in
             let data = json as! [String : Any]
             let code:Int = data["code"] as! Int
             let msg:String = data["msg"] as! String

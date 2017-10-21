@@ -155,7 +155,7 @@ class Tools: NSObject {
             params = ["phone" : phoneNo,"password" : pwd]
         }
         
-        NetWorkTool.requestData(.post, URLString: ConstAPI.kAPILogin, parameters: params!, showIndicator: haveParams, success: { (json) in
+        NetWorkTool.requestData(requestType: .post, URLString: ConstAPI.kAPILogin, parameters: params!, showIndicator: haveParams, success: { (json) in
             let userResponseData = Mapper<UserResponseData>().map(JSONObject: json)
             if let code = userResponseData?.code {
                 if code == 100 {

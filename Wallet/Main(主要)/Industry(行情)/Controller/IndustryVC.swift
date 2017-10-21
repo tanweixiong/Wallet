@@ -50,7 +50,7 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
     func getData(){
         let user_id = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":user_id]
-        NetWorkTool.request(.get, URLString: ConstAPI.kAPIMyMarket, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIMyMarket, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<IndustryListModel>().map(JSONObject: json)
             if responseData?.code == 100 {
                 let object:NSDictionary = json as! NSDictionary

@@ -35,7 +35,7 @@ class AssetsDetailsVC: WLMainViewController,UITableViewDelegate,UITableViewDataS
     func getData(){
         let user_id = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":user_id]
-        NetWorkTool.request(.get, URLString: ConstAPI.kAPIWalletList, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIWalletList, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<AssetsDetailsModel>().map(JSONObject: json)
             if responseData?.code == 100 {
                 self.dataScore.addObjects(from: (responseData?.data)!)
@@ -53,7 +53,7 @@ class AssetsDetailsVC: WLMainViewController,UITableViewDelegate,UITableViewDataS
     func chooseCoin(_ state:String,_ coin_no:String) {
         let user_id = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":user_id,"coin_no":coin_no,"state":state]
-        NetWorkTool.request(.post, URLString: ConstAPI.kAPIMyWalletState, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIMyWalletState, parameters: parameters, showIndicator: true, success: { (json) in
             let data:[String:AnyObject] = json as! [String : AnyObject]
             let code = data["code"]?.int64Value
             if code == 100 {

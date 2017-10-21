@@ -73,7 +73,7 @@ class CurrencyConversionNumberVC: WLMainViewController,ZCTradeViewDelegate {
         let change_coin = change_assetsListModel?.coin_no?.stringValue
         let num = amountTF.text!
         let parameters:[String:String] = ["user_id":userId,"paymentPassword":paymentPassword,"coin_no":coin_no!,"change_coin":change_coin!,"num":num]
-        NetWorkTool.request(.post, URLString: ConstAPI.kAPIChangeNum, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIChangeNum, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<ResponseData>().map(JSONObject: json)
             if responseData?.code == 100 {
                 SVProgressHUD.showSuccess(withStatus: LanguageHelper.getString(key: "change_success"))

@@ -40,7 +40,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     func getListData() {
         let userId = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":userId]
-        NetWorkTool.request(.get, URLString: ConstAPI.kAPIMyWallet, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIMyWallet, parameters: parameters, showIndicator: true, success: { (json) in
            let responseData = Mapper<AssetsModel>().map(JSONObject: json)
            if let code = responseData?.code {
                if code == 100 {
@@ -61,7 +61,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     func getHeadData() {
         let user_ids = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_ids":user_ids]
-        NetWorkTool.request(.get, URLString: ConstAPI.kAPIMyAnyWallet, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIMyAnyWallet, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<AssetsModel>().map(JSONObject: json)
             if responseData?.code == 100 {
                 let array:Array = (responseData?.data)!
@@ -106,7 +106,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     func getMarkertData(){
         let user_id = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":user_id]
-        NetWorkTool.request(.get, URLString: ConstAPI.kAPIMyMarket, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIMyMarket, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<IndustryListModel>().map(JSONObject: json)
             if responseData?.code == 100 {
                 let object:NSDictionary = json as! NSDictionary

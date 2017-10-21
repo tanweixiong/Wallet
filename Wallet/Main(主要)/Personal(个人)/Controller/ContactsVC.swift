@@ -35,7 +35,7 @@ class ContactsVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
     func getData(){
         let userId = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":userId]
-        NetWorkTool.request(.get, URLString: ConstAPI.kAPIMycontacts, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIMycontacts, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<ManageWalletsModel>().map(JSONObject: json)
             if let code = responseData?.code {
                 if code == 100 {

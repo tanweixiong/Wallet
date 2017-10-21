@@ -107,7 +107,7 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
         let remark:String = (self.remarkTF?.text!)!
         let parameters = ["userId":userId,"phone_shou":phone_shou,"money":money,"remark":remark,"flag":"2"]
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
-        NetWorkTool.requestData(.post, URLString: ConstAPI.kAPITransOrder, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.requestData(requestType: .post, URLString: ConstAPI.kAPITransOrder, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<PayMoneyModel>().map(JSONObject: json)
             if let code = responseData?.code {
                 SVProgressHUD.dismiss()

@@ -35,7 +35,7 @@ class addMarketVC: WLMainViewController,UITableViewDelegate,UITableViewDataSourc
     func getData(){
         let user_id = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":user_id]
-        NetWorkTool.request(.get, URLString: ConstAPI.kAPIMarketList, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIMarketList, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<addMarketModel>().map(JSONObject: json)
             if responseData?.code == 100 {
                 self.dataScore.addObjects(from: (responseData?.data)!)
@@ -51,7 +51,7 @@ class addMarketVC: WLMainViewController,UITableViewDelegate,UITableViewDataSourc
     func chooseCoin(_ state:String,_ coin_no:String,_ index:Int) {
         let user_id = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":user_id,"coin_no":coin_no,"market_state":state]
-        NetWorkTool.request(.post, URLString: ConstAPI.KAPIMyMarketState, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .post, URLString: ConstAPI.KAPIMyMarketState, parameters: parameters, showIndicator: true, success: { (json) in
             let data:[String:AnyObject] = json as! [String : AnyObject]
             let code = data["code"]?.int64Value
             if code == 100 {
@@ -89,7 +89,7 @@ class addMarketVC: WLMainViewController,UITableViewDelegate,UITableViewDataSourc
     func uploadMarket(_ coin_no:String,_ index:Int){
         let user_id = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":user_id]
-        NetWorkTool.request(.get, URLString: ConstAPI.kAPIMyMarket, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIMyMarket, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<IndustryListModel>().map(JSONObject: json)
             if responseData?.code == 100 {
                 let object:NSDictionary = json as! NSDictionary

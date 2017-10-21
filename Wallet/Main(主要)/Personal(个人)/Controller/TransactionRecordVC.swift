@@ -32,7 +32,7 @@ class TransactionRecordVC: WLMainViewController,UITableViewDelegate,UITableViewD
     func getData(){
         let user_id = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":user_id,"page":"\(page)"]
-        NetWorkTool.request(.get, URLString: ConstAPI.kAPIChangerecordList, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIChangerecordList, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<TransactionRecordModel>().map(JSONObject: json)
             if let code = responseData?.code {
                 if code == "100" {
