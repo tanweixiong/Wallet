@@ -8,13 +8,15 @@
 
 import UIKit
 import ObjectMapper
+import MJRefresh
 
 class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource {
     var delegate:ContactsDelegate?
     fileprivate let friendBusinessCellIdentifier = "FriendBusinessCellIdentifier"
     fileprivate let cellHeight:CGFloat = 75
     fileprivate let footHeight:CGFloat = 20
-    fileprivate let dataSorce = NSMutableArray()
+    fileprivate var dataSorce = NSMutableArray()
+    fileprivate var page:Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,22 +28,25 @@ class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableView
     }
     
     func getData(){
-        let userId = UserDefaults.standard.getUserInfo().userId
-        let parameters = ["user_id":userId]
+        let user_id = UserDefaults.standard.getUserInfo().userId
+        let parameters = ["user_id":user_id,"page":"\(page)"]
         NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIFriendTheCardList, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<MineBusinessCardModel>().map(JSONObject: json)
-            if let code = responseData?.code {
-                if code == 100 {
-                    self.dataSorce.removeAllObjects()
-                    self.dataSorce.addObjects(from: (responseData?.data)!)
-                    self.tableView.reloadData()
-                    print(self.dataSorce)
-                }
+            let data:NSDictionary = json as! NSDictionary
+            let code:String = data["code"] as! String
+            if code == "100" {
+                self.page = self.page + 1
+                let array = NSMutableArray()
+                array.addObjects(from: (responseData?.data)!)
+                array.addObjects(from: self.dataSorce as! [Any])
+                self.dataSorce = array
+                self.tableView.reloadData()
             }else{
                 WLInfo(responseData!.msg)
             }
+            self.tableView.mj_header.endRefreshing()
         }) { (error) in
-            
+            self.tableView.mj_header.endRefreshing()
         }
     }
     
@@ -111,6 +116,9 @@ class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableView
         tableView.backgroundColor = UIColor.R_UIRGBColor(red: 243, green: 247, blue: 248, alpha: 1)
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame:CGRect(x: 0, y: 0, width: 0, height: 0))
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            self.getData()
+        })
         return tableView
     }()
     
