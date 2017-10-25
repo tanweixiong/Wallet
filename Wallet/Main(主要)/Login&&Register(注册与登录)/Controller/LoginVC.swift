@@ -50,11 +50,14 @@ class LoginVC: WLMainViewController {
         }else{
             self.navigationController?.navigationBar.isHidden = false
             if sender.tag == 1 {
-                let vc = CreateWalletVC()
-//                self.pushNextViewController(vc, true)
-                self.present(vc, animated: true, completion: {
-                    
-                })
+                let language = UserDefaults.standard.object(forKey: R_Languages) as! String
+                if language == "en" {
+                    let vc = CreateMallWalletVC()
+                    self.present(vc, animated: true, completion: {})
+                }else{
+                    let vc = CreateWalletVC()
+                    self.present(vc, animated: true, completion: {})
+                }
             }else{
                 let vc = ForgetPwdViewController()
                 vc.viewType = .getBackLoginPwd

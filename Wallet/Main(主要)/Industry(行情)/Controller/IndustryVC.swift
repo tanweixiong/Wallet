@@ -19,7 +19,7 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
     fileprivate let footHeight :CGFloat = 10
     fileprivate let headViewHeight :CGFloat = 42
     fileprivate let headFont :UIFont = UIFont.systemFont(ofSize: 14)
-    fileprivate var dataScore = NSMutableArray()
+    fileprivate var dataScore = NSArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
             let data = ["data":json]
             let responseData = Mapper<IndustryListModel>().map(JSONObject: data)
             if responseData?.data?.count != 0 {
-                self.dataScore = responseData!.data as! NSMutableArray
+                self.dataScore = (responseData?.data)! as NSArray
                 self.tableView.reloadData()
             }
         }

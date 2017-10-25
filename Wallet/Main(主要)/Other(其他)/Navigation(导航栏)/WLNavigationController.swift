@@ -33,6 +33,16 @@ class WLNavigationController: UINavigationController,UIGestureRecognizerDelegate
         UITextField.appearance().keyboardAppearance = .light
         YYTextView.appearance().keyboardAppearance = .light
     }
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        if self.viewControllers.count > 0 {
+            viewController.hidesBottomBarWhenPushed = true
+//            viewController.navigationItem.leftBarButtonItem = setBackBarButtonItem()
+        }else{
+            viewController.hidesBottomBarWhenPushed = false
+        }
+        super.pushViewController(viewController, animated: true)
+    }
 }
 
 

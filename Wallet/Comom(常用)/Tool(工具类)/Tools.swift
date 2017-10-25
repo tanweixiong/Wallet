@@ -15,7 +15,7 @@ class Tools: NSObject {
 
     //判断是否为邮箱
     class func validateEmail(email: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._% -] @[A-Za-z0-9.-] \\.[A-Za-z]{2,4}"
+        let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailTest.evaluate(with: email)
     }
@@ -43,9 +43,11 @@ class Tools: NSObject {
     
     //判断是否为密码
     class func validatePassword(password: String) -> Bool {
-        let passwordRegex = "^[a-zA-Z0-9]{6,20}+$"
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-        return passwordTest.evaluate(with: password)
+        if password.characters.count > 5 {
+            return true
+        }else{
+            return false
+        }
     }
     
     //判断是否为6位数字
@@ -143,6 +145,48 @@ class Tools: NSObject {
         return nil
     }
     
+    //创建二维码图片
+    class func createQRForStringCodeUrl(qrString: String?, imageView: UIImageView?) -> UIImage?{
+        if let sureQRString = qrString{
+            let stringData = sureQRString.data(using: String.Encoding.utf8, allowLossyConversion: false)
+            //创建一个二维码的滤镜
+            let qrFilter = CIFilter(name: "CIQRCodeGenerator")
+            qrFilter?.setValue(stringData, forKey: "inputMessage")
+            qrFilter?.setValue("H", forKey: "inputCorrectionLevel")
+            let qrCIImage = qrFilter?.outputImage
+            // 创建一个颜色滤镜,黑白色
+            let colorFilter = CIFilter(name: "CIFalseColor")!
+            colorFilter.setDefaults()
+            colorFilter.setValue(qrCIImage, forKey: "inputImage")
+            colorFilter.setValue(CIColor(red: 0, green: 0, blue: 0), forKey: "inputColor0")
+            colorFilter.setValue(CIColor(red: 1, green: 1, blue: 1), forKey: "inputColor1")
+            // 返回二维码image
+            let codeImage = UIImage(ciImage: (colorFilter.outputImage!.applying(CGAffineTransform(scaleX: 5, y: 5))))
+            
+            // 中间一般放logo
+            if let logoImage = imageView {
+                if let iconImage = logoImage.image {
+                    let rect = CGRect(x: 0, y: 0, width: codeImage.size.width, height: codeImage.size.height)
+                    
+                    UIGraphicsBeginImageContext(rect.size)
+                    codeImage.draw(in: rect)
+                    let avatarSize = CGSize(width: rect.size.width*0.25, height: rect.size.height*0.25)
+                    
+                    let x = (rect.width - avatarSize.width) * 0.5
+                    let y = (rect.height - avatarSize.height) * 0.5
+                    iconImage.draw(in: CGRect(x: x, y: y, width: avatarSize.width, height: avatarSize.height))
+                    
+                    let resultImage = UIGraphicsGetImageFromCurrentImageContext()
+                    
+                    UIGraphicsEndImageContext()
+                    return resultImage
+                }
+            }
+            return codeImage
+        }
+        return nil
+    }
+    
     //调用登录功能
     class func loginToRefeshToken(parameters: [String : Any]?, haveParams: Bool, refreshSuccess: @escaping (_ code: Int?, _ msg: String?) -> () , refreshFailture: @escaping(_ error: Error) -> ()) {
         
@@ -194,6 +238,21 @@ class Tools: NSObject {
              return NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as AnyObject
         }else{
              return NSNull()
+        }
+    }
+    
+    class func uploadImage(_ imageUrl:String){
+        DispatchQueue.global().async {
+            if let url = URL.init(string: imageUrl) {
+                do {
+                    let imageData = try Data(contentsOf: url)
+                    let image = UIImage(data: imageData)
+                    let data:NSData = NSKeyedArchiver.archivedData(withRootObject: image as Any) as NSData
+                    UserDefaults.standard.set(data, forKey: R_UIThemeAvatarKey)
+                } catch {
+                    
+                }
+            }
         }
     }
     

@@ -148,12 +148,14 @@ class NetWorkTool: NSObject {
     }
     
     //关于文件上传的方法(支持多或者单上传)
-    class func uploadPictures(url: String, parameter :[String:String], image: UIImage, imageKey: String,success : @escaping (_ response : [String : AnyObject])->(), fail : @escaping (_ error : Error)->()){
+    class func uploadPictures(url: String, parameter :[String:Any]?, image: UIImage, imageKey: String,success : @escaping (_ response : [String : AnyObject])->(), fail : @escaping (_ error : Error)->()){
         let requestHead = ["content-type":"multipart/form-data"]
         Alamofire.upload(
             multipartFormData: { multipartFormData in
-                for (key,value) in parameter{
-                    multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName:key)
+                if parameter != nil {
+                    for (key,value) in parameter!{
+                        multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName:key)
+                    }
                 }
                 let imageName = Tools.getCurrentTime() + ".jpg"
                 multipartFormData.append(UIImageJPEGRepresentation(image, 1.0)!, withName: imageKey, fileName: imageName, mimeType: "image/jpeg")

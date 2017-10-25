@@ -66,15 +66,9 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
             if strArray.count != 2 {
                 SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
             }else{
-                //获取userId
-                let userIdString = strArray.first
-                receivablesIdString = (userIdString?.replacingOccurrences(of: R_Theme_QRCode + ":", with: ""))!
-                receiveAddressTF.text = receivablesIdString
-                
-                //获取amount金钱
-                let amountString = strArray.last
-                totalMoneyString = (amountString?.replacingOccurrences(of: "amount=", with: ""))!
-                amountTF.text = totalMoneyString
+                CodeConfiguration.codeProcessing(self, ConstTools.getCodeMessage(resultStr, codeKey: R_Theme_QRCode)! as NSArray, success: { (address,type) in
+                    self.receiveAddressTF.text = address
+                })
             }
         }
     }

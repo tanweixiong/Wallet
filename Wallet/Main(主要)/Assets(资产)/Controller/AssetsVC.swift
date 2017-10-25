@@ -91,6 +91,8 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
                 let userInfo = UserDefaults.standard.getUserInfo()
                 userInfo.photo = url
                 UserDefaults.standard.saveCustomObject(customObject:userInfo, key: R_UserInfo)
+                //重新保存本地头像
+                Tools.uploadImage(url)
                 //改变视图
                 addView.setAvatar(index,url)
                 SVProgressHUD.dismiss()
@@ -156,13 +158,16 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     func scanFinished(scanResult: LBXScanResult, error: String?) {
         let resultStr = scanResult.strScanned!
         if resultStr.contains(R_Theme_QRCode) {
-            let strArray = resultStr.components(separatedBy: ":")
-            if strArray.count != 2 {
-                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
-                return
-            } else {
-                //扫描正确后操作
-            }
+            //扫描正确后操作
+            CodeConfiguration.codeProcessing(self, ConstTools.getCodeMessage(resultStr, codeKey: R_Theme_QRCode)! as NSArray, success: { (address,type) in
+                if type == "1" {
+                    self.navigationController?.popToRootViewController(animated: false)
+                    
+                    let addAContactVC = AddAContactVC()
+                    addAContactVC.contactsId = address
+                    self.navigationController?.pushViewController(addAContactVC, animated: true)
+                }
+            })
         } else {
             SVProgressHUD.showError(withStatus: LanguageHelper.getString(key: "qrCode_error"))
             return
@@ -201,6 +206,10 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         cell.allMoneyLabel.text = model.remainderMoney?.stringValue
         cell.icon_nameLabel.text = model.coin_name
         cell.iconImageView.sd_setImage(with: NSURL(string: model.coinIcon!)! as URL, placeholderImage: UIImage.init(named: "jiazaimoren"))
+        
+        cell.iconImageView.clipsToBounds = true
+        cell.iconImageView.layer.cornerRadius = cell.iconImageView.frame.size.width/2
+        
         cell.transformationButton.tag = indexPath.row
         cell.transformationButton.setTitle(LanguageHelper.getString(key: "convert"), for: .normal)
         cell.transformationBlock = { (sender:UIButton) in

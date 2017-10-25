@@ -25,38 +25,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Wallet/Vender(&#x7b2c;&#x4e09;&#x65b9;)/PopView/PopupView.m"
-            timestampString = "529918400.415413"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "+addCellWithIcon:text:action:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Wallet/Vender(&#x7b2c;&#x4e09;&#x65b9;)/PopView/PopupView.m"
-            timestampString = "529918400.415413"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "+addCellWithIcon:text:action:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Wallet/Vender(&#x7b2c;&#x4e09;&#x65b9;)/ObjectTools/SameTools.m"
             timestampString = "529920098.743844"
             startingColumnNumber = "9223372036854775807"
@@ -74,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Personal(&#x4e2a;&#x4eba;)/Controller/AddAContactVC.swift"
-            timestampString = "529922738.294617"
+            timestampString = "530519052.00933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "AddAContactVC"
             landmarkType = "3">
          </BreakpointContent>
@@ -90,45 +58,173 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Personal(&#x4e2a;&#x4eba;)/Controller/AddAContactVC.swift"
-            timestampString = "529922739.190584"
+            timestampString = "530519052.00933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "didReceiveMemoryWarning()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Comom(&#x5e38;&#x7528;)/NetWork(&#x7f51;&#x7edc;)/BaseURL.swift"
+            timestampString = "530609236.104078"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_434261DDC6632DE58E7BAF81EBFE51EB_func0"
+                  moduleName = "Wallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Comom(%E5%B8%B8%E7%94%A8)/NetWork(%E7%BD%91%E7%BB%9C)/BaseURL.swift"
+                  timestampString = "530621314.95123"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wallet.cityName.unsafeMutableAddressor : Swift.String"
+                  moduleName = "Wallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Comom(%E5%B8%B8%E7%94%A8)/NetWork(%E7%BD%91%E7%BB%9C)/BaseURL.swift"
+                  timestampString = "530621314.954246"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Personal(&#x4e2a;&#x4eba;)/Controller/ContactsVC.swift"
+            timestampString = "530522696.571919"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Personal(&#x4e2a;&#x4eba;)/Controller/AddBusiessCardVC.swift"
+            timestampString = "530621314.574526"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "rightTextBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Personal(&#x4e2a;&#x4eba;)/Controller/AddBusiessCardVC.swift"
+            timestampString = "530621314.57462"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "updateMyCard()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Personal(&#x4e2a;&#x4eba;)/Controller/AddBusiessCardVC.swift"
+            timestampString = "530621314.57469"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "updateMyCard()"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Wallet.AddAContactVC.rightTextBtn (__ObjC.UIBarButtonItem) -&gt; ()"
+                  symbolName = "Wallet.AddBusiessCardVC.updateMyCard() -&gt; ()"
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Personal(%E4%B8%AA%E4%BA%BA)/Controller/AddAContactVC.swift"
-                  timestampString = "529922739.403351"
+                  urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Personal(%E4%B8%AA%E4%BA%BA)/Controller/AddBusiessCardVC.swift"
+                  timestampString = "530621314.978232"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "4508">
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "10336">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Wallet.AddAContactVC.(rightTextBtn (__ObjC.UIBarButtonItem) -&gt; ()).(closure #1)"
+                  symbolName = "closure #2 (Swift.Error) -&gt; () in Wallet.AddBusiessCardVC.updateMyCard() -&gt; ()"
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Personal(%E4%B8%AA%E4%BA%BA)/Controller/AddAContactVC.swift"
-                  timestampString = "529922739.406613"
+                  urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Personal(%E4%B8%AA%E4%BA%BA)/Controller/AddBusiessCardVC.swift"
+                  timestampString = "530621314.981123"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "904">
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Personal(&#x4e2a;&#x4eba;)/Controller/MineBusinessCardVC.swift"
+            timestampString = "530621314.574755"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "createUI(data:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

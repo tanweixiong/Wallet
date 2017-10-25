@@ -105,7 +105,7 @@ class ContactsVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView.init(frame: CGRect(x: 0, y: 0 , width: SCREEN_WIDTH, height: SCREEN_HEIGHT))
+        let tableView = UITableView.init(frame: CGRect(x: 0, y: 0 , width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64))
         tableView.showsVerticalScrollIndicator = false
         tableView.dataSource = self
         tableView.delegate = self

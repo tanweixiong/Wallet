@@ -13,7 +13,7 @@ struct ConstAPI {
 //    static let kAPIBaseURL: String = "http://47.52.59.119:9099/dhswallet/"
     
     //开发
-    static let kAPIBaseURL: String = "http://192.168.10.218:80/dhs-wallet/dhswallet/"
+    static let kAPIBaseURL: String = "http://10.0.0.11:80/dhs-wallet/dhswallet/"
     
     static let kAPIRegister = kAPIBaseURL + "user/add.do"   //注册接口
     static let kAPIEmailAdd = kAPIBaseURL + "user/emailAdd.do"   //注册接口
@@ -28,6 +28,8 @@ struct ConstAPI {
     
     static let kAPIGetAuthorizeCode = kAPIBaseURL + "user/dhsCode.do" //获取验证码接口
     static let kAPIUploadPhoto = kAPIBaseURL + "user/uploadPhoto.do" //上传图片接口
+    
+    static let kAPISendCode = kAPIBaseURL + "user/sendCode.do" //获取验证码接口
 
     static let kAPIAddContact = kAPIBaseURL + "communication/add.do" //添加通讯录接口
     static let kAPIDeleteContact = kAPIBaseURL + "communication/delete.do" //删除通讯录接口
@@ -80,6 +82,30 @@ struct ConstAPI {
     
     //帮助反馈
     static let kAPIFeedsAdd = kAPIBaseURL + "feeds/add.do"
+    
+    //名片首页
+    static let kAPIBusinessCard = kAPIBaseURL + "business/card.do"
+    //名片列表
+    static let kAPIBusinessMyCard = kAPIBaseURL + "business/myCard.do"
+    //增加名片
+    static let kAPIBusinessAdd = kAPIBaseURL + "business/add.do"
+    //上传名片头像
+    static let kAPIBusinessUploadPhoto = kAPIBaseURL + "business/uploadPhoto2.do"
+    //删除自己的名片
+    static let kAPIBusinessDeleteMyCard = kAPIBaseURL + "business/deleteMyCard.do"
+    //删除好友名片
+    static let kAPIBusinessRelevanceDelete = kAPIBaseURL + "businessRelevance/delete.do"
+    //好友名片列表
+    static let kAPIFriendTheCardList = kAPIBaseURL + "businessRelevance/theCardList.do"
+    //增加好友名片列表
+    static let kAPIFriendAddCardList = kAPIBaseURL + "businessRelevance/add.do"
+    //修改名片
+    static let kAPIUpdateMyCard = kAPIBaseURL + "business/updateMyCard.do"
+    //邮箱注册
+    static let kAPIUserEmailAdd = kAPIBaseURL + "user/emailAdd.do"
+    //邮箱获取验证码
+    static let kAPIUserSendCode = kAPIBaseURL + "user/sendCode.do"
+
     
 }
 

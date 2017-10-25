@@ -44,11 +44,17 @@ public let R_UserDefaults_Market_Details_Edit_Key = "UserDefaultsMarketDetailsEd
 //校验是否已被登录
 public let R_Theme_isLogin = "isLogin"
 
+//校验是否已经选择了语言
+public let R_Theme_isChooseLanguage = "isChooseLanguage"
+
 //校验输入中文和英文
 public let R_Languages = "Reality_Languages"
 
-//主题颜色
+//头像
 public let R_UIThemeColor = UIColor.R_UIColorFromRGB(color: 0x11d8c3)
+
+//头像
+public let R_UIThemeAvatarKey = "AvatarKey"
 
 //主题背景颜色
 public let R_UIThemeBackgroundColor = UIColor.R_UIColorFromRGB(color: 0xf8fcfd)

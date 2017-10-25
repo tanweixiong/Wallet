@@ -30,8 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let navi = WLTabBarController()
             self.window?.rootViewController = navi
         }else {
-            let navi = WLNavigationController(rootViewController: LoginVC())
-            self.window?.rootViewController = navi
+            if  UserDefaults.standard.bool(forKey:R_Theme_isChooseLanguage) {
+                let navi = WLNavigationController(rootViewController: LoginVC())
+                self.window?.rootViewController = navi
+            }else{
+                let navi = WLNavigationController(rootViewController: LanguageSelection())
+                self.window?.rootViewController = navi
+            }
+        
         }
     }
     

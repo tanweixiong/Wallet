@@ -72,6 +72,8 @@
 		230EF9AE1F6FBE25006E82E6 /* DHSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230EF9AD1F6FBE25006E82E6 /* DHSTextField.swift */; };
 		230EF9B01F6FBE5F006E82E6 /* AutorizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230EF9AF1F6FBE5F006E82E6 /* AutorizeButton.swift */; };
 		23107B841F7E1A1700F424BD /* TransactionCoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23107B831F7E1A1700F424BD /* TransactionCoinModel.swift */; };
+		2310BADF1F9EE368006A1551 /* ConstTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2310BADE1F9EE368006A1551 /* ConstTools.m */; };
+		2310BAE21F9F0387006A1551 /* WalletOCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2310BAE11F9F0387006A1551 /* WalletOCTools.m */; };
 		2310C04E1F72170E00C00EAB /* SelectPhotosHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310C04D1F72170E00C00EAB /* SelectPhotosHelper.swift */; };
 		2310C0521F72195300C00EAB /* LJXPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2310C0511F72195300C00EAB /* LJXPhotoAlbum.m */; };
 		2310C0541F7244BA00C00EAB /* MarketModificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310C0531F7244BA00C00EAB /* MarketModificationView.swift */; };
@@ -107,6 +109,21 @@
 		234116C51F70B8270076D922 /* ManageWalletsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234116C41F70B8270076D922 /* ManageWalletsModel.swift */; };
 		234116C81F70C0050076D922 /* AboutWeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234116C61F70C0050076D922 /* AboutWeVC.swift */; };
 		234116C91F70C0050076D922 /* AboutWeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234116C71F70C0050076D922 /* AboutWeVC.xib */; };
+		235459781F9D9567003160AB /* CreateMallWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235459771F9D9567003160AB /* CreateMallWalletVC.swift */; };
+		235459821F9DB46B003160AB /* BusinessCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235459811F9DB46B003160AB /* BusinessCardVC.swift */; };
+		235459891F9DB81B003160AB /* BusinessCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235459871F9DB81B003160AB /* BusinessCardView.swift */; };
+		2354598A1F9DB81B003160AB /* BusinessCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 235459881F9DB81B003160AB /* BusinessCardView.xib */; };
+		2354598C1F9DB87B003160AB /* MineBusinessCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2354598B1F9DB87B003160AB /* MineBusinessCardVC.swift */; };
+		23683D471F9DC28500D63638 /* LanguageSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23683D461F9DC28500D63638 /* LanguageSelection.swift */; };
+		23683D491F9DCB7200D63638 /* MineBusinessCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23683D481F9DCB7200D63638 /* MineBusinessCardModel.swift */; };
+		23683D4D1F9DD8C700D63638 /* MineBusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23683D4C1F9DD8C700D63638 /* MineBusinessView.swift */; };
+		23683D4F1F9DD8D300D63638 /* MineBusinessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23683D4E1F9DD8D300D63638 /* MineBusinessView.xib */; };
+		23683D511F9DDEC000D63638 /* CodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23683D501F9DDEC000D63638 /* CodeConfiguration.swift */; };
+		23683D531F9DE42500D63638 /* AddBusiessCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23683D521F9DE42500D63638 /* AddBusiessCardVC.swift */; };
+		23683D561F9DE49E00D63638 /* AddMineBusinessCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23683D541F9DE49E00D63638 /* AddMineBusinessCardCell.swift */; };
+		23683D571F9DE49E00D63638 /* AddMineBusinessCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23683D551F9DE49E00D63638 /* AddMineBusinessCardCell.xib */; };
+		23683D5A1F9DED2500D63638 /* BusinessCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23683D581F9DED2500D63638 /* BusinessCardCell.swift */; };
+		23683D5B1F9DED2500D63638 /* BusinessCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23683D591F9DED2500D63638 /* BusinessCardCell.xib */; };
 		236996091F6915120034C120 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 236995FA1F6915120034C120 /* NSString+Extension.m */; };
 		2369960A1F6915120034C120 /* trade.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 236995FC1F6915120034C120 /* trade.bundle */; };
 		2369960B1F6915120034C120 /* UIAlertView+Quick.m in Sources */ = {isa = PBXBuildFile; fileRef = 236995FE1F6915120034C120 /* UIAlertView+Quick.m */; };
@@ -131,6 +148,8 @@
 		2369962D1F6A75020034C120 /* PayMoneyDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2369962C1F6A75020034C120 /* PayMoneyDetailsModel.swift */; };
 		236996301F6A7BCC0034C120 /* ReceivablesCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2369962E1F6A7BCC0034C120 /* ReceivablesCodeVC.swift */; };
 		236996311F6A7BCC0034C120 /* ReceivablesCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2369962F1F6A7BCC0034C120 /* ReceivablesCodeVC.xib */; };
+		236BF5C21F9F221B0060B622 /* FriendBusinessCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236BF5C11F9F221B0060B622 /* FriendBusinessCardVC.swift */; };
+		236BF5C41F9F32550060B622 /* FriendBusinessCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236BF5C31F9F32550060B622 /* FriendBusinessCardModel.swift */; };
 		238DB3EE1F4D4C0700ECA2C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238DB3ED1F4D4C0700ECA2C4 /* AppDelegate.swift */; };
 		238DB3F01F4D4C0700ECA2C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238DB3EF1F4D4C0700ECA2C4 /* ViewController.swift */; };
 		238DB3F31F4D4C0700ECA2C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238DB3F11F4D4C0700ECA2C4 /* Main.storyboard */; };
@@ -179,6 +198,8 @@
 		23F4F6C71F70F86F00C2FC7C /* LBXScanViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F4F6C01F70F86F00C2FC7C /* LBXScanViewStyle.swift */; };
 		23F4F6C81F70F86F00C2FC7C /* LBXScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F4F6C11F70F86F00C2FC7C /* LBXScanWrapper.swift */; };
 		23F4F6CA1F71093000C2FC7C /* TransactionRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F4F6C91F71093000C2FC7C /* TransactionRecordModel.swift */; };
+		23FAAFF91FA0629A009536D6 /* BusinessCardHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FAAFF71FA0629A009536D6 /* BusinessCardHeadCell.swift */; };
+		23FAAFFA1FA0629A009536D6 /* BusinessCardHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23FAAFF81FA0629A009536D6 /* BusinessCardHeadCell.xib */; };
 		58518635CA59F2E7AD787ADD /* Pods_WalletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB578B58E73961973DCD7D2F /* Pods_WalletTests.framework */; };
 		59419E3820DE029D4EB84EC5 /* Pods_WalletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F681705A13CA97728E97E9 /* Pods_WalletUITests.framework */; };
 		D7D5024995E60938EBC496FC /* Pods_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA17BAF4CAE39662DA7CD9AC /* Pods_Wallet.framework */; };
@@ -283,6 +304,10 @@
 		230EF9AD1F6FBE25006E82E6 /* DHSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHSTextField.swift; sourceTree = "<group>"; };
 		230EF9AF1F6FBE5F006E82E6 /* AutorizeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutorizeButton.swift; sourceTree = "<group>"; };
 		23107B831F7E1A1700F424BD /* TransactionCoinModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCoinModel.swift; sourceTree = "<group>"; };
+		2310BADD1F9EE368006A1551 /* ConstTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstTools.h; sourceTree = "<group>"; };
+		2310BADE1F9EE368006A1551 /* ConstTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstTools.m; sourceTree = "<group>"; };
+		2310BAE01F9F0387006A1551 /* WalletOCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletOCTools.h; sourceTree = "<group>"; };
+		2310BAE11F9F0387006A1551 /* WalletOCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletOCTools.m; sourceTree = "<group>"; };
 		2310C04D1F72170E00C00EAB /* SelectPhotosHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotosHelper.swift; sourceTree = "<group>"; };
 		2310C0501F72195300C00EAB /* LJXPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJXPhotoAlbum.h; sourceTree = "<group>"; };
 		2310C0511F72195300C00EAB /* LJXPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJXPhotoAlbum.m; sourceTree = "<group>"; };
@@ -320,6 +345,21 @@
 		234116C41F70B8270076D922 /* ManageWalletsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletsModel.swift; sourceTree = "<group>"; };
 		234116C61F70C0050076D922 /* AboutWeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWeVC.swift; sourceTree = "<group>"; };
 		234116C71F70C0050076D922 /* AboutWeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWeVC.xib; sourceTree = "<group>"; };
+		235459771F9D9567003160AB /* CreateMallWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMallWalletVC.swift; sourceTree = "<group>"; };
+		235459811F9DB46B003160AB /* BusinessCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardVC.swift; sourceTree = "<group>"; };
+		235459871F9DB81B003160AB /* BusinessCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardView.swift; sourceTree = "<group>"; };
+		235459881F9DB81B003160AB /* BusinessCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessCardView.xib; sourceTree = "<group>"; };
+		2354598B1F9DB87B003160AB /* MineBusinessCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineBusinessCardVC.swift; sourceTree = "<group>"; };
+		23683D461F9DC28500D63638 /* LanguageSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageSelection.swift; sourceTree = "<group>"; };
+		23683D481F9DCB7200D63638 /* MineBusinessCardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineBusinessCardModel.swift; sourceTree = "<group>"; };
+		23683D4C1F9DD8C700D63638 /* MineBusinessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineBusinessView.swift; sourceTree = "<group>"; };
+		23683D4E1F9DD8D300D63638 /* MineBusinessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineBusinessView.xib; sourceTree = "<group>"; };
+		23683D501F9DDEC000D63638 /* CodeConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeConfiguration.swift; sourceTree = "<group>"; };
+		23683D521F9DE42500D63638 /* AddBusiessCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBusiessCardVC.swift; sourceTree = "<group>"; };
+		23683D541F9DE49E00D63638 /* AddMineBusinessCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMineBusinessCardCell.swift; sourceTree = "<group>"; };
+		23683D551F9DE49E00D63638 /* AddMineBusinessCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMineBusinessCardCell.xib; sourceTree = "<group>"; };
+		23683D581F9DED2500D63638 /* BusinessCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardCell.swift; sourceTree = "<group>"; };
+		23683D591F9DED2500D63638 /* BusinessCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessCardCell.xib; sourceTree = "<group>"; };
 		236995F91F6915120034C120 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		236995FA1F6915120034C120 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		236995FB1F6915120034C120 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -352,6 +392,8 @@
 		2369962C1F6A75020034C120 /* PayMoneyDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayMoneyDetailsModel.swift; sourceTree = "<group>"; };
 		2369962E1F6A7BCC0034C120 /* ReceivablesCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivablesCodeVC.swift; sourceTree = "<group>"; };
 		2369962F1F6A7BCC0034C120 /* ReceivablesCodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceivablesCodeVC.xib; sourceTree = "<group>"; };
+		236BF5C11F9F221B0060B622 /* FriendBusinessCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendBusinessCardVC.swift; sourceTree = "<group>"; };
+		236BF5C31F9F32550060B622 /* FriendBusinessCardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendBusinessCardModel.swift; sourceTree = "<group>"; };
 		238DB3EA1F4D4C0700ECA2C4 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238DB3ED1F4D4C0700ECA2C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238DB3EF1F4D4C0700ECA2C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -426,6 +468,8 @@
 		23F4F6C01F70F86F00C2FC7C /* LBXScanViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanViewStyle.swift; sourceTree = "<group>"; };
 		23F4F6C11F70F86F00C2FC7C /* LBXScanWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanWrapper.swift; sourceTree = "<group>"; };
 		23F4F6C91F71093000C2FC7C /* TransactionRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionRecordModel.swift; sourceTree = "<group>"; };
+		23FAAFF71FA0629A009536D6 /* BusinessCardHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCardHeadCell.swift; sourceTree = "<group>"; };
+		23FAAFF81FA0629A009536D6 /* BusinessCardHeadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessCardHeadCell.xib; sourceTree = "<group>"; };
 		9079E2DEE73AABB190084D07 /* Pods-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallet/Pods-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		9F28C13C49C0B7E6EA61514D /* Pods-WalletUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WalletUITests/Pods-WalletUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B41F003DDBB839DAFF7CEB9B /* Pods-WalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WalletTests/Pods-WalletTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -482,6 +526,11 @@
 				230EF99A1F6F9FC2006E82E6 /* LanguageHelper.swift */,
 				2310C04D1F72170E00C00EAB /* SelectPhotosHelper.swift */,
 				231AFDCC1F8DB95A0032EE7E /* LoginConfiguration.swift */,
+				23683D501F9DDEC000D63638 /* CodeConfiguration.swift */,
+				2310BADD1F9EE368006A1551 /* ConstTools.h */,
+				2310BADE1F9EE368006A1551 /* ConstTools.m */,
+				2310BAE01F9F0387006A1551 /* WalletOCTools.h */,
+				2310BAE11F9F0387006A1551 /* WalletOCTools.m */,
 			);
 			path = "Custom(自定义)";
 			sourceTree = "<group>";
@@ -640,7 +689,6 @@
 				238DB41B1F4D4E1200ECA2C4 /* Main(主要) */,
 				238DB4411F4D4F6B00ECA2C4 /* Comom(常用) */,
 				238DB45D1F4D55CE00ECA2C4 /* Vender(第三方) */,
-				238DB4531F4D504700ECA2C4 /* Resource(资源) */,
 				238DB3ED1F4D4C0700ECA2C4 /* AppDelegate.swift */,
 				238DB3EF1F4D4C0700ECA2C4 /* ViewController.swift */,
 				238DB4591F4D50CC00ECA2C4 /* Wallet-Brigding-Header.h */,
@@ -690,7 +738,7 @@
 			children = (
 				238DB4271F4D4E9400ECA2C4 /* Controller */,
 				238DB4281F4D4E9400ECA2C4 /* Model */,
-				238DB4291F4D4E9400ECA2C4 /* Other */,
+				23EEC8501FA01D2D00F12567 /* Other */,
 				238DB42A1F4D4E9400ECA2C4 /* View */,
 			);
 			path = "Assets(资产)";
@@ -700,9 +748,9 @@
 			isa = PBXGroup;
 			children = (
 				238DB42B1F4D4E9E00ECA2C4 /* Controller */,
-				238DB42C1F4D4E9E00ECA2C4 /* Model */,
-				238DB42D1F4D4E9E00ECA2C4 /* Other */,
 				238DB42E1F4D4E9E00ECA2C4 /* View */,
+				23EEC84F1FA01D1500F12567 /* Model */,
+				23EEC84E1FA01D1400F12567 /* Other */,
 			);
 			path = "Find(发现)";
 			sourceTree = "<group>";
@@ -712,7 +760,6 @@
 			children = (
 				238DB42F1F4D4EA900ECA2C4 /* Controller */,
 				238DB4301F4D4EA900ECA2C4 /* Model */,
-				238DB4311F4D4EA900ECA2C4 /* Other */,
 				238DB4321F4D4EA900ECA2C4 /* View */,
 			);
 			path = "Industry(行情)";
@@ -723,7 +770,6 @@
 			children = (
 				238DB4331F4D4EB300ECA2C4 /* Controller */,
 				238DB4341F4D4EB300ECA2C4 /* Model */,
-				238DB4351F4D4EB300ECA2C4 /* Other */,
 				238DB4361F4D4EB300ECA2C4 /* View */,
 			);
 			path = "Personal(个人)";
@@ -792,13 +838,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		238DB4291F4D4E9400ECA2C4 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
 		238DB42A1F4D4E9400ECA2C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -824,20 +863,6 @@
 				238DB43B1F4D4F0500ECA2C4 /* FindVC.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		238DB42C1F4D4E9E00ECA2C4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		238DB42D1F4D4E9E00ECA2C4 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		238DB42E1F4D4E9E00ECA2C4 /* View */ = {
@@ -873,13 +898,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		238DB4311F4D4EA900ECA2C4 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
 		238DB4321F4D4EA900ECA2C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +928,10 @@
 				234116C71F70C0050076D922 /* AboutWeVC.xib */,
 				2312DEE41F75073F00264D5F /* OpinionVC.swift */,
 				2312DEE51F75073F00264D5F /* OpinionVC.xib */,
+				2354598B1F9DB87B003160AB /* MineBusinessCardVC.swift */,
+				236BF5C11F9F221B0060B622 /* FriendBusinessCardVC.swift */,
+				235459811F9DB46B003160AB /* BusinessCardVC.swift */,
+				23683D521F9DE42500D63638 /* AddBusiessCardVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -919,15 +941,10 @@
 			children = (
 				234116C41F70B8270076D922 /* ManageWalletsModel.swift */,
 				23F4F6C91F71093000C2FC7C /* TransactionRecordModel.swift */,
+				23683D481F9DCB7200D63638 /* MineBusinessCardModel.swift */,
+				236BF5C31F9F32550060B622 /* FriendBusinessCardModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		238DB4351F4D4EB300ECA2C4 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		238DB4361F4D4EB300ECA2C4 /* View */ = {
@@ -954,6 +971,16 @@
 				230EF9A81F6FBD1F006E82E6 /* LoginTopView.swift */,
 				23ACA51A1F78B2340010C628 /* PlaceholderTextView.h */,
 				23ACA51B1F78B2340010C628 /* PlaceholderTextView.m */,
+				235459871F9DB81B003160AB /* BusinessCardView.swift */,
+				235459881F9DB81B003160AB /* BusinessCardView.xib */,
+				23683D4C1F9DD8C700D63638 /* MineBusinessView.swift */,
+				23683D4E1F9DD8D300D63638 /* MineBusinessView.xib */,
+				23683D541F9DE49E00D63638 /* AddMineBusinessCardCell.swift */,
+				23683D551F9DE49E00D63638 /* AddMineBusinessCardCell.xib */,
+				23683D581F9DED2500D63638 /* BusinessCardCell.swift */,
+				23683D591F9DED2500D63638 /* BusinessCardCell.xib */,
+				23FAAFF71FA0629A009536D6 /* BusinessCardHeadCell.swift */,
+				23FAAFF81FA0629A009536D6 /* BusinessCardHeadCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -997,29 +1024,6 @@
 				238DB44C1F4D4F6B00ECA2C4 /* Tools.swift */,
 			);
 			path = "Tool(工具类)";
-			sourceTree = "<group>";
-		};
-		238DB4531F4D504700ECA2C4 /* Resource(资源) */ = {
-			isa = PBXGroup;
-			children = (
-				238DB4541F4D504700ECA2C4 /* Image(图片) */,
-				238DB4551F4D504700ECA2C4 /* Plist(参数表) */,
-			);
-			path = "Resource(资源)";
-			sourceTree = "<group>";
-		};
-		238DB4541F4D504700ECA2C4 /* Image(图片) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Image(图片)";
-			sourceTree = "<group>";
-		};
-		238DB4551F4D504700ECA2C4 /* Plist(参数表) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Plist(参数表)";
 			sourceTree = "<group>";
 		};
 		238DB45A1F4D53CC00ECA2C4 /* MainVC(根控制器) */ = {
@@ -1090,7 +1094,7 @@
 			children = (
 				239335301F53A3650016208F /* Controller */,
 				239335311F53A3650016208F /* Model */,
-				239335321F53A3650016208F /* View */,
+				23EEC84D1FA01A9300F12567 /* View */,
 			);
 			path = "Login&&Register(注册与登录)";
 			sourceTree = "<group>";
@@ -1100,7 +1104,9 @@
 			children = (
 				239335331F53A6030016208F /* LoginVC.swift */,
 				23B767CD1F53C74700440BB4 /* CreateWalletVC.swift */,
+				235459771F9D9567003160AB /* CreateMallWalletVC.swift */,
 				230ACA941F5554F3005D590F /* ForgetPasswordVC.swift */,
+				23683D461F9DC28500D63638 /* LanguageSelection.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1116,11 +1122,32 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		239335321F53A3650016208F /* View */ = {
+		23EEC84D1FA01A9300F12567 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		23EEC84E1FA01D1400F12567 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		23EEC84F1FA01D1500F12567 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		23EEC8501FA01D2D00F12567 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		23F4F6BA1F70F86F00C2FC7C /* scan */ = {
@@ -1240,7 +1267,7 @@
 					238DB3E91F4D4C0700ECA2C4 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = F75BQKJWV7;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					238DB3FD1F4D4C0800ECA2C4 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -1282,9 +1309,12 @@
 			files = (
 				230B190C1F58F740008D6159 /* ContactsViewCell.xib in Resources */,
 				230BF9331F68DEE30030B0DC /* CurrencyConversionNumberVC.xib in Resources */,
+				23683D571F9DE49E00D63638 /* AddMineBusinessCardCell.xib in Resources */,
 				230DD5241F8CA7F3004D1E5E /* BuyCoinVw.xib in Resources */,
+				23683D4F1F9DD8D300D63638 /* MineBusinessView.xib in Resources */,
 				230B19121F590263008D6159 /* SystemSettingsCell.xib in Resources */,
 				2317C8F61F8B23BD00EC96AE /* SalesCoinCell.xib in Resources */,
+				23683D5B1F9DED2500D63638 /* BusinessCardCell.xib in Resources */,
 				2369961F1F6A53FD0034C120 /* TransactionCoinCell.xib in Resources */,
 				2310C0561F7244CB00C00EAB /* MarketModificationView.xib in Resources */,
 				2312DEE71F75073F00264D5F /* OpinionVC.xib in Resources */,
@@ -1292,6 +1322,7 @@
 				234116C91F70C0050076D922 /* AboutWeVC.xib in Resources */,
 				230DD52C1F8CB72A004D1E5E /* PurchaseListVw.xib in Resources */,
 				23A12D881F6BCBE0009DAC6B /* FindCell.xib in Resources */,
+				2354598A1F9DB81B003160AB /* BusinessCardView.xib in Resources */,
 				236996231F6A61950034C120 /* TransferAccountsVC.xib in Resources */,
 				2307C8A11F4FCD78002580BF /* IndustryViewCell.xib in Resources */,
 				2369960A1F6915120034C120 /* trade.bundle in Resources */,
@@ -1301,6 +1332,7 @@
 				230B8C441F4E6E370003F5D2 /* AssetsViewCell.xib in Resources */,
 				238DB3F51F4D4C0700ECA2C4 /* Assets.xcassets in Resources */,
 				23364B371F7363560009E70F /* editMarketCell.xib in Resources */,
+				23FAAFFA1FA0629A009536D6 /* BusinessCardHeadCell.xib in Resources */,
 				2310C05E1F724D7800C00EAB /* addMarketCell.xib in Resources */,
 				23F4F6B51F70C46600C2FC7C /* AddAContactVC.xib in Resources */,
 				230EF9951F6F9C08006E82E6 /* Localizable.strings in Resources */,
@@ -1479,6 +1511,7 @@
 			files = (
 				236996101F6915120034C120 /* ZCTradeView.m in Sources */,
 				230EF96D1F6F5B75006E82E6 /* VariousLanguagesCell.swift in Sources */,
+				2310BAE21F9F0387006A1551 /* WalletOCTools.m in Sources */,
 				236996291F6A6E820034C120 /* PaymentConfirmationModel.swift in Sources */,
 				230BF92B1F68D5D10030B0DC /* CurrencyConversionVC.swift in Sources */,
 				2307C8A01F4FCD78002580BF /* IndustryViewCell.swift in Sources */,
@@ -1488,11 +1521,13 @@
 				230B19171F590F22008D6159 /* MultilingualCell.swift in Sources */,
 				230EF9A51F6FBCE7006E82E6 /* ForgetPwdView.swift in Sources */,
 				2369962D1F6A75020034C120 /* PayMoneyDetailsModel.swift in Sources */,
+				23683D531F9DE42500D63638 /* AddBusiessCardVC.swift in Sources */,
 				238DB4A81F4D6E7700ECA2C4 /* MASConstraint.m in Sources */,
 				238DB4AB1F4D6E7700ECA2C4 /* MASViewAttribute.m in Sources */,
 				238DB4A91F4D6E7700ECA2C4 /* MASConstraintMaker.m in Sources */,
 				236996171F6A23300034C120 /* UXPasscodeViewController.swift in Sources */,
 				2317C8EB1F8B1FA200EC96AE /* SalesCoinVC.swift in Sources */,
+				23FAAFF91FA0629A009536D6 /* BusinessCardHeadCell.swift in Sources */,
 				230937A31F5D299400F354ED /* ResponseData.swift in Sources */,
 				230B05A41F9463C000BDCDE7 /* BaseURL.swift in Sources */,
 				230B19081F58F71C008D6159 /* ContactsVC.swift in Sources */,
@@ -1511,6 +1546,7 @@
 				230B19111F590263008D6159 /* SystemSettingsCell.swift in Sources */,
 				230BF9321F68DEE30030B0DC /* CurrencyConversionNumberVC.swift in Sources */,
 				2369962B1F6A72260034C120 /* PayMoneyModel.swift in Sources */,
+				2354598C1F9DB87B003160AB /* MineBusinessCardVC.swift in Sources */,
 				23F4F6C51F70F86F00C2FC7C /* LBXScanView.swift in Sources */,
 				2369960E1F6915120034C120 /* ZCTradeInputView.m in Sources */,
 				230E09B51F6695040044687C /* AssetsDetailsModel.swift in Sources */,
@@ -1527,8 +1563,10 @@
 				2317C8FD1F8B496900EC96AE /* WRCycleCell.swift in Sources */,
 				230DD52A1F8CB711004D1E5E /* PurchaseListVw.swift in Sources */,
 				230A048D1F67C986007EF3AB /* IndustryMarkListModel.swift in Sources */,
+				23683D4D1F9DD8C700D63638 /* MineBusinessView.swift in Sources */,
 				23326A851F57B52F00676CA1 /* TransactionRecordVC.swift in Sources */,
 				238DB4AF1F4D6E7700ECA2C4 /* View+MASAdditions.m in Sources */,
+				23683D491F9DCB7200D63638 /* MineBusinessCardModel.swift in Sources */,
 				238DB4A71F4D6E7700ECA2C4 /* MASCompositeConstraint.m in Sources */,
 				230B190E1F59023C008D6159 /* SystemSettingsVC.swift in Sources */,
 				23F4F6C21F70F86F00C2FC7C /* LBXPermissions.swift in Sources */,
@@ -1542,15 +1580,18 @@
 				230B33591F6684D300408CB6 /* AssetsDetailsVC.swift in Sources */,
 				230EF9A11F6FBA5B006E82E6 /* ForgetPwdViewController.swift in Sources */,
 				2369960D1F6915120034C120 /* ZCAudioTool.m in Sources */,
+				23683D511F9DDEC000D63638 /* CodeConfiguration.swift in Sources */,
 				2369960B1F6915120034C120 /* UIAlertView+Quick.m in Sources */,
 				2317C9051F8B77FA00EC96AE /* BuyCoinVC.swift in Sources */,
 				238DB48D1F4D6DF900ECA2C4 /* PopupView.m in Sources */,
+				236BF5C21F9F221B0060B622 /* FriendBusinessCardVC.swift in Sources */,
 				236996221F6A61950034C120 /* TransferAccountsVC.swift in Sources */,
 				2317C8FE1F8B496900EC96AE /* WRCycleScrollView.swift in Sources */,
 				238DB44F1F4D4F6B00ECA2C4 /* UINavigationController+Cloudox.m in Sources */,
 				230EF9A61F6FBCE7006E82E6 /* LoginView.swift in Sources */,
 				230EF9AE1F6FBE25006E82E6 /* DHSTextField.swift in Sources */,
 				238DB4AA1F4D6E7700ECA2C4 /* MASLayoutConstraint.m in Sources */,
+				23683D561F9DE49E00D63638 /* AddMineBusinessCardCell.swift in Sources */,
 				2317C8F01F8B215500EC96AE /* SalesCoinVM.swift in Sources */,
 				23ACA51C1F78B2340010C628 /* PlaceholderTextView.m in Sources */,
 				230A04861F67BABC007EF3AB /* IndustryDetailsVC.swift in Sources */,
@@ -1565,8 +1606,10 @@
 				230EF9A91F6FBD1F006E82E6 /* LoginTopView.swift in Sources */,
 				2308A6B01F56BD890057CF92 /* ManageWalletsVC.swift in Sources */,
 				238DB4381F4D4ED400ECA2C4 /* AssetsVC.swift in Sources */,
+				235459891F9DB81B003160AB /* BusinessCardView.swift in Sources */,
 				230BF92E1F68D5F30030B0DC /* CurrencyConversionCell.swift in Sources */,
 				230EF9A71F6FBCE7006E82E6 /* ModifyPwdView.swift in Sources */,
+				236BF5C41F9F32550060B622 /* FriendBusinessCardModel.swift in Sources */,
 				23F4F6C81F70F86F00C2FC7C /* LBXScanWrapper.swift in Sources */,
 				230B8C431F4E6E370003F5D2 /* AssetsViewCell.swift in Sources */,
 				238DB4261F4D4E4200ECA2C4 /* WLTabBarController.swift in Sources */,
@@ -1575,11 +1618,13 @@
 				234116C81F70C0050076D922 /* AboutWeVC.swift in Sources */,
 				230EF9B01F6FBE5F006E82E6 /* AutorizeButton.swift in Sources */,
 				23F4F6C31F70F86F00C2FC7C /* LBXScanLineAnimation.swift in Sources */,
+				23683D471F9DC28500D63638 /* LanguageSelection.swift in Sources */,
 				230B83B41F63C36100BD8306 /* AssetsModel.swift in Sources */,
 				23F4F6C61F70F86F00C2FC7C /* LBXScanViewController.swift in Sources */,
 				236996261F6A6D030034C120 /* PaymentConfirmationVC.swift in Sources */,
 				230ACA931F551B15005D590F /* WLProgressHUD.swift in Sources */,
 				2310C0581F724AC200C00EAB /* addMarketVC.swift in Sources */,
+				235459781F9D9567003160AB /* CreateMallWalletVC.swift in Sources */,
 				238DB44E1F4D4F6B00ECA2C4 /* TPTextField.swift in Sources */,
 				238DB4511F4D4F6B00ECA2C4 /* RegularDefinition.swift in Sources */,
 				23F4F6C71F70F86F00C2FC7C /* LBXScanViewStyle.swift in Sources */,
@@ -1587,8 +1632,11 @@
 				230ACA901F551727005D590F /* NetWorkTool.swift in Sources */,
 				234116C51F70B8270076D922 /* ManageWalletsModel.swift in Sources */,
 				230ACA951F5554F3005D590F /* ForgetPasswordVC.swift in Sources */,
+				23683D5A1F9DED2500D63638 /* BusinessCardCell.swift in Sources */,
 				2317C8F51F8B23BD00EC96AE /* SalesCoinCell.swift in Sources */,
 				2307C8A81F500447002580BF /* PersonalHeadCell.swift in Sources */,
+				235459821F9DB46B003160AB /* BusinessCardVC.swift in Sources */,
+				2310BADF1F9EE368006A1551 /* ConstTools.m in Sources */,
 				23A12D871F6BCBE0009DAC6B /* FindCell.swift in Sources */,
 				236996161F6A23300034C120 /* UXPasscodeField.swift in Sources */,
 				2369961E1F6A53FD0034C120 /* TransactionCoinCell.swift in Sources */,
@@ -1778,7 +1826,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F75BQKJWV7;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/HyphenateLite/ios_IM_HyphenateLite_sdk_3.3.4/HyphenateSDK",
@@ -1788,8 +1837,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hqtech.DHSWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "399f69fb-e0d4-46e3-b732-5906b4b128b6";
-				PROVISIONING_PROFILE_SPECIFIER = DHSWalletDevelopment;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Wallet/Wallet-Brigding-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1801,8 +1850,9 @@
 			baseConfigurationReference = EF512677B44AB518223B2087 /* Pods-Wallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = F75BQKJWV7;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/HyphenateLite/ios_IM_HyphenateLite_sdk_3.3.4/HyphenateSDK",
@@ -1812,8 +1862,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hqtech.DHSWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "aa308386-399f-45be-b81c-fc3b1b49a40d";
-				PROVISIONING_PROFILE_SPECIFIER = DHSWalletDistribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Wallet/Wallet-Brigding-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

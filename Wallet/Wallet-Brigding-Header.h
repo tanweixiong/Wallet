@@ -17,4 +17,6 @@
 #import "LJXPhotoAlbum.h"
 #import "ZFReOrderTableView.h"
 #import "PlaceholderTextView.h"
+#import "WalletOCTools.h"
+#import "ConstTools.h"
 #endif

@@ -41,6 +41,7 @@
 "wallet_name" = "Wallet Nickname";
 "password_enter" = "Enter password";
 "phone_enter" = "Enter the phone number";
+"mall_enter" = "Enter the E-mail address";
 "code_enter" = "Enter the code";
 "get_money_code" = "Receipt code";
 "copy_address" = "Copy the payment address";
@@ -72,6 +73,7 @@
 "change_number" = "Amount";
 "enter_number" = "Enter the amount";
 "coin_change" = "Conversion";
+"my_card" = "My Card";
 "set_pay_password" = "Set up payment password";
 "edit_pay_password" = "Change the payment password";
 "find_password" = "Retrieve payment password";
@@ -87,8 +89,13 @@
 "login_phone" = "Enter the phone number";
 "login_password" = "Enter your password";
 "register_phone" = "Enter the code";
+"logut_out" = "sign out";
+"mine_add" = "add";
+"card_finish" = "finish";
+"card" = "card";
 "register_password" = "Enter your registration password";
 "register_getcode" = "Get code";
+"register_sendMallCode" = "Sent to the mailbox";
 "register_code" = "Enter the code";
 "to_login" = "To log in";
 "enter_new_pwd" = "Enter a new password";
@@ -125,6 +132,7 @@
 "test_text2" = "With the continuous improvement of residents lifestyle and quality cognition, consumers ability to judge the value of goods and services is also improved simultaneously";
 "complete_information" = "Please complete the information";
 "add_sucess" = "Success!";
+"delete_sucess" = "Delete Sucess!";
 "payee_address" = "Payee wallet address";
 "after_get" = "afters";
 "finding_passwoed" = "Finding Password";
@@ -210,7 +218,21 @@
 "write_amount" = "Please fill in the amount of the payee";
 "transaction" = "transaction";
 "input_can_not_be_empty" = "The input can not be empty";
+"enter_Mall" = "please enter your vaild email";
+"place_enter" = "place enter ";
 
+"card_modify" = "modify";
+"card_name" = "name";
+"card_job" = "job";
+"card_mall" = "mall";
+"card_phone" = "phone";
+"card_weChat" = "weChat";
+"card_other" = "other";
+"card_address" = "address";
+"add_card" = "add card";
+"modify_card" = "modify card";
+"friends_business_card" = "Friends Business Card";
+"card_avatar" = "avatar";
 
 
 

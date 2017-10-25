@@ -30,13 +30,14 @@ class AddAContactVC: WLMainViewController,LBXScanViewControllerDelegate {
     
     @IBOutlet weak var backgroundVw: UIView!
     
+    var contactsId:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = LanguageHelper.getString(key: "add_contact")
         self.view.backgroundColor = UIColor.R_UIRGBColor(red: 243, green: 247, blue: 248, alpha: 1)
         self.addDefaultButtonTextRight(LanguageHelper.getString(key: "save"))
         self.addDefaultBackBarButtonLeft()
-        
         view.addSubview(hornImageView)
         let photo = UserDefaults.standard.getUserInfo().photo
         hornImageView.sd_setImage(with: NSURL(string:photo) as URL? , placeholderImage: UIImage(named: "morentouxiang"))
@@ -47,6 +48,7 @@ class AddAContactVC: WLMainViewController,LBXScanViewControllerDelegate {
             make.height.equalTo(hornImageSize)
         }
         self.setLanguage()
+        self.contacts_idTF.text = contactsId
     }
     
     @IBAction func scanOnClick(_ sender: UIButton) {

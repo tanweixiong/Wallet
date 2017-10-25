@@ -212,7 +212,8 @@ class AssetsView: UIView {
         let view = Bundle.main.loadNibNamed("QRCodeImageView", owner: nil, options: nil)?[0] as! QRCodeImageView
         let userId = UserDefaults.standard.getUserInfo().userId
         let phone = UserDefaults.standard.getUserInfo().phone
-        let image = Tools.createQRForString(qrString: "dhscoin:\(userId):\(phone)", qrImageName: "iTunesArtwork")
+        print("\(R_Theme_QRCode):\(userId)?type=1")
+        let image = Tools.createQRForString(qrString: "\(R_Theme_QRCode):\(userId)?type=1", qrImageName: "iTunesArtwork")
         view.imageView.image = image
         view.desLabel.text = LanguageHelper.getString(key: "my_qr_code")
         view.layer.cornerRadius = 5

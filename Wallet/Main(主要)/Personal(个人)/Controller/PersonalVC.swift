@@ -14,8 +14,8 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
     fileprivate let footHeight:CGFloat = 25
     fileprivate let personalHeadCellIdentifier = "PersonalHeadCellIdentifier"
     fileprivate let personalCellIdentifier = "PersonalCellIdentifier"
-    fileprivate let titleScore:NSArray = [[LanguageHelper.getString(key: "contacter"),LanguageHelper.getString(key: "setting")],[LanguageHelper.getString(key: "feedback"),LanguageHelper.getString(key: "about_us")]]
-    fileprivate let imageScore: NSArray = [["ic_personal_contacts","ic_personal_setting"],["ic_personal_feedback","ic_personal_aboutwe"]]
+    fileprivate let titleScore:NSArray = [[LanguageHelper.getString(key: "contacter"),LanguageHelper.getString(key: "setting"),LanguageHelper.getString(key: "my_card"),LanguageHelper.getString(key: "friends_business_card")],[LanguageHelper.getString(key: "feedback"),LanguageHelper.getString(key: "about_us")]]
+    fileprivate let imageScore: NSArray = [["ic_personal_contacts","ic_personal_setting","mine_businessCard","mine_friendsBusinessCard"],["ic_personal_feedback","ic_personal_aboutwe"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +74,7 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
             cell.backgroundColor = UIColor.R_UIRGBColor(red: 243, green: 247, blue: 248, alpha: 1)
             let titleArray:NSArray = titleScore[indexPath.section - 1] as! NSArray
             let iconArray:NSArray = imageScore[indexPath.section - 1] as! NSArray
-            let cellTag = indexPath.section == 1 ? self.cellTag : 2 + self.cellTag
+            let cellTag = indexPath.section == 1 ? self.cellTag : 4 + self.cellTag
             cell.setList(titleArray, iconArray ,cellTag)
             cell.personalCallBackBlock = { (sender:UIButton) in
                 
@@ -90,13 +90,26 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
                     self.pushNextViewController(SystemSettingsVC(), true)
                     
                     break
+                    
                 case 2:
+                    
+                    self.pushNextViewController(MineBusinessCardVC(), true)
+                    
+                    break
+                    
+                case 3:
+                    
+                    self.pushNextViewController(FriendBusinessCardVC(), true)
+                    
+                    break
+                    
+                case 4:
                     
                     self.pushNextViewController(OpinionVC(), true)
                     
                     break
                     
-                case 3:
+                case 5:
                     
                     self.pushNextViewController(AboutWeVC(), true)
                     
@@ -125,7 +138,7 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
     lazy var footView:UIView = {
        let view = UIView(frame: CGRect(x: 0, y: SCREEN_HEIGHT - YMAKE(45) - 44 - 20, width: SCREEN_WIDTH, height: YMAKE(45)))
        let button = UIButton(frame: CGRect(x: 20, y: 0, width: SCREEN_WIDTH - 40, height: YMAKE(45)))
-       button.setTitle("退出登录", for: .normal)
+       button.setTitle(LanguageHelper.getString(key: "logut_out"), for: .normal)
        button.backgroundColor = R_UIThemeColor
        button.setTitleColor(UIColor.white, for: .normal)
        button.addTarget(self, action: #selector(PersonalVC.loginOutHandle), for: .touchUpInside)

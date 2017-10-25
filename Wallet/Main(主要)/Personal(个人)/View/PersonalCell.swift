@@ -64,7 +64,7 @@ class PersonalCell: UITableViewCell {
             let titleLable = UILabel()
             titleLable.text = data[item] as? String
             titleLable.font = PersonalUX.titleFont
-            titleLable.frame = CGRect(x: imageView.frame.maxX + XMAKE(15), y: imageView.frame.origin.y, width: 100.0, height:CGFloat(PersonalUX.iconImageSize))
+            titleLable.frame = CGRect(x: imageView.frame.maxX + XMAKE(15), y: imageView.frame.origin.y, width: 170.0, height:CGFloat(PersonalUX.iconImageSize))
             backgroundVw.addSubview(titleLable)
             
             let layers = CALayer()

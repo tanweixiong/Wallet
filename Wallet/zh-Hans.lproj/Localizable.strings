@@ -37,13 +37,18 @@
 "enter_phone" = "请输入手机号码";
 "enter_password" = "请输入密码";
 "login_wallet" = "登录钱包";
+"card" = "名片";
+"logut_out" = "退出登录";
 "forget_password" = "忘记密码";
 "wallet_name" = "钱包名称";
 "password_enter" = "密码输入";
 "phone_enter" = "手机号码输入";
+"mall_enter" = "邮箱地址输入";
 "code_enter" = "验证码输入";
+"card_finish" = "完成";
 "get_money_code" = "收款码";
 "copy_address" = "复制收款地址";
+"my_card" = "我的名片";
 "toast_code_failure" = "二维码生成失败，请重新再试";
 "return_exit_app" = "再次返回退出应用";
 "no_data" = "暂时无数据哦 !";
@@ -89,6 +94,7 @@
 "register_phone" = "请输入注册号码";
 "register_password" = "请输入注册密码";
 "register_getcode" = "获取验证码";
+"register_sendMallCode" = "发送到邮箱";
 "register_code" = "请输入验证码";
 "to_login" = "已有帐号?去登录";
 "enter_new_pwd" = "请输入新密码";
@@ -125,6 +131,8 @@
 "test_text2" = "随着居民生活方式和品质认知的不断提升，消费者对于商品及服务价值的判断能力也同步提高，";
 "complete_information" = "请将信息填写完整";
 "add_sucess" = "添加成功!";
+"delete_sucess" = "删除成功!";
+"mine_add" = "添加";
 "payee_address" = "收款人钱包地址";
 "after_get" = "秒后获取";
 "finding_passwoed" = "找回密码";
@@ -210,5 +218,22 @@
 "write_amount" = "请填写收款人的的金额";
 "transaction" = "交易";
 "input_can_not_be_empty" = "输入不能为空";
+"enter_Mall" = "请输入正确的邮箱";
+"place_enter" = "请输入";
+"card_modify" = "修改";
+"card_name" = "姓名";
+"card_job" = "职业";
+"card_mall" = "邮箱";
+"card_phone" = "手机";
+"card_weChat" = "微信";
+"card_other" = "其他";
+"card_address" = "地址";
+"add_card" = "添加名片";
+"card_avatar" = "头像";
+
+
+"modify_card" = "修改名片";
+"friends_business_card" = "好友名片";
+
 
 
