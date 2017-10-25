@@ -146,19 +146,15 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
         
         let userID = UserDefaults.standard.getUserInfo().userId
         let photo = self.minePhoto
+        let id:String = (mineBusinessCardData?.id)!
         
-        if mineBusinessCardData?.id == nil {
-            mineBusinessCardData?.id = 0
-        }
-        let id:String = (mineBusinessCardData?.id?.stringValue)!
-        
-        let parameters:[String : String] = ["job":job,"name":name,"email":mall,"wechat":weChat,"phone":phone,"alipay":alipay,"user_id":userID,"photo":photo,"id":"53","address":address]
+        let parameters:[String : String] = ["job":job,"name":name,"email":mall,"wechat":weChat,"phone":phone,"alipay":alipay,"user_id":userID,"photo":photo,"id":id,"address":address]
         let user = ConstAPI.kAPIUpdateMyCard
         NetWorkTool.request(requestType: .post, URLString: user, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<MineBusinessCardModel>().map(JSONObject: json)
             if let code = responseData?.code {
                 if code == 100 {
-                    WLInfo(LanguageHelper.getString(key: "add_sucess"))
+                    WLInfo(LanguageHelper.getString(key: "modify_card_finish"))
                     self.delegate?.businessCardReloadData()
                 }else{
                     WLInfo(responseData?.msg)
@@ -171,7 +167,7 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
     
     func addFriendCard(){
         let userId = UserDefaults.standard.getUserInfo().userId
-        let id = (mineBusinessCardData?.id?.stringValue)!
+        let id = (mineBusinessCardData?.id)!
         let parameters = ["user_id":userId,"card_id":id]
         NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIFriendAddCardList, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<ResponseData>().map(JSONObject: json)
@@ -189,7 +185,6 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
     
     //上传头像
     func uploadpictures(image:UIImage) {
-//        let cardId = (mineBusinessCardData?.id?.stringValue)!
         let urlString = ConstAPI.kAPIBusinessUploadPhoto
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
         NetWorkTool.uploadPictures(url: urlString, parameter:nil, image: image, imageKey: "photo", success: { (success) in

@@ -68,13 +68,14 @@ class BusinessCardVC:WLMainViewController, UITableViewDelegate,UITableViewDataSo
     
     func deleteCard(){
         let user_id = UserDefaults.standard.getUserInfo().userId
-        let id = self.mineBusinessCardData?.id?.stringValue
-        let parameters:[String:Any] = ["id":id!,"user_id":user_id]
+        let id = (mineBusinessCardData?.id)!
+        let parameters:[String:Any] = ["id":id,"user_id":user_id]
         NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIBusinessDeleteMyCard, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<ResponseData>().map(JSONObject: json)
             if let code = responseData?.code {
                 if code == 100 {
                     WLInfo(LanguageHelper.getString(key: "delete_sucess"))
+                    self.delegate?.businessCardDetailReloadData()
                 }else{
                     WLInfo(responseData?.msg)
                 }

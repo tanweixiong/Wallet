@@ -231,9 +231,9 @@
 "add_card" = "添加名片";
 "card_avatar" = "头像";
 
-
 "modify_card" = "修改名片";
 "friends_business_card" = "好友名片";
+"modify_card_finish" = "修改成功";
 
 
 

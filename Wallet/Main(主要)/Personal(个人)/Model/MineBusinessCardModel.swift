@@ -17,7 +17,7 @@ class MineBusinessCardData: Mappable{
     var wechat: String?
     var phone: String?
     var alipay: String?
-    var id: NSNumber?
+    var id: String?
     var user_id: String?
     var photo: String?
     var address: String?
@@ -33,7 +33,7 @@ class MineBusinessCardData: Mappable{
         wechat = ""
         phone = ""
         alipay = ""
-        id = 0
+        id = ""
         user_id = ""
         photo = ""
         address = ""

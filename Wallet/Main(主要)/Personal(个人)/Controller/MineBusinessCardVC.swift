@@ -177,6 +177,7 @@ class MineBusinessCardVC: WLMainViewController,UIScrollViewDelegate,BusinessCard
     }()
  
     override func backToPrevious() {
+        self.scrollView.isHidden = true
         self.navBarBgAlpha = "0"
         self.navigationController?.popViewController(animated: true)
     }

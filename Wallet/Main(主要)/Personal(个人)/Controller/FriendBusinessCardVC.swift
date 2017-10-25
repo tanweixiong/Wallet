@@ -50,14 +50,16 @@ class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableView
         }
     }
     
-    func deleteFriendCard(_ model:MineBusinessCardData){
+    func deleteFriendCard(_ model:MineBusinessCardData,_ indexPath:IndexPath){
         let user_id = UserDefaults.standard.getUserInfo().userId
-        let id = (model.id?.stringValue)!
+        let id = (model.id)!
         let parameters:[String:Any] = ["card_id":id,"user_id":user_id]
         NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIBusinessRelevanceDelete, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<ResponseData>().map(JSONObject: json)
             if let code = responseData?.code {
                 if code == 100 {
+                    self.dataSorce.removeObject(at: indexPath.section)
+                    self.tableView.deleteSections(NSIndexSet(index: indexPath.section) as IndexSet, with: UITableViewRowAnimation.fade)
                     WLInfo(LanguageHelper.getString(key: "delete_sucess"))
                 }else{
                     WLInfo(responseData?.msg)
@@ -141,9 +143,7 @@ class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             let model = self.dataSorce[indexPath.section] as! MineBusinessCardData
-            self.deleteFriendCard(model)
-            self.dataSorce.removeObject(at: indexPath.section)
-            self.tableView.deleteSections(NSIndexSet(index: indexPath.section) as IndexSet, with: UITableViewRowAnimation.fade)
+            self.deleteFriendCard(model, indexPath)
         }
     }
     
