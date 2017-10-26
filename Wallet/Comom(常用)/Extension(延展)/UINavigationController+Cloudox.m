@@ -30,6 +30,7 @@
         barBackgroundView.alpha = alpha;
     }
     
+    
     // 对导航栏下面那条线做处理
     self.navigationBar.clipsToBounds = alpha == 0.0;
 }

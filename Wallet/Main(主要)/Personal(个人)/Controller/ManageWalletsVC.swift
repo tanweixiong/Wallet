@@ -102,9 +102,17 @@ class ManageWalletsVC: WLMainViewController,UITableViewDelegate,UITableViewDataS
     }()
     
     func createWallets(){
-        let vc = CreateWalletVC()
-        self.present(vc, animated: true) { 
-            
+       let language = UserDefaults.standard.object(forKey: R_Languages) as! String
+        if language == "en" {
+            let vc = CreateMallWalletVC()
+            self.present(vc, animated: true) {
+                
+            }
+        }else{
+            let vc = CreateWalletVC()
+            self.present(vc, animated: true) {
+                
+            }
         }
     }
     
