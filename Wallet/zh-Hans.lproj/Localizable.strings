@@ -218,7 +218,7 @@
 "write_amount" = "请填写收款人的的金额";
 "transaction" = "交易";
 "input_can_not_be_empty" = "输入不能为空";
-"enter_Mall" = "请输入正确的邮箱";
+"enter_Mall" = "请输入邮箱地址";
 "place_enter" = "请输入";
 "card_modify" = "修改";
 "card_name" = "姓名";

@@ -10,6 +10,10 @@ import UIKit
 import FLAnimatedImage
 import SVProgressHUD
 
+enum LoginType {
+    case chinaeseVersion
+    case englishVersion
+}
 class LoginVC: WLMainViewController {
     
     struct LoginUX {
@@ -19,6 +23,8 @@ class LoginVC: WLMainViewController {
         static let textFieldHeight: CGFloat = YMAKE(44)
         static let fillet: CGFloat = 20
     }
+    
+    var logType = LoginType.chinaeseVersion
     
     let backgroundImageView = UIImageView()
     let logoImageView = UIImageView()
@@ -121,7 +127,12 @@ class LoginVC: WLMainViewController {
 extension LoginVC {
     
     func createUI() {
-        
+        let language = UserDefaults.standard.object(forKey: R_Languages) as! String
+        if language == "en" {
+            logType = .englishVersion
+        }else{
+            logType = .chinaeseVersion
+        }
         self.view.addSubview(backgroundImageView)
         backgroundImageView.addSubview(logoImageView)
 
@@ -147,9 +158,9 @@ extension LoginVC {
         accountTextField.font = UIFont.systemFont(ofSize: LoginUX.textFieldFont)
         accountTextField.layer.cornerRadius = LoginUX.fillet;
         accountTextField.layer.borderWidth = 0.5
-        accountTextField.keyboardType = .phonePad
+        accountTextField.keyboardType = logType == .chinaeseVersion ? .phonePad : .asciiCapable
         accountTextField.layer.borderColor = UIColor(white: 1, alpha: 0.3).cgColor;
-        accountTextField.placeholder = LanguageHelper.getString(key: "login_phone")
+        accountTextField.placeholder = LanguageHelper.getString(key: logType == .chinaeseVersion ? "login_phone" : "enter_Mall")
         accountTextField.setValue(UIColor.white, forKeyPath: "_placeholderLabel.textColor")
         accountTextField.clearButtonMode = .always
         let accountLeftView = UIImageView(image: UIImage(named: "ic_login_phone"));
