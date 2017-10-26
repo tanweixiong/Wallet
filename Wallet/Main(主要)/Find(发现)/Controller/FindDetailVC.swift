@@ -21,10 +21,12 @@ class FindDetailVC: WLMainViewController,UIWebViewDelegate  {
     }
     
     func setWebView(){
-        print((findDetailModel?.admin_id)!)
+      
+        let id:String = (findDetailModel?.id)!
         webView.delegate = self
-        let url:NSURL = NSURL.init(string: "http://47.52.59.119:9099/webview/about.html")!
+        let url:NSURL = NSURL.init(string: "http://10.0.0.11/dhs-wallet/information.jsp?id=\(id)")!
         webView.loadRequest(NSURLRequest(url: url as URL) as URLRequest)
+        self.view.addSubview(webView)
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -44,6 +46,7 @@ class FindDetailVC: WLMainViewController,UIWebViewDelegate  {
 
     let webView:UIWebView = {
         let view = UIWebView()
+        view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
         return view
     }()
     

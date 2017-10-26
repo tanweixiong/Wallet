@@ -97,9 +97,18 @@ class LoginVC: WLMainViewController {
     }
     
     func checkInput() -> Bool{
-        if !Tools.validateMobile(mobile: accountTextField.text!) {
-            WLProgressHUD.showSuccess(LanguageHelper.getString(key: "please_enter_phone"))
-            return false
+        
+        let language = UserDefaults.standard.object(forKey: R_Languages) as! String
+        if language == "en" {
+            if !Tools.validateEmail(email: accountTextField.text!) {
+                WLProgressHUD.showSuccess(LanguageHelper.getString(key: "enter_Mall"))
+                return false
+            }
+        }else{
+            if !Tools.validateMobile(mobile: accountTextField.text!) {
+                WLProgressHUD.showSuccess(LanguageHelper.getString(key: "please_enter_phone"))
+                return false
+            }
         }
         
         if !Tools.validatePassword(password: passwordTextField.text!) {

@@ -20,6 +20,7 @@ class FindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
         self.title =  LanguageHelper.getString(key: "information")
         self.view.addSubview(tableView)
+        self.getData()
     }
     
     //资讯
@@ -27,10 +28,11 @@ class FindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let url = ConstAPI.kAPINews
         let user_id = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_id":user_id]
-        NetWorkTool.request(requestType: .post, URLString: url, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .get, URLString: url, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<FindModel>().map(JSONObject: json)
             if responseData?.code == 100 {
                 if responseData?.data?.count != 0{
+                    self.tableView.backgroundColor = R_UIThemeColor
                     self.dataScore.addObjects(from: (responseData?.data)!)
                     self.tableView.reloadData()
                 }
