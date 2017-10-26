@@ -41,6 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func setRootViewControllerForTabBarController(){
+        let navi = WLTabBarController()
+        self.window?.rootViewController = navi
+    }
+    
     func setLanguage(){
         LanguageHelper.shareInstance.initUserLanguage()
         if (UserDefaults.standard.object(forKey: R_Languages) != nil) {

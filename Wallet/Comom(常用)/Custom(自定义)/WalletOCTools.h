@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface WalletOCTools : NSObject
++(UIViewController *)getCurrentVC;
 +(NSDictionary *)getDictionaryFromJSONString:(NSString *)jsonStr;
 +(NSString *)getJSONStringFromDictionary:(id)testDict;
 @end

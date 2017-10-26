@@ -134,17 +134,21 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     //右侧导航
     func addPopupView() {
         PopupView.addCell(withIcon: UIImage.init(named: "home_saoyisao"), text: LanguageHelper.getString(key: "scan")) {
+            let assets = WalletOCTools.getCurrentVC()
             let vc = LBXScanViewController();
             vc.title = LanguageHelper.getString(key: "scan")
             vc.scanStyle = vc.setCustomLBScan()
             vc.scanResultDelegate = self
             vc.navBarBgAlpha = "1"
-            self.pushNextViewController(vc, true)
+            assets?.navigationController?.pushViewController(vc, animated: true)
         }
         
         PopupView.addCell(withIcon: UIImage.init(named: "home_wallet"), text:  LanguageHelper.getString(key: "create_wallet")) {
-//             self.pushNextViewController(CreateWalletVC(), true)
-            self.present(CreateWalletVC(), animated: true, completion: { 
+            var topRootViewController:UIViewController = (UIApplication.shared.keyWindow?.rootViewController)!
+            while (topRootViewController.presentedViewController != nil){
+                topRootViewController = topRootViewController.presentedViewController!;
+            }
+            topRootViewController.present(CreateWalletVC(), animated: true, completion: {
                 
             })
         }
