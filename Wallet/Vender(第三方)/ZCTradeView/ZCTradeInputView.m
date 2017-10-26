@@ -27,6 +27,7 @@ typedef enum {
 @property (nonatomic, weak) UIButton *okBtn;
 /** 取消按钮 */
 @property (nonatomic, weak) UIButton *cancleBtn;
+@property(nonatomic,assign) BOOL isEnglish;
 @end
 
 @implementation ZCTradeInputView
@@ -47,6 +48,15 @@ typedef enum {
 {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
+        //语言设置
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString * language= [userDefaults objectForKey:@"Reality_Languages"];
+        if ([language isEqualToString:@"en"]){
+            _isEnglish = YES;
+        }else{
+            _isEnglish = NO;
+        }
+        
         /** 注册keyboard通知 */
         [self setupKeyboardNote];
         /** 添加子控件 */
@@ -62,8 +72,9 @@ typedef enum {
     UIButton *okBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:okBtn];
     self.okBtn = okBtn;
-    [self.okBtn setBackgroundImage:[UIImage imageNamed:@"trade.bundle/password_ok_up"] forState:UIControlStateNormal];
-    [self.okBtn setBackgroundImage:[UIImage imageNamed:@"trade.bundle/password_ok_down"] forState:UIControlStateHighlighted];
+    [self.okBtn setBackgroundImage:_isEnglish ? [UIImage imageNamed:@"password_ok_upE"] : [UIImage imageNamed:@"trade.bundle/password_ok_up"] forState:UIControlStateNormal];
+    [self.okBtn setBackgroundImage: _isEnglish ? [UIImage imageNamed:@"password_ok_downE"] : [UIImage imageNamed:@"trade.bundle/password_ok_down"] forState:UIControlStateHighlighted];
+    
     [self.okBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.okBtn.tag = ZCTradeInputViewButtonTypeWithOk;
     
@@ -71,8 +82,8 @@ typedef enum {
     UIButton *cancleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:cancleBtn];
     self.cancleBtn = cancleBtn;
-    [self.cancleBtn setBackgroundImage:[UIImage imageNamed:@"trade.bundle/password_cancel_up"] forState:UIControlStateNormal];
-    [self.cancleBtn setBackgroundImage:[UIImage imageNamed:@"trade.bundle/password_cancel_down"] forState:UIControlStateHighlighted];
+    [self.cancleBtn setBackgroundImage: _isEnglish ? [UIImage imageNamed:@"password_cancel_upE"] : [UIImage imageNamed:@"trade.bundle/password_cancel_up"] forState:UIControlStateNormal];
+    [self.cancleBtn setBackgroundImage:_isEnglish ? [UIImage imageNamed:@"password_cancel_downE"] :[UIImage imageNamed:@"trade.bundle/password_cancel_down"] forState:UIControlStateHighlighted];
     [self.cancleBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.cancleBtn.tag = ZCTradeInputViewButtonTypeWithCancle;
 }
@@ -175,7 +186,7 @@ typedef enum {
     [field drawInRect:CGRectMake(x, y, w, h)];
     
     // 画字
-    NSString *title = @"请输入交易密码";
+    NSString *title = _isEnglish == YES ? @"Please enter the transaction password" : @"请输入交易密码";
     
     CGSize size = [title sizeWithFont:[UIFont systemFontOfSize:ZCScreenWidth * 0.053125] andMaxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
     CGFloat titleW = size.width;

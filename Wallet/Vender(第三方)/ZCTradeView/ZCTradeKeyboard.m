@@ -14,6 +14,7 @@
 @interface ZCTradeKeyboard ()
 // 所有数字按钮的数组
 @property (nonatomic, strong) NSMutableArray *numBtns;
+@property(nonatomic,assign) BOOL isEnglish;
 @end
 
 @implementation ZCTradeKeyboard
@@ -34,6 +35,14 @@
 {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor whiteColor];
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString * language= [userDefaults objectForKey:@"Reality_Languages"];
+        if ([language isEqualToString:@"en"]){
+            _isEnglish = YES;
+        }else{
+            _isEnglish = NO;
+        }
+        
         /** 添加所有按键 */
         [self setupAllBtns];
     }
@@ -55,7 +64,7 @@
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         
         if (i == 9) {  // 确定按钮
-            [btn setTitle:@"隐藏" forState:UIControlStateNormal];
+            [btn setTitle:_isEnglish == YES ? @"hide" : @"隐藏" forState:UIControlStateNormal];
             btn.titleLabel.font = [UIFont systemFontOfSize:ZCScreenWidth * 0.046875];
             [btn addTarget:self action:@selector(okBtnClick) forControlEvents:UIControlEventTouchUpInside];
         } else if (i == 10) {  // 0 按钮
@@ -65,7 +74,7 @@
             [btn addTarget:self action:@selector(numBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             [self.numBtns addObject:btn];
         } else if (i == 11) {  // 删除按钮
-            [btn setTitle:@"删除" forState:UIControlStateNormal];
+            [btn setTitle:_isEnglish == YES ? @"delete" : @"删除" forState:UIControlStateNormal];
             btn.titleLabel.font = [UIFont systemFontOfSize:ZCScreenWidth * 0.046875];
             [btn addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
         } else {  // 其他数字按钮
