@@ -67,28 +67,7 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
     func registerPhone() {
         if checkInput() {
         let paramters = ["phone":accountTextField.text!,"password":passwordTextField.text!,"code":codeTextField.text!,"username":walletNameTextField.text!]
-            
          NetWorkTool.requestData(requestType: .post, URLString: ConstAPI.kAPIRegister, parameters: paramters, showIndicator: true, success: { (json) in
-                let responseData = Mapper<ResponseData>().map(JSONObject: json)
-                if let code = responseData?.code {
-                    if code == 100 {
-                        WLSuccess(responseData?.msg)
-                        self.navigationController?.popViewController(animated: true)
-                    } else {
-                        WLInfo(responseData?.msg)
-                    }
-                }
-            }, failture: { (error) in
-                
-            })
-        }
-    }
-    
-    func registerMall(){
-        if checkInput() {
-            let paramters = ["phone":accountTextField.text!,"password":passwordTextField.text!,"code":codeTextField.text!,"username":walletNameTextField.text!]
-            
-            NetWorkTool.requestData(requestType: .post, URLString: ConstAPI.kAPIEmailAdd, parameters: paramters, showIndicator: true, success: { (json) in
                 let responseData = Mapper<ResponseData>().map(JSONObject: json)
                 if let code = responseData?.code {
                     if code == 100 {
@@ -144,6 +123,7 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
             self.time = self.time - 1
             DispatchQueue.main.async {
                 self.getCodeButton.setTitle("\(self.time)秒", for: .normal)
+                self.getCodeButton.backgroundColor = UIColor.lightGray
             }
             // 时间到了取消时间源
             if self.time <= 0 {
@@ -162,9 +142,9 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
     }
     
     func infoAction() {
-        if codeTextField.text?.characters.count != 0 {
-            self.time = 0
-        }
+//        if codeTextField.text?.characters.count != 0 {
+//            self.time = 0
+//        }
     }
     
     lazy var topView: UIView =  {

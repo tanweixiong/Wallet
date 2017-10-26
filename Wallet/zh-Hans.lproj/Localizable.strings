@@ -35,7 +35,7 @@
 "add_market" = "添加行情";
 "edit_market" = "编辑详情";
 "enter_phone" = "请输入手机号码";
-"enter_password" = "请输入密码";
+"enter_password" = "请输入6个字符以上字母或数字的密码";
 "login_wallet" = "登录钱包";
 "card" = "名片";
 "logut_out" = "退出登录";
@@ -234,6 +234,7 @@
 "modify_card" = "修改名片";
 "friends_business_card" = "好友名片";
 "modify_card_finish" = "修改成功";
+
 
 
 
