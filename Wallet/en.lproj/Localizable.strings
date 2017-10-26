@@ -234,6 +234,7 @@
 "friends_business_card" = "Friends Business Card";
 "card_avatar" = "avatar";
 "modify_card_finish" = "Modify finish";
+"please_fill_finish" = "Please enter the correct phone number or email";
 
 
 

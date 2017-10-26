@@ -234,6 +234,7 @@
 "modify_card" = "修改名片";
 "friends_business_card" = "好友名片";
 "modify_card_finish" = "修改成功";
+"please_fill_finish" = "请输入正确的手机号码或者邮箱";
 
 
 

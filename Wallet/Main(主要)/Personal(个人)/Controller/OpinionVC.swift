@@ -80,8 +80,8 @@ class OpinionVC: WLMainViewController,YYTextViewDelegate {
             return false
         }
         
-        if phoneAndMailTF.text?.characters.count == 0 {
-            SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "please_fill"))
+        if !Tools.validateEmail(email: phoneAndMailTF.text!) || !Tools.validateMobile(mobile: phoneAndMailTF.text!) {
+            SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "please_fill_finish"))
             return false
         }
         return true
