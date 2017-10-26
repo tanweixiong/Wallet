@@ -33,7 +33,7 @@ class ForgetPasswordVC: WLMainViewController {
         
         self.title = LanguageHelper.getString(key: "forget_password")
         
-        self.navBarBgAlpha = "1"
+        self.navBarBgAlpha = "0"
         
         self.addDefaultBackBarButtonLeft()
         self.createUI()

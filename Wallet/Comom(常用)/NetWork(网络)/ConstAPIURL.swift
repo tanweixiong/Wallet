@@ -10,10 +10,10 @@ import UIKit
 
 struct ConstAPI {
     //正式
-//    static let kAPIBaseURL: String = "http://47.52.59.119:9099/dhswallet/"
+    static let kAPIBaseURL: String = "http://47.52.59.119:9099/dhswallet/"
     
     //开发
-    static let kAPIBaseURL: String = "http://10.0.0.11:80/dhs-wallet/dhswallet/"
+//    static let kAPIBaseURL: String = "http://10.0.0.11:80/dhs-wallet/dhswallet/"
     
     static let kAPIRegister = kAPIBaseURL + "user/add.do"   //注册接口
     static let kAPIEmailAdd = kAPIBaseURL + "user/emailAdd.do"   //注册接口
@@ -87,6 +87,8 @@ struct ConstAPI {
     static let kAPIBusinessCard = kAPIBaseURL + "business/card.do"
     //名片列表
     static let kAPIBusinessMyCard = kAPIBaseURL + "business/myCard.do"
+    //资讯首页
+    static let kAPINews = kAPIBaseURL + "news/news.do"
     //增加名片
     static let kAPIBusinessAdd = kAPIBaseURL + "business/add.do"
     //上传名片头像

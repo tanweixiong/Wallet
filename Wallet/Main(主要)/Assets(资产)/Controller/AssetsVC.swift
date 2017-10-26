@@ -91,8 +91,6 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
                 let userInfo = UserDefaults.standard.getUserInfo()
                 userInfo.photo = url
                 UserDefaults.standard.saveCustomObject(customObject:userInfo, key: R_UserInfo)
-                //重新保存本地头像
-                Tools.uploadImage(url)
                 //改变视图
                 addView.setAvatar(index,url)
                 SVProgressHUD.dismiss()

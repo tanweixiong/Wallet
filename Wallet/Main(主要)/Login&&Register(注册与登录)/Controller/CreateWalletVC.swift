@@ -39,7 +39,7 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         self.title = LanguageHelper.getString(key: "create_wallet")
-        self.navBarBgAlpha = "1"
+        self.navBarBgAlpha = "0"
         
         self.addDefaultBackBarButtonLeft()
         self.setCloseRoundKeyboard()

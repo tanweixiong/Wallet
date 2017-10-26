@@ -17,6 +17,7 @@ class LanguageSelection: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        self.navigationController?.navigationBar.isHidden = true
         self.navBarBgAlpha = "0"
         
         view.addSubview(backgroundImageView)
@@ -27,7 +28,7 @@ class LanguageSelection: UIViewController {
             make.top.equalTo(view.snp.top).offset(-64)
             make.centerX.equalTo(view.snp.centerX)
             make.width.equalTo(SCREEN_WIDTH)
-            make.height.equalTo(SCREEN_HEIGHT)
+            make.height.equalTo((UIApplication.shared.keyWindow?.frame.height)! + 64)
         }
         
         firstButton.snp.makeConstraints { (make) in

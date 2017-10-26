@@ -16,6 +16,7 @@ class MineBusinessView: UIView {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var modifyButton: UIButton!
     @IBOutlet weak var detailBtn: UIButton!
+    @IBOutlet weak var codeAvatarImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         modifyButton.setTitle(LanguageHelper.getString(key: "card_modify"), for: .normal)

@@ -20,7 +20,7 @@ enum BusinessDetailType {
 
 class BusinessCardVC:WLMainViewController, UITableViewDelegate,UITableViewDataSource {
     fileprivate let businessCardCellIdentifier = "AddAddressCellIdentifier"
-    fileprivate let titleArray:NSArray = ["职位","姓名","邮箱","微信","手机","支付宝"]
+    fileprivate let titleArray:NSArray = ["职位","姓名","邮箱","微信","手机","其他"]
     fileprivate var contentArray:NSArray = NSArray()
     var mineBusinessCardData = MineBusinessCardData()
     var delegate:BusinessCardDetailDelegate?
@@ -56,8 +56,7 @@ class BusinessCardVC:WLMainViewController, UITableViewDelegate,UITableViewDataSo
     }
     
     func createUI(){
-        print(mineBusinessCardData?.address! as Any)
-        let urlStr = ""
+        let urlStr = (mineBusinessCardData?.photo)!
         let name = (mineBusinessCardData?.name)?.removingPercentEncoding
         let addrsss = (mineBusinessCardData?.address)?.removingPercentEncoding
         

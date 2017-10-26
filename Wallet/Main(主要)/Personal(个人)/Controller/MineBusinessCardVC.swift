@@ -13,7 +13,6 @@ class MineBusinessCardVC: WLMainViewController,UIScrollViewDelegate,BusinessCard
     
     fileprivate var dataScore:NSArray = NSArray()
     fileprivate var dataArray:NSArray = NSArray()
-    fileprivate var avatarImageView = UIImageView()
     
     struct MineBusinessCardUX {
         static let avatarSize:CGSize = CGSize(width: XMAKE(50), height: XMAKE(50))
@@ -29,7 +28,6 @@ class MineBusinessCardVC: WLMainViewController,UIScrollViewDelegate,BusinessCard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getImage()
         self.addDefaultBackBarButtonLeft()
         self.title = LanguageHelper.getString(key: "my_card")
         self.navBarBgAlpha = "1"
@@ -42,12 +40,6 @@ class MineBusinessCardVC: WLMainViewController,UIScrollViewDelegate,BusinessCard
         vc.busiessCardType = .addBusiessCard
         vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func getImage(){
-         let data:NSData = UserDefaults.standard.object(forKey: R_UIThemeAvatarKey) as! NSData
-         let image:UIImage = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! UIImage
-         self.avatarImageView.image = image
     }
     
     func getData(){
@@ -96,7 +88,6 @@ class MineBusinessCardVC: WLMainViewController,UIScrollViewDelegate,BusinessCard
     }
     
     func createUI(data:NSArray){
-        let avatarUrl = UserDefaults.standard.getUserInfo().photo
         for item in 0...data.count - 1 {
             let model = data[item] as! MineBusinessCardData
             let x = CGFloat(20 + MineBusinessCardUX.mineBusinessSize.width * CGFloat(item) + CGFloat(20 * item))
@@ -105,10 +96,12 @@ class MineBusinessCardVC: WLMainViewController,UIScrollViewDelegate,BusinessCard
             view.backgroundColor = UIColor.R_UIRGBColor(red: 245, green: 245, blue: 245, alpha: 1)
             view.nameLabel.text = (model.name)!.removingPercentEncoding
             
-//            view.avatarImageView.sd_setImage(with: NSURL(string: avatarUrl)! as URL, placeholderImage: UIImage.init(named: "jiazaimoren"))
-            
             let jsonStr = WalletOCTools.getJSONString(fromDictionary: self.dataArray[item])
-            view.codeImageView.image = Tools.createQRForStringCodeUrl(qrString: CodeConfiguration.getCardCodeConfiguration("3", jsonStr!), imageView: self.avatarImageView)
+            view.codeImageView.image = Tools.createQRForString(qrString: CodeConfiguration.getCardCodeConfiguration("3", jsonStr!), qrImageName: "")
+            
+            if model.photo != nil {
+               view.codeAvatarImageView.sd_setImage(with: NSURL(string: model.photo!)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
+            }
             
             view.modifyButton.tag = item
             view.detailBtn.tag = item

@@ -13,7 +13,6 @@ class LoginConfiguration: NSObject {
     static let shared = LoginConfiguration.init()
     
     func relatedConfiguration(){
-        Tools.uploadImage(UserDefaults.standard.getUserInfo().photo)
 //        self.chatSettings()
     }
     

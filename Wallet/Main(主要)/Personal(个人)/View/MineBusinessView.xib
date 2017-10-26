@@ -97,14 +97,29 @@
                                         <action selector="businessDetailClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="jJ7-x7-vN7"/>
                                     </connections>
                                 </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morentouxiang" translatesAutoresizingMaskIntoConstraints="NO" id="QgU-HY-itB">
+                                    <rect key="frame" x="143.5" y="64" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="QgU-HY-itB" secondAttribute="height" multiplier="1:1" id="CCK-2z-05l"/>
+                                        <constraint firstAttribute="width" constant="50" id="Cxd-Zy-8xX"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="mp7-fZ-SNc" firstAttribute="width" secondItem="285-t4-Z98" secondAttribute="width" id="6ae-rN-1H1"/>
                                 <constraint firstItem="285-t4-Z98" firstAttribute="centerX" secondItem="H3q-e9-Fil" secondAttribute="centerX" id="JWW-zC-vOS"/>
                                 <constraint firstItem="mp7-fZ-SNc" firstAttribute="top" secondItem="285-t4-Z98" secondAttribute="top" id="MzS-fD-Guo"/>
+                                <constraint firstItem="QgU-HY-itB" firstAttribute="centerY" secondItem="mp7-fZ-SNc" secondAttribute="centerY" id="R9a-3a-zvw"/>
                                 <constraint firstItem="285-t4-Z98" firstAttribute="top" secondItem="H3q-e9-Fil" secondAttribute="top" constant="10" id="bBq-ab-DV1"/>
                                 <constraint firstItem="mp7-fZ-SNc" firstAttribute="height" secondItem="285-t4-Z98" secondAttribute="height" id="bSo-30-IiZ"/>
+                                <constraint firstItem="QgU-HY-itB" firstAttribute="centerX" secondItem="mp7-fZ-SNc" secondAttribute="centerX" id="cvG-ML-czL"/>
                                 <constraint firstItem="mp7-fZ-SNc" firstAttribute="leading" secondItem="285-t4-Z98" secondAttribute="leading" id="gEF-cN-N70"/>
                                 <constraint firstAttribute="bottom" secondItem="285-t4-Z98" secondAttribute="bottom" constant="20" id="us4-gb-xPT"/>
                             </constraints>
@@ -140,15 +155,17 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="avatarImageView" destination="Xwk-30-08L" id="Ch4-zn-8Xs"/>
+                <outlet property="codeAvatarImageView" destination="QgU-HY-itB" id="eRv-NO-QpZ"/>
                 <outlet property="codeImageView" destination="285-t4-Z98" id="v6S-0B-Zze"/>
                 <outlet property="detailBtn" destination="mp7-fZ-SNc" id="7on-41-A3x"/>
                 <outlet property="modifyButton" destination="g3C-s4-wg9" id="7Vb-NY-4TG"/>
                 <outlet property="nameLabel" destination="u7f-J2-E7f" id="eP4-MU-aBn"/>
             </connections>
-            <point key="canvasLocation" x="-493.5" y="-430"/>
+            <point key="canvasLocation" x="-592" y="-423"/>
         </view>
     </objects>
     <resources>
         <image name="icon" width="534" height="300"/>
+        <image name="morentouxiang" width="43" height="43"/>
     </resources>
 </document>

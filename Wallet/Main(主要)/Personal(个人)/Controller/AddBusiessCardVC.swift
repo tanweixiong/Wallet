@@ -94,6 +94,11 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
             let addressCell = self.tableView.cellForRow(at: IndexPath(row: 7, section: 0) )as! AddMineBusinessCardCell
             
             let name = nameCell.textField.text!
+            if name == "" {
+               SVProgressHUD.showInfo(withStatus: "请填写用户名")
+               return
+           }
+        
             let job = jobCell.textField.text!
             let mall = mallCell.textField.text!
             let phone = phoneCell.textField.text!
@@ -103,7 +108,7 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
             
             let userID = UserDefaults.standard.getUserInfo().userId
             let photo = self.minePhoto
-            
+  
             let parameters:[String :String] = ["job":job,"name":name,"email":mall,"wechat":weChat,"phone":phone,"alipay":alipay,"user_id":userID,"address":address,"photo":photo]
             
             let url = addBusinessCardType == .addBusiessMyCard ? ConstAPI.kAPIBusinessAdd : ConstAPI.kAPIFriendAddCardList
@@ -192,8 +197,8 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
                 let url = success["data"] as! String
                  let headViewCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0) )as! BusinessCardHeadCell
                  headViewCell.iconImageView.sd_setImage(with: NSURL(string: url)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
-                
                 self.minePhoto = url
+                SVProgressHUD.dismiss()
             }else{
                 SVProgressHUD.showSuccess(withStatus: LanguageHelper.getString(key: "upload_failed"))
             }

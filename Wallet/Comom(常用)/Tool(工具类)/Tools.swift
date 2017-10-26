@@ -241,20 +241,20 @@ class Tools: NSObject {
         }
     }
     
-    class func uploadImage(_ imageUrl:String){
-        DispatchQueue.global().async {
-            if let url = URL.init(string: imageUrl) {
-                do {
-                    let imageData = try Data(contentsOf: url)
-                    let image = UIImage(data: imageData)
-                    let data:NSData = NSKeyedArchiver.archivedData(withRootObject: image as Any) as NSData
-                    UserDefaults.standard.set(data, forKey: R_UIThemeAvatarKey)
-                } catch {
-                    
-                }
-            }
-        }
-    }
+//    class func uploadImage(_ imageUrl:String){
+//        DispatchQueue.global().async {
+//            if let url = URL.init(string: imageUrl) {
+//                do {
+//                    let imageData = try Data(contentsOf: url)
+//                    let image = UIImage(data: imageData)
+//                    let data:NSData = NSKeyedArchiver.archivedData(withRootObject: image as Any) as NSData
+//                    UserDefaults.standard.set(data, forKey: R_UIThemeAvatarKey)
+//                } catch {
+//                    
+//                }
+//            }
+//        }
+//    }
     
     //根据ID进行排序
    class func sortByIDs(_ json:Any) -> Any{

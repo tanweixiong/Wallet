@@ -84,6 +84,8 @@
 		2310C05E1F724D7800C00EAB /* addMarketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2310C05C1F724D7800C00EAB /* addMarketCell.xib */; };
 		2310C0601F724FA700C00EAB /* addMarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310C05F1F724FA700C00EAB /* addMarketModel.swift */; };
 		2310C0641F72649900C00EAB /* ZFReOrderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2310C0631F72649900C00EAB /* ZFReOrderTableView.m */; };
+		2310EFE01FA1722F005744AF /* FindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310EFDF1FA1722F005744AF /* FindModel.swift */; };
+		2310EFE21FA174BE005744AF /* FindDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310EFE11FA174BE005744AF /* FindDetailVC.swift */; };
 		2312DEE61F75073F00264D5F /* OpinionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2312DEE41F75073F00264D5F /* OpinionVC.swift */; };
 		2312DEE71F75073F00264D5F /* OpinionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2312DEE51F75073F00264D5F /* OpinionVC.xib */; };
 		2317C8EB1F8B1FA200EC96AE /* SalesCoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C8EA1F8B1FA200EC96AE /* SalesCoinVC.swift */; };
@@ -320,6 +322,8 @@
 		2310C05F1F724FA700C00EAB /* addMarketModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addMarketModel.swift; sourceTree = "<group>"; };
 		2310C0621F72649900C00EAB /* ZFReOrderTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFReOrderTableView.h; sourceTree = "<group>"; };
 		2310C0631F72649900C00EAB /* ZFReOrderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFReOrderTableView.m; sourceTree = "<group>"; };
+		2310EFDF1FA1722F005744AF /* FindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindModel.swift; sourceTree = "<group>"; };
+		2310EFE11FA174BE005744AF /* FindDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDetailVC.swift; sourceTree = "<group>"; };
 		2312DEE41F75073F00264D5F /* OpinionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpinionVC.swift; sourceTree = "<group>"; };
 		2312DEE51F75073F00264D5F /* OpinionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpinionVC.xib; sourceTree = "<group>"; };
 		2317C8EA1F8B1FA200EC96AE /* SalesCoinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesCoinVC.swift; sourceTree = "<group>"; };
@@ -861,6 +865,7 @@
 			isa = PBXGroup;
 			children = (
 				238DB43B1F4D4F0500ECA2C4 /* FindVC.swift */,
+				2310EFE11FA174BE005744AF /* FindDetailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1139,6 +1144,7 @@
 		23EEC84F1FA01D1500F12567 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2310EFDF1FA1722F005744AF /* FindModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1585,6 +1591,7 @@
 				2317C9051F8B77FA00EC96AE /* BuyCoinVC.swift in Sources */,
 				238DB48D1F4D6DF900ECA2C4 /* PopupView.m in Sources */,
 				236BF5C21F9F221B0060B622 /* FriendBusinessCardVC.swift in Sources */,
+				2310EFE01FA1722F005744AF /* FindModel.swift in Sources */,
 				236996221F6A61950034C120 /* TransferAccountsVC.swift in Sources */,
 				2317C8FE1F8B496900EC96AE /* WRCycleScrollView.swift in Sources */,
 				238DB44F1F4D4F6B00ECA2C4 /* UINavigationController+Cloudox.m in Sources */,
@@ -1619,6 +1626,7 @@
 				230EF9B01F6FBE5F006E82E6 /* AutorizeButton.swift in Sources */,
 				23F4F6C31F70F86F00C2FC7C /* LBXScanLineAnimation.swift in Sources */,
 				23683D471F9DC28500D63638 /* LanguageSelection.swift in Sources */,
+				2310EFE21FA174BE005744AF /* FindDetailVC.swift in Sources */,
 				230B83B41F63C36100BD8306 /* AssetsModel.swift in Sources */,
 				23F4F6C61F70F86F00C2FC7C /* LBXScanViewController.swift in Sources */,
 				236996261F6A6D030034C120 /* PaymentConfirmationVC.swift in Sources */,
