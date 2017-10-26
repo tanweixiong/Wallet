@@ -29,6 +29,9 @@ public let R_huangXinChatKey = "1163171010178071#ec"
 //二维码标识
 public let R_Theme_QRCode = "echain"
 
+//K线图的地址
+public let R_Theme_lineGraph = "http://192.168.10.223:5500/?id="
+
 //保存用户资料
 public let R_UserInfo = "userInfo"
 

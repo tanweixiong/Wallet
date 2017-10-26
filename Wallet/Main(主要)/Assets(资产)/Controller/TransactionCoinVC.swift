@@ -9,8 +9,9 @@
 import UIKit
 import ObjectMapper
 import MJRefresh
+import SVProgressHUD
 
-class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource {
+class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate {
     
     enum transactionStyle: Int {
         case generalType = 0
@@ -45,6 +46,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         self.createUI()
         self.getData()
         self.setTransactionStyle()
+        self.setWebView()
     }
     
     
@@ -90,23 +92,39 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         }) { (error) in
             self.tableView.mj_header.endRefreshing()
         }
-        
     }
     
     func setTransactionStyle(){
-        
         switch mytransactionStyle {
         case transactionStyle.generalType:
-            
             generalView.isHidden = false
-            
             break
         case transactionStyle.specialType:
-            
             specialView.isHidden = false
-            
             break
         }
+    }
+    
+    func setWebView(){
+        let id:String = (assetsListModel.id?.stringValue)!
+        let url:NSURL = NSURL.init(string: R_Theme_lineGraph + "\(id)")!
+        webView.delegate = self
+        webView.loadRequest(NSURLRequest(url: url as URL) as URLRequest)
+    }
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        let time: TimeInterval = 0.5
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+            SVProgressHUD.dismiss()
+        }
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "network_poor"))
     }
 
     //转账
@@ -159,6 +177,10 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         tableView.tableFooterView = UIView()
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            self.getData()
+        })
+        
+        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
             self.getData()
         })
         return tableView

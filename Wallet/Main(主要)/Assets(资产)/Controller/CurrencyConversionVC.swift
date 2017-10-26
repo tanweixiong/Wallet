@@ -35,12 +35,11 @@ class CurrencyConversionVC: WLMainViewController,UITableViewDelegate,UITableView
         NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPICoinlist, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<AssetsDetailsModel>().map(JSONObject: json)
             if responseData?.code == 100 {
+                self.tableView.backgroundColor = R_UIThemeColor
                 self.dataScore.addObjects(from: (responseData?.data)!)
                 self.tableView.reloadData()
-            }else if responseData?.code == 200 {
-                LoginVC.setTokenInvalidation()
             }else{
-                SVProgressHUD.showInfo(withStatus: responseData?.msg)
+//                SVProgressHUD.showInfo(withStatus: responseData?.msg)
             }
         }) { (error) in
             
@@ -99,7 +98,7 @@ class CurrencyConversionVC: WLMainViewController,UITableViewDelegate,UITableView
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "CurrencyConversionCell", bundle: nil),forCellReuseIdentifier: self.currencyConversionCellIdentifier)
-        tableView.backgroundColor = R_UIThemeColor
+        tableView.backgroundColor = UIColor.white
         tableView.tableFooterView = UIView()
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
         tableView.separatorStyle = .none
