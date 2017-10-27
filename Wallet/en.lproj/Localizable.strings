@@ -226,8 +226,8 @@
 "card_job" = "job";
 "card_mall" = "mall";
 "card_phone" = "phone";
-"card_weChat" = "weChat";
-"card_other" = "other";
+"card_IM" = "IM";
+"card_company" = "company";
 "card_address" = "address";
 "add_card" = "add card";
 "modify_card" = "modify card";
@@ -235,6 +235,16 @@
 "card_avatar" = "avatar";
 "modify_card_finish" = "Modify finish";
 "please_fill_finish" = "Please enter the correct phone number or email";
+"transaction_amount" = "Amount";
+"transaction_data" = "Data";
+"transaction_type" = "Type";
+
+"transaction_Transaction_Details" = "Transaction Details";
+"transaction_Serial_Number" = "Serial Number";
+"transaction_Payee" = "Payee";
+"transaction_Transaction_Type" = "Transaction Type";
+"transaction_Transaction_Amount" = "Transaction Amount";
+"transaction_Remark" = "Remark";
 
 
 

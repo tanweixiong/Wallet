@@ -20,7 +20,7 @@ enum BusinessDetailType {
 
 class BusinessCardVC:WLMainViewController, UITableViewDelegate,UITableViewDataSource {
     fileprivate let businessCardCellIdentifier = "AddAddressCellIdentifier"
-    fileprivate let titleArray:NSArray = ["职位","姓名","邮箱","微信","手机","其他"]
+    fileprivate let titleArray:NSArray = [LanguageHelper.getString(key: "card_job"),LanguageHelper.getString(key: "card_name"),LanguageHelper.getString(key: "card_mall"),LanguageHelper.getString(key: "card_IM"),LanguageHelper.getString(key: "card_phone"),LanguageHelper.getString(key: "card_company")]
     fileprivate var contentArray:NSArray = NSArray()
     var mineBusinessCardData = MineBusinessCardData()
     var delegate:BusinessCardDetailDelegate?

@@ -90,6 +90,7 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
     @IBAction func pushToContacts(_ sender: UIButton) {
         let vc = ContactsVC()
         vc.delegate = self
+        vc.isAddContacts = true
         self.pushNextViewController(vc, true)
     }
 

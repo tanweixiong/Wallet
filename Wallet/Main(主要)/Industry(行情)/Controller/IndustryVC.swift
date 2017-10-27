@@ -63,7 +63,6 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
                 SVProgressHUD.showInfo(withStatus: responseData?.msg)
             }
         }) { (error) in
-
         }
     }
     
@@ -110,9 +109,9 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: industryViewCellIdentifier, for: indexPath) as! IndustryViewCell
         cell.selectionStyle = .none
         let model = self.dataScore[indexPath.section] as! IndustryListData
-        cell.cnyLabel.text = "¥" + " " + (model.cny?.stringValue)!
+        cell.cnyLabel.text = "¥" + " " + "\(model.cny!)"
         cell.coin_nameLabel.text = model.coin_name
-        cell.usdLabel.text = "$" + " " + (model.usd?.stringValue)!
+        cell.usdLabel.text = "$" + " " + "\(model.usd!)"
         cell.limitLabel.text = (model.limit?.stringValue)! + "" + "%"
         return cell
     }

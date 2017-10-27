@@ -26,6 +26,8 @@
 		230ACA901F551727005D590F /* NetWorkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230ACA8F1F551727005D590F /* NetWorkTool.swift */; };
 		230ACA931F551B15005D590F /* WLProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230ACA921F551B15005D590F /* WLProgressHUD.swift */; };
 		230ACA951F5554F3005D590F /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230ACA941F5554F3005D590F /* ForgetPasswordVC.swift */; };
+		230AEA961FA2D5DC00D42308 /* TransactionCoinDetailVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230AEA951FA2D5DC00D42308 /* TransactionCoinDetailVw.swift */; };
+		230AEA981FA2D5F300D42308 /* TransactionCoinDetailVw.xib in Resources */ = {isa = PBXBuildFile; fileRef = 230AEA971FA2D5F300D42308 /* TransactionCoinDetailVw.xib */; };
 		230B05A41F9463C000BDCDE7 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B05A31F9463C000BDCDE7 /* BaseURL.swift */; };
 		230B19081F58F71C008D6159 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B19071F58F71C008D6159 /* ContactsVC.swift */; };
 		230B190B1F58F740008D6159 /* ContactsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B19091F58F740008D6159 /* ContactsViewCell.swift */; };
@@ -258,6 +260,8 @@
 		230ACA8F1F551727005D590F /* NetWorkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkTool.swift; sourceTree = "<group>"; };
 		230ACA921F551B15005D590F /* WLProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLProgressHUD.swift; sourceTree = "<group>"; };
 		230ACA941F5554F3005D590F /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
+		230AEA951FA2D5DC00D42308 /* TransactionCoinDetailVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCoinDetailVw.swift; sourceTree = "<group>"; };
+		230AEA971FA2D5F300D42308 /* TransactionCoinDetailVw.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCoinDetailVw.xib; sourceTree = "<group>"; };
 		230B05A31F9463C000BDCDE7 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		230B19071F58F71C008D6159 /* ContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		230B19091F58F740008D6159 /* ContactsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewCell.swift; sourceTree = "<group>"; };
@@ -857,6 +861,8 @@
 				2369961D1F6A53FD0034C120 /* TransactionCoinCell.xib */,
 				23ACA51D1F78F38D0010C628 /* QRCodeImageView.swift */,
 				23ACA51E1F78F38D0010C628 /* QRCodeImageView.xib */,
+				230AEA951FA2D5DC00D42308 /* TransactionCoinDetailVw.swift */,
+				230AEA971FA2D5F300D42308 /* TransactionCoinDetailVw.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1332,6 +1338,7 @@
 				236996231F6A61950034C120 /* TransferAccountsVC.xib in Resources */,
 				2307C8A11F4FCD78002580BF /* IndustryViewCell.xib in Resources */,
 				2369960A1F6915120034C120 /* trade.bundle in Resources */,
+				230AEA981FA2D5F300D42308 /* TransactionCoinDetailVw.xib in Resources */,
 				238DB3F81F4D4C0700ECA2C4 /* LaunchScreen.storyboard in Resources */,
 				23326A891F57BBF800676CA1 /* ManageWalletsCell.xib in Resources */,
 				230A04871F67BABC007EF3AB /* IndustryDetailsVC.xib in Resources */,
@@ -1590,6 +1597,7 @@
 				2369960B1F6915120034C120 /* UIAlertView+Quick.m in Sources */,
 				2317C9051F8B77FA00EC96AE /* BuyCoinVC.swift in Sources */,
 				238DB48D1F4D6DF900ECA2C4 /* PopupView.m in Sources */,
+				230AEA961FA2D5DC00D42308 /* TransactionCoinDetailVw.swift in Sources */,
 				236BF5C21F9F221B0060B622 /* FriendBusinessCardVC.swift in Sources */,
 				2310EFE01FA1722F005744AF /* FindModel.swift in Sources */,
 				236996221F6A61950034C120 /* TransferAccountsVC.swift in Sources */,

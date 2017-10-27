@@ -29,7 +29,7 @@ public protocol BusinessCardDelegate {
 class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDataSource {
     fileprivate let addMineBusinessCardCellIdentifier = "AddMineBusinessCardCellIdentifier"
     fileprivate let addMineBusinessCardHeadCellIdentifier = "AddMineBusinessCardHeadCellIdentifier"
-    fileprivate let titleArray:NSArray = [LanguageHelper.getString(key: "card_avatar"),LanguageHelper.getString(key: "card_name"),LanguageHelper.getString(key: "card_job"),LanguageHelper.getString(key: "card_mall"),LanguageHelper.getString(key: "card_phone"),LanguageHelper.getString(key: "card_weChat"),LanguageHelper.getString(key: "card_other"),LanguageHelper.getString(key: "card_address")]
+    fileprivate let titleArray:NSArray = [LanguageHelper.getString(key: "card_avatar"),LanguageHelper.getString(key: "card_name"),LanguageHelper.getString(key: "card_company"),LanguageHelper.getString(key: "card_job"),LanguageHelper.getString(key: "card_mall"),LanguageHelper.getString(key: "card_IM"),LanguageHelper.getString(key: "card_phone"),LanguageHelper.getString(key: "card_address")]
     fileprivate var contentArray = NSArray()
     fileprivate let photoAlbum = LJXPhotoAlbum()
     fileprivate var minePhoto =  UserDefaults.standard.getUserInfo().photo
@@ -63,11 +63,11 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
         if busiessCardType == .updateBusiessCard || busiessCardType == .addBusiessFriendCard{
             self.contentArray = ["头像"
                                  ,(mineBusinessCardData?.name)!
+                                 ,(mineBusinessCardData?.alipay)!
                                 ,(mineBusinessCardData?.job)!
                                 ,(mineBusinessCardData?.email)!
-                                ,(mineBusinessCardData?.phone)!
                                 ,(mineBusinessCardData?.wechat)!
-                                ,(mineBusinessCardData?.alipay)!
+                                ,(mineBusinessCardData?.phone)!
                                 ,(mineBusinessCardData?.address)!]
 
         }
@@ -86,11 +86,11 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
     //添加名片
     func addCard(){
             let nameCell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0) )as! AddMineBusinessCardCell
-            let jobCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 0) )as! AddMineBusinessCardCell
-            let mallCell = self.tableView.cellForRow(at: IndexPath(row: 3, section: 0) )as! AddMineBusinessCardCell
-            let phoneCell = self.tableView.cellForRow(at: IndexPath(row: 4, section: 0) )as! AddMineBusinessCardCell
+            let companyCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 0) )as! AddMineBusinessCardCell
+            let jobCell = self.tableView.cellForRow(at: IndexPath(row: 3, section: 0) )as! AddMineBusinessCardCell
+            let mallCell = self.tableView.cellForRow(at: IndexPath(row: 4, section: 0) )as! AddMineBusinessCardCell
             let weChatCell = self.tableView.cellForRow(at: IndexPath(row: 5, section: 0) )as! AddMineBusinessCardCell
-            let alpayCell = self.tableView.cellForRow(at: IndexPath(row: 6, section: 0) )as! AddMineBusinessCardCell
+            let phoneCell = self.tableView.cellForRow(at: IndexPath(row: 6, section: 0) )as! AddMineBusinessCardCell
             let addressCell = self.tableView.cellForRow(at: IndexPath(row: 7, section: 0) )as! AddMineBusinessCardCell
             
             let name = nameCell.textField.text!
@@ -99,17 +99,16 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
                return
            }
         
+            let company = companyCell.textField.text!
             let job = jobCell.textField.text!
             let mall = mallCell.textField.text!
             let phone = phoneCell.textField.text!
             let weChat = weChatCell.textField.text!
-            let alipay = alpayCell.textField.text!
             let address = addressCell.textField.text!
-            
             let userID = UserDefaults.standard.getUserInfo().userId
             let photo = self.minePhoto
   
-            let parameters:[String :String] = ["job":job,"name":name,"email":mall,"wechat":weChat,"phone":phone,"alipay":alipay,"user_id":userID,"address":address,"photo":photo]
+            let parameters:[String :String] = ["job":job,"name":name,"email":mall,"wechat":weChat,"phone":phone,"alipay":company,"user_id":userID,"address":address,"photo":photo]
             
             let url = addBusinessCardType == .addBusiessMyCard ? ConstAPI.kAPIBusinessAdd : ConstAPI.kAPIFriendAddCardList
             
@@ -134,26 +133,26 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
     func updateMyCard(){
         
         let nameCell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0) )as! AddMineBusinessCardCell
-        let jobCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 0) )as! AddMineBusinessCardCell
-        let mallCell = self.tableView.cellForRow(at: IndexPath(row: 3, section: 0) )as! AddMineBusinessCardCell
-        let phoneCell = self.tableView.cellForRow(at: IndexPath(row: 4, section: 0) )as! AddMineBusinessCardCell
-        let weChatCell = self.tableView.cellForRow(at: IndexPath(row: 5, section: 0) )as! AddMineBusinessCardCell
-        let alpayCell = self.tableView.cellForRow(at: IndexPath(row: 6, section: 0) )as! AddMineBusinessCardCell
+        let companyCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 0) )as! AddMineBusinessCardCell
+        let jobCell = self.tableView.cellForRow(at: IndexPath(row: 3, section: 0) )as! AddMineBusinessCardCell
+        let mallCell = self.tableView.cellForRow(at: IndexPath(row: 4, section: 0) )as! AddMineBusinessCardCell
+       let weChatCell = self.tableView.cellForRow(at: IndexPath(row: 5, section: 0) )as! AddMineBusinessCardCell
+        let phoneCell = self.tableView.cellForRow(at: IndexPath(row: 6, section: 0) )as! AddMineBusinessCardCell
         let addressCell = self.tableView.cellForRow(at: IndexPath(row: 7, section: 0) )as! AddMineBusinessCardCell
         
         let name = nameCell.textField.text!
+        let company = companyCell.textField.text!
         let job = jobCell.textField.text!
         let mall = mallCell.textField.text!
         let phone = phoneCell.textField.text!
         let weChat = weChatCell.textField.text!
-        let alipay = alpayCell.textField.text!
         let address = addressCell.textField.text!
         
         let userID = UserDefaults.standard.getUserInfo().userId
         let photo = self.minePhoto
         let id:String = (mineBusinessCardData?.id)!
         
-        let parameters:[String : String] = ["job":job,"name":name,"email":mall,"wechat":weChat,"phone":phone,"alipay":alipay,"user_id":userID,"photo":photo,"id":id,"address":address]
+        let parameters:[String : String] = ["job":job,"name":name,"email":mall,"wechat":weChat,"phone":phone,"alipay":company,"user_id":userID,"photo":photo,"id":id,"address":address]
         let user = ConstAPI.kAPIUpdateMyCard
         NetWorkTool.request(requestType: .post, URLString: user, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<MineBusinessCardModel>().map(JSONObject: json)

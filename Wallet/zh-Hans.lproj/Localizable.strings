@@ -225,8 +225,8 @@
 "card_job" = "职业";
 "card_mall" = "邮箱";
 "card_phone" = "手机";
-"card_weChat" = "微信";
-"card_other" = "其他";
+"card_IM" = "IM";
+"card_company" = "公司";
 "card_address" = "地址";
 "add_card" = "添加名片";
 "card_avatar" = "头像";
@@ -235,6 +235,16 @@
 "friends_business_card" = "好友名片";
 "modify_card_finish" = "修改成功";
 "please_fill_finish" = "请输入正确的手机号码或者邮箱";
+"transaction_amount" = "金额";
+"transaction_data" = "日期";
+"transaction_type" = "类型";
+
+"transaction_Transaction_Details" = "交易明细";
+"transaction_Serial_Number" = "交易号";
+"transaction_Payee" = "收款人";
+"transaction_Transaction_Type" = "交易类型";
+"transaction_Transaction_Amount" = "交易金额";
+"transaction_Remark" = "备注";
 
 
 

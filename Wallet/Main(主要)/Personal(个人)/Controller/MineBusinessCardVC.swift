@@ -99,9 +99,14 @@ class MineBusinessCardVC: WLMainViewController,UIScrollViewDelegate,BusinessCard
             let jsonStr = WalletOCTools.getJSONString(fromDictionary: self.dataArray[item])
             view.codeImageView.image = Tools.createQRForString(qrString: CodeConfiguration.getCardCodeConfiguration("3", jsonStr!), qrImageName: "")
             
-            if model.photo != nil {
-               view.codeAvatarImageView.sd_setImage(with: NSURL(string: model.photo!)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
+            if model.photo == nil {
+               model.photo = ""
             }
+            
+            view.codeAvatarImageView.sd_setImage(with: NSURL(string: model.photo!)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
+            view.avatarImageView.sd_setImage(with: NSURL(string: model.photo!)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
+            view.avatarImageView.layer.cornerRadius = view.avatarImageView.frame.width/2
+            view.avatarImageView.clipsToBounds = true
             
             view.modifyButton.tag = item
             view.detailBtn.tag = item

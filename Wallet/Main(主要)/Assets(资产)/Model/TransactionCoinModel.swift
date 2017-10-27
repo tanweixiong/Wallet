@@ -13,7 +13,7 @@ class TransactionList: Mappable{
     
     var coin_no: NSNumber?
     var flag: NSNumber?
-    var serialNumber: NSNumber?
+    var serialNumber: String?
     var endDate: String?
     var remark:   String?
     var type: NSNumber?
@@ -55,11 +55,23 @@ class TransactionList: Mappable{
     }
 }
 
+class currentPage: Mappable {
+    var data: [TransactionList]?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        data        <- map["currentPage"]
+    }
+}
+
 class TransactionCoinModel: Mappable {
     
-    var code: NSNumber?
+    var code: String?
     var msg: String?
-    var data: [TransactionList]?
+    var data: currentPage?
     
     required init?(map: Map) {
         

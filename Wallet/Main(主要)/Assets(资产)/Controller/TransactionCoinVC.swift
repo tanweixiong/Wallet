@@ -17,7 +17,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         case generalType = 0
         case specialType = 1
     }
-    
+
     var mytransactionStyle = transactionStyle.generalType
     @IBOutlet weak var remainderMoneyLabel: UILabel!
     @IBOutlet weak var sumMoneyLabel: UILabel!
@@ -47,8 +47,8 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         self.getData()
         self.setTransactionStyle()
         self.setWebView()
+        UIApplication.shared.keyWindow?.addSubview(tableViewDetailVw)
     }
-    
     
     func createUI (){
         transactionCoinVw.addSubview(tableView)
@@ -79,10 +79,10 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIGetBill, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<TransactionCoinModel>().map(JSONObject: json)
             if let code = responseData?.code {
-                if code == 100 {
+                if code == "100" {
                     self.page = self.page + 1
                     let array = NSMutableArray()
-                    array.addObjects(from: (responseData?.data)!)
+                    array.addObjects(from: (responseData?.data?.data)!)
                     array.addObjects(from: self.dataScore as! [Any])
                     self.dataScore = array
                     self.tableView.reloadData()
@@ -106,14 +106,14 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     }
     
     func setWebView(){
-        let id:String = (assetsListModel.id?.stringValue)!
-        let url:NSURL = NSURL.init(string: R_Theme_lineGraph + "\(id)")!
+        let id:String = (assetsListModel.coin_no?.stringValue)!
+        let url:NSURL = NSURL.init(string: ConstAPI.kAPIMYBaseURL + "index.html?" + "coinNo=" + "\(id)" + "&" + "type=" + "1min")!
         webView.delegate = self
         webView.loadRequest(NSURLRequest(url: url as URL) as URLRequest)
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
-        
+        SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "Loading"), maskType: .black)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -124,7 +124,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "network_poor"))
+//        SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "network_poor"))
     }
 
     //转账
@@ -146,7 +146,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataScore.count
+        return self.dataScore.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -160,11 +160,30 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: transactionCoinIdentifier, for: indexPath) as! TransactionCoinCell
         cell.selectionStyle = .none
-        let model = dataScore[indexPath.row] as! TransactionList
-        cell.titleLabel.text = model.paymentName
-        cell.contentLabel.text = model.money?.stringValue
-        cell.statusLabel.text = model.operate
+        if indexPath.row == 0 {
+            cell.amountLabel.text = LanguageHelper.getString(key: "transaction_amount")
+            cell.dataLabel.text = LanguageHelper.getString(key: "transaction_data")
+            cell.typeLabel.text = LanguageHelper.getString(key: "transaction_type")
+        }else{
+            let model = dataScore[indexPath.row - 1] as! TransactionList
+            cell.amountLabel.text = model.money?.stringValue
+            cell.dataLabel.text =  model.beginDate
+            cell.typeLabel.text = model.operate
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row != 0 {
+            let model = dataScore[indexPath.row] as! TransactionList
+            tableViewDetailVw.isHidden = false
+            self.tableViewDetailVw.serialNumberRLabel.text = model.serialNumber
+            self.tableViewDetailVw.payeeRLabel.text = model.userId
+            self.tableViewDetailVw.transactionTypeRLabel.text = model.operate
+            self.tableViewDetailVw.transactionAmountRLabel.text = model.money?.stringValue
+            self.tableViewDetailVw.dataRLabel.text = model.beginDate
+            self.tableViewDetailVw.remarkRLabel.text = model.remark
+        }
     }
     
     lazy var tableView: UITableView = {
@@ -179,11 +198,15 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
             self.getData()
         })
-        
-        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
-            self.getData()
-        })
         return tableView
+    }()
+    
+    lazy var tableViewDetailVw: TransactionCoinDetailVw = {
+        let view = Bundle.main.loadNibNamed("TransactionCoinDetailVw", owner: nil, options: nil)?.last as! TransactionCoinDetailVw
+        view.isHidden = true
+        view.frame = (UIApplication.shared.keyWindow?.bounds)!
+        view.backgroundColor = UIColor.R_UIRGBColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        return view
     }()
     
     override func didReceiveMemoryWarning() {

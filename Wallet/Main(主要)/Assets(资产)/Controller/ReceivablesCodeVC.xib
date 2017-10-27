@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReceivablesCodeVC" customModule="Wallet" customModuleProvider="target">
             <connections>
                 <outlet property="QRCodeImageView" destination="rfZ-5C-pNM" id="zY9-ok-7jV"/>
-                <outlet property="amountTF" destination="vPz-5g-660" id="0pS-Qc-oRr"/>
                 <outlet property="backgroundVw" destination="EKp-Za-qtx" id="mFQ-zz-tP2"/>
                 <outlet property="copyAddressButton" destination="Jfz-dU-1gR" id="iHH-lJ-TCe"/>
                 <outlet property="iconNameLabel" destination="XUQ-kK-LQW" id="8uu-p5-px8"/>
@@ -56,13 +55,25 @@
                                                 <action selector="backOnClick:" destination="-1" eventType="touchUpInside" id="j12-3G-y6H"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYf-t0-6m2">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="xYf-t0-6m2" secondAttribute="height" multiplier="1:1" id="BCr-5Q-dgn"/>
+                                                <constraint firstAttribute="width" constant="60" id="fPw-7d-1Ky"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="backOnClick:" destination="-1" eventType="touchUpInside" id="Jhj-tp-GHK"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="XUQ-kK-LQW" firstAttribute="centerY" secondItem="5dx-Cz-ZKb" secondAttribute="centerY" id="6W0-EJ-bu2"/>
                                         <constraint firstAttribute="height" constant="64" id="IgC-9v-NdW"/>
                                         <constraint firstItem="xPE-FQ-dfA" firstAttribute="leading" secondItem="5dx-Cz-ZKb" secondAttribute="leading" constant="10" id="MWB-Aa-jkS"/>
                                         <constraint firstItem="XUQ-kK-LQW" firstAttribute="centerX" secondItem="5dx-Cz-ZKb" secondAttribute="centerX" id="fSY-zp-5Ll"/>
+                                        <constraint firstItem="xYf-t0-6m2" firstAttribute="leading" secondItem="5dx-Cz-ZKb" secondAttribute="leading" id="pr6-lh-Rap"/>
                                         <constraint firstItem="xPE-FQ-dfA" firstAttribute="centerY" secondItem="XUQ-kK-LQW" secondAttribute="centerY" id="uu1-IV-cCK"/>
+                                        <constraint firstItem="xYf-t0-6m2" firstAttribute="top" secondItem="5dx-Cz-ZKb" secondAttribute="top" id="ycv-WG-gzC"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -95,17 +106,8 @@
                                                 <constraint firstAttribute="width" secondItem="rfZ-5C-pNM" secondAttribute="height" multiplier="1:1" id="yk4-dH-4BP"/>
                                             </constraints>
                                         </imageView>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPz-5g-660">
-                                            <rect key="frame" x="80" y="287" width="195" height="30"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="-1" id="fcb-ji-TxK"/>
-                                            </connections>
-                                        </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfz-dU-1gR">
-                                            <rect key="frame" x="80" y="327" width="195" height="40"/>
+                                            <rect key="frame" x="80" y="287" width="195" height="40"/>
                                             <color key="backgroundColor" red="0.37647058820000001" green="0.83921568629999999" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Q0O-A3-PQX"/>
@@ -130,13 +132,10 @@
                                         <constraint firstItem="lig-7l-wbA" firstAttribute="top" secondItem="EKp-Za-qtx" secondAttribute="top" constant="45" id="EUN-6c-J52"/>
                                         <constraint firstAttribute="trailing" secondItem="rfZ-5C-pNM" secondAttribute="trailing" constant="80" id="Hpd-PW-EcX"/>
                                         <constraint firstItem="lig-7l-wbA" firstAttribute="centerX" secondItem="EKp-Za-qtx" secondAttribute="centerX" id="JM6-3L-KDb"/>
-                                        <constraint firstItem="vPz-5g-660" firstAttribute="width" secondItem="rfZ-5C-pNM" secondAttribute="width" id="S72-UG-u0Q"/>
                                         <constraint firstItem="rfZ-5C-pNM" firstAttribute="leading" secondItem="EKp-Za-qtx" secondAttribute="leading" constant="80" id="agY-mB-bUT"/>
                                         <constraint firstItem="Jfz-dU-1gR" firstAttribute="centerX" secondItem="EKp-Za-qtx" secondAttribute="centerX" id="gAv-zv-6pa"/>
-                                        <constraint firstItem="Jfz-dU-1gR" firstAttribute="top" secondItem="vPz-5g-660" secondAttribute="bottom" constant="10" id="gcE-Yc-fPD"/>
-                                        <constraint firstItem="vPz-5g-660" firstAttribute="centerX" secondItem="EKp-Za-qtx" secondAttribute="centerX" id="qBX-8e-GYT"/>
+                                        <constraint firstItem="Jfz-dU-1gR" firstAttribute="top" secondItem="rfZ-5C-pNM" secondAttribute="bottom" constant="10" id="sl0-0b-IEX"/>
                                         <constraint firstItem="rfZ-5C-pNM" firstAttribute="top" secondItem="lig-7l-wbA" secondAttribute="bottom" constant="20" id="vaE-Ca-t9a"/>
-                                        <constraint firstItem="vPz-5g-660" firstAttribute="top" secondItem="rfZ-5C-pNM" secondAttribute="bottom" constant="10" id="zFk-Nk-E5a"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

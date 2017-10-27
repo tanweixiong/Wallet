@@ -21,10 +21,9 @@ class FindDetailVC: WLMainViewController,UIWebViewDelegate  {
     }
     
     func setWebView(){
-      
         let id:String = (findDetailModel?.id)!
         webView.delegate = self
-        let url:NSURL = NSURL.init(string: "http://10.0.0.11/dhs-wallet/information.jsp?id=\(id)")!
+        let url:NSURL = NSURL.init(string: ConstAPI.kAPIMYBaseURL + "information.jsp?id=\(id)")!
         webView.loadRequest(NSURLRequest(url: url as URL) as URLRequest)
         self.view.addSubview(webView)
     }

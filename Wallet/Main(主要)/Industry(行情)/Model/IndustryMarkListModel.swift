@@ -12,7 +12,7 @@ import ObjectMapper
 class IndustryMarkListdata: Mappable{
     
     var amount: NSNumber?
-    var cny: NSNumber?
+    var cny: CGFloat?
     var coin_name: String?
     var coin_no: NSNumber?
     var limit:   NSNumber?
@@ -20,7 +20,7 @@ class IndustryMarkListdata: Mappable{
     var p_last: NSNumber?
     var p_open: NSNumber?
     var uporlow: NSNumber?
-    var usd: NSNumber?
+    var usd: CGFloat?
     
     required init?(map: Map) {
         
