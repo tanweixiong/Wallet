@@ -177,7 +177,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 0 {
-            let model = dataScore[indexPath.row] as! TransactionList
+            let model = dataScore[indexPath.row - 1] as! TransactionList
             tableViewDetailVw.isHidden = false
             self.tableViewDetailVw.serialNumberRLabel.text = model.serialNumber
             self.tableViewDetailVw.payeeRLabel.text = model.userId
