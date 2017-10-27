@@ -10,6 +10,9 @@ import UIKit
 import SVProgressHUD
 import ObjectMapper
 
+protocol CreateWalletDelegate {
+    func createWalletFinish(_ account:String,_ password:String)
+}
 class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
     
     struct CreateWalletUX {
@@ -34,6 +37,7 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
     let codeTextField = UITextField()
     var getCodeButton:UIButton = UIButton(type:.custom)
     let createWallet = UIButton()
+    var delegate:CreateWalletDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +76,8 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
                 if let code = responseData?.code {
                     if code == 100 {
                         WLSuccess(responseData?.msg)
-                        self.navigationController?.popViewController(animated: true)
+                    self.delegate?.createWalletFinish(self.accountTextField.text!,self.passwordTextField.text!)
+                    self.dismiss(animated: true, completion: { })
                     } else {
                         WLInfo(responseData?.msg)
                     }

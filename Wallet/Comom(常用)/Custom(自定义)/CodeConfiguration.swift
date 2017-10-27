@@ -28,14 +28,15 @@ class CodeConfiguration: NSObject {
             success(address,type)
         //转账
         }else if type == "2"{
-            
+            success(address,type)
         //名片 直接添加好友
-        }else {
+        }else if type == "3" {
             self.addFriendBusinessCard(vc, businesscard)
             success(address,type)
         }
     }
     
+    //添加好友
     class func addFriendBusinessCard(_ vc:UIViewController,_ data:String){
         vc.navigationController?.popToRootViewController(animated: false)
         
@@ -50,5 +51,4 @@ class CodeConfiguration: NSObject {
         addBusiessCardVC.busiessCardType = .addBusiessFriendCard
         vc.navigationController?.pushViewController(addBusiessCardVC, animated: true)
     }
-    
 }

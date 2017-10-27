@@ -75,7 +75,8 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     
     func getData(){
         let user_id = UserDefaults.standard.getUserInfo().userId
-        let parameters = ["userId":user_id,"page":"\(page)","flag":"0"]
+        let coin_no = (assetsListModel.coin_no)?.stringValue
+        let parameters:[String:Any] = ["userId":user_id,"page":"\(page)","flag":coin_no!]
         NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIGetBill, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<TransactionCoinModel>().map(JSONObject: json)
             if let code = responseData?.code {
@@ -108,12 +109,13 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     func setWebView(){
         let id:String = (assetsListModel.coin_no?.stringValue)!
         let url:NSURL = NSURL.init(string: ConstAPI.kAPIMYBaseURL + "index.html?" + "coinNo=" + "\(id)" + "&" + "type=" + "1min")!
+        print(url)
         webView.delegate = self
         webView.loadRequest(NSURLRequest(url: url as URL) as URLRequest)
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
-        SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "Loading"), maskType: .black)
+//        SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "Loading"), maskType: .black)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {

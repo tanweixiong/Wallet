@@ -14,8 +14,8 @@ enum LoginType {
     case chinaeseVersion
     case englishVersion
 }
-class LoginVC: WLMainViewController {
-    
+class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegate {
+
     struct LoginUX {
         static let textFieldFont: CGFloat = YMAKE(14)
         static let loginButtonFont: CGFloat = YMAKE(16)
@@ -59,9 +59,11 @@ class LoginVC: WLMainViewController {
                 let language = UserDefaults.standard.object(forKey: R_Languages) as! String
                 if language == "en" {
                     let vc = CreateMallWalletVC()
+                    vc.delegate = self
                     self.present(vc, animated: true, completion: {})
                 }else{
                     let vc = CreateWalletVC()
+                    vc.delegate = self
                     self.present(vc, animated: true, completion: {})
                 }
             }else{
@@ -124,6 +126,16 @@ class LoginVC: WLMainViewController {
         let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
         UIGraphicsEndImageContext();
         return image;
+    }
+    
+    func createWalletFinish(_ account: String, _ password: String) {
+         accountTextField.text = account
+         passwordTextField.text = password
+    }
+    
+    func createMallWalletFinish(_ account: String, _ password: String) {
+        accountTextField.text = account
+        passwordTextField.text = password
     }
     
     override func didReceiveMemoryWarning() {

@@ -10,6 +10,10 @@ import UIKit
 import SVProgressHUD
 import ObjectMapper
 
+protocol CreateMallWalletDelegate {
+    func createMallWalletFinish(_ account:String,_ password:String)
+}
+
 class CreateMallWalletVC: WLMainViewController,UITextFieldDelegate {
     
     struct CreateWalletUX {
@@ -26,6 +30,7 @@ class CreateMallWalletVC: WLMainViewController,UITextFieldDelegate {
         static let topViewHeightRatio = 0.25
     }
     
+    var delegate:CreateMallWalletDelegate?
     var time:Int = 60
     let verifySuccessfulColor:UIColor = UIColor.R_UIColorFromRGB(color:0xf9ced7)
     let walletNameTextField = UITextField()
@@ -34,6 +39,7 @@ class CreateMallWalletVC: WLMainViewController,UITextFieldDelegate {
     let codeTextField = UITextField()
     var getCodeButton:UIButton = UIButton(type:.custom)
     let createWallet = UIButton()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +85,8 @@ class CreateMallWalletVC: WLMainViewController,UITextFieldDelegate {
                 if let code = responseData?.code {
                     if code == 100 {
                         WLSuccess(responseData?.msg)
-                        self.navigationController?.popViewController(animated: true)
+                        self.delegate?.createMallWalletFinish(self.accountTextField.text!, self.passwordTextField.text!)
+                        self.dismiss(animated: true, completion: { })
                     } else {
                         WLInfo(responseData?.msg)
                     }

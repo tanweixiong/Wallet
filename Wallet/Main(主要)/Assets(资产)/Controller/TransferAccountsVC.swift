@@ -19,17 +19,14 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
     @IBOutlet weak var remarkTF: UITextField!
     
     @IBOutlet weak var nextButton: UIButton!
-    
-    var receivablesIdString:String = ""
-    
     var totalMoneyString:String = ""
-
+    var receiveAddressString:String = ""
     var coinName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = coinName + LanguageHelper.getString(key: "transfer")
-
+        self.receiveAddressTF.text = receiveAddressString;
         self.setTransferAccounts()
         self.addDefaultButtonImageLeft("cuowu")
         self.addDefaultButtonImageRight("saoyisao")
@@ -67,7 +64,13 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
                 SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
             }else{
                 CodeConfiguration.codeProcessing(self, ConstTools.getCodeMessage(resultStr, codeKey: R_Theme_QRCode)! as NSArray, success: { (address,type) in
-                    self.receiveAddressTF.text = address
+                    if type == "1" {
+                        let addAContactVC = AddAContactVC()
+                        addAContactVC.contactsId = address
+                        self.navigationController?.pushViewController(addAContactVC, animated: true)
+                    }else if type == "2" {
+                        self.receiveAddressTF.text = address
+                    }
                 })
             }
         }
@@ -97,7 +100,7 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
     //获取流水订单号
     func payMoney(){
         let userId = UserDefaults.standard.getUserInfo().userId
-        let phone_shou = receivablesIdString
+        let phone_shou = receiveAddressTF.text
         let money = self.amountTF.text!
         let remark:String = (self.remarkTF?.text!)!
         let parameters = ["userId":userId,"phone_shou":phone_shou,"money":money,"remark":remark,"flag":"2"]

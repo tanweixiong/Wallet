@@ -162,12 +162,15 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         if resultStr.contains(R_Theme_QRCode) {
             //扫描正确后操作
             CodeConfiguration.codeProcessing(self, ConstTools.getCodeMessage(resultStr, codeKey: R_Theme_QRCode)! as NSArray, success: { (address,type) in
+                self.navigationController?.popToRootViewController(animated: false)
                 if type == "1" {
-                    self.navigationController?.popToRootViewController(animated: false)
-                    
                     let addAContactVC = AddAContactVC()
                     addAContactVC.contactsId = address
                     self.navigationController?.pushViewController(addAContactVC, animated: true)
+                }else if type == "2" {
+                    let transferAccountsVC = TransferAccountsVC()
+                    transferAccountsVC.receiveAddressString = address
+                    self.navigationController?.pushViewController(transferAccountsVC, animated: true)
                 }
             })
         } else {

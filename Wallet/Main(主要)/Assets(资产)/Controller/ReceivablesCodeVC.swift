@@ -7,19 +7,14 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var userIdLabel: UILabel!
-    
     @IBOutlet weak var QRCodeImageView: UIImageView!
-    
     @IBOutlet weak var backgroundVw: UIView!
-    
-    @IBOutlet weak var amountTF: UITextField!
-    
     @IBOutlet weak var copyAddressButton: UIButton!
-    
     @IBOutlet weak var iconNameLabel: UILabel!
     
     let imageBackgroundSize:CGFloat = 50
@@ -47,7 +42,7 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
         let photo = UserDefaults.standard.getUserInfo().photo
         
         //二维码
-        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=0"
+        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=0&type=2"
         let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
         QRCodeImageView.image = image
         
@@ -78,7 +73,7 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=\(textField.text!)"
+        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=\(textField.text!)&type=2"
         let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
         QRCodeImageView.image = image
         return true
@@ -86,7 +81,8 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
 
     @IBAction func copyAddressOnClick(_ sender: UIButton) {
         let pasteboard = UIPasteboard.general
-        pasteboard.string = amountTF.text
+        pasteboard.string = userId
+        SVProgressHUD.showSuccess(withStatus: LanguageHelper.getString(key: "copyed_address"))
     }
     
     @IBAction func backOnClick(_ sender: Any) {
