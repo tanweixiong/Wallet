@@ -80,7 +80,8 @@ class editMarketVC: WLMainViewController,UITableViewDataSource,UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (self.dataScore[section] as AnyObject).count as! Int
+        let array:NSArray = self.dataScore[section] as! NSArray
+        return array.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
