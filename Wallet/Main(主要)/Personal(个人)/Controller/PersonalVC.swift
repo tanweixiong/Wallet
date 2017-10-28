@@ -14,7 +14,7 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
     fileprivate let footHeight:CGFloat = 25
     fileprivate let personalHeadCellIdentifier = "PersonalHeadCellIdentifier"
     fileprivate let personalCellIdentifier = "PersonalCellIdentifier"
-    fileprivate let titleScore:NSArray = [[LanguageHelper.getString(key: "contacter"),LanguageHelper.getString(key: "setting"),LanguageHelper.getString(key: "my_card"),LanguageHelper.getString(key: "friends_business_card")],[LanguageHelper.getString(key: "feedback"),LanguageHelper.getString(key: "about_us")]]
+    fileprivate let titleScore:NSArray = [[LanguageHelper.getString(key: "contacter"),LanguageHelper.getString(key: "my_card"),LanguageHelper.getString(key: "friends_business_card"),LanguageHelper.getString(key: "setting")],[LanguageHelper.getString(key: "feedback"),LanguageHelper.getString(key: "about_us")]]
     fileprivate let imageScore: NSArray = [["ic_personal_contacts","ic_personal_setting","mine_businessCard","mine_friendsBusinessCard"],["ic_personal_feedback","ic_personal_aboutwe"]]
     
     override func viewDidLoad() {
@@ -85,21 +85,24 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
                     self.pushNextViewController(ContactsVC(), true)
                     
                     break
+           
+                    
                 case 1:
-                    
-                    self.pushNextViewController(SystemSettingsVC(), true)
-                    
-                    break
-                    
-                case 2:
                     
                     self.pushNextViewController(MineBusinessCardVC(), true)
                     
                     break
                     
-                case 3:
+                case 2:
                     
                     self.pushNextViewController(FriendBusinessCardVC(), true)
+                    
+                    
+                    break
+                    
+                case 3:
+                    
+                    self.pushNextViewController(SystemSettingsVC(), true)
                     
                     break
                     

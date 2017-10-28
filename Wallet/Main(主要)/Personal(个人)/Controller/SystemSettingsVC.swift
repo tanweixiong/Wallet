@@ -67,16 +67,15 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
             let vc = VariousLanguagesVC()
             vc.myStyle = VariousLanguagesVC.variouStyle.generalType
             self.navigationController?.pushViewController(vc, animated: true)
-//        }
-//        else if indexPath.section == 1 {
-//            let vc = VariousLanguagesVC()
-//            vc.myStyle = VariousLanguagesVC.variouStyle.specialType
-//            self.navigationController?.pushViewController(vc, animated: true)
-        }else{
+        }
+        else if indexPath.section == 1 {
             let forgetPwdVC = ForgetPwdViewController()
             forgetPwdVC.viewType = ForgetPwdViewType(rawValue:0)!
             forgetPwdVC.topView.midLabel.text = titleArray[indexPath.section] as? String
             self.present(forgetPwdVC, animated: true, completion: nil)
+        }else{
+            let modifyPaymentPasswordVC = ModifyPaymentPasswordVC()
+            self.present(modifyPaymentPasswordVC, animated: true, completion: nil)
         }
     }
     

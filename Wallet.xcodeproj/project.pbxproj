@@ -154,6 +154,7 @@
 		236996311F6A7BCC0034C120 /* ReceivablesCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2369962F1F6A7BCC0034C120 /* ReceivablesCodeVC.xib */; };
 		236BF5C21F9F221B0060B622 /* FriendBusinessCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236BF5C11F9F221B0060B622 /* FriendBusinessCardVC.swift */; };
 		236BF5C41F9F32550060B622 /* FriendBusinessCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236BF5C31F9F32550060B622 /* FriendBusinessCardModel.swift */; };
+		236E915C1FA374600037AB70 /* ModifyPaymentPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E915B1FA374600037AB70 /* ModifyPaymentPasswordVC.swift */; };
 		238DB3EE1F4D4C0700ECA2C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238DB3ED1F4D4C0700ECA2C4 /* AppDelegate.swift */; };
 		238DB3F01F4D4C0700ECA2C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238DB3EF1F4D4C0700ECA2C4 /* ViewController.swift */; };
 		238DB3F31F4D4C0700ECA2C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238DB3F11F4D4C0700ECA2C4 /* Main.storyboard */; };
@@ -402,6 +403,7 @@
 		2369962F1F6A7BCC0034C120 /* ReceivablesCodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceivablesCodeVC.xib; sourceTree = "<group>"; };
 		236BF5C11F9F221B0060B622 /* FriendBusinessCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendBusinessCardVC.swift; sourceTree = "<group>"; };
 		236BF5C31F9F32550060B622 /* FriendBusinessCardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendBusinessCardModel.swift; sourceTree = "<group>"; };
+		236E915B1FA374600037AB70 /* ModifyPaymentPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyPaymentPasswordVC.swift; sourceTree = "<group>"; };
 		238DB3EA1F4D4C0700ECA2C4 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238DB3ED1F4D4C0700ECA2C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238DB3EF1F4D4C0700ECA2C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -943,6 +945,7 @@
 				236BF5C11F9F221B0060B622 /* FriendBusinessCardVC.swift */,
 				235459811F9DB46B003160AB /* BusinessCardVC.swift */,
 				23683D521F9DE42500D63638 /* AddBusiessCardVC.swift */,
+				236E915B1FA374600037AB70 /* ModifyPaymentPasswordVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1673,6 +1676,7 @@
 				238DB45C1F4D53CC00ECA2C4 /* WLMainViewController.swift in Sources */,
 				238DB43C1F4D4F0500ECA2C4 /* FindVC.swift in Sources */,
 				238DB4501F4D4F6B00ECA2C4 /* UIViewController+Cloudox.m in Sources */,
+				236E915C1FA374600037AB70 /* ModifyPaymentPasswordVC.swift in Sources */,
 				230B33601F6689E000408CB6 /* AssetsDetailsCell.swift in Sources */,
 				230EF96A1F6F5B2F006E82E6 /* VariousLanguagesVC.swift in Sources */,
 				236996121F6A1ED70034C120 /* SettingPaypsdVC.swift in Sources */,

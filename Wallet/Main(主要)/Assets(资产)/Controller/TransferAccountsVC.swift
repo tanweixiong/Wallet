@@ -100,18 +100,18 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
     //获取流水订单号
     func payMoney(){
         let userId = UserDefaults.standard.getUserInfo().userId
-        let phone_shou = receiveAddressTF.text
+        let phone_shou = self.receiveAddressTF.text!
         let money = self.amountTF.text!
         let remark:String = (self.remarkTF?.text!)!
-        let parameters = ["userId":userId,"phone_shou":phone_shou,"money":money,"remark":remark,"flag":"2"]
+        let parameter:[String:Any] = ["userId":userId,"phone_shou":phone_shou,"money":money,"remark":"11","flag":"2"]
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
-        NetWorkTool.requestData(requestType: .post, URLString: ConstAPI.kAPITransOrder, parameters: parameters, showIndicator: true, success: { (json) in
+        NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPITransOrder, parameters: parameter, showIndicator: true, success: { (json) in
             let responseData = Mapper<PayMoneyModel>().map(JSONObject: json)
             if let code = responseData?.code {
                 SVProgressHUD.dismiss()
-                let score:[String:Any] = json as [String : Any]
-                let data:[String:Any]  = score["data"] as! [String : Any]
                 if code == "100" {
+                    let score:[String:Any] = json as! [String : Any]
+                    let data:[String:Any]  = score["data"] as! [String : Any]
                     let vc = PaymentConfirmationVC()
                     vc.payee = (responseData?.data?.phone_shou)!
                     vc.dhs = String(describing: data["money"]!)
@@ -119,8 +119,6 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
                     vc.serviceCharge = String(describing: data["sxf"]!)
                     vc.serialNumber = String(describing: data["SerialNumber"]!)
                     self.navigationController?.pushViewController(vc, animated: true)
-                }else if code == "200" {
-                    LoginVC.setTokenInvalidation()
                 }else{
                     SVProgressHUD.showError(withStatus: responseData?.msg)
                 }

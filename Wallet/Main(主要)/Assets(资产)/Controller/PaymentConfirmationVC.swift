@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 import ObjectMapper
 
-class PaymentConfirmationVC: UIViewController,ZCTradeViewDelegate {
+class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -44,9 +44,8 @@ class PaymentConfirmationVC: UIViewController,ZCTradeViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = LanguageHelper.getString(key: "transfer_confirm")
-        
+        self.addDefaultBackBarButtonLeft()
         payeeLabel.text = payee
         dhsLabel.text = dhs
         totalAmountLabel.text =  totalAmount

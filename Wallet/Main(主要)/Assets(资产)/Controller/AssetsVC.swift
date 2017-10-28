@@ -10,6 +10,7 @@ import UIKit
 import ObjectMapper
 import SVProgressHUD
 import SDWebImage
+import MJRefresh
 
 class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource,LBXScanViewControllerDelegate,AssetsDetailsDelegate {
     
@@ -26,6 +27,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         self.addDefaultButtonImageRight("anymore")
         self.navBarBgAlpha = "0"
         self.getHeadData()
+        self.getListData()
         self.getMarkertData()
         self.view.addSubview(tableView)
         self.view.addSubview(navigationBar)
@@ -46,14 +48,14 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
                if code == 100 {
                 self.dataScore = (responseData?.data)!
                 self.tableView.reloadData()
-               } else if code == 200 {
-                LoginVC.setTokenInvalidation()
-               }else {
+               }else{
                 SVProgressHUD.showInfo(withStatus: responseData?.msg)
+            }
+            if responseData?.msg == "无效令牌" {
+               LoginVC.setTokenInvalidation()
             }
             }
         }) { (error) in
-            
         }
     }
     
@@ -68,7 +70,6 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
                 self.headDataScore.addObjects(from: array)
                 self.tableView.tableHeaderView = self.assetsCarouselView
                 self.tableView.reloadData()
-                self.getListData()
             }else if responseData?.code == 200 {
                 LoginVC.setTokenInvalidation()
             }else {
@@ -198,7 +199,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.dataScore[indexPath.row] as! AssetsListModel
         let vc = TransactionCoinVC()
-        vc.mytransactionStyle = self.checkITC(coinName: model.coin_name!) == true ? TransactionCoinVC.transactionStyle.generalType : TransactionCoinVC.transactionStyle.specialType
+        vc.mytransactionStyle = .generalType
         vc.assetsListModel = model
         self.pushNextViewController(vc, true)
     }
@@ -250,6 +251,9 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         tableView.tableHeaderView = self.assetsCarouselDefaultView
         tableView.tableFooterView = UIView()
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
+//        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
+//            self.getListData()
+//        })
         return tableView
     }()
     

@@ -54,7 +54,6 @@ class editMarketVC: WLMainViewController,UITableViewDataSource,UITableViewDelega
           let data:Array = Tools.getPlaceOnFile(R_UserDefaults_Market_Key) as! NSArray as Array
           self.newArray.addObjects(from: data)
           self.dataScore.add(self.newArray)
-        
           self.exchangeArray.addObjects(from: data)
     }
     
