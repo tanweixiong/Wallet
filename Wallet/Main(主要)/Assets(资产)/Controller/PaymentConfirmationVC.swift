@@ -87,9 +87,12 @@ class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
                         SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "successful_payment"))
                        self.navigationController?.popViewController(animated: true)
                     //设置支付密码
-                    }else if code == "145" {
+                    }else if code == "105" {
                         let vc = SettingPaypsdVC()
                         self.navigationController?.pushViewController(vc, animated: true)
+                    //找回支付密码
+                    }else if code == "104"{
+                        
                     }else {
                         SVProgressHUD.showInfo(withStatus: responseData?.msg)
                     }
