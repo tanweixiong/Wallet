@@ -16,7 +16,6 @@ enum ForgetPwdViewType: Int {
     case modifyPayPwd
     case getBackPayPwd
     case getBackLoginPwd
-
 }
 
 class ForgetPwdViewController: UIViewController {
@@ -106,6 +105,13 @@ class ForgetPwdViewController: UIViewController {
                 self.modifyView.confirmPwdTextView.textField.textType = DHSTextFieldType.TextFieldIntegerNumber
             }
         }
+        
+        //设置支付密码
+        if viewType == .modifyPayPwd {
+            self.modifyView.originPwdTextView.textField.setKeyboardStyle(textType: .TextFieldPaymentNumber)
+            self.modifyView.newPwdTextView.textField.setKeyboardStyle(textType: .TextFieldPaymentNumber)
+            self.modifyView.confirmPwdTextView.textField.setKeyboardStyle(textType: .TextFieldPaymentNumber)
+        }
     
         self.view.backgroundColor = UIColor.white
         
@@ -189,7 +195,12 @@ class ForgetPwdViewController: UIViewController {
             let sign = "newPassword1=\(pwd!)&newPassword2=\(confirmPwd!)&oldPassword=\(oldPwd!)&token=\(token)&timestamp=\(timestamp)&userId=\(userId)"
             let paramstring = sign + "&sign=\(sign.md5())"
             let urlstring = ConstAPI.kAPIModifyLoginPwd + "?" + paramstring
-            self.modifyPwd(url: urlstring)
+            
+            if viewType == .modifyPayPwd {
+                self.modifyPaymentPassword()
+            }else{
+               self.modifyPwd(url: urlstring)
+            }
         }
     }
     
@@ -235,12 +246,34 @@ class ForgetPwdViewController: UIViewController {
         }
     }
     
+    func modifyPaymentPassword (){
+        self.view.endEditing(true)
+        SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "modifying_password"), maskType: .black)
+        let url = ConstAPI.kAPIModifyPaymentPwd
+        let userId = UserDefaults.standard.getUserInfo().userId
+        let oldPassword = self.modifyView.originPwdTextView.textField.text!
+        let newPassword1 = self.modifyView.newPwdTextView.textField.text!
+        let newPassword2 = self.modifyView.confirmPwdTextView.textField.text!
+        let parameters = ["newPassword1":newPassword1,"newPassword2":newPassword2,"oldPassword":oldPassword,"userId":userId]
+        NetWorkTool.request(requestType: .post, URLString: url, parameters: parameters, showIndicator: true, success: { (json) in
+            let data = json as! [String : Any]
+            let code:Int = data["code"] as! Int
+            let msg:String = data["msg"] as! String
+            if code == 100 {
+                SVProgressHUD.showSuccess(withStatus: msg)
+                self.backToLogin()
+            }else{
+                SVProgressHUD.showInfo(withStatus: msg)
+            }
+        }) { (error) in
+        }
+    }
+    
     func modifyPwd(url: String) {
         
         self.view.endEditing(true)
         
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "modifying_password"), maskType: .black)
-        
         NetWorkTool.requestData(requestType: .post, URLString: url, parameters: nil, showIndicator: true, success: { (json) in
             
             let responseData = Mapper<ResponseData>().map(JSONObject: json)
@@ -270,7 +303,6 @@ class ForgetPwdViewController: UIViewController {
             
         }
     }
-
     
     func getAuthorizeCode() {
         

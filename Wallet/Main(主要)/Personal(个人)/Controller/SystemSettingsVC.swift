@@ -16,11 +16,9 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
     
     fileprivate let iconImageArray:NSArray = ["ic_systemSetting_language","ic_systemSetting_currency","ic_systemSetting_login","ic_systemSetting_passwrod","ic_systemSetting_forget"]
 
-    fileprivate let titleArray:NSArray = [
+    fileprivate let titleArray:NSMutableArray = [
         LanguageHelper.getString(key: "language")
-//        ,LanguageHelper.getString(key: "coin")
         ,LanguageHelper.getString(key: "modify_login_passsword")
-        ,LanguageHelper.getString(key: "set_pay_password")
     ]
     
     override func viewDidLoad() {
@@ -28,7 +26,14 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
         self.title = LanguageHelper.getString(key: "setting")
         self.navBarBgAlpha = "1"
         self.addDefaultBackBarButtonLeft()
+        let password = UserDefaults.standard.getUserInfo().paymentPassword
+        if password == "0" {
+            titleArray.add(LanguageHelper.getString(key: "set_pay_password"))
+        }else{
+            titleArray.add(LanguageHelper.getString(key: "edit_pay_password"))
+        }
         self.view.addSubview(tableView)
+        self.tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,8 +79,18 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
             forgetPwdVC.topView.midLabel.text = titleArray[indexPath.section] as? String
             self.present(forgetPwdVC, animated: true, completion: nil)
         }else{
-            let modifyPaymentPasswordVC = ModifyPaymentPasswordVC()
-            self.present(modifyPaymentPasswordVC, animated: true, completion: nil)
+            let password = UserDefaults.standard.getUserInfo().paymentPassword
+            if password == "0" {
+                let modifyPaymentPasswordVC = ModifyPaymentPasswordVC()
+                self.present(modifyPaymentPasswordVC, animated: true, completion: nil)
+            }else {
+                let forgetPwdVC = ForgetPwdViewController()
+                forgetPwdVC.viewType = .modifyPayPwd
+                forgetPwdVC.topView.midLabel.text = LanguageHelper.getString(key: "set_pay_password")
+                self.present(forgetPwdVC, animated: true) {
+                    
+                }
+            }
         }
     }
     

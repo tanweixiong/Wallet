@@ -124,8 +124,12 @@ class ModifyPaymentPasswordVC: UIViewController,UITextFieldDelegate {
             if code == 100 {
                 SVProgressHUD.showSuccess(withStatus: msg)
                 self.backToLogin()
+                //重新保存
+                let userInfo = UserDefaults.standard.getUserInfo()
+                userInfo.paymentPassword = "1"
+                UserDefaults.standard.saveCustomObject(customObject:userInfo, key: R_UserInfo)
             }else{
-                SVProgressHUD.showError(withStatus:LanguageHelper.getString(key: "setup_failed"))
+                SVProgressHUD.showInfo(withStatus: msg)
             }
         }) { (error) in
             
