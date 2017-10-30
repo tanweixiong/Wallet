@@ -245,6 +245,7 @@
 "transaction_Transaction_Type" = "Transaction Type";
 "transaction_Transaction_Amount" = "Transaction Amount";
 "transaction_Remark" = "Remark";
+"retrieve_Login_Password" = "Retrieve Login Password";
 
 
 

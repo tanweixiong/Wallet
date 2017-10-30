@@ -245,7 +245,7 @@
 "transaction_Transaction_Type" = "交易类型";
 "transaction_Transaction_Amount" = "交易金额";
 "transaction_Remark" = "备注";
-
+"retrieve_Login_Password" = "找回登录密码";
 
 
 

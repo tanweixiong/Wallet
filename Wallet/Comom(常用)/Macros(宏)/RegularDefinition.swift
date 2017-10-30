@@ -56,6 +56,9 @@ public let R_Languages = "Reality_Languages"
 //头像
 public let R_UIThemeColor = UIColor.R_UIColorFromRGB(color: 0x11d8c3)
 
+//刷新资产信息
+public let R_AssetsReloadAssetsMassage = "R_AssetsReloadAssetsMassage"
+
 //头像
 public let R_UIThemeAvatarKey = "AvatarKey"
 

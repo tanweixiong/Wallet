@@ -67,7 +67,7 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
             }else{
                 let vc = ForgetPwdViewController()
                 vc.viewType = .getBackLoginPwd
-                vc.topView.midLabel.text = "找回登录密码"
+                vc.topView.midLabel.text = LanguageHelper.getString(key: "retrieve_Login_Password")
                 self.present(vc, animated: true, completion: { 
                     
                 })

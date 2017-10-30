@@ -123,6 +123,7 @@ class ModifyPaymentPasswordVC: UIViewController,UITextFieldDelegate {
             let msg:String = data["msg"] as! String
             if code == 100 {
                 SVProgressHUD.showSuccess(withStatus: msg)
+                self.backToLogin()
             }else{
                 SVProgressHUD.showError(withStatus:LanguageHelper.getString(key: "setup_failed"))
             }

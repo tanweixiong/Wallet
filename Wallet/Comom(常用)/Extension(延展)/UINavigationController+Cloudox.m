@@ -8,6 +8,7 @@
 
 #import "UINavigationController+Cloudox.h"
 #import <objc/runtime.h>
+#import "UINavigationBar+Other.h"
 #import "UIViewController+Cloudox.h"
 
 @implementation UINavigationController (Cloudox)
@@ -29,8 +30,9 @@
     } else {
         barBackgroundView.alpha = alpha;
     }
-    
-    
+    if (alpha == 0) {
+       [self.navigationBar setColor:[UIColor clearColor]];
+    }
     // 对导航栏下面那条线做处理
     self.navigationBar.clipsToBounds = alpha == 0.0;
 }

@@ -25,7 +25,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         self.addDefaultButtonImageRight("anymore")
         self.navBarBgAlpha = "0"
-        self.getHeadData()
+        self.getHeadData(true)
         self.getListData()
         self.getMarkertData()
         self.view.addSubview(tableView)
@@ -61,23 +61,27 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     //获取上部分参数
-    func getHeadData() {
+    func getHeadData(_ isfirst:Bool) {
         let user_ids = UserDefaults.standard.getUserInfo().userId
         let parameters = ["user_ids":user_ids]
         NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIMyAnyWallet, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<AssetsModel>().map(JSONObject: json)
             if responseData?.code == 100 {
-                let array:Array = (responseData?.data)!
-                self.headDataScore.addObjects(from: array)
-                self.tableView.tableHeaderView = self.assetsCarouselView
-                self.tableView.reloadData()
-            }else if responseData?.code == 200 {
-                LoginVC.setTokenInvalidation()
+               let array:Array = (responseData?.data)!
+                if isfirst == true {
+                    self.headDataScore.removeAllObjects()
+                    self.headDataScore.addObjects(from: array)
+                    self.tableView.tableHeaderView = self.assetsCarouselView
+                    self.tableView.reloadData()
+                }else{
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: R_AssetsReloadAssetsMassage), object: array)
+                }
             }else {
                 SVProgressHUD.showInfo(withStatus: responseData?.msg)
             }
+            self.tableView.mj_footer.endRefreshing()
         }) { (error) in
-            
+            self.tableView.mj_footer.endRefreshing()
         }
     }
     
@@ -135,6 +139,10 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     
     //右侧导航
     func addPopupView() {
+        
+        print(LanguageHelper.getString(key: "scan"))
+        print(LanguageHelper.getString(key: "create_wallet"))
+        
         PopupView.addCell(withIcon: UIImage.init(named: "home_saoyisao"), text: LanguageHelper.getString(key: "scan")) {
             let assets = WalletOCTools.getCurrentVC()
             let vc = LBXScanViewController();
@@ -254,6 +262,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
         tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
             self.getListData()
+            self.getHeadData(false)
         })
         return tableView
     }()
@@ -313,6 +322,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     
     func setReloadAssets(){
         self.getListData()
+        self.getHeadData(false)
     }
     
     deinit {

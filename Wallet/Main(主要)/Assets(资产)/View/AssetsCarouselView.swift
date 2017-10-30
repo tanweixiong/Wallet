@@ -15,13 +15,16 @@ class AssetsCarouselView: UIView,UIScrollViewDelegate {
     fileprivate let WIDTH :CGFloat = SCREEN_WIDTH - XMAKE(40)
     fileprivate let anymoreWidth: CGFloat = 38
     fileprivate let anymoreHeight: CGFloat = 30
-    fileprivate let assetsViewTag = 1000000
+    fileprivate let assetsViewTag =   1000000
+    fileprivate let asssetsLabelTag = 2000000
     
     var assetsCarouselBlock:((UIButton)->())?;
     var assetsCarouselHeadBlock:((String,Int)->())?;
     
     init(frame: CGRect,dataArray: Array<Any>,isFirst:Bool){
         super.init(frame: frame)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AssetsCarouselView.AssetsCarouselViewDeloadData(_:)), name: NSNotification.Name(rawValue: R_AssetsReloadAssetsMassage), object: nil)
         
         let backgroundImageView = UIImageView()
         backgroundImageView.image = UIImage(named: "kejitu")
@@ -61,6 +64,8 @@ class AssetsCarouselView: UIView,UIScrollViewDelegate {
                 view.asssetsLabel.text = model.allmoney?.stringValue
                 view.userIDString = model.userId!
                 
+                view.asssetsLabel.tag = asssetsLabelTag + item
+                
                 let urlStr:String = model.userphoto!
                 view.hornImageView.sd_setImage(with: NSURL(string: urlStr)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
             }
@@ -90,6 +95,19 @@ class AssetsCarouselView: UIView,UIScrollViewDelegate {
         if self.assetsCarouselBlock != nil {
             self.assetsCarouselBlock!(sender);
         }
+    }
+    
+    func AssetsCarouselViewDeloadData(_ sender:NSNotification){
+        let array:NSArray = sender.object as! NSArray
+        for index in 0...array.count - 1 {
+            let model = array[index] as! AssetsListModel
+            let assetsView = self.scrollView.subviews.first as! AssetsView
+            assetsView.asssetsLabel.text = model.allmoney?.stringValue
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(R_AssetsReloadAssetsMassage), object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

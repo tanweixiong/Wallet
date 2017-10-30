@@ -27,6 +27,7 @@ static CGFloat rowHeight = 50.f;
 
 PopupView *popupView;
 BOOL isShow = NO;
+BOOL isLoad = NO;
 
 @implementation PopupView
 
@@ -151,6 +152,20 @@ BOOL isShow = NO;
     layers.backgroundColor = [UIColor colorWithRed:251/255.0 green:251/255.0 blue:251/255.0 alpha:1].CGColor;
     layers.frame = CGRectMake(20, popupView.frame.size.height/2, popupView.frame.size.width, 0.5f);
     [popupView.layer addSublayer:layers];
+    
+    //使其能够赋值 暂时先加进去
+    if (isLoad == YES && popupView.textArray.count>1){
+        NSIndexPath *indexPath1 = [NSIndexPath indexPathForRow:0 inSection:0];
+        UITableViewCell *cell1 = [popupView.tableView cellForRowAtIndexPath:indexPath1];
+        UILabel *label1 = (UILabel *)[cell1 viewWithTag:indexPath1.row + 1];
+        label1.text = popupView.textArray[popupView.textArray.count - 2];
+        
+        NSIndexPath *indexPath2 = [NSIndexPath indexPathForRow:1 inSection:0];
+        UITableViewCell *cell2 = [popupView.tableView cellForRowAtIndexPath:indexPath2];
+        UILabel *label2 =(UILabel *)[cell2 viewWithTag:indexPath2.row + 1];
+        label2.text = [popupView.textArray lastObject];
+    }
+      isLoad = YES;
 }
 
 + (void)hide {
@@ -179,13 +194,13 @@ BOOL isShow = NO;
     
     cell.iconView.image = self.iconArray[indexPath.row];
     cell.titleLable.text = self.textArray[indexPath.row];
+    cell.titleLable.tag = indexPath.row + 1;
     
     if (indexPath.row == self.textArray.count - 1) {
         cell.haveSeparatorLine = YES;
     }else{
         cell.haveSeparatorLine = NO;
     }
-    
     return cell;
 }
 

@@ -27,19 +27,19 @@ class ForgetPwdView: UIView {
         view.addTextFieldAndRightBtn(viewType: LoginTextfieldViewType.DefaultType)
         view.leftImageView.image = UIImage.init(named: "shouji")
         view.textField.setKeyboardStyle(textType: .TextFieldIntegerNumber)
-        view.textField.placeholder = "请输入手机号码"
+        view.textField.placeholder = LanguageHelper.getString(key: "enter_phone")
         return view
     }()
     
     lazy var authorizeTextView: LoginTextFieldView = {
         let view = LoginTextFieldView()
         view.addTextFieldAndRightBtn(viewType: LoginTextfieldViewType.SecondsCountType)
-        view.rightAutorBtn.setTitle("获取验证码", for: UIControlState.normal)
+        view.rightAutorBtn.setTitle(LanguageHelper.getString(key: "get_code"), for: UIControlState.normal)
         view.rightAutorBtn.setTitleColor(R_UIThemeColor, for: UIControlState.normal)
         view.rightAutorBtn.titleLabel?.font = UIFont.systemFont(ofSize: ViewStyle.forgetBtnFontSize)
         view.leftImageView.image = UIImage.init(named: "yanzhengma")
         view.textField.setKeyboardStyle(textType: .TextFieldIntegerNumber)
-        view.textField.placeholder = "请输入验证码"
+        view.textField.placeholder = LanguageHelper.getString(key: "register_code")
         return view
     }()
     
@@ -48,7 +48,7 @@ class ForgetPwdView: UIView {
         view.addTextFieldAndRightBtn(viewType: LoginTextfieldViewType.DefaultType)
         view.leftImageView.image = UIImage.init(named: "mima")
         view.textField.setKeyboardStyle(textType: .TextFieldNumberLetter)
-        view.textField.placeholder = "请输入新密码"
+        view.textField.placeholder = LanguageHelper.getString(key: "enter_new_pwd")
         return view
     }()
     
@@ -57,7 +57,7 @@ class ForgetPwdView: UIView {
         view.addTextFieldAndRightBtn(viewType: LoginTextfieldViewType.DefaultType)
         view.leftImageView.image = UIImage.init(named: "queren")
         view.textField.setKeyboardStyle(textType: .TextFieldNumberLetter)
-        view.textField.placeholder = "再次输入密码"
+        view.textField.placeholder = LanguageHelper.getString(key: "enter_confirm_password")
         return view
     }()
 
@@ -65,7 +65,7 @@ class ForgetPwdView: UIView {
     lazy var registerBtn: UIButton = {
         let btn = UIButton.setBtnBoarderCorner(radius: ViewStyle.btnRadius)
         btn.backgroundColor = R_UIThemeColor
-        btn.setTitle("确认", for: UIControlState.normal)
+        btn.setTitle(LanguageHelper.getString(key: "confirm"), for: UIControlState.normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: ViewStyle.loginBtnFontSize)
         return btn
     }()
