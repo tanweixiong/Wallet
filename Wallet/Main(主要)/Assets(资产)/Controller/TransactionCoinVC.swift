@@ -8,7 +8,6 @@
 
 import UIKit
 import ObjectMapper
-import MJRefresh
 import SVProgressHUD
 
 class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate {

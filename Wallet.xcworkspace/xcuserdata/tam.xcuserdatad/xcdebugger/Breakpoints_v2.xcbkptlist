@@ -54,33 +54,49 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_434261DDC6632DE58E7BAF81EBFE51EB_func15"
+                  symbolName = "globalinit_33_434261DDC6632DE58E7BAF81EBFE51EB_func0"
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Comom(%E5%B8%B8%E7%94%A8)/NetWork(%E7%BD%91%E7%BB%9C)/BaseURL.swift"
-                  timestampString = "530866272.783469"
+                  timestampString = "530878590.669637"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "0">
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "8">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Wallet.baseURL.getter : __ObjC.NSURL"
+                  symbolName = "Wallet.cityName.unsafeMutableAddressor : Swift.String"
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Comom(%E5%B8%B8%E7%94%A8)/NetWork(%E7%BD%91%E7%BB%9C)/BaseURL.swift"
-                  timestampString = "530866272.786428"
+                  timestampString = "530878590.672829"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "140">
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Personal(&#x4e2a;&#x4eba;)/Controller/VariousLanguagesVC.swift"
+            timestampString = "530870157.143993"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

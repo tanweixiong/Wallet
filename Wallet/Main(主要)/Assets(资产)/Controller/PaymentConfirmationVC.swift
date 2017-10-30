@@ -83,6 +83,7 @@ class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
                 
                 if let code = responseData?.code {
                     if code == "100" {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setReloadAssets"), object: nil)
                         SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "successful_payment"))
                     //设置支付密码
                     }else if code == "145" {

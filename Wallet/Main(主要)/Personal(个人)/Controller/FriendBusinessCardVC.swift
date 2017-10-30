@@ -8,7 +8,6 @@
 
 import UIKit
 import ObjectMapper
-import MJRefresh
 
 class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource {
     var delegate:ContactsDelegate?

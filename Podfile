@@ -8,7 +8,6 @@ target 'Wallet' do
   pod 'Kingfisher'
   pod 'FLAnimatedImage', '~> 1.0' 
   pod 'Alamofire', '~> 4.0’
-  pod 'MJRefresh', '~> 3.1.12’
   pod 'YYText', '~> 1.0.7’
   pod 'SVProgressHUD', '~> 1.1.3'
   pod 'KVOController', '~> 1.2.0'

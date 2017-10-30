@@ -10,7 +10,6 @@ import UIKit
 import ObjectMapper
 import SVProgressHUD
 import SDWebImage
-import MJRefresh
 
 class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource,LBXScanViewControllerDelegate,AssetsDetailsDelegate {
     
@@ -55,7 +54,9 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
                LoginVC.setTokenInvalidation()
             }
             }
+             self.tableView.mj_footer.endRefreshing()
         }) { (error) in
+             self.tableView.mj_footer.endRefreshing()
         }
     }
     
@@ -251,9 +252,9 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         tableView.tableHeaderView = self.assetsCarouselDefaultView
         tableView.tableFooterView = UIView()
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
-//        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
-//            self.getListData()
-//        })
+        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
+            self.getListData()
+        })
         return tableView
     }()
     

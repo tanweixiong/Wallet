@@ -19,4 +19,5 @@
 #import "PlaceholderTextView.h"
 #import "WalletOCTools.h"
 #import "ConstTools.h"
+#import "MJRefresh.h"
 #endif

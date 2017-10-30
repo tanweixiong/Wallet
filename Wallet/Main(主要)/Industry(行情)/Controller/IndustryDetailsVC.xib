@@ -273,7 +273,7 @@
                 <constraint firstAttribute="bottom" secondItem="2E4-YU-IsK" secondAttribute="bottom" id="cy5-C3-1DE"/>
                 <constraint firstAttribute="trailing" secondItem="2E4-YU-IsK" secondAttribute="trailing" id="deq-Mn-TO7"/>
             </constraints>
-            <point key="canvasLocation" x="-117" y="-15"/>
+            <point key="canvasLocation" x="-373" y="-22"/>
         </view>
     </objects>
 </document>

@@ -25,7 +25,6 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
     }
     
     var logType = LoginType.chinaeseVersion
-    
     let backgroundImageView = UIImageView()
     let logoImageView = UIImageView()
     let accountTextField = TPTextField()
@@ -50,7 +49,6 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
     }
     
     func onClick(_ sender:UIButton) {
-        
         if sender.tag == 3 {
             self.login()
         }else{

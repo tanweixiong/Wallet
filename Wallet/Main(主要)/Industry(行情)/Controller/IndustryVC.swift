@@ -9,7 +9,6 @@
 import UIKit
 import ObjectMapper
 import SVProgressHUD
-import MJRefresh
 
 class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate,AddMarketDelegate,EditMarketDelegate{
     
