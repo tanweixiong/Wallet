@@ -14,6 +14,7 @@ enum DHSTextFieldType {
     case TextFieldIntegerNumber  //整数数字模式
     case TextFieldDecimalNumber //小数数字模式
     case TextFieldPaymentNumber //支付密码模式
+    case TextFieldMall //邮箱注册
 }
 
 let kFilterNumber: String = "1234567890"
@@ -79,6 +80,8 @@ class DHSTextField: UITextField , UITextFieldDelegate {
             self.keyboardType = .asciiCapable
         }else if textType == .TextFieldPaymentNumber{
             self.keyboardType = .numberPad
+        }else if textType == .TextFieldMall {
+            self.keyboardType = .asciiCapable
         }
         self.returnKeyType = .done
         
@@ -150,7 +153,7 @@ class DHSTextField: UITextField , UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if self.textType == .TextFieldNormal {
+        if self.textType == .TextFieldNormal || self.textType == .TextFieldMall {
             return true
         } else {
             

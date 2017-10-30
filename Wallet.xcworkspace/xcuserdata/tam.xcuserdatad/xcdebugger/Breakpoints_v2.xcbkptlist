@@ -58,12 +58,12 @@
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Comom(%E5%B8%B8%E7%94%A8)/NetWork(%E7%BD%91%E7%BB%9C)/BaseURL.swift"
-                  timestampString = "531038821.695665"
+                  timestampString = "531045514.162675"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
                   endingLineNumber = "11"
-                  offsetFromSymbolStart = "8">
+                  offsetFromSymbolStart = "4">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,30 +73,14 @@
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Comom(%E5%B8%B8%E7%94%A8)/NetWork(%E7%BD%91%E7%BB%9C)/BaseURL.swift"
-                  timestampString = "531038821.697578"
+                  timestampString = "531045514.165598"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
                   endingLineNumber = "11"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "4">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Login&amp;&amp;Register(&#x6ce8;&#x518c;&#x4e0e;&#x767b;&#x5f55;)/Controller/ForgetPasswordVC.swift"
-            timestampString = "531025065.786376"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Assets(&#x8d44;&#x4ea7;)/Controller/AssetsVC.swift"
-            timestampString = "531038821.201053"
+            timestampString = "531041536.742008"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "287"
