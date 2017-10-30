@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class AssetsView: UIView {
     
@@ -218,8 +219,16 @@ class AssetsView: UIView {
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
         view.backgroundColor = R_UIThemeColor
+        let longTap = UILongPressGestureRecognizer(target: self, action: #selector(AssetsView.longTap))
+        view.addGestureRecognizer(longTap)
         return view
     }()
+    
+    func longTap() {
+        SVProgressHUD.showInfo(withStatus: "复制成功")
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = UserDefaults.standard.getUserInfo().userId
+    }
     
     func addQRCodeView() {
         UIApplication.shared.keyWindow?.addSubview(self.coverView)
