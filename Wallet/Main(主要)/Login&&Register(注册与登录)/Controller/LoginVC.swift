@@ -198,9 +198,9 @@ extension LoginVC {
         accountTextField.font = UIFont.systemFont(ofSize: LoginUX.textFieldFont)
         accountTextField.layer.cornerRadius = LoginUX.fillet;
         accountTextField.layer.borderWidth = 0.5
-        accountTextField.keyboardType = logType == .chinaeseVersion ? .phonePad : .asciiCapable
+        accountTextField.keyboardType = .asciiCapable
         accountTextField.layer.borderColor = UIColor(white: 1, alpha: 0.3).cgColor;
-        accountTextField.placeholder = LanguageHelper.getString(key: logType == .chinaeseVersion ? "login_phone" : "enter_Mall")
+        accountTextField.placeholder = LanguageHelper.getString(key:"enter_phone")
         accountTextField.setValue(UIColor.white, forKeyPath: "_placeholderLabel.textColor")
         accountTextField.clearButtonMode = .always
         let accountLeftView = UIImageView(image: UIImage(named: "ic_login_phone"));
