@@ -246,7 +246,7 @@
 "transaction_Transaction_Amount" = "交易金额";
 "transaction_Remark" = "备注";
 "retrieve_Login_Password" = "找回登录密码";
-
+"login_Mall_Phone" = "请输入邮箱或者密码作为登录账号";
 
 
 

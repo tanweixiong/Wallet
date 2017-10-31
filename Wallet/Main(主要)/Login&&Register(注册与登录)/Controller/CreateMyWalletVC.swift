@@ -8,16 +8,21 @@
 
 import UIKit
 
-class CreateMyWalletVC: UIViewController,UIScrollViewDelegate {
+protocol CreateMyWalletDelegate {
+    func createMyWalletFinish(_ account:String,_ password:String)
+}
+
+class CreateMyWalletVC: UIViewController,UIScrollViewDelegate,CreateWalletDelegate,CreateMallWalletDelegate {
+    
+    var delegate:CreateMyWalletDelegate?
+    fileprivate  let createWalletVC = CreateWalletVC()
+    fileprivate  let createMallWalletVC = CreateMallWalletVC()
     
     struct CreateMyWalletUX {
         static let tabBarHeight :CGFloat = 45
         static let backBtnRect  :CGRect = CGRect.init(x: 10, y: 20, width: 30, height: 30)
         static let scrollerHeight:CGFloat = SCREEN_HEIGHT - CreateMyWalletUX.tabBarHeight - 64 - 10
     }
-
-    fileprivate let createMallWalletVC = CreateMallWalletVC()
-    fileprivate let createWalletVC = CreateWalletVC()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,7 +37,11 @@ class CreateMyWalletVC: UIViewController,UIScrollViewDelegate {
         self.view.addSubview(topView)
         self.view.addSubview(tabBar)
         self.view.addSubview(scrollView)
+        
+        createWalletVC.delegate = self
         scrollView.addSubview(createWalletVC.view)
+        
+        createMallWalletVC.delegate = self
         scrollView.addSubview(createMallWalletVC.view)
         
         topView.snp.makeConstraints { (make) in
@@ -113,6 +122,16 @@ class CreateMyWalletVC: UIViewController,UIScrollViewDelegate {
         view.addSubview(label)
         return view
     }()
+    
+    func createWalletFinish(_ account: String, _ password: String) {
+        self.delegate?.createMyWalletFinish(account, password)
+        self.dismiss(animated: true) { }
+    }
+    
+    func createMallWalletFinish(_ account: String, _ password: String) {
+        self.delegate?.createMyWalletFinish(account, password)
+        self.dismiss(animated: true) { }
+    }
     
     func backToLogin(){
         self.dismiss(animated: true) {

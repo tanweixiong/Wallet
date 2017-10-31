@@ -14,7 +14,7 @@ enum LoginType {
     case chinaeseVersion
     case englishVersion
 }
-class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegate {
+class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegate,CreateMyWalletDelegate {
 
     struct LoginUX {
         static let textFieldFont: CGFloat = YMAKE(14)
@@ -56,8 +56,8 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
             self.navigationController?.navigationBar.isHidden = false
             if sender.tag == 1 {
                 let vc = CreateMyWalletVC()
+                vc.delegate = self
                 self.present(vc, animated: true, completion: {})
-                
 //                let language = UserDefaults.standard.object(forKey: R_Languages) as! String
 //                if language == "en" {
 //                    let vc = CreateMallWalletVC()
@@ -112,17 +112,9 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
     
     func checkInput() -> Bool{
         
-        let language = UserDefaults.standard.object(forKey: R_Languages) as! String
-        if language == "en" {
-            if !Tools.validateEmail(email: accountTextField.text!) {
-                WLProgressHUD.showSuccess(LanguageHelper.getString(key: "enter_Mall"))
-                return false
-            }
-        }else{
-            if !Tools.validateMobile(mobile: accountTextField.text!) {
-                WLProgressHUD.showSuccess(LanguageHelper.getString(key: "please_enter_phone"))
-                return false
-            }
+        if !Tools.validateMobile(mobile: accountTextField.text!) && !Tools.validateEmail(email: accountTextField.text!) {
+            WLProgressHUD.showInfo(LanguageHelper.getString(key: "login_Mall_Phone"))
+            return false
         }
         
         if !Tools.validatePassword(password: passwordTextField.text!) {
@@ -152,6 +144,11 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
     }
     
     func createMallWalletFinish(_ account: String, _ password: String) {
+        accountTextField.text = account
+        passwordTextField.text = password
+    }
+    
+    func createMyWalletFinish(_ account: String, _ password: String) {
         accountTextField.text = account
         passwordTextField.text = password
     }

@@ -246,6 +246,7 @@
 "transaction_Transaction_Amount" = "Transaction Amount";
 "transaction_Remark" = "Remark";
 "retrieve_Login_Password" = "Retrieve Login Password";
+"login_Mall_Phone" = "Please enter the email address or password as the login account";
 
 
 

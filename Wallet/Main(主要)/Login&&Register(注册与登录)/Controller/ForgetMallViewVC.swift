@@ -54,9 +54,7 @@ class ForgetMallViewVC: UIViewController {
         view.isUserInteractionEnabled = true
 //        view.phoneTextView.textField.keyboardType = .asciiCapable
         view.phoneTextView.textField.setKeyboardStyle(textType: .TextFieldMall)
-        view.phoneTextView.textField.placeholder =  LanguageHelper.getString(key: "mall_enter")
-        
-         view.phoneTextView.textField.placeholder =  LanguageHelper.getString(key: "mall_enter")
+         view.phoneTextView.textField.placeholder =  LanguageHelper.getString(key: "enter_phone")
         return view
     }()
     
