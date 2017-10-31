@@ -23,6 +23,7 @@ class FindDetailVC: WLMainViewController,UIWebViewDelegate  {
     func setWebView(){
         let id:String = (findDetailModel?.id)!
         webView.delegate = self
+        SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "Loading"), maskType: .black)
         let url:NSURL = NSURL.init(string: ConstAPI.kAPIMYBaseURL + "information.jsp?id=\(id)")!
         webView.loadRequest(NSURLRequest(url: url as URL) as URLRequest)
         self.view.addSubview(webView)
@@ -33,7 +34,7 @@ class FindDetailVC: WLMainViewController,UIWebViewDelegate  {
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        let time: TimeInterval = 0.5
+        let time: TimeInterval = 0.1
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
             SVProgressHUD.dismiss()
         }
@@ -45,7 +46,7 @@ class FindDetailVC: WLMainViewController,UIWebViewDelegate  {
 
     let webView:UIWebView = {
         let view = UIWebView()
-        view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+        view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64)
         return view
     }()
     
