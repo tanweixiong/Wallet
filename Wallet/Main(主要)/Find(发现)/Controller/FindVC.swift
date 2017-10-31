@@ -32,6 +32,7 @@ class FindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             let responseData = Mapper<FindModel>().map(JSONObject: json)
             if responseData?.code == 100 {
                 if responseData?.data?.count != 0{
+                    self.dataScore.removeAllObjects()
                     self.tableView.backgroundColor = R_UIThemeColor
                     self.dataScore.addObjects(from: (responseData?.data)!)
                     self.tableView.reloadData()
@@ -39,7 +40,9 @@ class FindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }else{
                 SVProgressHUD.showInfo(withStatus: responseData?.msg)
             }
+             self.tableView.mj_header.endRefreshing()
         }) { (error) in
+             self.tableView.mj_header.endRefreshing()
         }
     }
     
@@ -91,6 +94,9 @@ class FindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.backgroundColor = UIColor.white
         tableView.tableFooterView = UIView()
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            self.getData()
+        })
         return tableView
     }()
 

@@ -59,7 +59,7 @@ class AssetsCarouselView: UIView,UIScrollViewDelegate {
                 scrollView.addSubview(view)
                 
                 let model = dataArray[item] as! AssetsListModel
-                view.nameLabel.text = model.username
+                view.nameLabel.text = model.username?.removingPercentEncoding
                 view.contentLabel.text = model.userId
                 view.asssetsLabel.text = model.allmoney?.stringValue
                 view.userIDString = model.userId!
