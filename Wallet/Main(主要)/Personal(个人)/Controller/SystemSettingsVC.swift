@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate {
+class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate,ModifyPaymentPasswordDelegate {
 
     fileprivate let systemSettingsCellIdentifier = "SystemSettingsCellIdentifier"
     fileprivate let cellHeight:CGFloat = 50
@@ -19,7 +19,7 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
     fileprivate let titleArray:NSMutableArray = [
         LanguageHelper.getString(key: "language")
         ,LanguageHelper.getString(key: "modify_login_passsword")
-        ,LanguageHelper.getString(key: "find_password")
+        ,LanguageHelper.getString(key: "retrieve_Login_Password")
     ]
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
         if password == "0" {
             titleArray.add(LanguageHelper.getString(key: "set_pay_password"))
         }else{
-            titleArray.add(LanguageHelper.getString(key: "edit_pay_password"))
+            titleArray.add(LanguageHelper.getString(key: "find_password"))
         }
         self.view.addSubview(tableView)
         self.tableView.reloadData()
@@ -80,18 +80,19 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
             self.present(forgetPwdVC, animated: true, completion: nil)
         }else if indexPath.section == 2{
             let forgetPwdVC = ForgetPwdViewController()
-            forgetPwdVC.viewType = .getBackPayPwd
-            forgetPwdVC.topView.midLabel.text = LanguageHelper.getString(key: "find_password")
+            forgetPwdVC.viewType = .getBackLoginPwd
+            forgetPwdVC.topView.midLabel.text = titleArray[indexPath.section] as? String
             self.present(forgetPwdVC, animated: true) {
             }
         }else{
             let password = UserDefaults.standard.getUserInfo().paymentPassword
             if password == "0" {
                 let modifyPaymentPasswordVC = ModifyPaymentPasswordVC()
+                modifyPaymentPasswordVC.delegate = self
                 self.present(modifyPaymentPasswordVC, animated: true, completion: nil)
             }else {
                 let forgetPwdVC = ForgetPwdViewController()
-                forgetPwdVC.viewType = .modifyPayPwd
+                forgetPwdVC.viewType = .getBackPayPwd
                 forgetPwdVC.topView.midLabel.text = self.titleArray[indexPath.section] as? String
                 self.present(forgetPwdVC, animated: true) {
                     
@@ -111,6 +112,11 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
         tableView.tableFooterView = UIView(frame:CGRect(x: 0, y: 0, width: 0, height: 0))
         return tableView
     }()
+    
+    func modifyPaymentPasswordReloadData() {
+        titleArray.replaceObject(at: titleArray.count - 1, with: LanguageHelper.getString(key: "find_password"))
+        self.tableView.reloadData()
+    }
     
     override func backToPrevious() {
         self.navBarBgAlpha = "0"

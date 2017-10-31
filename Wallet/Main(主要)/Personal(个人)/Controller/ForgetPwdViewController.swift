@@ -199,7 +199,19 @@ class ForgetPwdViewController: UIViewController {
             self.retrieveLoginPwd(paramters: paramters, url: "")
             
         case .getBackPayPwd:
-            let paramters = ["phone" : phoneNo!,"Password1" : pwd!, "code" : authorCode!, "Password2" : confirmPwd!]
+             var password1 = ""
+             var password2 = ""
+            if Tools.validateMobile(mobile: phoneNo!) {
+                password1 =  "Password1"
+                password2 =  "Password2"
+            }
+            
+            if Tools.validateEmail(email: phoneNo!)  {
+                password1 =  "newPassword1"
+                password2 =  "newPassword2"
+            }
+
+            let  paramters = ["phone" : phoneNo!,password1 : pwd!, "code" : authorCode!, password2 : confirmPwd!]
             self.retrievePwd(paramters: paramters, url: ConstAPI.kAPIRetrievePaymentPwd)
         case .modifyLoginPwd, .modifyPayPwd:
             let sign = "newPassword1=\(pwd!)&newPassword2=\(confirmPwd!)&oldPassword=\(oldPwd!)&token=\(token)&timestamp=\(timestamp)&userId=\(userId)"
@@ -223,10 +235,20 @@ class ForgetPwdViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    // MARK: - NetWork
+    //找回支付密码
     func retrievePwd(paramters: [String : Any], url: String) {
+        
+        let text = self.forgetView.phoneTextView.textField.text!
+        var url = ""
+        if Tools.validateMobile(mobile: text) {
+            url =  ConstAPI.kAPIRetrievePaymentPwd
+        }
+        
+        if Tools.validateEmail(email: text)  {
+            url = ConstAPI.kAPIEmailFoundPayPassword
+        }
+        
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "modifying_password") , maskType: .black)
-        let url = ConstAPI.kAPIRetrievePaymentPwd
         NetWorkTool.request(requestType: .post, URLString: url, parameters: paramters, showIndicator: true, success: { (json) in
             let data = json as! [String : Any]
             let code:Int = data["code"] as! Int

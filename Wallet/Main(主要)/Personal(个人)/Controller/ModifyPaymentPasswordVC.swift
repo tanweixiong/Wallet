@@ -9,6 +9,10 @@
 import UIKit
 import SVProgressHUD
 
+protocol ModifyPaymentPasswordDelegate {
+    func modifyPaymentPasswordReloadData()
+}
+
 class ModifyPaymentPasswordVC: UIViewController,UITextFieldDelegate {
     // MARK: - properties
     struct ViewStyle {
@@ -21,6 +25,7 @@ class ModifyPaymentPasswordVC: UIViewController,UITextFieldDelegate {
         static let textViewHeight: CGFloat = 35
 
     }
+     var delegate:ModifyPaymentPasswordDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,6 +133,7 @@ class ModifyPaymentPasswordVC: UIViewController,UITextFieldDelegate {
                 let userInfo = UserDefaults.standard.getUserInfo()
                 userInfo.paymentPassword = "1"
                 UserDefaults.standard.saveCustomObject(customObject:userInfo, key: R_UserInfo)
+                self.delegate?.modifyPaymentPasswordReloadData()
             }else{
                 SVProgressHUD.showInfo(withStatus: msg)
             }

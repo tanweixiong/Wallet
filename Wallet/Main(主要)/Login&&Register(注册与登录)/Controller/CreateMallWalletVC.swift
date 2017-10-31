@@ -78,8 +78,10 @@ class CreateMallWalletVC: WLMainViewController,UITextFieldDelegate {
     
     func registerMall(){
         if checkInput() {
+            self.getCodeButton.isEnabled = false
             let paramters = ["phone":accountTextField.text!,"password":passwordTextField.text!,"code":codeTextField.text!,"username":walletNameTextField.text!]
             NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIUserEmailAdd, parameters: paramters, showIndicator: true, success: { (json) in
+                self.getCodeButton.isEnabled = true
                 let responseData = Mapper<ResponseData>().map(JSONObject: json)
                 if let code = responseData?.code {
                     if code == 100 {
