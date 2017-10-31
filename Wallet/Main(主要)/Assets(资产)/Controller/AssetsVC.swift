@@ -158,7 +158,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
             while (topRootViewController.presentedViewController != nil){
                 topRootViewController = topRootViewController.presentedViewController!;
             }
-            topRootViewController.present(CreateWalletVC(), animated: true, completion: {
+            topRootViewController.present(CreateMyWalletVC(), animated: true, completion: {
                 
             })
         }
