@@ -55,16 +55,19 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
         }else{
             self.navigationController?.navigationBar.isHidden = false
             if sender.tag == 1 {
-                let language = UserDefaults.standard.object(forKey: R_Languages) as! String
-                if language == "en" {
-                    let vc = CreateMallWalletVC()
-                    vc.delegate = self
-                    self.present(vc, animated: true, completion: {})
-                }else{
-                    let vc = CreateWalletVC()
-                    vc.delegate = self
-                    self.present(vc, animated: true, completion: {})
-                }
+                let vc = CreateMyWalletVC()
+                self.present(vc, animated: true, completion: {})
+                
+//                let language = UserDefaults.standard.object(forKey: R_Languages) as! String
+//                if language == "en" {
+//                    let vc = CreateMallWalletVC()
+//                    vc.delegate = self
+//                    self.present(vc, animated: true, completion: {})
+//                }else{
+//                    let vc = CreateWalletVC()
+//                    vc.delegate = self
+//                    self.present(vc, animated: true, completion: {})
+//                }
             }else{
                 let language = UserDefaults.standard.object(forKey: R_Languages) as! String
                 if language == "en" {

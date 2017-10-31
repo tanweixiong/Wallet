@@ -126,6 +126,9 @@
 		231849041FA46928003C1D4E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 231848EE1FA46928003C1D4E /* README.md */; };
 		231849071FA47C66003C1D4E /* UINavigationBar+Other.m in Sources */ = {isa = PBXBuildFile; fileRef = 231849061FA47C66003C1D4E /* UINavigationBar+Other.m */; };
 		231AFDCD1F8DB95A0032EE7E /* LoginConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AFDCC1F8DB95A0032EE7E /* LoginConfiguration.swift */; };
+		231B35581FA80D6B003F9CE9 /* CreateMyWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B35571FA80D6B003F9CE9 /* CreateMyWalletVC.swift */; };
+		231B355A1FA80DAA003F9CE9 /* CreateMyWalletBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B35591FA80DAA003F9CE9 /* CreateMyWalletBar.swift */; };
+		231B355C1FA80DB7003F9CE9 /* CreateMyWalletBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 231B355B1FA80DB7003F9CE9 /* CreateMyWalletBar.xib */; };
 		23326A851F57B52F00676CA1 /* TransactionRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23326A841F57B52F00676CA1 /* TransactionRecordVC.swift */; };
 		23326A881F57BBF800676CA1 /* ManageWalletsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23326A861F57BBF800676CA1 /* ManageWalletsCell.swift */; };
 		23326A891F57BBF800676CA1 /* ManageWalletsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23326A871F57BBF800676CA1 /* ManageWalletsCell.xib */; };
@@ -412,6 +415,9 @@
 		231849051FA47C66003C1D4E /* UINavigationBar+Other.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Other.h"; sourceTree = "<group>"; };
 		231849061FA47C66003C1D4E /* UINavigationBar+Other.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Other.m"; sourceTree = "<group>"; };
 		231AFDCC1F8DB95A0032EE7E /* LoginConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConfiguration.swift; sourceTree = "<group>"; };
+		231B35571FA80D6B003F9CE9 /* CreateMyWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMyWalletVC.swift; sourceTree = "<group>"; };
+		231B35591FA80DAA003F9CE9 /* CreateMyWalletBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMyWalletBar.swift; sourceTree = "<group>"; };
+		231B355B1FA80DB7003F9CE9 /* CreateMyWalletBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateMyWalletBar.xib; sourceTree = "<group>"; };
 		23326A841F57B52F00676CA1 /* TransactionRecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionRecordVC.swift; sourceTree = "<group>"; };
 		23326A861F57BBF800676CA1 /* ManageWalletsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletsCell.swift; sourceTree = "<group>"; };
 		23326A871F57BBF800676CA1 /* ManageWalletsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageWalletsCell.xib; sourceTree = "<group>"; };
@@ -1294,6 +1300,7 @@
 			isa = PBXGroup;
 			children = (
 				239335331F53A6030016208F /* LoginVC.swift */,
+				231B35571FA80D6B003F9CE9 /* CreateMyWalletVC.swift */,
 				23B767CD1F53C74700440BB4 /* CreateWalletVC.swift */,
 				235459771F9D9567003160AB /* CreateMallWalletVC.swift */,
 				230ACA941F5554F3005D590F /* ForgetPasswordVC.swift */,
@@ -1317,6 +1324,8 @@
 		23EEC84D1FA01A9300F12567 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				231B35591FA80DAA003F9CE9 /* CreateMyWalletBar.swift */,
+				231B355B1FA80DB7003F9CE9 /* CreateMyWalletBar.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1523,6 +1532,7 @@
 				230AEA981FA2D5F300D42308 /* TransactionCoinDetailVw.xib in Resources */,
 				238DB3F81F4D4C0700ECA2C4 /* LaunchScreen.storyboard in Resources */,
 				23326A891F57BBF800676CA1 /* ManageWalletsCell.xib in Resources */,
+				231B355C1FA80DB7003F9CE9 /* CreateMyWalletBar.xib in Resources */,
 				230A04871F67BABC007EF3AB /* IndustryDetailsVC.xib in Resources */,
 				230B8C441F4E6E370003F5D2 /* AssetsViewCell.xib in Resources */,
 				231848EF1FA46928003C1D4E /* LICENSE in Resources */,
@@ -1708,6 +1718,7 @@
 			files = (
 				236996101F6915120034C120 /* ZCTradeView.m in Sources */,
 				231849001FA46928003C1D4E /* NSBundle+MJRefresh.m in Sources */,
+				231B355A1FA80DAA003F9CE9 /* CreateMyWalletBar.swift in Sources */,
 				230EF96D1F6F5B75006E82E6 /* VariousLanguagesCell.swift in Sources */,
 				2310BAE21F9F0387006A1551 /* WalletOCTools.m in Sources */,
 				231849071FA47C66003C1D4E /* UINavigationBar+Other.m in Sources */,
@@ -1804,6 +1815,7 @@
 				238DB44F1F4D4F6B00ECA2C4 /* UINavigationController+Cloudox.m in Sources */,
 				230EF9A61F6FBCE7006E82E6 /* LoginView.swift in Sources */,
 				230EF9AE1F6FBE25006E82E6 /* DHSTextField.swift in Sources */,
+				231B35581FA80D6B003F9CE9 /* CreateMyWalletVC.swift in Sources */,
 				23770C201FA7067A00E4E6B7 /* ForgetMallViewVC.swift in Sources */,
 				238DB4AA1F4D6E7700ECA2C4 /* MASLayoutConstraint.m in Sources */,
 				23683D561F9DE49E00D63638 /* AddMineBusinessCardCell.swift in Sources */,

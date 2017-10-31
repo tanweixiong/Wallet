@@ -34,7 +34,7 @@
 "market_detail" = "行情详情";
 "add_market" = "添加行情";
 "edit_market" = "编辑详情";
-"enter_phone" = "请输入手机号码";
+"enter_phone" = "请输入账号";
 "enter_password" = "请输入6个字符以上字母或数字的密码";
 "login_wallet" = "登录钱包";
 "card" = "名片";
@@ -205,7 +205,7 @@
 "qrCode_error" = "二维码格式不正确";
 "please_write_contacts_name" = "请填写联系人姓名";
 "please_write_contacts_address" = "请填写联系人地址";
-"please_enter_phone" = "请输入正确的手机号码";
+"please_enter_phone" = "请输入正确的账号";
 "please_login_again" = "请重新登录";
 "logging_in" = "正在登录";
 "failed_verification_code" = "获取验证码失败";

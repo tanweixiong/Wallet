@@ -167,7 +167,7 @@ extension CreateMallWalletVC {
     func createUI() {
         self.view.backgroundColor = UIColor.R_UIColorFromRGB(color: 0xF3F7F8)
         
-        self.view.addSubview(topView)
+//        self.view.addSubview(topView)
         self.view.addSubview(walletNameTextField)
         self.view.addSubview(passwordTextField)
         self.view.addSubview(accountTextField)
@@ -175,11 +175,11 @@ extension CreateMallWalletVC {
         self.view.addSubview(codeTextField)
         self.view.addSubview(createWallet)
         
-        self.topView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.view)
-            make.top.equalTo(self.view.snp.top).offset(0)
-            make.height.equalTo(64)
-        }
+//        self.topView.snp.makeConstraints { (make) in
+//            make.left.right.equalTo(self.view)
+//            make.top.equalTo(self.view.snp.top).offset(0)
+//            make.height.equalTo(64)
+//        }
         
         walletNameTextField.textColor = R_UIFontLightColor
         walletNameTextField.backgroundColor = UIColor.white
@@ -198,7 +198,7 @@ extension CreateMallWalletVC {
         walletNameTextField.leftView = walletNameLeftView
         walletNameTextField.leftViewMode = .always
         walletNameTextField.snp.makeConstraints{ (make) -> Void in
-            make.top.equalTo(topView.snp.bottom).offset(YMAKE(CreateWalletUX.space))
+            make.top.equalTo(self.view.snp.top).offset(0)
             make.centerX.equalTo(self.view.snp.centerX)
             make.width.equalTo(CreateWalletUX.textFieldWidth)
             make.height.equalTo(CreateWalletUX.textFieldHeight)

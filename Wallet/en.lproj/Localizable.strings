@@ -34,7 +34,7 @@
 "market_detail" = "Quotes details";
 "add_market" = "Add the market";
 "edit_market" = "Edit the market";
-"enter_phone" = "Please enter the phone number";
+"enter_phone" = "Please enter the account number";
 "enter_password" = "Please enter your password";
 "login_wallet" = "Login";
 "forget_password" = "forget password";
@@ -205,7 +205,7 @@
 "please_write_contacts" = "Please write contacts";
 "please_write_contacts_name" = "Please write name";
 "please_write_contacts_address" = "Please write address";
-"please_enter_phone" = "Please enter the correct cell phone number";
+"please_enter_phone" = "Please enter the correct cell account number";
 "please_login_again" = "Please lose your login again";
 "logging_in" = "Logging in";
 "failed_verification_code" = "Failed to get the verification code";

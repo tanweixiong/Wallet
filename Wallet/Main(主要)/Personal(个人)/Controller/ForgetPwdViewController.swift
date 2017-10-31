@@ -38,11 +38,13 @@ class ForgetPwdViewController: UIViewController {
         view.backBtn.addTarget(self, action: #selector(backToLogin), for: .touchUpInside)
         return view
     }()
-    
+
     lazy var modifyView: ModifyPwdView = {
         let view = ModifyPwdView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT * 0.75))
         view.commitBtn.addTarget(self, action: #selector(ForgetPwdViewController.comfirmNewPwd), for: .touchUpInside)
         view.isUserInteractionEnabled = true
+        let language = UserDefaults.standard.object(forKey: R_Languages) as! String
+        view.originPwdTextView.textField.setKeyboardStyle(textType: .TextFieldNumberLetter)
         return view
     }()
     
@@ -51,9 +53,10 @@ class ForgetPwdViewController: UIViewController {
         view.registerBtn.addTarget(self, action: #selector(ForgetPwdViewController.comfirmNewPwd), for: .touchUpInside)
         view.authorizeTextView.rightAutorBtn.addTarget(self, action: #selector(ForgetPwdViewController.authorizeBtnClick(btn:)), for: .touchUpInside)
         view.isUserInteractionEnabled = true
+        let language = UserDefaults.standard.object(forKey: R_Languages) as! String
+        view.phoneTextView.textField.setKeyboardStyle(textType: .TextFieldNumberLetter)
         return view
     }()
-    
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CreateMyWalletBar" customModule="Wallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyI-eT-cyA">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heF-Fn-3fW">
+                            <rect key="frame" x="10" y="0.0" width="355" height="50"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EkU-nY-FUf">
+                                    <rect key="frame" x="0.0" y="0.0" width="177.5" height="50"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMC-DR-uM4">
+                                            <rect key="frame" x="0.0" y="0.0" width="177.5" height="50"/>
+                                            <state key="normal" title="手机注册">
+                                                <color key="titleColor" red="0.066666666669999999" green="0.84705882349999995" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="TUK-OV-VN6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.066666666669999999" green="0.84705882349999995" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="uMC-DR-uM4" firstAttribute="top" secondItem="EkU-nY-FUf" secondAttribute="top" id="Sb4-3E-23K"/>
+                                        <constraint firstAttribute="trailing" secondItem="uMC-DR-uM4" secondAttribute="trailing" id="ZTL-ao-mvb"/>
+                                        <constraint firstAttribute="bottom" secondItem="uMC-DR-uM4" secondAttribute="bottom" id="hdZ-8g-MMH"/>
+                                        <constraint firstItem="uMC-DR-uM4" firstAttribute="leading" secondItem="EkU-nY-FUf" secondAttribute="leading" id="lYq-p3-0WZ"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tg6-rj-XHZ">
+                                    <rect key="frame" x="177.5" y="0.0" width="177.5" height="50"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gET-3H-XHq">
+                                            <rect key="frame" x="0.0" y="0.0" width="177.5" height="50"/>
+                                            <state key="normal" title="邮箱注册">
+                                                <color key="titleColor" red="0.066666666669999999" green="0.84705882349999995" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="DHk-mj-RKj"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gET-3H-XHq" firstAttribute="top" secondItem="tg6-rj-XHZ" secondAttribute="top" id="2rB-7a-QUS"/>
+                                        <constraint firstItem="gET-3H-XHq" firstAttribute="leading" secondItem="tg6-rj-XHZ" secondAttribute="leading" id="GS8-eh-gxE"/>
+                                        <constraint firstAttribute="bottom" secondItem="gET-3H-XHq" secondAttribute="bottom" id="O2E-qK-Zy2"/>
+                                        <constraint firstAttribute="trailing" secondItem="gET-3H-XHq" secondAttribute="trailing" id="mYw-Gv-dmT"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="centerX" secondItem="EkU-nY-FUf" secondAttribute="trailing" id="BUw-LH-qwr"/>
+                                <constraint firstItem="tg6-rj-XHZ" firstAttribute="height" secondItem="EkU-nY-FUf" secondAttribute="height" id="Ev2-He-9vf"/>
+                                <constraint firstItem="EkU-nY-FUf" firstAttribute="leading" secondItem="heF-Fn-3fW" secondAttribute="leading" id="OYk-Yg-zyv"/>
+                                <constraint firstItem="tg6-rj-XHZ" firstAttribute="top" secondItem="heF-Fn-3fW" secondAttribute="top" id="Q5Q-NI-V3G"/>
+                                <constraint firstAttribute="bottom" secondItem="EkU-nY-FUf" secondAttribute="bottom" id="b0s-pr-jUU"/>
+                                <constraint firstAttribute="trailing" secondItem="tg6-rj-XHZ" secondAttribute="trailing" id="imW-Fg-Hct"/>
+                                <constraint firstItem="tg6-rj-XHZ" firstAttribute="width" secondItem="EkU-nY-FUf" secondAttribute="width" id="miL-xV-GV7"/>
+                                <constraint firstItem="EkU-nY-FUf" firstAttribute="top" secondItem="heF-Fn-3fW" secondAttribute="top" id="yqg-ka-asw"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="heF-Fn-3fW" firstAttribute="top" secondItem="zyI-eT-cyA" secondAttribute="top" id="15S-8V-ZMv"/>
+                        <constraint firstAttribute="trailing" secondItem="heF-Fn-3fW" secondAttribute="trailing" constant="10" id="OP2-cl-hJI"/>
+                        <constraint firstAttribute="bottom" secondItem="heF-Fn-3fW" secondAttribute="bottom" id="Zc6-Pr-e3U"/>
+                        <constraint firstItem="heF-Fn-3fW" firstAttribute="leading" secondItem="zyI-eT-cyA" secondAttribute="leading" constant="10" id="d8m-oc-wo8"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="zyI-eT-cyA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4kH-Pv-CVA"/>
+                <constraint firstItem="zyI-eT-cyA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="S7l-ds-vTd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zyI-eT-cyA" secondAttribute="trailing" id="cZy-by-5Ru"/>
+                <constraint firstAttribute="bottom" secondItem="zyI-eT-cyA" secondAttribute="bottom" id="pJj-4d-spj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="mallRegistrationBtn" destination="gET-3H-XHq" id="ppE-7T-9dx"/>
+                <outlet property="phoneRegistrationBtn" destination="uMC-DR-uM4" id="OSG-D2-mbL"/>
+            </connections>
+        </view>
+    </objects>
+</document>
