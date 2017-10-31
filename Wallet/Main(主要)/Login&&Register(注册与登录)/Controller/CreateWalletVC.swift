@@ -57,9 +57,17 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
         if Tools.validateMobile(mobile: accountTextField.text!)  {
            let parameter = ["phone":accountTextField.text!]
            let url = ConstAPI.kAPIGetAuthorizeCode
-           NetWorkTool.requestData(requestType: .post, URLString:url , parameters: parameter, showIndicator: false, success: { (success) in
-              self.getCodeButton.isEnabled = false;
-              self.setTimeCountDown()
+           NetWorkTool.requestData(requestType: .post, URLString:url , parameters: parameter, showIndicator: false, success: { (json) in
+            let responseData = Mapper<ResponseData>().map(JSONObject: json)
+            if let code = responseData?.code {
+                if code == 100 {
+                    self.getCodeButton.isEnabled = false;
+                    self.setTimeCountDown()
+                    WLSuccess(LanguageHelper.getString(key: "already_sent"))
+                } else {
+                    WLInfo(responseData?.msg)
+                }
+            }
            }, failture: { (error) in
                 WLError("获取验证码失败")
            })
