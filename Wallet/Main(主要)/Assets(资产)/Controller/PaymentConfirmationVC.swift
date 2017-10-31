@@ -90,11 +90,11 @@ class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
                     }else if code == "105" {
                         let vc = SettingPaypsdVC()
                         self.navigationController?.pushViewController(vc, animated: true)
-                    //找回支付密码
+                    //重新找回支付密码
                     }else if code == "104"{
                         let forgetPwdVC = ForgetPwdViewController()
-                        forgetPwdVC.viewType = .modifyPayPwd
-                        forgetPwdVC.topView.midLabel.text = LanguageHelper.getString(key: "set_pay_password")
+                        forgetPwdVC.viewType = .getBackPayPwd
+                        forgetPwdVC.topView.midLabel.text = LanguageHelper.getString(key: "find_password")
                         self.present(forgetPwdVC, animated: true) {
                         }
                     }else {

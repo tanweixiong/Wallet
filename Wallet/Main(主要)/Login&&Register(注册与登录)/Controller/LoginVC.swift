@@ -32,6 +32,7 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
     let loginButton = UIButton()
     let forgetpasswordButton = UIButton()
     let foundWallet  = UIButton()
+    let languageButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,6 +137,12 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
         return image;
     }
     
+    func chooceLogin(){
+        let vc = VariousLanguagesVC()
+        vc.variousLanguagesNextStyle = .loginType
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func createWalletFinish(_ account: String, _ password: String) {
          accountTextField.text = account
          passwordTextField.text = password
@@ -170,6 +177,7 @@ extension LoginVC {
         self.view.addSubview(loginButton)
         self.view.addSubview(forgetpasswordButton)
         self.view.addSubview(foundWallet)
+        self.view.addSubview(languageButton)
         
         self.backgroundImageView.frame = CGRect(x: 0, y: -64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT + 64)
         self.backgroundImageView.image = UIImage(named: "ic_loginbackground")
@@ -266,6 +274,24 @@ extension LoginVC {
             make.height.equalTo(YMAKE(30))
         }
         
+        foundWallet.snp.makeConstraints { (make) in
+            make.top.equalTo(loginButton.snp.bottom).offset(YMAKE(5))
+            make.left.equalTo(self.loginButton.snp.left).offset(-XMAKE(5))
+            make.width.equalTo(foundSize.width)
+            make.height.equalTo(YMAKE(30))
+        }
+        
+        languageButton.setTitle(logType == .englishVersion ? "English" : "中文", for: .normal)
+        languageButton.setTitleColor(UIColor.white, for: .normal)
+        languageButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        languageButton.addTarget(self, action: #selector(LoginVC.chooceLogin), for: .touchUpInside)
+        languageButton.titleLabel?.textAlignment = .right
+        languageButton.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view.snp.top).offset(YMAKE(30))
+            make.right.equalTo(self.view.snp.right).offset(0)
+            make.width.equalTo(XMAKE(100))
+            make.height.equalTo(YMAKE(30))
+        }
     }
     
     class func setTabBarController() {

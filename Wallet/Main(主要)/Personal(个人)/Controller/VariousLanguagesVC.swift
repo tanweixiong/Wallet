@@ -16,7 +16,13 @@ class VariousLanguagesVC: WLMainViewController,UITableViewDataSource,UITableView
         case specialType = 1
     }
     
+    enum VariousLanguagesNextStyle: Int {
+        case homeType = 0
+        case loginType = 1
+    }
+    
     var myStyle = variouStyle.generalType
+    var variousLanguagesNextStyle = VariousLanguagesNextStyle.homeType
     
     fileprivate let cellHeight:CGFloat = 50
     fileprivate let footHeight:CGFloat = 10
@@ -27,6 +33,8 @@ class VariousLanguagesVC: WLMainViewController,UITableViewDataSource,UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
+        self.navBarBgAlpha = "1"
         self.title = myStyle == variouStyle.generalType ? LanguageHelper.getString(key: "language") : LanguageHelper.getString(key: "coin")
         self.addDefaultBackBarButtonLeft()
         self.addDefaultButtonTextRight(LanguageHelper.getString(key: "save"))
@@ -55,9 +63,14 @@ class VariousLanguagesVC: WLMainViewController,UITableViewDataSource,UITableView
                 LanguageHelper.shareInstance.setLanguage(langeuage: langeuage)
                 langeuageString = langeuage
             }
-            SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "save_successfully"))
-            UserDefaults.standard.set(langeuageString, forKey: R_Languages)
-            LoginVC.setTabBarController()
+             SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "save_successfully"))
+             UserDefaults.standard.set(langeuageString, forKey: R_Languages)
+            
+            if variousLanguagesNextStyle == .homeType {
+                LoginVC.setTabBarController()
+            }else{
+                LoginVC.switchRootVCToLoginVC()
+            }
         }
     }
     

@@ -223,26 +223,19 @@ class ForgetPwdViewController: UIViewController {
     
     // MARK: - NetWork
     func retrievePwd(paramters: [String : Any], url: String) {
-        
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "modifying_password") , maskType: .black)
-        
-        NetWorkTool.requestData(requestType: .post, URLString: url, parameters: paramters, showIndicator: true, success: { (json) in
-            
-            let responseData = Mapper<ResponseData>().map(JSONObject: json)
-            
-            if let code = responseData?.code {
-                if code == 100 {
-                    
-                    SVProgressHUD.showSuccess(withStatus: LanguageHelper.getString(key: "password_changes_succeeded"))
-                    self.dismiss(animated: true, completion: nil)
-                    
-                } else {
-                    
-                    SVProgressHUD.showInfo(withStatus: responseData?.msg)
-                }
+        let url = ConstAPI.kAPIRetrievePaymentPwd
+        NetWorkTool.request(requestType: .post, URLString: url, parameters: paramters, showIndicator: true, success: { (json) in
+            let data = json as! [String : Any]
+            let code:Int = data["code"] as! Int
+            let msg:String = data["msg"] as! String
+            if code == 100 {
+                SVProgressHUD.showSuccess(withStatus: msg)
+                self.backToLogin()
+            }else{
+                SVProgressHUD.showInfo(withStatus: msg)
             }
         }) { (error) in
-            
         }
     }
     

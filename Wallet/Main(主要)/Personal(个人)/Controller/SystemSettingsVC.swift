@@ -19,6 +19,7 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
     fileprivate let titleArray:NSMutableArray = [
         LanguageHelper.getString(key: "language")
         ,LanguageHelper.getString(key: "modify_login_passsword")
+        ,LanguageHelper.getString(key: "find_password")
     ]
     
     override func viewDidLoad() {
@@ -72,12 +73,17 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
             let vc = VariousLanguagesVC()
             vc.myStyle = VariousLanguagesVC.variouStyle.generalType
             self.navigationController?.pushViewController(vc, animated: true)
-        }
-        else if indexPath.section == 1 {
+        }else if indexPath.section == 1 {
             let forgetPwdVC = ForgetPwdViewController()
             forgetPwdVC.viewType = ForgetPwdViewType(rawValue:0)!
             forgetPwdVC.topView.midLabel.text = titleArray[indexPath.section] as? String
             self.present(forgetPwdVC, animated: true, completion: nil)
+        }else if indexPath.section == 2{
+            let forgetPwdVC = ForgetPwdViewController()
+            forgetPwdVC.viewType = .getBackPayPwd
+            forgetPwdVC.topView.midLabel.text = LanguageHelper.getString(key: "find_password")
+            self.present(forgetPwdVC, animated: true) {
+            }
         }else{
             let password = UserDefaults.standard.getUserInfo().paymentPassword
             if password == "0" {
@@ -86,7 +92,7 @@ class SystemSettingsVC: WLMainViewController,UITableViewDataSource,UITableViewDe
             }else {
                 let forgetPwdVC = ForgetPwdViewController()
                 forgetPwdVC.viewType = .modifyPayPwd
-                forgetPwdVC.topView.midLabel.text = LanguageHelper.getString(key: "set_pay_password")
+                forgetPwdVC.topView.midLabel.text = self.titleArray[indexPath.section] as? String
                 self.present(forgetPwdVC, animated: true) {
                     
                 }
