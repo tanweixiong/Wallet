@@ -69,22 +69,12 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
 //                    self.present(vc, animated: true, completion: {})
 //                }
             }else{
-                let language = UserDefaults.standard.object(forKey: R_Languages) as! String
-                if language == "en" {
-                    let vc = ForgetMallViewVC()
-                    vc.viewType = .getBackLoginPwd
-                    vc.topView.midLabel.text = LanguageHelper.getString(key: "retrieve_Login_Password")
-                    self.present(vc, animated: true, completion: {
-                        
-                    })
-                }else{
-                    let vc = ForgetPwdViewController()
-                    vc.viewType = .getBackLoginPwd
-                    vc.topView.midLabel.text = LanguageHelper.getString(key: "retrieve_Login_Password")
-                    self.present(vc, animated: true, completion: {
-                        
-                    })
-                }
+                let vc = ForgetPwdViewController()
+                vc.viewType = .getBackLoginPwd
+                vc.topView.midLabel.text = LanguageHelper.getString(key: "retrieve_Login_Password")
+                self.present(vc, animated: true, completion: {
+
+                })
             }
         }
     }

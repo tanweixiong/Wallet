@@ -110,6 +110,6 @@ struct ConstAPI {
     //邮箱获取验证码
     static let kAPIUserSendCode = kAPIBaseURL + "user/sendCode.do"
     //修改邮箱
-    static let kAPIUpdatePasswordByEmail = "user/updatePasswordByEmail.do"
+    static let kAPIUpdatePasswordByEmail = kAPIBaseURL + "user/updatePasswordByEmail.do"
 }
 

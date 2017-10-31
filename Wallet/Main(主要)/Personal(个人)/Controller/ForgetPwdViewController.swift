@@ -54,7 +54,7 @@ class ForgetPwdViewController: UIViewController {
         view.authorizeTextView.rightAutorBtn.addTarget(self, action: #selector(ForgetPwdViewController.authorizeBtnClick(btn:)), for: .touchUpInside)
         view.isUserInteractionEnabled = true
         let language = UserDefaults.standard.object(forKey: R_Languages) as! String
-        view.phoneTextView.textField.setKeyboardStyle(textType: .TextFieldNumberLetter)
+        view.phoneTextView.textField.setKeyboardStyle(textType: .TextFieldNormal)
         return view
     }()
     
@@ -144,12 +144,18 @@ class ForgetPwdViewController: UIViewController {
             pwd = self.forgetView.pwdTextView.textField.text
             confirmPwd = self.forgetView.confirmPwdTextView.textField.text
             
-            if !Tools.validateMobile(mobile: phoneNo!) {
-                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "right_phone"))
+//            if !Tools.validateMobile(mobile: phoneNo!) {
+//                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "right_phone"))
+//                return
+//            }
+            
+            if !Tools.validateMobile(mobile: phoneNo!) && !Tools.validateEmail(email: phoneNo!) {
+                WLProgressHUD.showInfo(LanguageHelper.getString(key: "login_Mall_Phone"))
                 return
             }
             
-            if !Tools.validateAuthorCode(code: self.forgetView.authorizeTextView.textField.text!) {
+            let code = self.forgetView.authorizeTextView.textField.text!
+            if code.count < 3 {
                 SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "register_code"))
                 return
             }
@@ -190,7 +196,8 @@ class ForgetPwdViewController: UIViewController {
         switch self.viewType {
         case .getBackLoginPwd:
             let paramters = ["phone" : phoneNo!,"newPassword1" : pwd!, "code" : authorCode!, "newPassword2" : confirmPwd!]
-            self.retrievePwd(paramters: paramters, url: ConstAPI.kAPIRetrieveLoginPwd)
+            self.retrieveLoginPwd(paramters: paramters, url: "")
+            
         case .getBackPayPwd:
             let paramters = ["phone" : phoneNo!,"Password1" : pwd!, "code" : authorCode!, "Password2" : confirmPwd!]
             self.retrievePwd(paramters: paramters, url: ConstAPI.kAPIRetrievePaymentPwd)
@@ -208,15 +215,7 @@ class ForgetPwdViewController: UIViewController {
     }
     
     func authorizeBtnClick(btn: AutorizeButton) {
-        
-        if !Tools.validateMobile(mobile: self.forgetView.phoneTextView.textField.text!) {
-            SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "right_phone"))
-            return
-        }
-        
-        btn.isCounting = true
-        self.getAuthorizeCode()
-        
+        self.getAuthorizeCode(btn: btn)
     }
     
     func viewTouched() {
@@ -240,6 +239,40 @@ class ForgetPwdViewController: UIViewController {
             }
         }) { (error) in
         }
+    }
+    
+    func retrieveLoginPwd(paramters: [String : Any], url: String) {
+        SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "modifying_password") , maskType: .black)
+ 
+        let text = self.forgetView.phoneTextView.textField.text!
+        var url = ""
+        if Tools.validateMobile(mobile: text) {
+             url =  ConstAPI.kAPIRetrieveLoginPwd
+        }
+        
+        if Tools.validateEmail(email: text)  {
+             url = ConstAPI.kAPIUpdatePasswordByEmail
+        }
+        
+        NetWorkTool.request(requestType: .post, URLString: url, parameters: paramters, showIndicator: true, success: { (json) in
+            let responseData = Mapper<ResponseData>().map(JSONObject: json)
+            if let code = responseData?.code {
+                if code == 100 {
+                    SVProgressHUD.showSuccess(withStatus: LanguageHelper.getString(key: "password_changes_succeeded"))
+                    let time: TimeInterval = 1.0
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+                        self.dismiss(animated: true, completion: {
+                            
+                        })
+                    }
+                } else {
+                    
+                    SVProgressHUD.showInfo(withStatus: responseData?.msg)
+                }
+            }
+        }, failture: { (error) in
+            
+        })
     }
     
     func modifyPaymentPassword (){
@@ -300,12 +333,32 @@ class ForgetPwdViewController: UIViewController {
         }
     }
     
-    func getAuthorizeCode() {
+    func getAuthorizeCode(btn: AutorizeButton) {
+        let text = self.forgetView.phoneTextView.textField.text!
+        if !Tools.validateMobile(mobile: text) && !Tools.validateEmail(email: text) {
+            WLProgressHUD.showInfo(LanguageHelper.getString(key: "login_Mall_Phone"))
+            return
+        }
         
+        btn.isCounting = true
+        
+        if Tools.validateMobile(mobile: text) {
+            self.getPhoneCode()
+        }
+        
+        if Tools.validateEmail(email: text)  {
+            self.getMallcode()
+        }
+
+    }
+    
+    func getPhoneCode(){
+        if !Tools.validateMobile(mobile: self.forgetView.phoneTextView.textField.text!) {
+            SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "right_phone"))
+            return
+        }
         let phoneNo = self.forgetView.phoneTextView.textField.text!
-        
         let paramters = ["phone" : phoneNo]
-        
         NetWorkTool.requestData(requestType: .get, URLString: ConstAPI.kAPIGetAuthorizeCode, parameters: paramters, showIndicator: true, success: { (json) in
             
             let result = Mapper<ResponseData>().map(JSONObject: json)
@@ -313,17 +366,36 @@ class ForgetPwdViewController: UIViewController {
             if let code = result?.code {
                 
                 if code == 100 {
-                    
+                    WLSuccess(LanguageHelper.getString(key: "already_sent"))
                 } else {
-                    
+                    WLInfo(result?.msg)
                     self.forgetView.authorizeTextView.rightAutorBtn.changeToOriginState()
                 }
             }
-            
         }) { (error) in
-            
             self.forgetView.authorizeTextView.rightAutorBtn.changeToOriginState()
-            
+        }
+    }
+    
+    func getMallcode() {
+        let mall = self.forgetView.phoneTextView.textField.text!
+        if Tools.validateEmail(email: mall)  {
+            let parameter = ["email":mall]
+            let url = ConstAPI.kAPIUserSendCode
+            NetWorkTool.requestData(requestType: .post, URLString:url , parameters: parameter, showIndicator: false, success: { (json) in
+                let responseData = Mapper<ResponseData>().map(JSONObject: json)
+                if let code = responseData?.code {
+                    if code == 100 {
+                        WLSuccess(responseData?.msg)
+                    } else {
+                        WLInfo(responseData?.msg)
+                    }
+                }
+            }, failture: { (error) in
+                WLError("已发送到邮箱")
+            })
+        }else{
+            WLInfo("请输入正确的邮箱地址")
         }
     }
 

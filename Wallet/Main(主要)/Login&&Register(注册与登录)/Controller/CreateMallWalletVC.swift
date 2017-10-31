@@ -64,7 +64,6 @@ class CreateMallWalletVC: WLMainViewController,UITextFieldDelegate {
                 if let code = responseData?.code {
                     if code == 100 {
                         WLSuccess(responseData?.msg)
-//                        self.navigationController?.popViewController(animated: true)
                     } else {
                         WLInfo("已发送到您的邮箱")
                     }
