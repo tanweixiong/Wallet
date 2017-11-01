@@ -139,10 +139,6 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     
     //右侧导航
     func addPopupView() {
-        
-        print(LanguageHelper.getString(key: "scan"))
-        print(LanguageHelper.getString(key: "create_wallet"))
-        
         PopupView.addCell(withIcon: UIImage.init(named: "home_saoyisao"), text: LanguageHelper.getString(key: "scan")) {
             let assets = WalletOCTools.getCurrentVC()
             let vc = LBXScanViewController();
