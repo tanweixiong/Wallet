@@ -80,7 +80,7 @@ struct ConstAPI {
     static let kAPIMyAddContacts = kAPIBaseURL + "contacts/add.do" //增加联系人
     
     //交易列表
-    static let kAPIChangerecordList = kAPIBaseURL + "changerecord/list.do" //增加联系人
+    static let kAPIChangerecordList = kAPIBaseURL + "changerecord/list.do" //交易记录
     
     //帮助反馈
     static let kAPIFeedsAdd = kAPIBaseURL + "feeds/add.do"
