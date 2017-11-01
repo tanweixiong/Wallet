@@ -202,8 +202,8 @@ class ForgetPwdViewController: UIViewController {
              var password1 = ""
              var password2 = ""
             if Tools.validateMobile(mobile: phoneNo!) {
-                password1 =  "Password1"
-                password2 =  "Password2"
+                password1 =  "newPassword1"
+                password2 =  "newPassword2"
             }
             
             if Tools.validateEmail(email: phoneNo!)  {
