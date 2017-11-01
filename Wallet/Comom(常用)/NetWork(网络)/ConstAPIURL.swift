@@ -12,10 +12,10 @@ struct ConstAPI {
     static let kAPIMYBaseURL: String = "http://47.52.59.119:9099/"
 
     //正式
-//    static let kAPIBaseURL: String = "http://47.52.59.119:9099/dhswallet/"
+    static let kAPIBaseURL: String = "http://47.52.59.119:9099/dhswallet/"
     
     //开发
-    static let kAPIBaseURL: String = "http://10.0.0.42:80/dhs-wallet/dhswallet/"
+//    static let kAPIBaseURL: String = "http://10.0.0.42:80/dhs-wallet/dhswallet/"
     
     static let kAPIRegister = kAPIBaseURL + "user/add.do"   //注册接口
     static let kAPIEmailAdd = kAPIBaseURL + "user/emailAdd.do"   //注册接口

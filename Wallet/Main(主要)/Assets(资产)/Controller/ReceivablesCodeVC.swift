@@ -17,6 +17,8 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var copyAddressButton: UIButton!
     @IBOutlet weak var iconNameLabel: UILabel!
     
+    @IBOutlet weak var codeView: UIView!
+    
     let imageBackgroundSize:CGFloat = 50
     
     fileprivate let hornImageBgSize:CGFloat = 60
@@ -70,6 +72,15 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
         }
         
         copyAddressButton.setTitle(LanguageHelper.getString(key: "copy_address"), for: .normal)
+        
+        let longTap = UILongPressGestureRecognizer(target: self, action: #selector(ReceivablesCodeVC.longTap))
+        codeView.addGestureRecognizer(longTap)
+    }
+    
+    func longTap(){
+        SVProgressHUD.showInfo(withStatus: "复制成功")
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = UserDefaults.standard.getUserInfo().userId
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

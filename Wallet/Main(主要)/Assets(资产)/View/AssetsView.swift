@@ -20,7 +20,7 @@ class AssetsView: UIView {
         static let hornImageSize :CGFloat = XMAKE(50)
     
         static let nameLabelHeight :CGFloat = YMAKE(14)
-        static let contentLabelHeight :CGFloat = 13.0
+        static let contentLabelHeight :CGFloat = YMAKE(12)
         static let asssetsHeight :CGFloat = YMAKE(25)
         static let sumAsssetsHeight :CGFloat = YMAKE(13)
         
@@ -82,10 +82,13 @@ class AssetsView: UIView {
             make.height.equalTo(AssetsViewUX.nameLabelHeight)
         }
         
+        let user_Id = UserDefaults.standard.getUserInfo().userId
+        contentLabel.text = user_Id
+        let size = contentLabel.getStringSize(text: contentLabel.text!, size: CGSize(width:SCREEN_WIDTH,height:AssetsViewUX.contentLabelHeight), font: AssetsViewUX.contentLabelHeight)
         contentLabel.snp.makeConstraints { (make) in
             make.top.equalTo(nameLabel.snp.bottom).offset(YMAKE(5))
             make.centerX.equalTo(hornImageView.snp.centerX)
-            make.width.equalTo(280)
+            make.width.equalTo(size.width + 1)
             make.height.equalTo(AssetsViewUX.contentLabelHeight)
         }
         
