@@ -58,16 +58,6 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
                 let vc = CreateMyWalletVC()
                 vc.delegate = self
                 self.present(vc, animated: true, completion: {})
-//                let language = UserDefaults.standard.object(forKey: R_Languages) as! String
-//                if language == "en" {
-//                    let vc = CreateMallWalletVC()
-//                    vc.delegate = self
-//                    self.present(vc, animated: true, completion: {})
-//                }else{
-//                    let vc = CreateWalletVC()
-//                    vc.delegate = self
-//                    self.present(vc, animated: true, completion: {})
-//                }
             }else{
                 let vc = ForgetPwdViewController()
                 vc.viewType = .getBackLoginPwd
