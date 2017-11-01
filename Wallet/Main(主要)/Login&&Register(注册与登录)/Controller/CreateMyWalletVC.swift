@@ -26,12 +26,13 @@ class CreateMyWalletVC: UIViewController,UIScrollViewDelegate,CreateWalletDelega
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+//        self.view.backgroundColor = UIColor.white
         self.title = LanguageHelper.getString(key: "create_wallet")
         
         self.view.addSubview(topView)
@@ -45,8 +46,9 @@ class CreateMyWalletVC: UIViewController,UIScrollViewDelegate,CreateWalletDelega
         scrollView.addSubview(createMallWalletVC.view)
         
         topView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.view)
+            make.left.equalTo(self.view.snp.left)
             make.top.equalTo(self.view.snp.top).offset(0)
+            make.width.equalTo(SCREEN_WIDTH)
             make.height.equalTo(64)
         }
         
