@@ -61,7 +61,9 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
             }else{
                 SVProgressHUD.showInfo(withStatus: responseData?.msg)
             }
+            self.tableView.mj_header.endRefreshing()
         }) { (error) in
+            self.tableView.mj_header.endRefreshing()
         }
     }
     
@@ -200,9 +202,9 @@ class IndustryVC: WLMainViewController,UITableViewDataSource,UITableViewDelegate
         tableView.backgroundColor = R_UIThemeBackgroundColor
         tableView.tableFooterView = UIView()
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
-//        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
-//            self.getData()
-//        })
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            self.getData()
+        })
         return tableView
     }()
 
