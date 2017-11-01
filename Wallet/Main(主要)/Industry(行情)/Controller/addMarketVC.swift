@@ -18,8 +18,9 @@ class addMarketVC: WLMainViewController,UITableViewDelegate,UITableViewDataSourc
 
     fileprivate let addMarketCellIdentifier = "AddMarketCellIdentifier"
     fileprivate let cellHeight:CGFloat = 100
-    fileprivate let dataScore = NSMutableArray()
+    fileprivate var dataScore = NSMutableArray()
     fileprivate let headHeight: CGFloat = 10
+    fileprivate let sortOrderArray = NSMutableArray()
     var delegate:AddMarketDelegate?
     
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class addMarketVC: WLMainViewController,UITableViewDelegate,UITableViewDataSourc
             let responseData = Mapper<addMarketModel>().map(JSONObject: json)
             if responseData?.code == 100 {
                 self.dataScore.addObjects(from: (responseData?.data)!)
+                self.addSortOrderData(self.dataScore)
                 self.tableView.reloadData()
             }else if responseData?.code == 200 {
                 LoginVC.setTokenInvalidation()
@@ -76,9 +78,6 @@ class addMarketVC: WLMainViewController,UITableViewDelegate,UITableViewDataSourc
                 }else{
                     self.uploadMarket(coin_no, index)
                 }
-    
-            }else if code == 100 {
-                LoginVC.setTokenInvalidation()
             }else{
                 SVProgressHUD.showInfo(withStatus: "修改不成功请稍后再试")
             }
@@ -99,27 +98,46 @@ class addMarketVC: WLMainViewController,UITableViewDelegate,UITableViewDataSourc
                     let coin = data["coin_no"] as! NSNumber
                     let coin_number = coin.stringValue
                     if coin_no.isEqual(coin_number){
-                        
                         let fileData:Array = Tools.getPlaceOnFile(R_UserDefaults_Market_Key) as! NSArray as Array
-                        let arrays = NSMutableArray()
+                        var arrays = NSMutableArray()
                         arrays.addObjects(from: fileData)
-                        arrays.insert(data, at: index)
+                        arrays.add(data)
+                        //重新排序
+                        arrays = self.sortOrderDataScore(arrays)
                         Tools.savePlaceOnFile(R_UserDefaults_Market_Key, arrays)
-                        
                         self.delegate?.addMarketReload()
                     }
                 }
-
-            }else if responseData?.code == 200 {
-                LoginVC.setTokenInvalidation()
             }else{
                 SVProgressHUD.showInfo(withStatus: responseData?.msg)
             }
         }) { (error) in
-            
         }
     }
     
+    //保存在排序数组里面
+    func addSortOrderData(_ data:NSArray) {
+        for index in 0...data.count - 1 {
+            let model = data[index] as! addMarketData
+            self.sortOrderArray.add((model.coin_no?.stringValue)!)
+        }
+    }
+    
+    func sortOrderDataScore(_ data:NSArray)->NSMutableArray{
+        let currentArray = NSMutableArray()
+        for index in 0...self.sortOrderArray.count - 1 {
+            let sortOrderCoin:String = sortOrderArray[index] as! String
+            for index in 0...data.count - 1 {
+                let data:NSDictionary = data[index] as! NSDictionary
+                let coin_no = String(describing: data.object(forKey: "coin_no")!)
+                if sortOrderCoin == coin_no {
+                    currentArray.add(data)
+                }
+            }
+        }
+        return currentArray
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataScore.count
     }
