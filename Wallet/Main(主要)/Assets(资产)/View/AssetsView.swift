@@ -128,6 +128,9 @@ class AssetsView: UIView {
         }
         
         qrCodeButton.addTarget(self, action: #selector(displayOnClick), for: .touchUpInside)
+        
+        let longTap = UILongPressGestureRecognizer(target: self, action: #selector(AssetsView.longTap))
+        qrView.addGestureRecognizer(longTap)
     }
     
     func changeAvatar(){
@@ -222,8 +225,6 @@ class AssetsView: UIView {
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
         view.backgroundColor = R_UIThemeColor
-        let longTap = UILongPressGestureRecognizer(target: self, action: #selector(AssetsView.longTap))
-        view.addGestureRecognizer(longTap)
         return view
     }()
     

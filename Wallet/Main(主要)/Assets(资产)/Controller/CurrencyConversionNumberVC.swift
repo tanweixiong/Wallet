@@ -56,6 +56,8 @@ class CurrencyConversionNumberVC: WLMainViewController,ZCTradeViewDelegate {
         change_coinTF.isEnabled = false
         change_coinTF.backgroundColor = UIColor.white
         
+        amountTF.keyboardType = .decimalPad
+        
         self.createUI()
     }
     
