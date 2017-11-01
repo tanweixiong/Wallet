@@ -171,8 +171,8 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
     
     func addFriendCard(){
         let userId = UserDefaults.standard.getUserInfo().userId
-        let id = (mineBusinessCardData?.id)!
-        let parameters = ["user_id":userId,"card_id":id]
+        let card_id = (mineBusinessCardData?.id)!
+        let parameters = ["user_id":userId,"card_id":card_id]
         NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIFriendAddCardList, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<ResponseData>().map(JSONObject: json)
             if let code = responseData?.code {

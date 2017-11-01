@@ -220,6 +220,7 @@
 		23ACA51F1F78F38D0010C628 /* QRCodeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ACA51D1F78F38D0010C628 /* QRCodeImageView.swift */; };
 		23ACA5201F78F38D0010C628 /* QRCodeImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23ACA51E1F78F38D0010C628 /* QRCodeImageView.xib */; };
 		23B767CE1F53C74700440BB4 /* CreateWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B767CD1F53C74700440BB4 /* CreateWalletVC.swift */; };
+		23B8FCE81FA9DAB4000CF4E9 /* MineBusinessCardCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B8FCE71FA9DAB4000CF4E9 /* MineBusinessCardCodeModel.swift */; };
 		23F4F6B41F70C46600C2FC7C /* AddAContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F4F6B21F70C46600C2FC7C /* AddAContactVC.swift */; };
 		23F4F6B51F70C46600C2FC7C /* AddAContactVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F4F6B31F70C46600C2FC7C /* AddAContactVC.xib */; };
 		23F4F6C21F70F86F00C2FC7C /* LBXPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F4F6BB1F70F86F00C2FC7C /* LBXPermissions.swift */; };
@@ -543,6 +544,7 @@
 		23ACA51D1F78F38D0010C628 /* QRCodeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeImageView.swift; sourceTree = "<group>"; };
 		23ACA51E1F78F38D0010C628 /* QRCodeImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeImageView.xib; sourceTree = "<group>"; };
 		23B767CD1F53C74700440BB4 /* CreateWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletVC.swift; sourceTree = "<group>"; };
+		23B8FCE71FA9DAB4000CF4E9 /* MineBusinessCardCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineBusinessCardCodeModel.swift; sourceTree = "<group>"; };
 		23F4F6B21F70C46600C2FC7C /* AddAContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAContactVC.swift; sourceTree = "<group>"; };
 		23F4F6B31F70C46600C2FC7C /* AddAContactVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAContactVC.xib; sourceTree = "<group>"; };
 		23F4F6BB1F70F86F00C2FC7C /* LBXPermissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXPermissions.swift; sourceTree = "<group>"; };
@@ -1139,6 +1141,7 @@
 				23F4F6C91F71093000C2FC7C /* TransactionRecordModel.swift */,
 				23683D481F9DCB7200D63638 /* MineBusinessCardModel.swift */,
 				236BF5C31F9F32550060B622 /* FriendBusinessCardModel.swift */,
+				23B8FCE71FA9DAB4000CF4E9 /* MineBusinessCardCodeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1894,6 +1897,7 @@
 				230B33601F6689E000408CB6 /* AssetsDetailsCell.swift in Sources */,
 				230EF96A1F6F5B2F006E82E6 /* VariousLanguagesVC.swift in Sources */,
 				236996121F6A1ED70034C120 /* SettingPaypsdVC.swift in Sources */,
+				23B8FCE81FA9DAB4000CF4E9 /* MineBusinessCardCodeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

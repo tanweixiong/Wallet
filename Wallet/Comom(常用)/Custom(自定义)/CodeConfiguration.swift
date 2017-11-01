@@ -41,10 +41,12 @@ class CodeConfiguration: NSObject {
         vc.navigationController?.popToRootViewController(animated: false)
         
         let dict =  WalletOCTools.getDictionaryFromJSONString(data)
+
+        let id = dict?[AnyHashable("id")] as! Int
         
-        let responseData = Mapper<MineBusinessCardData>().map(JSONObject: dict)
+        let responseData = Mapper<MineBusinessCardData>().map(JSONObject: dict!)
         let model:MineBusinessCardData = (responseData)!
-        
+        model.id = String(id)
         let addBusiessCardVC = AddBusiessCardVC()
         addBusiessCardVC.mineBusinessCardData = model
         addBusiessCardVC.addBusinessCardType = .addBusiessFriendCard
