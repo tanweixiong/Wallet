@@ -40,13 +40,20 @@ class CodeConfiguration: NSObject {
     class func addFriendBusinessCard(_ vc:UIViewController,_ data:String){
         vc.navigationController?.popToRootViewController(animated: false)
         
-        let dict =  WalletOCTools.getDictionaryFromJSONString(data)
-
-        let id = dict?[AnyHashable("id")] as! Int
+        let dict =  (WalletOCTools.getDictionaryFromJSONString(data))!
         
-        let responseData = Mapper<MineBusinessCardData>().map(JSONObject: dict!)
+        let responseData = Mapper<MineBusinessCardData>().map(JSONObject: dict)
         let model:MineBusinessCardData = (responseData)!
-        model.id = String(id)
+        
+        let responseCodeData = Mapper<MineBusinessCardCodeDataModel>().map(JSONObject: dict)
+        let codeModel:MineBusinessCardCodeDataModel = (responseCodeData)!
+        
+        var ids = String(describing: codeModel.id)
+        ids = ids.replacingOccurrences(of: "Optional(", with: "")
+        ids = ids.replacingOccurrences(of: ")", with: "")
+        
+        model.id = ids
+        
         let addBusiessCardVC = AddBusiessCardVC()
         addBusiessCardVC.mineBusinessCardData = model
         addBusiessCardVC.addBusinessCardType = .addBusiessFriendCard
