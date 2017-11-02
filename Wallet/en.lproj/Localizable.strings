@@ -161,7 +161,7 @@
 "lastest_version" = "Is the latest version";
 "version" = "Version";
 "Update" = "Update";
-"version_cancel" = "Cancel";
+"version_cancel" = "cancel";
 "cancel_update" = "Do you cancel the update?";
 "downloading" = "Download...";
 "cancel_download" = "Whether to cancel the download?";
@@ -251,6 +251,10 @@
 "phone_registration" = "Phone registration";
 "mall_registration" = "Mall registration";
 "home_Turn_In" = "trans in";
+"prompt" = "prompt";
+"Are_you_sure_you_want_to_quit" = "Are you sure you want to quit";
+"delete" = "delete";
+"You_sure_you_want_to_delete_it" = "You sure you want to delete it";
 
 
 

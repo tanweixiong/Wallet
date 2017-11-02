@@ -225,7 +225,7 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
             cell.iconImageView.sd_setImage(with: NSURL(string: minePhoto)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
             cell.iconImageView.clipsToBounds = true
             cell.layer.cornerRadius = cell.iconImageView.frame.size.width/2
-            
+            cell.titleLabel.text = LanguageHelper.getString(key: "card_avatar")
             cell.businessCardHeadCallBack = {
                 self.photoAlbum.getOrTakeAPhoto(with: self) { (image) in
                     self.uploadpictures(image: image!)

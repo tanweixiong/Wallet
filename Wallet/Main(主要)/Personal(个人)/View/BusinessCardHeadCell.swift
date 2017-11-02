@@ -12,6 +12,7 @@ class BusinessCardHeadCell: UITableViewCell {
    var businessCardHeadCallBack:(()->())?;
     @IBOutlet weak var iconImageView: UIImageView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBAction func addImageClick(_ sender: UIButton) {
         if businessCardHeadCallBack != nil {
             businessCardHeadCallBack!()

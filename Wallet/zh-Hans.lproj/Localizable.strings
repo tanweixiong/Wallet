@@ -251,5 +251,9 @@
 "phone_registration" = "手机注册";
 "mall_registration" = "邮箱注册";
 "home_Turn_In" = "转入";
+"prompt" = "提示";
+"Are_you_sure_you_want_to_quit" = "您确定要退出吗？";
+"delete" = "删除";
+"You_sure_you_want_to_delete_it" = "确定要删除吗？";
 
 

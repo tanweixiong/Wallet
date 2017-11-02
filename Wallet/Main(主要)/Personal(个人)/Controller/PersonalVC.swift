@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource {
+class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate {
     fileprivate let cellTag:Int = 10000000
     fileprivate let headHeight:CGFloat = 175
     fileprivate let footHeight:CGFloat = 25
@@ -151,6 +151,38 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
     }()
     
     func loginOutHandle(){
-        LoginVC.switchRootVCToLoginVC()
+        //8.0以上
+        if #available(iOS 8.0, *) {
+            let alertController = UIAlertController(title:LanguageHelper.getString(key: "prompt"),message:LanguageHelper.getString(key: "Are_you_sure_you_want_to_quit"),preferredStyle:UIAlertControllerStyle.alert)
+            let cancelAction=UIAlertAction(title: LanguageHelper.getString(key: "version_cancel"), style: UIAlertActionStyle.default) { (alert) in
+                
+            }
+            let okAction=UIAlertAction(title: LanguageHelper.getString(key: "confirm"), style: UIAlertActionStyle.default) { (alert) in
+                LoginVC.switchRootVCToLoginVC()
+            }
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        //8.0以下
+        }else{
+            let alertView = UIAlertView()
+            alertView.title = LanguageHelper.getString(key: "prompt")
+            alertView.message = LanguageHelper.getString(key: "Are_you_sure_you_want_to_quit")
+            alertView.addButton(withTitle: LanguageHelper.getString(key: "version_cancel"))
+            alertView.addButton(withTitle: LanguageHelper.getString(key: "confirm"))
+            alertView.cancelButtonIndex=0
+            alertView.delegate=self;
+            alertView.show()
+        }
     }
+    
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+        if(buttonIndex==alertView.cancelButtonIndex){
+        }
+        else
+        {
+            LoginVC.switchRootVCToLoginVC()
+        }
+    }
+    
 }

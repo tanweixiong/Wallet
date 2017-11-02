@@ -54,6 +54,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="iconImageView" destination="C0w-IO-eY1" id="R7k-HJ-tOd"/>
+                <outlet property="titleLabel" destination="qc0-0f-jpw" id="LDT-gO-tG7"/>
             </connections>
         </tableViewCell>
     </objects>

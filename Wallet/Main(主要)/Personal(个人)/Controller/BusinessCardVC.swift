@@ -18,7 +18,7 @@ enum BusinessDetailType {
     case businessCardDetailFriend
 }
 
-class BusinessCardVC:WLMainViewController, UITableViewDelegate,UITableViewDataSource {
+class BusinessCardVC:WLMainViewController, UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate {
     fileprivate let businessCardCellIdentifier = "AddAddressCellIdentifier"
     fileprivate let titleArray:NSArray = [LanguageHelper.getString(key: "card_job"),LanguageHelper.getString(key: "card_name"),LanguageHelper.getString(key: "card_mall"),LanguageHelper.getString(key: "card_IM"),LanguageHelper.getString(key: "card_phone"),LanguageHelper.getString(key: "card_company")]
     fileprivate var contentArray:NSArray = NSArray()
@@ -42,7 +42,7 @@ class BusinessCardVC:WLMainViewController, UITableViewDelegate,UITableViewDataSo
         self.createUI()
         
         if businessDetailType == .businessCardDetailMine {
-           self.addDefaultButtonTextRight("删除")
+           self.addDefaultButtonTextRight(LanguageHelper.getString(key: "delete"))
         }
     }
     
@@ -52,7 +52,35 @@ class BusinessCardVC:WLMainViewController, UITableViewDelegate,UITableViewDataSo
     }
     
     override func rightTextBtn(_ sender: UIBarButtonItem) {
-        self.deleteCard()
+        if #available(iOS 8.0, *) {
+            let alertController = UIAlertController(title:LanguageHelper.getString(key: "prompt"),message:LanguageHelper.getString(key: "You_sure_you_want_to_delete_it"),preferredStyle:UIAlertControllerStyle.alert)
+            let cancelAction=UIAlertAction(title: LanguageHelper.getString(key: "version_cancel"), style: UIAlertActionStyle.default) { (alert) in
+                
+            }
+            let okAction=UIAlertAction(title: LanguageHelper.getString(key: "confirm"), style: UIAlertActionStyle.default) { (alert) in
+                self.deleteCard()
+            }
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            //8.0以下
+        }else{
+            let alertView = UIAlertView()
+            alertView.title = LanguageHelper.getString(key: "prompt")
+            alertView.message = LanguageHelper.getString(key: "You_sure_you_want_to_delete_it")
+            alertView.addButton(withTitle: LanguageHelper.getString(key: "version_cancel"))
+            alertView.addButton(withTitle: LanguageHelper.getString(key: "confirm"))
+            alertView.cancelButtonIndex=0
+            alertView.delegate=self;
+            alertView.show()
+        }
+    }
+    
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+        if(buttonIndex==alertView.cancelButtonIndex){
+        }else{
+            self.deleteCard()
+        }
     }
     
     func createUI(){
