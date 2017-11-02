@@ -96,7 +96,7 @@ class IndustryDetailsVC: WLMainViewController,UIWebViewDelegate {
     }
     
     func setWebView(){
-        SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "Loading"), maskType: .black)
+//        SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "Loading"), maskType: .black)
         let url:NSURL = NSURL.init(string: ConstAPI.kAPIMYBaseURL + "index.html?" + "coinNo=" + "\(coin_no)" + "&" + "type=" + "1min")!
         webView.delegate = self
         webView.loadRequest(NSURLRequest(url: url as URL) as URLRequest)

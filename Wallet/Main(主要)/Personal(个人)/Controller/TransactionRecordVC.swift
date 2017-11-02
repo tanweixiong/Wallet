@@ -94,11 +94,9 @@ class TransactionRecordVC: WLMainViewController,UITableViewDelegate,UITableViewD
         tableView.backgroundColor = UIColor.R_UIRGBColor(red: 243, green: 247, blue: 248, alpha: 1)
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame:CGRect(x: 0, y: 0, width: 0, height: 0))
-        
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
           self.getData()
         })
-        
         return tableView
     }()
     
