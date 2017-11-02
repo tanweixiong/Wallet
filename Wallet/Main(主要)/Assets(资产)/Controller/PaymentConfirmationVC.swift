@@ -11,39 +11,28 @@ import SVProgressHUD
 import ObjectMapper
 
 class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
-
+    
+    @IBOutlet weak var paymentConfirmationLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var dhsLabel: UILabel!
-    
     @IBOutlet weak var totalAmountLabel: UILabel!
-    
     @IBOutlet weak var serviceChargeLabel: UILabel!
-    
     fileprivate let payeeFont = UIFont.systemFont(ofSize: 16)
     fileprivate let payeeTextColor = UIColor.R_UIColorFromRGB(color: 0x333333)
     fileprivate let corner:CGFloat = 5
-    
     @IBOutlet weak var shoukuanLabel: UILabel!
-    
     @IBOutlet weak var sumAmountLabel: UILabel!
-    
-    
     @IBOutlet weak var comfirmButton: UIButton!
-    
     @IBOutlet weak var backgroundVw: UIView!
-    
-    //收款方
+    @IBOutlet weak var remarksScroller: UIScrollView!
+
+    @IBOutlet weak var remarkLLabel: UILabel!
     var payee:String = ""
-    //dhs
     var dhs:String = ""
-    //总金额
     var totalAmount:String = ""
-    //手续费
     var serviceCharge:String = ""
-    //流水订单号
     var serialNumber:String = ""
-    
+    var remark:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +40,14 @@ class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
         self.addDefaultBackBarButtonLeft()
         payeeLabel.text = payee
         dhsLabel.text = dhs
+        remarkLabel.text = remark
         totalAmountLabel.text =  totalAmount
+        paymentConfirmationLabel.text = LanguageHelper.getString(key: "Payment_Confirmation")
         serviceChargeLabel.text = LanguageHelper.getString(key: "service_charge") + ":" + serviceCharge
-        shoukuanLabel.text = LanguageHelper.getString(key: "receipt")
-        sumAmountLabel.text =  LanguageHelper.getString(key: "transaction_amount")
-        comfirmButton.setTitle(LanguageHelper.getString(key: "confirm"), for: .normal)
+        shoukuanLabel.text = LanguageHelper.getString(key: "receipt") + ":"
+        sumAmountLabel.text =  LanguageHelper.getString(key: "transaction_amount") + ":"
+        comfirmButton.setTitle(LanguageHelper.getString(key: "confirm")  + ":", for: .normal)
+        remarkLLabel.text = LanguageHelper.getString(key: "remark") + ":"
         self.createUI()
     }
     
@@ -68,6 +60,17 @@ class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
             make.width.height.equalTo(size)
         }
         scrollView.contentSize = CGSize(width: size.width, height: scrollView.frame.size.height)
+        
+        remarksScroller.addSubview(remarkLabel)
+        let remarkSize = remarkLabel.getStringSize(text: remarkLabel.text!, size: CGSize(width: CGFloat(MAXFLOAT), height:dhsLabel.frame.height))
+        remarkLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(remarksScroller.snp.centerY)
+            make.left.equalTo(remarksScroller.snp.left)
+            make.width.equalTo(remarkSize.width)
+            make.height.equalTo(remarkSize.height)
+        }
+        remarksScroller.contentSize = CGSize(width: remarkSize.width, height: remarksScroller.frame.size.height)
+        
         
         //设置圆角
         backgroundVw.layer.cornerRadius = corner
@@ -130,6 +133,13 @@ class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
     }
     
     lazy var payeeLabel:UILabel = {
+        let label = UILabel()
+        label.textColor = self.payeeTextColor
+        label.font = self.payeeFont
+        return label
+    }()
+    
+    lazy var remarkLabel:UILabel = {
         let label = UILabel()
         label.textColor = self.payeeTextColor
         label.font = self.payeeFont

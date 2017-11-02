@@ -118,6 +118,7 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
                     vc.totalAmount = String(describing: data["sumMoney"]!)
                     vc.serviceCharge = String(describing: data["sxf"]!)
                     vc.serialNumber = String(describing: data["SerialNumber"]!)
+                    vc.remark = (self.remarkTF?.text!)!
                     self.navigationController?.pushViewController(vc, animated: true)
                 }else{
                     SVProgressHUD.showError(withStatus: responseData?.msg)
