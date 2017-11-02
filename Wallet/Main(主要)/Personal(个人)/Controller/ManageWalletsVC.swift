@@ -83,7 +83,7 @@ class ManageWalletsVC: WLMainViewController,UITableViewDelegate,UITableViewDataS
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.R_UIRGBColor(red: 243, green: 247, blue: 248, alpha: 1)
         let model = self.dataSorce[indexPath.row] as! ManageWalletsData
-        cell.titleLabel.text = model.contacts_name
+        cell.titleLabel.text = (model.contacts_name?.removingPercentEncoding)!
         cell.contentLabel.text = model.contacts_id
         cell.iconImageView.sd_setImage(with: NSURL(string:"")! as URL, placeholderImage: UIImage(named: "morentouxiang"))
         return cell
