@@ -248,6 +248,7 @@
 "retrieve_Login_Password" = "找回登录密码";
 "login_Mall_Phone" = "请输入正确的邮箱或者手机号码";
 "already_sent" = "已发送";
-
+"phone_registration" = "手机注册";
+"mall_registration" = "邮箱注册";
 
 

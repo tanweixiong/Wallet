@@ -102,7 +102,7 @@ class ManageWalletsVC: WLMainViewController,UITableViewDelegate,UITableViewDataS
     }()
     
     func createWallets(){
-        let vc = CreateMallWalletVC()
+        let vc = CreateMyWalletVC()
         self.present(vc, animated: true) {
         }
     }

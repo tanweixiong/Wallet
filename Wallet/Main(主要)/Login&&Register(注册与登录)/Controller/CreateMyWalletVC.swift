@@ -85,6 +85,8 @@ class CreateMyWalletVC: UIViewController,UIScrollViewDelegate,CreateWalletDelega
         let view = Bundle.main.loadNibNamed("CreateMyWalletBar", owner: nil, options: nil)?.last as! CreateMyWalletBar
         view.backgroundColor = UIColor.white
         view.backgroundColor = UIColor.R_UIRGBColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        view.phoneRegistrationBtn.setTitle(LanguageHelper.getString(key:"phone_registration"), for: .normal)
+        view.mallRegistrationBtn.setTitle(LanguageHelper.getString(key: "mall_registration"), for: .normal)
         view.createMyWalletBarCallBack = {(sender:UIButton) in
             if sender.tag == 1 {
                self.scrollView.contentOffset = CGPoint(x: 0, y: 0)

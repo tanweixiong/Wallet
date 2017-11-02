@@ -38,7 +38,6 @@ class CodeConfiguration: NSObject {
     
     //添加好友
     class func addFriendBusinessCard(_ vc:UIViewController,_ data:String){
-        vc.navigationController?.popToRootViewController(animated: false)
         
         let dict =  (WalletOCTools.getDictionaryFromJSONString(data))!
         

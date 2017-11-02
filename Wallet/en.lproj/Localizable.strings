@@ -248,6 +248,8 @@
 "retrieve_Login_Password" = "Retrieve Login Password";
 "login_Mall_Phone" = "Please enter the email address or password as the login account";
 "already_sent" = "Already sent";
+"phone_registration" = "Phone registration";
+"mall_registration" = "Mall registration";
 
 
 
