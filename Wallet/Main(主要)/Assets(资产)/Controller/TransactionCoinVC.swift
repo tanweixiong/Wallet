@@ -170,6 +170,13 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
             cell.amountLabel.text = model.money?.stringValue
             cell.dataLabel.text =  model.beginDate
             cell.typeLabel.text = model.operate
+            
+            if model.operate == "转出" {
+                cell.typeLabel.text = LanguageHelper.getString(key: "trans_out")
+            }
+            if model.operate == "转入" {
+                cell.typeLabel.text = LanguageHelper.getString(key: "home_Turn_In")
+            }
         }
         return cell
     }

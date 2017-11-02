@@ -178,7 +178,7 @@
 "transaction_time" = "Transaction time";
 "income" = "Income";
 "expenditure" = "Expenditure";
-"trans_out" = "转出";
+"trans_out" = "trans out";
 "amounts" = "Amount";
 "date" = "Date";
 "type" = "Type";
@@ -250,6 +250,7 @@
 "already_sent" = "Already sent";
 "phone_registration" = "Phone registration";
 "mall_registration" = "Mall registration";
+"home_Turn_In" = "trans in";
 
 
 
