@@ -408,7 +408,7 @@ class ForgetPwdViewController: UIViewController {
                 let responseData = Mapper<ResponseData>().map(JSONObject: json)
                 if let code = responseData?.code {
                     if code == 100 {
-                        WLSuccess(responseData?.msg)
+                         WLSuccess(LanguageHelper.getString(key: "already_sent"))
                     } else {
                         WLInfo(responseData?.msg)
                     }
