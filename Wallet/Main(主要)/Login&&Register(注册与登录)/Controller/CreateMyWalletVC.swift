@@ -122,7 +122,7 @@ class CreateMyWalletVC: UIViewController,UIScrollViewDelegate,CreateWalletDelega
         label.textColor = UIColor.white
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18)
-        label.text = "创建钱包"
+        label.text = LanguageHelper.getString(key: "create_wallet")
         view.addSubview(label)
         return view
     }()
