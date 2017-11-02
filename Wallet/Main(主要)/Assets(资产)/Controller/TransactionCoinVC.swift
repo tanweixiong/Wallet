@@ -195,7 +195,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     }
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView.init(frame: CGRect(x: 0, y:self.transactionCoinTitleVw.frame.maxY , width: self.transactionCoinVw.frame.width, height: self.transactionCoinVw.frame.height - self.transactionCoinTitleVw.frame.maxY ))
+        let tableView = UITableView.init(frame: CGRect(x: 0, y:self.transactionCoinTitleVw.frame.maxY , width: SCREEN_WIDTH, height: self.transactionCoinVw.frame.height - self.transactionCoinTitleVw.frame.maxY ))
         tableView.showsVerticalScrollIndicator = false
         tableView.dataSource = self
         tableView.delegate = self
