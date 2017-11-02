@@ -8,17 +8,20 @@
 
 import UIKit
 import ObjectMapper
+import SVProgressHUD
 
 protocol ContactsDelegate:NSObjectProtocol{
     func contactsCallBackUserID(_ userID:String)
 }
 
-class ContactsVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource,AddContactDelegate {
+class ContactsVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource,AddContactDelegate,UIAlertViewDelegate {
     var delegate:ContactsDelegate?
     fileprivate let contactsViewCellIdentifier = "ContactsViewCellIdentifie"
     fileprivate let cellHeight:CGFloat = 75
     fileprivate let footHeight:CGFloat = 20
     fileprivate let dataSorce = NSMutableArray()
+    fileprivate var detailModel = ManageWalletsData()
+    fileprivate var delteIndexPath = IndexPath()
     var isAddContacts:Bool = false
     
     override func viewDidLoad() {
@@ -45,13 +48,27 @@ class ContactsVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
                 }
             }
         }) { (error) in
-            
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func deleteContacts(_ model:ManageWalletsData,_ indexPath:IndexPath){
+        let user_id = UserDefaults.standard.getUserInfo().userId
+        let contacts_id = model.contacts_id!
+        let parameters:[String:Any] = ["contacts_id":contacts_id,"user_id":user_id]
+        SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
+        NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIMyDeleteContacts, parameters: parameters, showIndicator: true, success: { (json) in
+            let responseData = Mapper<ResponseData>().map(JSONObject: json)
+            if let code = responseData?.code {
+                if code == 100 {
+                    self.dataSorce.removeObject(at: indexPath.section)
+                    self.tableView.deleteSections(NSIndexSet(index: indexPath.section) as IndexSet, with: UITableViewRowAnimation.fade)
+                    WLInfo(LanguageHelper.getString(key: "delete_sucess"))
+                }else{
+                    WLInfo(responseData?.msg)
+                }
+            }
+        }) { (error) in
+        }
     }
     
     override func rightImageBtn(_ sender: UIBarButtonItem) {
@@ -101,6 +118,64 @@ class ContactsVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
             let model = dataSorce[indexPath.section] as! ManageWalletsData
             self.delegate?.contactsCallBackUserID(model.contacts_id!)
             self.navigationController?.popViewController(animated: true)
+        }else{
+             self.tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+
+    //返回编辑类型，滑动删除
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if isAddContacts {
+            return UITableViewCellEditingStyle.none
+        }
+        return UITableViewCellEditingStyle.delete
+    }
+    
+    //在这里修改删除按钮的文字
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return LanguageHelper.getString(key: "delete")
+    }
+    
+    //点击删除按钮的响应方法，在这里处理删除的逻辑
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let model = self.dataSorce[indexPath.section] as! ManageWalletsData
+            self.detailModel = model
+            self.delteIndexPath = indexPath
+            self.alert(model, indexPath)
+        }
+    }
+    
+    //警告框
+    func alert(_ model:ManageWalletsData,_ indexPath:IndexPath){
+        if #available(iOS 8.0, *) {
+            let alertController = UIAlertController(title:LanguageHelper.getString(key: "prompt"),message:LanguageHelper.getString(key: "You_sure_you_want_to_delete_it"),preferredStyle:UIAlertControllerStyle.alert)
+            let cancelAction=UIAlertAction(title: LanguageHelper.getString(key: "version_cancel"), style: UIAlertActionStyle.default) { (alert) in
+                
+            }
+            let okAction=UIAlertAction(title: LanguageHelper.getString(key: "confirm"), style: UIAlertActionStyle.default) { (alert) in
+                self.deleteContacts(model, indexPath)
+            }
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            //8.0以下
+        }else{
+            let alertView = UIAlertView()
+            alertView.title = LanguageHelper.getString(key: "prompt")
+            alertView.message = LanguageHelper.getString(key: "You_sure_you_want_to_delete_it")
+            alertView.addButton(withTitle: LanguageHelper.getString(key: "version_cancel"))
+            alertView.addButton(withTitle: LanguageHelper.getString(key: "confirm"))
+            alertView.cancelButtonIndex=0
+            alertView.delegate=self;
+            alertView.show()
+        }
+    }
+    
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+        if(buttonIndex==alertView.cancelButtonIndex){
+        }else{
+            self.deleteContacts(self.detailModel!, self.delteIndexPath)
         }
     }
     

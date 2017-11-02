@@ -9,13 +9,15 @@
 import UIKit
 import ObjectMapper
 
-class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource {
+class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate {
     var delegate:ContactsDelegate?
     fileprivate let friendBusinessCellIdentifier = "FriendBusinessCellIdentifier"
     fileprivate let cellHeight:CGFloat = 75
     fileprivate let footHeight:CGFloat = 20
     fileprivate var dataSorce = NSMutableArray()
     fileprivate var page:Int = 1
+    fileprivate var detailModel = MineBusinessCardData()
+    fileprivate var deleteIndex = IndexPath()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,14 +137,49 @@ class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableView
     
     //在这里修改删除按钮的文字
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "点击删除"
+        return LanguageHelper.getString(key: "delete")
     }
     
     //点击删除按钮的响应方法，在这里处理删除的逻辑
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             let model = self.dataSorce[indexPath.section] as! MineBusinessCardData
-            self.deleteFriendCard(model, indexPath)
+            self.detailModel = model
+            self.deleteIndex = indexPath
+            self.alert(model, indexPath)
+        }
+    }
+    
+    //警告框
+    func alert(_ model:MineBusinessCardData,_ indexPath:IndexPath){
+        if #available(iOS 8.0, *) {
+            let alertController = UIAlertController(title:LanguageHelper.getString(key: "prompt"),message:LanguageHelper.getString(key: "You_sure_you_want_to_delete_it"),preferredStyle:UIAlertControllerStyle.alert)
+            let cancelAction=UIAlertAction(title: LanguageHelper.getString(key: "version_cancel"), style: UIAlertActionStyle.default) { (alert) in
+                
+            }
+            let okAction=UIAlertAction(title: LanguageHelper.getString(key: "confirm"), style: UIAlertActionStyle.default) { (alert) in
+                 self.deleteFriendCard(model, indexPath)
+            }
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            //8.0以下
+        }else{
+            let alertView = UIAlertView()
+            alertView.title = LanguageHelper.getString(key: "prompt")
+            alertView.message = LanguageHelper.getString(key: "You_sure_you_want_to_delete_it")
+            alertView.addButton(withTitle: LanguageHelper.getString(key: "version_cancel"))
+            alertView.addButton(withTitle: LanguageHelper.getString(key: "confirm"))
+            alertView.cancelButtonIndex=0
+            alertView.delegate=self;
+            alertView.show()
+        }
+    }
+    
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+        if(buttonIndex==alertView.cancelButtonIndex){
+        }else{
+            self.deleteFriendCard(self.detailModel!, self.deleteIndex)
         }
     }
     

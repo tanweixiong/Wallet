@@ -20,6 +20,13 @@ class ManageWalletsData: Mappable{
         
     }
     
+    required init?() {
+        user_id = ""
+        contacts_id = ""
+        remarks = ""
+        contacts_name = ""
+    }
+    
     func mapping(map: Map) {
         user_id                <- map["user_id"]
         contacts_id            <- map["contacts_id"]

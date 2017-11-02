@@ -78,6 +78,7 @@ struct ConstAPI {
     //联系人列表
     static let kAPIMycontacts = kAPIBaseURL + "contacts/mycontacts.do" //查询联系人
     static let kAPIMyAddContacts = kAPIBaseURL + "contacts/add.do" //增加联系人
+    static let kAPIMyDeleteContacts = kAPIBaseURL + "contacts/delete.do" //删除联系人
     
     //交易列表
     static let kAPIChangerecordList = kAPIBaseURL + "changerecord/list.do" //交易记录
