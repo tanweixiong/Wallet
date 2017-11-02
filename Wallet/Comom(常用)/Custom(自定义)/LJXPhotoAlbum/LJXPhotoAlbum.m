@@ -20,6 +20,7 @@
 @property (nonatomic, copy) PhotoBlock photoBlock;
 @property (nonatomic, strong) UIImagePickerController *picker;
 @property (nonatomic, strong) UIViewController        *viewController;
+@property(nonatomic,assign) BOOL isEnglish;
 @end
 
 @implementation LJXPhotoAlbum
@@ -36,16 +37,22 @@
     self.photoBlock = photoBlock;
     self.viewController = viewController;
     if (IOS8) {
-        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString * language= [userDefaults objectForKey:@"Reality_Languages"];
+        if ([language isEqualToString:@"en"]){
+            _isEnglish = YES;
+        }else{
+            _isEnglish = NO;
+        }
     
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"图片" message:@"选择" preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *photoAlbumAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:_isEnglish ? @"image" : @"图片" message: _isEnglish ? @"select" : @"选择" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *photoAlbumAction = [UIAlertAction actionWithTitle:_isEnglish ? @"Album" : @"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self getAlertActionType:1];
         }];
-        UIAlertAction *cemeraAction = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *cemeraAction = [UIAlertAction actionWithTitle:_isEnglish ? @"camera" : @"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self getAlertActionType:2];
         }];
-        UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:_isEnglish ? @"cancel" : @"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             [self getAlertActionType:0];
         }];
         [alertController addAction:photoAlbumAction];
@@ -57,9 +64,9 @@
     } else {
         UIActionSheet *actionSheet;
         if([self imagePickerControlerIsAvailabelToCamera]){
-            actionSheet  = [[UIActionSheet alloc] initWithTitle:@"选择图像" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从相册选择", nil];
+            actionSheet  = [[UIActionSheet alloc] initWithTitle:_isEnglish ? @"Select the image" : @"选择图像" delegate:self cancelButtonTitle:_isEnglish ? @"cancel" : @"取消" destructiveButtonTitle:nil otherButtonTitles:_isEnglish ? @"Take pictures" : @"拍照", _isEnglish ? @"Select from album" : @"从相册选择", nil];
         }else{
-            actionSheet = [[UIActionSheet alloc] initWithTitle:@"选择图像" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从相册选择", nil];
+            actionSheet = [[UIActionSheet alloc] initWithTitle:_isEnglish ? @"Select the image" : @"选择图像" delegate:self cancelButtonTitle:_isEnglish ? @"cancel" : @"取消" destructiveButtonTitle:nil otherButtonTitles:_isEnglish ? @"Select from album" : @"从相册选择", nil];
         }
         [actionSheet showInView:self.viewController.view];
     }
@@ -132,19 +139,26 @@
 
 #pragma mark -  创建ImagePickerController
 - (void)creatUIImagePickerControllerWithAlertActionType:(NSInteger)type {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString * language= [userDefaults objectForKey:@"Reality_Languages"];
+    if ([language isEqualToString:@"en"]){
+        _isEnglish = YES;
+    }else{
+        _isEnglish = NO;
+    }
     NSInteger sourceType = type;
     if (sourceType == UIImagePickerControllerSourceTypeCamera) {
         if (![self AVAuthorizationStatusIsGranted]) {
             if (IOS8) {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"相机未授权" message:@"请到设置-隐私-相机中修改" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *comfirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:_isEnglish ? @"The camera is not authorized" : @"相机未授权" message:_isEnglish ? @"Please go to the settings to modify" : @"请到设置中修改" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *comfirmAction = [UIAlertAction actionWithTitle:_isEnglish ? @"determine" : @"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     return;
                 }];
                 [alertController addAction:comfirmAction];
                 [self.viewController presentViewController:alertController animated:YES completion:nil];
                 
             } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"相机未授权" message:@"请到设置-隐私-相机中修改" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_isEnglish ? @"The camera is not authorized" : @"相机未授权" message:_isEnglish ? @"Please go to the settings to modify" : @"请到设置中修改" delegate:nil cancelButtonTitle:_isEnglish ? @"determine" : @"确定" otherButtonTitles:nil, nil];
                 [alert show];
                 return;
             }
