@@ -44,7 +44,7 @@
 "mall_enter" = "Enter the E-mail address";
 "code_enter" = "Enter the code";
 "get_money_code" = "Receipt code";
-"copy_address" = "Copy address";
+"copy_address" = "Copy Address";
 "toast_code_failure" = "The code generation failed, please try again";
 "return_exit_app" = "Enter again to exit the application";
 "no_data" = "There is no data yet !";
@@ -137,7 +137,7 @@
 "after_get" = "afters";
 "finding_passwoed" = "Finding Password";
 "enter_older_password" = "Enter your old password";
-"zero_openning" = "opening";
+"zero_openning" = "Opening";
 "highest" = "Highest";
 "lowest" = "Lowest";
 "volume" = "Volume";
