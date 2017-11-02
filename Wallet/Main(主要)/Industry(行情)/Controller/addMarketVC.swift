@@ -79,7 +79,6 @@ class addMarketVC: WLMainViewController,UITableViewDelegate,UITableViewDataSourc
                     self.uploadMarket(coin_no, index)
                 }
             }else{
-                SVProgressHUD.showInfo(withStatus: "修改不成功请稍后再试")
             }
         }) { (error) in
         }

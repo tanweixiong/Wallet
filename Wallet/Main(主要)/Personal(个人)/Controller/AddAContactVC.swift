@@ -70,14 +70,13 @@ class AddAContactVC: WLMainViewController,LBXScanViewControllerDelegate {
                 let responseData = Mapper<ResponseData>().map(JSONObject: json)
                 if let code = responseData?.code {
                     if code == 100 {
-                        WLSuccess("新增成功")
+                        WLSuccess(LanguageHelper.getString(key: "Added_Successfully"))
                         self.delegate?.setReloadContact()
                     } else {
                         WLInfo(responseData?.msg)
                     }
                 }
             }) { (error) in
-                
             }
         }
     }

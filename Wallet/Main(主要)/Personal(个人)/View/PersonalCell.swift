@@ -36,7 +36,6 @@ class PersonalCell: UITableViewCell {
     }
     
     func setList(_ data:NSArray,_ icon:NSArray,_ cellTag:Int) {
-        
         let shadowView = UIView()
         shadowView.layer.cornerRadius = 5
         shadowView.backgroundColor =  UIColor.R_UIRGBColor(red: 240, green: 240, blue: 240, alpha: 1)

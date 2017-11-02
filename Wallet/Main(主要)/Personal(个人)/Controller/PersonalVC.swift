@@ -50,7 +50,7 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 0 ? footHeight : footHeight - 5
+        return section == 0 ? footHeight : section == 2 ? 0 : footHeight - 5
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -135,6 +135,8 @@ class PersonalVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource
         tableView.register(PersonalCell.self, forCellReuseIdentifier:self.personalCellIdentifier)
         tableView.backgroundColor = UIColor.R_UIRGBColor(red: 243, green: 247, blue: 248, alpha: 1)
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
+        tableView.separatorColor = UIColor.clear
+        tableView.tableFooterView = UIView()
         return tableView
     }()
     

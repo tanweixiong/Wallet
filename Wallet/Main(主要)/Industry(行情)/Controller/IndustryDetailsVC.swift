@@ -59,7 +59,7 @@ class IndustryDetailsVC: WLMainViewController,UIWebViewDelegate {
     
     func getData(_ coin_no:String){
         let parameters = ["coin_no":coin_no]
-        SVProgressHUD.showInfo(withStatus: "加载中")
+        SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "loading"))
         NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIThemarket, parameters: parameters, showIndicator: true, success: { (json) in
             SVProgressHUD.dismiss()
             let responseData = Mapper<IndustryMarkListModel>().map(JSONObject: json)
