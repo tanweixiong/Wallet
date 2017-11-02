@@ -16,8 +16,8 @@
 "bug" = "Error";
 "edit_feedback" = "Please enter the feedback, we will continue to improve for you";
 "select_feedback_type" = "Select the type";
-"submit" = "submit";
-"submit_feedback" = "submit";
+"submit" = "Submit";
+"submit_feedback" = "Submit";
 "scan" = "Scan";
 "create_wallet" = "Create";
 "permission" = "permission";
@@ -31,7 +31,7 @@
 "information" = "Information";
 "add_contact" = "Add Contact Person";
 "add_assets" = "Add New Asset";
-"market_detail" = "Quotes details";
+"market_detail" = "Quotes Details";
 "add_market" = "Add the market";
 "edit_market" = "Edit the market";
 "enter_phone" = "Please enter the account number";
@@ -90,7 +90,7 @@
 "login_password" = "Enter your password";
 "register_phone" = "Enter the code";
 "logut_out" = "sign out";
-"mine_add" = "add";
+"mine_add" = "Add";
 "card_finish" = "finish";
 "card" = "card";
 "register_password" = "Enter your registration password";
@@ -221,7 +221,7 @@
 "enter_Mall" = "please enter your vaild email";
 "place_enter" = "place enter ";
 
-"card_modify" = "modify";
+"card_modify" = "Modify";
 "card_name" = "name";
 "card_job" = "job";
 "card_mall" = "mall";
@@ -229,7 +229,7 @@
 "card_IM" = "IM";
 "card_company" = "company";
 "card_address" = "address";
-"add_card" = "add card";
+"add_card" = "Add card";
 "modify_card" = "modify card";
 "friends_business_card" = "Friends Business Card";
 "card_avatar" = "avatar";
