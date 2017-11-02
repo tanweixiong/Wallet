@@ -19,6 +19,7 @@
                 <outlet property="scrollView" destination="Ikt-Gi-58M" id="n9V-nq-cuc"/>
                 <outlet property="serviceChargeLabel" destination="QRZ-la-gu6" id="ZSX-fi-o2s"/>
                 <outlet property="shoukuanLabel" destination="Afe-i8-gBB" id="GUt-gb-GY7"/>
+                <outlet property="sumAmountLabel" destination="GOb-oR-y1k" id="RZb-Mc-jJb"/>
                 <outlet property="totalAmountLabel" destination="Ibg-nf-hcc" id="gCe-9r-XQI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

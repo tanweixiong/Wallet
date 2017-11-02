@@ -36,6 +36,8 @@
     self.photoBlock = photoBlock;
     self.viewController = viewController;
     if (IOS8) {
+        
+    
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"图片" message:@"选择" preferredStyle:UIAlertControllerStyleActionSheet];
         UIAlertAction *photoAlbumAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self getAlertActionType:1];

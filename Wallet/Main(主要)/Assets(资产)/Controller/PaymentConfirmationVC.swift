@@ -26,6 +26,9 @@ class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
     
     @IBOutlet weak var shoukuanLabel: UILabel!
     
+    @IBOutlet weak var sumAmountLabel: UILabel!
+    
+    
     @IBOutlet weak var comfirmButton: UIButton!
     
     @IBOutlet weak var backgroundVw: UIView!
@@ -50,6 +53,9 @@ class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
         dhsLabel.text = dhs
         totalAmountLabel.text =  totalAmount
         serviceChargeLabel.text = LanguageHelper.getString(key: "service_charge") + ":" + serviceCharge
+        shoukuanLabel.text = LanguageHelper.getString(key: "receipt")
+        sumAmountLabel.text =  LanguageHelper.getString(key: "transaction_amount")
+        comfirmButton.setTitle(LanguageHelper.getString(key: "confirm"), for: .normal)
         self.createUI()
     }
     
