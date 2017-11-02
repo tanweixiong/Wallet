@@ -15,7 +15,7 @@ class FindDetailVC: WLMainViewController,UIWebViewDelegate  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "资讯详情"
+        self.title = LanguageHelper.getString(key: "Information_details")
         self.addDefaultBackBarButtonLeft()
         self.setWebView()
     }

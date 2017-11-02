@@ -95,7 +95,7 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
             
             let name = nameCell.textField.text!
             if name == "" {
-               SVProgressHUD.showInfo(withStatus: "请填写用户名")
+               SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "Please_enter_your_username"))
                return
            }
         

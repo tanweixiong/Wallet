@@ -255,6 +255,13 @@
 "Are_you_sure_you_want_to_quit" = "Are you sure you want to quit";
 "delete" = "delete";
 "You_sure_you_want_to_delete_it" = "You sure you want to delete it";
-
+"Copy_successful" = "Copy successful";
+"Information_details" = "Information details";
+"Seconds_later" = "s later";
+"Resend" = "Resend";
+"Please_enter_your_username" = "Please enter your username";
+"Please_input_the_correct_email_address" = "Please input the correct email address";
+"Please_input_the_correct_phone" = "Please input the correct phone";
+"Has_been_sent_to_the_mailbox" = "Has been sent to the mailbox";
 
 

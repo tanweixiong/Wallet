@@ -78,7 +78,7 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
     }
     
     func longTap(){
-        SVProgressHUD.showInfo(withStatus: "复制成功")
+        SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "Copy_successful"))
         let pasteboard = UIPasteboard.general
         pasteboard.string = UserDefaults.standard.getUserInfo().userId
     }

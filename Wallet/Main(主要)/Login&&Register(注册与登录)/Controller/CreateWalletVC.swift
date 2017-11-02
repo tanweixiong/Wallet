@@ -72,7 +72,7 @@ class CreateWalletVC: WLMainViewController,UITextFieldDelegate {
                 WLError("获取验证码失败")
            })
         }else{
-            WLInfo("请输入正确的手机号码")
+            WLInfo(LanguageHelper.getString(key: "Please_input_the_correct_phone"))
         }
     }
     

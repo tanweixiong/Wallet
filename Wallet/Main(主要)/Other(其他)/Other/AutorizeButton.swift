@@ -15,10 +15,10 @@ class AutorizeButton: UIButton {
     var remainingSeconds: Int = 0 {
         
         willSet {
-            self.setTitle("\(newValue)秒后获取", for: .normal)
+            self.setTitle("\(newValue)\(LanguageHelper.getString(key: "Seconds_later"))", for: .normal)
             
             if newValue <= 0 {
-                self.setTitle("重新发送", for: .normal)
+                self.setTitle(LanguageHelper.getString(key: "Resend"), for: .normal)
                 isCounting = false
             }
             

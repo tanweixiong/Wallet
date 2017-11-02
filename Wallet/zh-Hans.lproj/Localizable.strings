@@ -255,5 +255,12 @@
 "Are_you_sure_you_want_to_quit" = "您确定要退出吗？";
 "delete" = "删除";
 "You_sure_you_want_to_delete_it" = "确定要删除吗？";
-
+"Copy_successful" = "复制成功";
+"Information_details" = "资讯详情";
+"Seconds_later" = " 秒后获取";
+"Resend" = "重新发送";
+"Please_enter_your_username" = "请填写用户名";
+"Please_input_the_correct_email_address" = "请输入正确的邮箱地址";
+"Please_input_the_correct_phone" = "请输入正确的手机号码";
+"Has_been_sent_to_the_mailbox" = "已发送到邮箱";
 

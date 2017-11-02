@@ -414,10 +414,10 @@ class ForgetPwdViewController: UIViewController {
                     }
                 }
             }, failture: { (error) in
-                WLError("已发送到邮箱")
+                WLError(LanguageHelper.getString(key: "Has_been_sent_to_the_mailbox"))
             })
         }else{
-            WLInfo("请输入正确的邮箱地址")
+            WLInfo(LanguageHelper.getString(key: "Please_input_the_correct_email_address"))
         }
     }
 

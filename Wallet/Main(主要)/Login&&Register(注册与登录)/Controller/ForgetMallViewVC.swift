@@ -281,14 +281,14 @@ class ForgetMallViewVC: UIViewController {
                         WLSuccess(responseData?.msg)
                         //                        self.navigationController?.popViewController(animated: true)
                     } else {
-                        WLInfo("已发送到您的邮箱")
+                        WLInfo(LanguageHelper.getString(key: "Has_been_sent_to_the_mailbox"))
                     }
                 }
             }, failture: { (error) in
-                WLError("已发送到邮箱")
+                WLError(LanguageHelper.getString(key: "Has_been_sent_to_the_mailbox"))
             })
         }else{
-            WLInfo("请输入正确的邮箱地址")
+            WLInfo(LanguageHelper.getString(key: "Please_input_the_correct_email_address"))
         }
         
     }
