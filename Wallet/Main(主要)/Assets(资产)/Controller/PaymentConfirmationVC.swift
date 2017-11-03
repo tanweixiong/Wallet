@@ -66,7 +66,7 @@ class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
         remarkLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(remarksScroller.snp.centerY)
             make.left.equalTo(remarksScroller.snp.left)
-            make.width.equalTo(remarkSize.width)
+            make.width.greaterThanOrEqualTo(remarkSize.width)
             make.height.equalTo(remarkSize.height)
         }
         remarksScroller.contentSize = CGSize(width: remarkSize.width, height: remarksScroller.frame.size.height)
