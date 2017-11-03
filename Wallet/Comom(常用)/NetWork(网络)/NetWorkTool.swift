@@ -49,9 +49,7 @@ class NetWorkTool: NSObject {
         sessionManager.session.configuration.timeoutIntervalForRequest = 10
         
         let urlString = self.setUrl(URLString, self.setParameters(parameters!))
-        
-//        NetWorkTool.POST(urlw: urlString, param: self.setParameters(parameters!))
-        
+
         sessionManager.request(urlString, method: requestType).validate().responseJSON { (response) in
             
             switch response.result {
@@ -70,37 +68,6 @@ class NetWorkTool: NSObject {
             }
         }
     }
-    
-    class func POST(urlw:String,param:String)
-    {
- 
-        let path = urlw
-        //拼接参数(GET请求参数需要以"?"连接拼接到请求地址的后面，多个参数用"&"隔开，参数形式：参数名=参数值)
-        //size:请求数据的长度
-        let path2 = path + param
-        //转换成url(统一资源定位符)
-        let url = NSURL(string: path2)!
-
-
-        let urlRequest:URLRequest = URLRequest(url: url as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
-        
-        // 3、响应对象
-        var response:URLResponse?
-        
-        // 4、发出请求
-        do {
-            
-            let received =  try NSURLConnection.sendSynchronousRequest(urlRequest, returning: &response)
-            let dic = try JSONSerialization.jsonObject(with: received, options: JSONSerialization.ReadingOptions.allowFragments)
-            print("----")
-            print(dic)
-            print("----")
-    
-        } catch let error{
-            print(error.localizedDescription);
-        }
-    }
-    
 
     class func requestData(requestType: HTTPMethod, URLString: String, parameters: [String : Any]?, showIndicator: Bool, success: @escaping (_ response : [String:AnyObject]) -> () , failture: @escaping(_ error: Error) -> ()) {
         

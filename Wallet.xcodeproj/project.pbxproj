@@ -129,6 +129,7 @@
 		231B35581FA80D6B003F9CE9 /* CreateMyWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B35571FA80D6B003F9CE9 /* CreateMyWalletVC.swift */; };
 		231B355A1FA80DAA003F9CE9 /* CreateMyWalletBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B35591FA80DAA003F9CE9 /* CreateMyWalletBar.swift */; };
 		231B355C1FA80DB7003F9CE9 /* CreateMyWalletBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 231B355B1FA80DB7003F9CE9 /* CreateMyWalletBar.xib */; };
+		232D18551FABFCAF00FC3380 /* LEEAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 232D18531FABFCAF00FC3380 /* LEEAlert.m */; };
 		23326A851F57B52F00676CA1 /* TransactionRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23326A841F57B52F00676CA1 /* TransactionRecordVC.swift */; };
 		23326A881F57BBF800676CA1 /* ManageWalletsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23326A861F57BBF800676CA1 /* ManageWalletsCell.swift */; };
 		23326A891F57BBF800676CA1 /* ManageWalletsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23326A871F57BBF800676CA1 /* ManageWalletsCell.xib */; };
@@ -419,6 +420,9 @@
 		231B35571FA80D6B003F9CE9 /* CreateMyWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMyWalletVC.swift; sourceTree = "<group>"; };
 		231B35591FA80DAA003F9CE9 /* CreateMyWalletBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMyWalletBar.swift; sourceTree = "<group>"; };
 		231B355B1FA80DB7003F9CE9 /* CreateMyWalletBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateMyWalletBar.xib; sourceTree = "<group>"; };
+		232D18521FABFCAF00FC3380 /* LEEAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEAlert.h; sourceTree = "<group>"; };
+		232D18531FABFCAF00FC3380 /* LEEAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEEAlert.m; sourceTree = "<group>"; };
+		232D18541FABFCAF00FC3380 /* LEEAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEAlertHelper.h; sourceTree = "<group>"; };
 		23326A841F57B52F00676CA1 /* TransactionRecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionRecordVC.swift; sourceTree = "<group>"; };
 		23326A861F57BBF800676CA1 /* ManageWalletsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletsCell.swift; sourceTree = "<group>"; };
 		23326A871F57BBF800676CA1 /* ManageWalletsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageWalletsCell.xib; sourceTree = "<group>"; };
@@ -821,6 +825,16 @@
 				231848E11FA46928003C1D4E /* MJRefreshStateHeader.m */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		232D18511FABFCAF00FC3380 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				232D18521FABFCAF00FC3380 /* LEEAlert.h */,
+				232D18531FABFCAF00FC3380 /* LEEAlert.m */,
+				232D18541FABFCAF00FC3380 /* LEEAlertHelper.h */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		236995F81F6915120034C120 /* ZCTradeView */ = {
@@ -1236,6 +1250,7 @@
 		238DB45D1F4D55CE00ECA2C4 /* Vender(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				232D18511FABFCAF00FC3380 /* Alert */,
 				231848BD1FA46928003C1D4E /* MJRefresh */,
 				2317C8F91F8B496900EC96AE /* WRCycleScrollView */,
 				2310C0611F72649900C00EAB /* ZFReOrderTableView */,
@@ -1814,6 +1829,7 @@
 				236BF5C21F9F221B0060B622 /* FriendBusinessCardVC.swift in Sources */,
 				2310EFE01FA1722F005744AF /* FindModel.swift in Sources */,
 				236996221F6A61950034C120 /* TransferAccountsVC.swift in Sources */,
+				232D18551FABFCAF00FC3380 /* LEEAlert.m in Sources */,
 				2317C8FE1F8B496900EC96AE /* WRCycleScrollView.swift in Sources */,
 				238DB44F1F4D4F6B00ECA2C4 /* UINavigationController+Cloudox.m in Sources */,
 				230EF9A61F6FBCE7006E82E6 /* LoginView.swift in Sources */,

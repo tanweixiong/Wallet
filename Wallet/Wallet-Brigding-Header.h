@@ -20,4 +20,5 @@
 #import "WalletOCTools.h"
 #import "ConstTools.h"
 #import "MJRefresh.h"
+#import "LEEAlert.h"
 #endif

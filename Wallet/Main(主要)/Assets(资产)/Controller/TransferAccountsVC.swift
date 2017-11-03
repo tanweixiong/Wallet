@@ -10,14 +10,11 @@ import UIKit
 import SVProgressHUD
 import ObjectMapper
 
-class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,ContactsDelegate{
+class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,ContactsDelegate,UITextFieldDelegate{
     
     @IBOutlet weak var receiveAddressTF: UITextField!
-    
     @IBOutlet weak var amountTF: UITextField!
-
     @IBOutlet weak var remarkTF: UITextField!
-    
     @IBOutlet weak var nextButton: UIButton!
     var totalMoneyString:String = ""
     var receiveAddressString:String = ""
@@ -74,6 +71,16 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
                 })
             }
         }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool
+    {
+        let maxLength = 15
+        let currentString: NSString = remarkTF.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
     }
    
     @IBAction func nextOnClick(_ sender: UIButton) {

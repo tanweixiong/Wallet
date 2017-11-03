@@ -19,6 +19,7 @@ target 'Wallet' do
   pod 'MJExtension'
   pod 'RxSwift'
   pod 'SDWebImage'
+  pod 'ReachabilitySwift'
 
   # Pods for Wallet
 
