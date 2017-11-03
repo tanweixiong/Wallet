@@ -56,7 +56,17 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
         self.view.backgroundColor = R_UIThemeBackgroundColor
 
         self.title = busiessCardType == .addBusiessCard || busiessCardType == .addBusiessFriendCard ? LanguageHelper.getString(key: "add_card") : LanguageHelper.getString(key: "modify_card")
-
+        
+        //设置头像
+        if busiessCardType == .addBusiessCard {
+            minePhoto = ""
+        }else if busiessCardType == .updateBusiessCard{
+            minePhoto = (mineBusinessCardData?.photo)!
+        }else if busiessCardType == .addBusiessFriendCard{
+            minePhoto = (mineBusinessCardData?.photo)!
+        }
+        
+        //设置右边按钮
         self.addDefaultButtonTextRight(LanguageHelper.getString(key: "card_finish"))
         view.addSubview(tableView)
 
@@ -71,6 +81,7 @@ class AddBusiessCardVC: WLMainViewController, UITableViewDelegate,UITableViewDat
                                 ,(mineBusinessCardData?.address)!]
 
         }
+        
     }
     
     override func rightTextBtn(_ sender:UIBarButtonItem) {

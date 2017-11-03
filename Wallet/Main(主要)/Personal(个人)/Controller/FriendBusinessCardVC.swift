@@ -103,13 +103,6 @@ class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableView
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let businessCardVC = BusinessCardVC()
-//        businessCardVC.mineBusinessCardData = (self.dataSorce[indexPath.row] as! MineBusinessCardData)
-//        businessCardVC.businessDetailType = .businessCardDetailFriend
-//        self.navigationController?.pushViewController(businessCardVC, animated: true)
-//    }
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect(x: 0, y: 0 , width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64))
         tableView.showsVerticalScrollIndicator = false

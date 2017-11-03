@@ -130,6 +130,7 @@
 		231B355A1FA80DAA003F9CE9 /* CreateMyWalletBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B35591FA80DAA003F9CE9 /* CreateMyWalletBar.swift */; };
 		231B355C1FA80DB7003F9CE9 /* CreateMyWalletBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 231B355B1FA80DB7003F9CE9 /* CreateMyWalletBar.xib */; };
 		232D18551FABFCAF00FC3380 /* LEEAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 232D18531FABFCAF00FC3380 /* LEEAlert.m */; };
+		232D18571FAC3AA500FC3380 /* ReachabilityConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232D18561FAC3AA500FC3380 /* ReachabilityConfiguration.swift */; };
 		23326A851F57B52F00676CA1 /* TransactionRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23326A841F57B52F00676CA1 /* TransactionRecordVC.swift */; };
 		23326A881F57BBF800676CA1 /* ManageWalletsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23326A861F57BBF800676CA1 /* ManageWalletsCell.swift */; };
 		23326A891F57BBF800676CA1 /* ManageWalletsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23326A871F57BBF800676CA1 /* ManageWalletsCell.xib */; };
@@ -423,6 +424,7 @@
 		232D18521FABFCAF00FC3380 /* LEEAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEAlert.h; sourceTree = "<group>"; };
 		232D18531FABFCAF00FC3380 /* LEEAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEEAlert.m; sourceTree = "<group>"; };
 		232D18541FABFCAF00FC3380 /* LEEAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEAlertHelper.h; sourceTree = "<group>"; };
+		232D18561FAC3AA500FC3380 /* ReachabilityConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityConfiguration.swift; sourceTree = "<group>"; };
 		23326A841F57B52F00676CA1 /* TransactionRecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionRecordVC.swift; sourceTree = "<group>"; };
 		23326A861F57BBF800676CA1 /* ManageWalletsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletsCell.swift; sourceTree = "<group>"; };
 		23326A871F57BBF800676CA1 /* ManageWalletsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageWalletsCell.xib; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 				2310C04D1F72170E00C00EAB /* SelectPhotosHelper.swift */,
 				231AFDCC1F8DB95A0032EE7E /* LoginConfiguration.swift */,
 				23683D501F9DDEC000D63638 /* CodeConfiguration.swift */,
+				232D18561FAC3AA500FC3380 /* ReachabilityConfiguration.swift */,
 				2310BADD1F9EE368006A1551 /* ConstTools.h */,
 				2310BADE1F9EE368006A1551 /* ConstTools.m */,
 				2310BAE01F9F0387006A1551 /* WalletOCTools.h */,
@@ -1859,6 +1862,7 @@
 				236BF5C41F9F32550060B622 /* FriendBusinessCardModel.swift in Sources */,
 				23F4F6C81F70F86F00C2FC7C /* LBXScanWrapper.swift in Sources */,
 				230B8C431F4E6E370003F5D2 /* AssetsViewCell.swift in Sources */,
+				232D18571FAC3AA500FC3380 /* ReachabilityConfiguration.swift in Sources */,
 				238DB4261F4D4E4200ECA2C4 /* WLTabBarController.swift in Sources */,
 				23107B841F7E1A1700F424BD /* TransactionCoinModel.swift in Sources */,
 				230937A11F5D297E00F354ED /* UserInfoData.swift in Sources */,

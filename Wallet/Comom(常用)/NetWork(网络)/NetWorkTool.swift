@@ -41,28 +41,17 @@ enum NewStatus:CustomStringConvertible  {
 
 
 class NetWorkTool: NSObject {
-    
     class func request(requestType: HTTPMethod, URLString: String, parameters: [String : Any]?, showIndicator: Bool, success: @escaping (_ response : Any) -> () , failture: @escaping(_ error: Error) -> ()) {
-        
         let sessionManager = Alamofire.SessionManager.default
-        
         sessionManager.session.configuration.timeoutIntervalForRequest = 10
-        
         let urlString = self.setUrl(URLString, self.setParameters(parameters!))
-
         sessionManager.request(urlString, method: requestType).validate().responseJSON { (response) in
-            
             switch response.result {
             case .success(let value):
-                
-                print(value)
                 success(value)
-                
             case .failure(let error):
-                
                 failture(error)
                 if showIndicator {
-                    
                     SVProgressHUD.showError(withStatus: "网络出错")
                 }
             }

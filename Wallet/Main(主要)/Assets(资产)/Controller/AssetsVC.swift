@@ -31,6 +31,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         self.view.addSubview(tableView)
         self.view.addSubview(navigationBar)
         NotificationCenter.default.addObserver(self, selector: #selector(AssetsVC.setReloadAssets), name: NSNotification.Name(rawValue: "setReloadAssets"), object: nil)
+        ReachabilityConfiguration.checkNetworkStates()
     }
     
     override func rightImageBtn(_ sender: UIBarButtonItem) {
