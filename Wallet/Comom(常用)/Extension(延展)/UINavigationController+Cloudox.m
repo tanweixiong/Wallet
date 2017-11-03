@@ -29,14 +29,13 @@
         }
     } else {
         barBackgroundView.alpha = alpha;
+        if (alpha == 0) {
+            [self.navigationBar setColor:[UIColor clearColor]];
+        }else{
+            [self.navigationBar setColor:[UIColor colorWithRed:17/255.0 green:216/255.0 blue:195/255.0 alpha:1]];
+        }
     }
-    if (alpha == 0) {
-       [self.navigationBar setColor:[UIColor clearColor]];
-    }else{
-       [self.navigationBar setColor:[UIColor colorWithRed:17/255.0 green:216/255.0 blue:195/255.0 alpha:1]];
-    }
-    
-    
+
     // 对导航栏下面那条线做处理
     self.navigationBar.clipsToBounds = alpha == 0.0;
 }
