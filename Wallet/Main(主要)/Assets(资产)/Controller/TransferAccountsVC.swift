@@ -60,13 +60,28 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
             if strArray.count != 2 {
                 SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
             }else{
-                CodeConfiguration.codeProcessing(self, ConstTools.getCodeMessage(resultStr, codeKey: R_Theme_QRCode)! as NSArray, success: { (address,type) in
+                CodeConfiguration.codeProcessing(self, ConstTools.getCodeMessage(resultStr, codeKey: R_Theme_QRCode)! as NSArray, success: { (address,type,data)  in
                     if type == "1" {
                         let addAContactVC = AddAContactVC()
                         addAContactVC.contactsId = address
                         self.navigationController?.pushViewController(addAContactVC, animated: true)
                     }else if type == "2" {
                         self.receiveAddressTF.text = address
+                    }else if type == "3" {
+                        let dict =  (WalletOCTools.getDictionaryFromJSONString(data))!
+                        let responseData = Mapper<MineBusinessCardData>().map(JSONObject: dict)
+                        let model:MineBusinessCardData = (responseData)!
+                        let responseCodeData = Mapper<MineBusinessCardCodeDataModel>().map(JSONObject: dict)
+                        let codeModel:MineBusinessCardCodeDataModel = (responseCodeData)!
+                        var ids = String(describing: codeModel.id)
+                        ids = ids.replacingOccurrences(of: "Optional(", with: "")
+                        ids = ids.replacingOccurrences(of: ")", with: "")
+                        model.id = ids
+                        let addBusiessCardVC = AddBusiessCardVC()
+                        addBusiessCardVC.mineBusinessCardData = model
+                        addBusiessCardVC.addBusinessCardType = .addBusiessFriendCard
+                        addBusiessCardVC.busiessCardType = .addBusiessFriendCard
+                        self.navigationController?.pushViewController(addBusiessCardVC, animated: true)
                     }
                 })
             }
