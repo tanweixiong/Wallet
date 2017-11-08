@@ -98,6 +98,7 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
     
     @IBAction func backOnClick(_ sender: Any) {
         self.navigationController?.navigationBar.isHidden = false
+        self.navBarBgAlpha = "1"
         self.navigationController?.popViewController(animated: true)
     }
 

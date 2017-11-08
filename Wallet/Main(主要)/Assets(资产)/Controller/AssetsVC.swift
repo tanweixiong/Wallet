@@ -169,14 +169,15 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         if resultStr.contains(R_Theme_QRCode) {
             //扫描正确后操作
             CodeConfiguration.codeProcessing(self, ConstTools.getCodeMessage(resultStr, codeKey: R_Theme_QRCode)! as NSArray, success: { (address,type,data)  in
+                let assets = WalletOCTools.getCurrentVC()
                 if type == "1" {
                     let addAContactVC = AddAContactVC()
                     addAContactVC.contactsId = address
-                    self.navigationController?.pushViewController(addAContactVC, animated: true)
+                    assets?.navigationController?.pushViewController(addAContactVC, animated: true)
                 }else if type == "2" {
                     let transferAccountsVC = TransferAccountsVC()
                     transferAccountsVC.receiveAddressString = address
-                    self.navigationController?.pushViewController(transferAccountsVC, animated: true)
+                    assets?.navigationController?.pushViewController(transferAccountsVC, animated: true)
                 }else if type == "3" {
                     let dict =  (WalletOCTools.getDictionaryFromJSONString(data))!
                     let responseData = Mapper<MineBusinessCardData>().map(JSONObject: dict)
@@ -191,7 +192,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
                     addBusiessCardVC.mineBusinessCardData = model
                     addBusiessCardVC.addBusinessCardType = .addBusiessFriendCard
                     addBusiessCardVC.busiessCardType = .addBusiessFriendCard
-                    self.navigationController?.pushViewController(addBusiessCardVC, animated: true)
+                    assets?.navigationController?.pushViewController(addBusiessCardVC, animated: true)
                 }
             })
         } else {
