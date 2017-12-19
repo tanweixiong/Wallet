@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import RxSwift
+//import RxSwift
 
-typealias DisposeBag = RxSwift.DisposeBag
+//typealias DisposeBag = RxSwift.DisposeBag
 
 let        SCREEN_WIDTH = UIScreen.main.bounds.size.width;
 

@@ -58,7 +58,7 @@
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Comom(%E5%B8%B8%E7%94%A8)/NetWork(%E7%BD%91%E7%BB%9C)/BaseURL.swift"
-                  timestampString = "531829559.336886"
+                  timestampString = "535370458.191361"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
@@ -73,7 +73,7 @@
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Comom(%E5%B8%B8%E7%94%A8)/NetWork(%E7%BD%91%E7%BB%9C)/BaseURL.swift"
-                  timestampString = "531829559.340018"
+                  timestampString = "535370458.196152"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
@@ -106,7 +106,7 @@
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Login&amp;&amp;Register(%E6%B3%A8%E5%86%8C%E4%B8%8E%E7%99%BB%E5%BD%95)/Controller/ForgetMallViewVC.swift"
-                  timestampString = "531829559.347075"
+                  timestampString = "535370458.204944"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "241"
@@ -121,7 +121,7 @@
                   moduleName = "Wallet"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Login&amp;&amp;Register(%E6%B3%A8%E5%86%8C%E4%B8%8E%E7%99%BB%E5%BD%95)/Controller/ForgetMallViewVC.swift"
-                  timestampString = "531829559.350769"
+                  timestampString = "535370458.209062"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "243"
@@ -224,6 +224,102 @@
             startingLineNumber = "47"
             endingLineNumber = "47"
             landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Assets(&#x8d44;&#x4ea7;)/Controller/CurrencyConversionNumberVC.swift"
+            timestampString = "535369664.193818"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "finish(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wallet.CurrencyConversionNumberVC.finish(Swift.String) -&gt; Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;"
+                  moduleName = "Wallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Assets(%E8%B5%84%E4%BA%A7)/Controller/CurrencyConversionNumberVC.swift"
+                  timestampString = "535370458.261391"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "2685">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Any) -&gt; () in Wallet.CurrencyConversionNumberVC.finish(Swift.String) -&gt; Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;"
+                  moduleName = "Wallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tam/Desktop/EC%E9%92%B1%E5%8C%85/Wallet/Main(%E4%B8%BB%E8%A6%81)/Assets(%E8%B5%84%E4%BA%A7)/Controller/CurrencyConversionNumberVC.swift"
+                  timestampString = "535370458.264482"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "21">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Assets(&#x8d44;&#x4ea7;)/Controller/CurrencyConversionNumberVC.swift"
+            timestampString = "535369683.994573"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "finish(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Assets(&#x8d44;&#x4ea7;)/Controller/TransactionCoinVC.swift"
+            timestampString = "535370457.709015"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "transferAccountsOnClick(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wallet/Main(&#x4e3b;&#x8981;)/Assets(&#x8d44;&#x4ea7;)/Controller/TransactionCoinVC.swift"
+            timestampString = "535370457.709147"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "transferAccountsOnClick(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

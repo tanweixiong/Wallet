@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Electronic</string>
+	<string>MyEC</string>
 	<key>CFBundleExecutable</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.8</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.0.8</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -27,16 +27,30 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>是否许允此App使用蓝牙？</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>是否允许此App使用日历？</string>
 	<key>NSCameraUsageDescription</key>
-	<string>是否允许使用相机</string>
+	<string>是否允许此App使用您的相机？</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>是否允许此App访问您的地理位置?</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>是否允许此App访问您的地理位置?</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>是否允许此App使用您的麦克风？</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>是否允许使用相册</string>
+	<string>是否允许此App访问您的相册？</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>是否允许此App使用语音识别？</string>
+	<key>Privacy - Contacts Usage Description </key>
+	<string>是否允许此App访问您的通讯录？</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

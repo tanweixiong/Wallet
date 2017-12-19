@@ -108,7 +108,6 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     func setWebView(){
         let id:String = (assetsListModel.coin_no?.stringValue)!
         let url:NSURL = NSURL.init(string: ConstAPI.kAPIMYBaseURL + "index.html?" + "coinNo=" + "\(id)" + "&" + "type=" + "1min")!
-        print(url)
         webView.delegate = self
         webView.loadRequest(NSURLRequest(url: url as URL) as URLRequest)
     }
@@ -131,7 +130,11 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     //转账
     @IBAction func transferAccountsOnClick(_ sender: UIButton) {
         let vc = TransferAccountsVC()
+        
+        print(assetsListModel.coin_no)
         vc.coinName = assetsListModel.coin_name!
+        
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
  
@@ -139,6 +142,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     @IBAction func receivablesOnClick(_ sender: UIButton) {
         let vc = ReceivablesCodeVC()
         vc.coinName = assetsListModel.coin_name!
+        vc.coin_no = (assetsListModel.coin_no?.stringValue)!
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

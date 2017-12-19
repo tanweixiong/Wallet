@@ -5,7 +5,6 @@ target 'Wallet' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   pod ‘IQKeyboardManager’
-  pod 'Kingfisher'
   pod 'FLAnimatedImage', '~> 1.0' 
   pod 'Alamofire', '~> 4.0’
   pod 'YYText', '~> 1.0.7’
@@ -14,12 +13,12 @@ target 'Wallet' do
   pod 'SwiftyJSON'
   pod 'SnapKit'
   pod 'TextFieldEffects'
-  pod 'FMDB'
   pod 'ObjectMapper', '~> 2.2'
   pod 'MJExtension'
-  pod 'RxSwift'
   pod 'SDWebImage'
   pod 'ReachabilitySwift'
+  pod 'Kingfisher'
+
 
   # Pods for Wallet
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import ObjectMapper
 
 class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
 
@@ -26,6 +27,7 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
     fileprivate let hornImageSize:CGFloat = 55
     
     fileprivate var userId:String = ""
+    var coin_no:String = ""
     
     var coinName = ""
     
@@ -44,12 +46,12 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
         let photo = UserDefaults.standard.getUserInfo().photo
         
         //二维码
-        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=0&type=2"
-        let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
-        QRCodeImageView.image = image
+//        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=0&type=2"
+//        let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
+//        QRCodeImageView.image = image
         
         //id
-        userIdLabel.text = userId
+//        userIdLabel.text = userId
         
         //头像
         hornImageView.sd_setImage(with: NSURL(string: photo)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
@@ -75,6 +77,29 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
         
         let longTap = UILongPressGestureRecognizer(target: self, action: #selector(ReceivablesCodeVC.longTap))
         codeView.addGestureRecognizer(longTap)
+        
+        self.getData()
+    }
+    
+    func getData(){
+        let user_id = UserDefaults.standard.getUserInfo().userId
+        let coin_no = self.coin_no
+        let parameters:[String:Any] = ["user_id":user_id,"coin_no":coin_no]
+        SVProgressHUD.show(withStatus: "请稍等")
+        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIWalletTheWallet, parameters: parameters, showIndicator: true, success: { (json) in
+            SVProgressHUD.dismiss()
+            let responseData = Mapper<ResponseData>().map(JSONObject: json)
+            if let code = responseData?.code {
+                if code == 100 {
+                  let data = json as! NSDictionary
+                  let address = data["data"] as! String
+                  self.userIdLabel.text = address
+                  let image = Tools.createQRForString(qrString: address, qrImageName: "iTunesArtwork")
+                  self.QRCodeImageView.image = image
+                }
+            }
+        }) { (error) in
+        }
     }
     
     func longTap(){
@@ -83,12 +108,12 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
         pasteboard.string = UserDefaults.standard.getUserInfo().userId
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=\(textField.text!)&type=2"
-        let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
-        QRCodeImageView.image = image
-        return true
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=\(textField.text!)&type=2"
+//        let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
+//        QRCodeImageView.image = image
+//        return true
+//    }
 
     @IBAction func copyAddressOnClick(_ sender: UIButton) {
         let pasteboard = UIPasteboard.general
@@ -100,6 +125,7 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
         self.navigationController?.navigationBar.isHidden = false
         self.navBarBgAlpha = "1"
         self.navigationController?.popViewController(animated: true)
+        SVProgressHUD.dismiss()
     }
 
     override func didReceiveMemoryWarning() {

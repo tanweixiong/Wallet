@@ -10,6 +10,6 @@ import UIKit
 
 class BaseViewModel {
     
-    let disposeBag = DisposeBag()
+//    let disposeBag = DisposeBag()
     
 }

@@ -10,15 +10,21 @@ import UIKit
 import SVProgressHUD
 import ObjectMapper
 
+enum TransferAccountsStatus {
+    case transferAccountsEC
+    case transferAccountsOther
+}
 class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,ContactsDelegate,UITextFieldDelegate{
     
     @IBOutlet weak var receiveAddressTF: UITextField!
     @IBOutlet weak var amountTF: UITextField!
     @IBOutlet weak var remarkTF: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    var transferAccountsStatus = TransferAccountsStatus.transferAccountsEC
     var totalMoneyString:String = ""
     var receiveAddressString:String = ""
     var coinName = ""
+    var coin_no = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,14 +115,37 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
             SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "write_amount"))
             return
         }
-        
-        self.payMoney()
+        if transferAccountsStatus == .transferAccountsEC {
+            
+        }else{
+           self.payMoney()
+        }
     }
     @IBAction func pushToContacts(_ sender: UIButton) {
         let vc = ContactsVC()
         vc.delegate = self
         vc.isAddContacts = true
         self.pushNextViewController(vc, true)
+    }
+    
+    func payOtherPrice(){
+        let outId = UserDefaults.standard.getUserInfo().userId
+        let inId = self.receiveAddressTF.text!
+        let money = self.amountTF.text!
+        let parameters = ["inId":inId,"outId":outId,"coin_no":coin_no,"amount":money]
+        SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
+        NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPITransOrder, parameters: parameters, showIndicator: false, success: { (json) in
+            let responseData = Mapper<PayMoneyModel>().map(JSONObject: json)
+            if let code = responseData?.code {
+                SVProgressHUD.dismiss()
+                if code == "100" {
+                    SVProgressHUD.showSuccess(withStatus: "转账成功")
+                }else{
+                    SVProgressHUD.showSuccess(withStatus: responseData?.msg)
+                }
+            }
+        }) { (error) in
+        }
     }
 
     //获取流水订单号
