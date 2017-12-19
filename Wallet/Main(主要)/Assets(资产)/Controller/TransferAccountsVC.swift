@@ -14,7 +14,7 @@ enum TransferAccountsStatus {
     case transferAccountsEC
     case transferAccountsOther
 }
-class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,ContactsDelegate,UITextFieldDelegate{
+class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,ContactsDelegate,UITextFieldDelegate,ZCTradeViewDelegate{
     
     @IBOutlet weak var receiveAddressTF: UITextField!
     @IBOutlet weak var amountTF: UITextField!
@@ -116,9 +116,9 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
             return
         }
         if transferAccountsStatus == .transferAccountsEC {
-            
+            self.payMoney()
         }else{
-           self.payMoney()
+            self.getPayPassword()
         }
     }
     @IBAction func pushToContacts(_ sender: UIButton) {
@@ -128,23 +128,34 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
         self.pushNextViewController(vc, true)
     }
     
-    func payOtherPrice(){
+    func getPayPassword(){
+        let vw = ZCTradeView()
+        vw.delegate = self
+        vw.show()
+    }
+    
+    func finish(_ pwd: String!) -> String! {
+        self.payOtherPrice(password: pwd)
+        return pwd
+    }
+    
+    func payOtherPrice(password:String){
         let outId = UserDefaults.standard.getUserInfo().userId
         let inId = self.receiveAddressTF.text!
         let money = self.amountTF.text!
-        let parameters = ["inId":inId,"outId":outId,"coin_no":coin_no,"amount":money]
+        let pay_password = password
+        let parameters = ["inId":inId,"outId":outId,"coin_no":coin_no,"amount":money,"pay_password":pay_password]
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
-        NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPITransOrder, parameters: parameters, showIndicator: false, success: { (json) in
+        NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIBillTranSfer, parameters: parameters, showIndicator: false, success: { (json) in
+            SVProgressHUD.dismiss()
             let responseData = Mapper<PayMoneyModel>().map(JSONObject: json)
-            if let code = responseData?.code {
-                SVProgressHUD.dismiss()
-                if code == "100" {
-                    SVProgressHUD.showSuccess(withStatus: "转账成功")
-                }else{
-                    SVProgressHUD.showSuccess(withStatus: responseData?.msg)
-                }
+            if responseData?.code == "100" {
+                SVProgressHUD.showSuccess(withStatus: "转账成功")
+            }else{
+                SVProgressHUD.showInfo(withStatus: responseData?.msg)
             }
         }) { (error) in
+            SVProgressHUD.dismiss()
         }
     }
 
@@ -153,7 +164,7 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
         let userId = UserDefaults.standard.getUserInfo().userId
         let phone_shou = self.receiveAddressTF.text!
         let money = self.amountTF.text!
-        let remark:String = (self.remarkTF?.text!)!
+//        let remark:String = (self.remarkTF?.text!)!
         let parameter:[String:Any] = ["userId":userId,"phone_shou":phone_shou,"money":money,"remark":"11","flag":"2"]
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
         NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPITransOrder, parameters: parameter, showIndicator: true, success: { (json) in
