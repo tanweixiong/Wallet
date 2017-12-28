@@ -46,9 +46,9 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
         let photo = UserDefaults.standard.getUserInfo().photo
         
         //二维码
-//        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=0&type=2"
-//        let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
-//        QRCodeImageView.image = image
+        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=0&type=2"
+        let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
+        QRCodeImageView.image = image
         
         //id
 //        userIdLabel.text = userId
@@ -94,8 +94,6 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
                   let data = json as! NSDictionary
                   let address = data["data"] as! String
                   self.userIdLabel.text = address
-                  let image = Tools.createQRForString(qrString: address, qrImageName: "iTunesArtwork")
-                  self.QRCodeImageView.image = image
                 }
             }
         }) { (error) in
