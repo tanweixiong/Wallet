@@ -67,7 +67,7 @@ class IndustryDetailsVC: WLMainViewController,UIWebViewDelegate {
                 let model = responseData?.data
                 let usd:String = String.init(format: "%.2f", (model?.usd!)!)
                 let cny:String = String.init(format: "%.2f", (model?.cny!)!)
-                let p_last = responseData?.data?.p_last == nil ? "" : (responseData?.data?.p_last!.stringValue)!
+                let p_last = responseData?.data?.p_last == nil ? "0" : (responseData?.data?.p_last!.stringValue)!
                 self.p_lowLabel.text = self.cnyString + p_last
                 self.p_hideLabel.text = self.cnyString + (responseData?.data?.p_high!.stringValue)!
                 self.p_openLabel.text = self.cnyString + (responseData?.data?.p_open!.stringValue)!
