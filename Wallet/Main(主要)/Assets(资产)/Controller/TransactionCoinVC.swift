@@ -75,7 +75,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     func getData(){
         let user_id = UserDefaults.standard.getUserInfo().userId
         let coin_no = (assetsListModel.coin_no)?.stringValue
-        let parameters:[String:Any] = ["userId":user_id,"page":"\(page)","flag":coin_no!]
+        let parameters:[String:Any] = ["userId":user_id,"page":"\(page)","flag":"0","coin_no":coin_no!]
         NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIGetBill, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<TransactionCoinModel>().map(JSONObject: json)
             if let code = responseData?.code {
@@ -88,9 +88,9 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
                     self.tableView.reloadData()
                 }
             }
-            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
         }) { (error) in
-            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
         }
     }
     
@@ -167,6 +167,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
             cell.amountLabel.text = LanguageHelper.getString(key: "transaction_amount")
             cell.dataLabel.text = LanguageHelper.getString(key: "transaction_data")
             cell.typeLabel.text = LanguageHelper.getString(key: "transaction_type")
+            cell.dataLabel.font = UIFont.systemFont(ofSize: 14)
         }else{
             let model = dataScore[indexPath.row - 1] as! TransactionList
             cell.amountLabel.text = model.money?.stringValue
@@ -211,8 +212,8 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         tableView.backgroundColor = UIColor.white
         tableView.tableFooterView = UIView()
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
-        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
-            self.getData()
+        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
+           self.getData()
         })
         return tableView
     }()

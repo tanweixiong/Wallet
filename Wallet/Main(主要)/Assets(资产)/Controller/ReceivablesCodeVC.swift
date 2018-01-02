@@ -49,6 +49,8 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
         let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=0&type=2"
         let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
         QRCodeImageView.image = image
+        
+        self.userIdLabel.text = userId
          
         //头像
         hornImageView.sd_setImage(with: NSURL(string: photo)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
@@ -91,6 +93,10 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
                   let data = json as! NSDictionary
                   let address = data["data"] as! String
                   self.userIdLabel.text = address
+                    
+                  let qrCodeString = "\(R_Theme_QRCode):\(address)?amount=0&type=2"
+                  let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
+                  self.QRCodeImageView.image = image
                 }
             }
         }) { (error) in
