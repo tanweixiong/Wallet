@@ -84,18 +84,47 @@ class AddAContactVC: WLMainViewController,LBXScanViewControllerDelegate {
     func scanFinished(scanResult: LBXScanResult, error: String?) {
         let resultStr = scanResult.strScanned!
         if resultStr.contains(R_Theme_QRCode){
-            let strArray = resultStr.components(separatedBy: ":")
-            if strArray.count != 2 {
-                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
-                return
-            } else {
-                let userid = strArray[1]
-                contacts_idTF.text = userid
-            }
+//            let strArray = resultStr.components(separatedBy: ":")
+//            if strArray.count != 2 {
+//                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
+//                return
+//            } else {
+//                let userid = strArray[1]
+//                contacts_idTF.text = userid
+//            }
+            self.codeConfiguration(resultStr: resultStr, key: R_Theme_QRCode)
         } else {
             SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
             return
         }
+    }
+    
+    func codeConfiguration(resultStr:String,key:String){
+        CodeConfiguration.codeProcessing(self, ConstTools.getCodeMessage(resultStr, codeKey: key)! as NSArray, success: { (address,type,data)  in
+            if type == "1" {
+                self.contacts_idTF.text = address
+//                let addAContactVC = AddAContactVC()
+//                addAContactVC.contactsId = address
+//                self.navigationController?.pushViewController(addAContactVC, animated: true)
+            }else if type == "2" {
+                self.contacts_idTF.text = address
+            }else if type == "3" {
+                let dict =  (WalletOCTools.getDictionaryFromJSONString(data))!
+                let responseData = Mapper<MineBusinessCardData>().map(JSONObject: dict)
+                let model:MineBusinessCardData = (responseData)!
+                let responseCodeData = Mapper<MineBusinessCardCodeDataModel>().map(JSONObject: dict)
+                let codeModel:MineBusinessCardCodeDataModel = (responseCodeData)!
+                var ids = String(describing: codeModel.id)
+                ids = ids.replacingOccurrences(of: "Optional(", with: "")
+                ids = ids.replacingOccurrences(of: ")", with: "")
+                model.id = ids
+                let addBusiessCardVC = AddBusiessCardVC()
+                addBusiessCardVC.mineBusinessCardData = model
+                addBusiessCardVC.addBusinessCardType = .addBusiessFriendCard
+                addBusiessCardVC.busiessCardType = .addBusiessFriendCard
+                self.navigationController?.pushViewController(addBusiessCardVC, animated: true)
+            }
+        })
     }
     
     func checkOut() -> Bool{
