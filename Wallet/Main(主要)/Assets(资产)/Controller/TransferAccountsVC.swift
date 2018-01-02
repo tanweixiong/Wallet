@@ -63,19 +63,26 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
     
     //扫描正确后操作
     func setProcessingString(resultStr:String) {
-        if resultStr.contains(R_Theme_QRCode) {
-            let strArray = resultStr.components(separatedBy: "?")
-            if strArray.count != 2 {
-                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
-            }else{
-                self.codeConfiguration(resultStr: resultStr, key: R_Theme_QRCode)
-            }
-        }else if resultStr.contains(R_Theme_QRECZCode) {
-            let strArray = resultStr.components(separatedBy: "?")
-            if strArray.count != 2 {
-                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
-            }else{
-                self.codeConfiguration(resultStr: resultStr, key: R_Theme_QRECZCode)
+        //EC
+        if coin_no == "0" || coin_no == "80" {
+            if coin_no == "0" {
+                if resultStr.contains(R_Theme_QRCode) {
+                    let strArray = resultStr.components(separatedBy: "?")
+                    if strArray.count != 2 {
+                        SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
+                    }else{
+                        self.codeConfiguration(resultStr: resultStr, key: R_Theme_QRCode)
+                    }
+                }
+            }else if coin_no == "80"  {
+                if resultStr.contains(R_Theme_QRECZCode) {
+                    let strArray = resultStr.components(separatedBy: "?")
+                    if strArray.count != 2 {
+                        SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
+                    }else{
+                        self.codeConfiguration(resultStr: resultStr, key: R_Theme_QRECZCode)
+                    }
+                }
             }
         }
     }

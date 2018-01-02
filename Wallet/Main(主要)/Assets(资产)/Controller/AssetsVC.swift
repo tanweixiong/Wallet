@@ -173,13 +173,13 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     //扫描正确后操作
     func scanFinished(scanResult: LBXScanResult, error: String?) {
         let resultStr = scanResult.strScanned!
-        if resultStr.contains(R_Theme_QRCode) {
-            self.codeConfiguration(scanResult: resultStr, codeKey: R_Theme_QRCode)
-        }else if resultStr.contains(R_Theme_QRECZCode){
-            self.codeConfiguration(scanResult: resultStr, codeKey: R_Theme_QRECZCode)
-        }else {
-            SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
-            return
+        if resultStr.contains(R_Theme_QRECZCode) == false {
+            if resultStr.contains(R_Theme_QRCode) {
+                self.codeConfiguration(scanResult: resultStr, codeKey: R_Theme_QRCode)
+            }else {
+                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
+                return
+            }
         }
     }
     
