@@ -79,10 +79,10 @@ class LoginVC: WLMainViewController,CreateWalletDelegate,CreateMallWalletDelegat
             Tools.loginToRefeshToken(parameters: parameters, haveParams: true, refreshSuccess: { (code, msg) in
                 if code! == 100 {
                     //保存明文密码作为自动登录
-                    let userInfo = UserDefaults.standard.getUserInfo()
-                    userInfo.normalPassword = self.passwordTextField.text!
-                    userInfo.phone = self.accountTextField.text!
-                    UserDefaults.standard.saveCustomObject(customObject: userInfo, key: R_UserInfo)
+//                    let userInfo = UserDefaults.standard.getUserInfo()
+//                    userInfo.normalPassword = self.passwordTextField.text!
+//                    userInfo.phone = self.accountTextField.text!
+//                    UserDefaults.standard.saveCustomObject(customObject: userInfo, key: R_UserInfo)
                     
                     SVProgressHUD.dismiss()
                     LoginVC.setTabBarController()

@@ -28,7 +28,6 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         self.getHeadData(true)
         self.getListData()
         self.getMarkertData()
-        self.autoLogin()
         self.view.addSubview(tableView)
         self.view.addSubview(navigationBar)
         NotificationCenter.default.addObserver(self, selector: #selector(AssetsVC.setReloadAssets), name: NSNotification.Name(rawValue: "setReloadAssets"), object: nil)

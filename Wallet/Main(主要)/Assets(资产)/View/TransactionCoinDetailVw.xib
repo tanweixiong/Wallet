@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -60,6 +60,9 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OK5-Ta-swx">
                                             <rect key="frame" x="20" y="57" width="39" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="39" id="aWZ-BW-iRW"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -77,11 +80,8 @@
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="askdlaskdalkd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdR-VI-lfx">
-                                            <rect key="frame" x="244" y="56" width="91" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="91" id="etg-ht-P0J"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="askdlaskdalkd" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdR-VI-lfx">
+                                            <rect key="frame" x="69" y="56" width="266" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -96,6 +96,7 @@
                                         <constraint firstItem="rua-UH-4Fi" firstAttribute="top" secondItem="u1i-XO-gbQ" secondAttribute="top" constant="10" id="Sok-TH-D0A"/>
                                         <constraint firstAttribute="trailing" secondItem="Fn5-Ni-OAx" secondAttribute="trailing" constant="10" id="Vf8-J9-x6k"/>
                                         <constraint firstAttribute="trailing" secondItem="fdR-VI-lfx" secondAttribute="trailing" constant="20" id="WfC-pp-tIq"/>
+                                        <constraint firstItem="fdR-VI-lfx" firstAttribute="leading" secondItem="OK5-Ta-swx" secondAttribute="trailing" constant="10" id="WzF-Am-6RH"/>
                                         <constraint firstItem="grV-Ht-BMo" firstAttribute="leading" secondItem="u1i-XO-gbQ" secondAttribute="leading" constant="20" id="gyZ-8v-2GE"/>
                                         <constraint firstAttribute="bottom" secondItem="Fn5-Ni-OAx" secondAttribute="bottom" id="wBg-4Z-wqq"/>
                                         <constraint firstItem="Fn5-Ni-OAx" firstAttribute="top" secondItem="fdR-VI-lfx" secondAttribute="bottom" constant="10" id="xEW-jz-Gd4"/>
