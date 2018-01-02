@@ -90,9 +90,15 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
                   let address = data["data"] as! String
                   self.userIdLabel.text = address
                   if coin_no == "0" || coin_no == "80" {
-                    let qrCodeString = "\(R_Theme_QRCode):\(address)?amount=0&type=2"
-                    let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
-                    self.QRCodeImageView.image = image
+                    if coin_no == "0" {
+                        let qrCodeString = "\(R_Theme_QRCode):\(address)?amount=0&type=2"
+                        let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
+                        self.QRCodeImageView.image = image
+                    }else if coin_no == "80"{
+                        let qrCodeString = "\(R_Theme_QRECZCode):\(address)?amount=0&type=2"
+                        let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
+                        self.QRCodeImageView.image = image
+                    }
                   }else{
                     let image = Tools.createQRForString(qrString: address, qrImageName: "iTunesArtwork")
                     self.QRCodeImageView.image = image

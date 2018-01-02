@@ -23,7 +23,7 @@ class UserInfo: NSObject,NSCoding {
     var payDate:String = ""
     var payFlag:NSNumber = 0
     var paymentPassword:String = ""
-    var phone:NSNumber = 0
+    var phone:String = ""
     var photo:String = ""
     var sex:NSNumber = 0
     var state:NSNumber = 0
@@ -56,7 +56,7 @@ class UserInfo: NSObject,NSCoding {
         payDate = ""
         payFlag = 0
         paymentPassword = ""
-        phone = 0
+        phone = ""
         photo = ""
         sex = 0
         state = 0
@@ -83,7 +83,7 @@ class UserInfo: NSObject,NSCoding {
         self.payDate = decoder.decodeObject(forKey: "payDate") as? String ?? ""
         self.payFlag = decoder.decodeObject(forKey: "payFlag") as? NSNumber ?? 0
         self.paymentPassword = decoder.decodeObject(forKey: "paymentPassword") as? String ?? ""
-        self.phone = decoder.decodeObject(forKey: "phone") as? NSNumber ?? 0
+        self.phone = decoder.decodeObject(forKey: "phone") as? String ?? ""
         self.photo = decoder.decodeObject(forKey: "photo") as? String ?? ""
         self.sex = decoder.decodeObject(forKey: "sex") as? NSNumber ?? 0
         self.state = decoder.decodeObject(forKey: "state") as? NSNumber ?? 0

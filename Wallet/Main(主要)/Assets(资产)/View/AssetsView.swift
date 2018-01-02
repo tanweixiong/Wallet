@@ -49,7 +49,7 @@ class AssetsView: UIView {
         
         //创建二维码图片
         let userId = UserDefaults.standard.getUserInfo().userId
-        let phone = UserDefaults.standard.getUserInfo().phone
+        let phone = UserDefaults.standard.getUserInfo().phone as String
         let qrCodeString = "\(R_Theme_QRCode):\(userId):\(phone)"
         let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "")
         qrCodeImageView.image = image
@@ -218,7 +218,7 @@ class AssetsView: UIView {
     lazy var qrView: QRCodeImageView = {
         let view = Bundle.main.loadNibNamed("QRCodeImageView", owner: nil, options: nil)?[0] as! QRCodeImageView
         let userId = UserDefaults.standard.getUserInfo().userId
-        let phone = UserDefaults.standard.getUserInfo().phone
+        let phone = UserDefaults.standard.getUserInfo().phone as String
         let image = Tools.createQRForString(qrString: "\(R_Theme_QRCode):\(userId)?type=1", qrImageName: "iTunesArtwork")
         view.imageView.image = image
         view.desLabel.text = LanguageHelper.getString(key: "my_qr_code")

@@ -174,38 +174,44 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     func scanFinished(scanResult: LBXScanResult, error: String?) {
         let resultStr = scanResult.strScanned!
         if resultStr.contains(R_Theme_QRCode) {
-            //扫描正确后操作
-            CodeConfiguration.codeProcessing(self, ConstTools.getCodeMessage(resultStr, codeKey: R_Theme_QRCode)! as NSArray, success: { (address,type,data)  in
-                let assets = WalletOCTools.getCurrentVC()
-                if type == "1" {
-                    let addAContactVC = AddAContactVC()
-                    addAContactVC.contactsId = address
-                    assets?.navigationController?.pushViewController(addAContactVC, animated: true)
-                }else if type == "2" {
-                    let transferAccountsVC = TransferAccountsVC()
-                    transferAccountsVC.receiveAddressString = address
-                    assets?.navigationController?.pushViewController(transferAccountsVC, animated: true)
-                }else if type == "3" {
-                    let dict =  (WalletOCTools.getDictionaryFromJSONString(data))!
-                    let responseData = Mapper<MineBusinessCardData>().map(JSONObject: dict)
-                    let model:MineBusinessCardData = (responseData)!
-                    let responseCodeData = Mapper<MineBusinessCardCodeDataModel>().map(JSONObject: dict)
-                    let codeModel:MineBusinessCardCodeDataModel = (responseCodeData)!
-                    var ids = String(describing: codeModel.id)
-                    ids = ids.replacingOccurrences(of: "Optional(", with: "")
-                    ids = ids.replacingOccurrences(of: ")", with: "")
-                    model.id = ids
-                    let addBusiessCardVC = AddBusiessCardVC()
-                    addBusiessCardVC.mineBusinessCardData = model
-                    addBusiessCardVC.addBusinessCardType = .addBusiessFriendCard
-                    addBusiessCardVC.busiessCardType = .addBusiessFriendCard
-                    assets?.navigationController?.pushViewController(addBusiessCardVC, animated: true)
-                }
-            })
-        } else {
+            self.codeConfiguration(scanResult: resultStr, codeKey: R_Theme_QRCode)
+        }else if resultStr.contains(R_Theme_QRECZCode){
+            self.codeConfiguration(scanResult: resultStr, codeKey: R_Theme_QRECZCode)
+        }else {
             SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
             return
         }
+    }
+    
+    func codeConfiguration(scanResult:String,codeKey:String){
+        //扫描正确后操作
+        CodeConfiguration.codeProcessing(self, ConstTools.getCodeMessage(scanResult, codeKey: R_Theme_QRCode)! as NSArray, success: { (address,type,data)  in
+            let assets = WalletOCTools.getCurrentVC()
+            if type == "1" {
+                let addAContactVC = AddAContactVC()
+                addAContactVC.contactsId = address
+                assets?.navigationController?.pushViewController(addAContactVC, animated: true)
+            }else if type == "2" {
+                let transferAccountsVC = TransferAccountsVC()
+                transferAccountsVC.receiveAddressString = address
+                assets?.navigationController?.pushViewController(transferAccountsVC, animated: true)
+            }else if type == "3" {
+                let dict =  (WalletOCTools.getDictionaryFromJSONString(data))!
+                let responseData = Mapper<MineBusinessCardData>().map(JSONObject: dict)
+                let model:MineBusinessCardData = (responseData)!
+                let responseCodeData = Mapper<MineBusinessCardCodeDataModel>().map(JSONObject: dict)
+                let codeModel:MineBusinessCardCodeDataModel = (responseCodeData)!
+                var ids = String(describing: codeModel.id)
+                ids = ids.replacingOccurrences(of: "Optional(", with: "")
+                ids = ids.replacingOccurrences(of: ")", with: "")
+                model.id = ids
+                let addBusiessCardVC = AddBusiessCardVC()
+                addBusiessCardVC.mineBusinessCardData = model
+                addBusiessCardVC.addBusinessCardType = .addBusiessFriendCard
+                addBusiessCardVC.busiessCardType = .addBusiessFriendCard
+                assets?.navigationController?.pushViewController(addBusiessCardVC, animated: true)
+            }
+        })
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -259,7 +265,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
                 
                 //转入
                 let assetsListDetailsModel = AssetsListDetailsModel()
-                assetsListDetailsModel?.coin_name = "ITC"
+                assetsListDetailsModel?.coin_name = "EC"
                 assetsListDetailsModel?.coin_no = 0
                 vc.change_assetsListModel = assetsListDetailsModel
                 

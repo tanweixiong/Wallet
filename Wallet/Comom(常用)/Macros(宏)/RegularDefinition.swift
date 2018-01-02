@@ -29,6 +29,9 @@ public let R_huangXinChatKey = "1163171010178071#ec"
 //二维码标识
 public let R_Theme_QRCode = "echain"
 
+//ecz二维码标识
+public let R_Theme_QRECZCode = "eczhain"
+
 //K线图的地址
 public let R_Theme_lineGraph = "http://10.0.0.11/dhs-wallet/"
 
