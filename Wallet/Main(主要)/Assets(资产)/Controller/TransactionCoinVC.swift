@@ -75,8 +75,8 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     func getData(){
         let user_id = UserDefaults.standard.getUserInfo().userId
         let coin_no = (assetsListModel.coin_no)?.stringValue
-        let parameters:[String:Any] = ["userId":user_id,"page":"\(page)","flag":coin_no!,"coin_no":coin_no!]
-        NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIGetBill, parameters: parameters, showIndicator: true, success: { (json) in
+        let parameters:[String:Any] = ["userId":user_id,"page":"\(page)","flag":"0","coin_no":coin_no!]
+        NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPIWalletGetBillByCoin, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<TransactionCoinModel>().map(JSONObject: json)
             if let code = responseData?.code {
                 if code == "100" {
@@ -86,6 +86,9 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
                     array.addObjects(from: self.dataScore as! [Any])
                     self.dataScore = array
                     self.tableView.reloadData()
+                }else if code == "200"{
+                    SVProgressHUD.showInfo(withStatus: "请重新登录")
+                    LoginVC.switchRootVCToLoginVC()
                 }
             }
             self.tableView.mj_footer.endRefreshing()

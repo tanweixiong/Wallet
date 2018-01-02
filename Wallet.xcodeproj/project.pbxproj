@@ -283,7 +283,7 @@
 		2307C8A71F500447002580BF /* PersonalHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalHeadCell.xib; sourceTree = "<group>"; };
 		2307C8AA1F500E76002580BF /* PersonalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalCell.swift; sourceTree = "<group>"; };
 		2308A6AF1F56BD890057CF92 /* ManageWalletsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletsVC.swift; sourceTree = "<group>"; };
-		2309379C1F5D21DA00F354ED /* ConstAPIURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstAPIURL.swift; sourceTree = "<group>"; };
+		2309379C1F5D21DA00F354ED /* ConstAPIURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstAPIURL.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		2309379E1F5D28BA00F354ED /* UserResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResponseData.swift; sourceTree = "<group>"; };
 		230937A01F5D297E00F354ED /* UserInfoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoData.swift; sourceTree = "<group>"; };
 		230937A21F5D299400F354ED /* ResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };

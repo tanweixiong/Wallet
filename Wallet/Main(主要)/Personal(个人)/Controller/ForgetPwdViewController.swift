@@ -177,7 +177,12 @@ class ForgetPwdViewController: UIViewController {
                 return
             }
             
-            if !Tools.validatePassword(password: pwd!) || !Tools.validatePassword(password: confirmPwd!) {
+            if !Tools.validatePassword(password: pwd!) {
+                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "enter_password_rule"))
+                return
+            }
+            
+            if !Tools.validatePassword(password: confirmPwd!){
                 SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "enter_password_rule"))
                 return
             }

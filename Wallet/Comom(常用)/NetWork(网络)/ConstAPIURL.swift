@@ -121,7 +121,8 @@ struct ConstAPI {
     static let kAPIWalletTheWallet = kAPIBaseURL + "wallet/theWallet.do"
     //添加转账功能
     static let kAPIBillTranSfer = kAPIBaseURL + "bill/TranSfer.do"
-    
+    //添加币种列表
+    static let kAPIWalletGetBillByCoin = kAPIBaseURL + "bill/getBillByCoin.do"
     
 }
 
