@@ -84,7 +84,7 @@ class AddAContactVC: WLMainViewController,LBXScanViewControllerDelegate {
     //扫描正确后操作
     func scanFinished(scanResult: LBXScanResult, error: String?) {
         let resultStr = scanResult.strScanned!
-        if resultStr.contains(R_Theme_QRCode) || resultStr.contains(R_Theme_QRECZCode){
+        if resultStr.contains(R_Theme_QRCode){
             let strArray = resultStr.components(separatedBy: ":")
             if strArray.count != 2 {
                 SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
