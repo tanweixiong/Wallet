@@ -49,10 +49,7 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
         let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=0&type=2"
         let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
         QRCodeImageView.image = image
-        
-        //id
-//        userIdLabel.text = userId
-        
+         
         //头像
         hornImageView.sd_setImage(with: NSURL(string: photo)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
         

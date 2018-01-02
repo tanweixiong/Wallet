@@ -12,7 +12,7 @@ import SVProgressHUD
 import SDWebImage
 
 class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource,LBXScanViewControllerDelegate,AssetsDetailsDelegate {
-    
+    fileprivate var refreshFooterView = SDRefreshFooterView()
     fileprivate let assetsViewCellIdentifier = "AssetsViewCellIdentifier"
     fileprivate let cellHeight :CGFloat = 80
     fileprivate let headHeight :CGFloat = 300
@@ -55,9 +55,9 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
                LoginVC.setTokenInvalidation()
             }
             }
-             self.tableView.mj_footer.endRefreshing()
+                self.refreshFooterView.endRefreshing()
         }) { (error) in
-             self.tableView.mj_footer.endRefreshing()
+                self.refreshFooterView.endRefreshing()
         }
     }
     
@@ -80,9 +80,9 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
             }else {
                 SVProgressHUD.showInfo(withStatus: responseData?.msg)
             }
-            self.tableView.mj_footer.endRefreshing()
+            self.refreshFooterView.endRefreshing()
         }) { (error) in
-            self.tableView.mj_footer.endRefreshing()
+            self.refreshFooterView.endRefreshing()
         }
     }
     
@@ -272,12 +272,16 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         tableView.tableHeaderView = self.assetsCarouselDefaultView
         tableView.tableFooterView = UIView()
         tableView.separatorInset = UIEdgeInsetsMake(0,SCREEN_WIDTH, 0,SCREEN_WIDTH);
-        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
-            self.getListData()
-            self.getHeadData(false)
-        })
+        self.refreshFooterView = SDRefreshFooterView.init()
+        self.refreshFooterView.add(toScroll: tableView)
+        self.refreshFooterView.addTarget(self, refreshAction: #selector(reloadData))
         return tableView
     }()
+    
+    func reloadData(){
+        self.getListData()
+        self.getHeadData(false)
+    }
     
     lazy var navigationBar: UIView = {
        let view = UIView()

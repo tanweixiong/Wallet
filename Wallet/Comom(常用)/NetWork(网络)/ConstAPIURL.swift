@@ -13,9 +13,9 @@ struct ConstAPI {
 
     //正式
 //    static let kAPIBaseURL: String = "http://192.168.10.101:9099/dhswallet/"
-//    static let kAPIBaseURL: String = "http://47.52.59.119:9099/dhswallet/"
+    static let kAPIBaseURL: String = "http://47.52.59.119:9099/dhswallet/"
     
-     static let kAPIBaseURL: String = "http://172.26.87.112:8080/"
+//     static let kAPIBaseURL: String = "http://172.26.87.112:8080/"
     
     //开发
 //    static let kAPIBaseURL: String = "http://10.0.0.42:80/dhs-wallet/dhswallet/"

@@ -129,6 +129,11 @@
 		231B35581FA80D6B003F9CE9 /* CreateMyWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B35571FA80D6B003F9CE9 /* CreateMyWalletVC.swift */; };
 		231B355A1FA80DAA003F9CE9 /* CreateMyWalletBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B35591FA80DAA003F9CE9 /* CreateMyWalletBar.swift */; };
 		231B355C1FA80DB7003F9CE9 /* CreateMyWalletBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 231B355B1FA80DB7003F9CE9 /* CreateMyWalletBar.xib */; };
+		232B83551FFB1FA40028FD4E /* SDRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B834E1FFB1FA30028FD4E /* SDRefreshHeaderView.m */; };
+		232B83561FFB1FA40028FD4E /* sdRefeshView_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 232B834F1FFB1FA30028FD4E /* sdRefeshView_arrow@2x.png */; };
+		232B83571FFB1FA40028FD4E /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B83501FFB1FA30028FD4E /* UIView+SDExtension.m */; };
+		232B83581FFB1FA40028FD4E /* SDRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B83511FFB1FA30028FD4E /* SDRefreshFooterView.m */; };
+		232B83591FFB1FA40028FD4E /* SDRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 232B83541FFB1FA30028FD4E /* SDRefreshView.m */; };
 		232D18551FABFCAF00FC3380 /* LEEAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 232D18531FABFCAF00FC3380 /* LEEAlert.m */; };
 		232D18571FAC3AA500FC3380 /* ReachabilityConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232D18561FAC3AA500FC3380 /* ReachabilityConfiguration.swift */; };
 		23326A851F57B52F00676CA1 /* TransactionRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23326A841F57B52F00676CA1 /* TransactionRecordVC.swift */; };
@@ -421,6 +426,16 @@
 		231B35571FA80D6B003F9CE9 /* CreateMyWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMyWalletVC.swift; sourceTree = "<group>"; };
 		231B35591FA80DAA003F9CE9 /* CreateMyWalletBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMyWalletBar.swift; sourceTree = "<group>"; };
 		231B355B1FA80DB7003F9CE9 /* CreateMyWalletBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateMyWalletBar.xib; sourceTree = "<group>"; };
+		232B834B1FFB1FA30028FD4E /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		232B834C1FFB1FA30028FD4E /* SDRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRefreshFooterView.h; sourceTree = "<group>"; };
+		232B834D1FFB1FA30028FD4E /* SDRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRefreshView.h; sourceTree = "<group>"; };
+		232B834E1FFB1FA30028FD4E /* SDRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRefreshHeaderView.m; sourceTree = "<group>"; };
+		232B834F1FFB1FA30028FD4E /* sdRefeshView_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sdRefeshView_arrow@2x.png"; sourceTree = "<group>"; };
+		232B83501FFB1FA30028FD4E /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		232B83511FFB1FA30028FD4E /* SDRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRefreshFooterView.m; sourceTree = "<group>"; };
+		232B83521FFB1FA30028FD4E /* SDRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRefresh.h; sourceTree = "<group>"; };
+		232B83531FFB1FA30028FD4E /* SDRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRefreshHeaderView.h; sourceTree = "<group>"; };
+		232B83541FFB1FA30028FD4E /* SDRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRefreshView.m; sourceTree = "<group>"; };
 		232D18521FABFCAF00FC3380 /* LEEAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEAlert.h; sourceTree = "<group>"; };
 		232D18531FABFCAF00FC3380 /* LEEAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEEAlert.m; sourceTree = "<group>"; };
 		232D18541FABFCAF00FC3380 /* LEEAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEAlertHelper.h; sourceTree = "<group>"; };
@@ -828,6 +843,23 @@
 				231848E11FA46928003C1D4E /* MJRefreshStateHeader.m */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		232B834A1FFB1FA30028FD4E /* SDRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				232B834B1FFB1FA30028FD4E /* UIView+SDExtension.h */,
+				232B834C1FFB1FA30028FD4E /* SDRefreshFooterView.h */,
+				232B834D1FFB1FA30028FD4E /* SDRefreshView.h */,
+				232B834E1FFB1FA30028FD4E /* SDRefreshHeaderView.m */,
+				232B834F1FFB1FA30028FD4E /* sdRefeshView_arrow@2x.png */,
+				232B83501FFB1FA30028FD4E /* UIView+SDExtension.m */,
+				232B83511FFB1FA30028FD4E /* SDRefreshFooterView.m */,
+				232B83521FFB1FA30028FD4E /* SDRefresh.h */,
+				232B83531FFB1FA30028FD4E /* SDRefreshHeaderView.h */,
+				232B83541FFB1FA30028FD4E /* SDRefreshView.m */,
+			);
+			path = SDRefresh;
 			sourceTree = "<group>";
 		};
 		232D18511FABFCAF00FC3380 /* Alert */ = {
@@ -1253,6 +1285,7 @@
 		238DB45D1F4D55CE00ECA2C4 /* Vender(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				232B834A1FFB1FA30028FD4E /* SDRefresh */,
 				232D18511FABFCAF00FC3380 /* Alert */,
 				231848BD1FA46928003C1D4E /* MJRefresh */,
 				2317C8F91F8B496900EC96AE /* WRCycleScrollView */,
@@ -1558,6 +1591,7 @@
 				230AEA981FA2D5F300D42308 /* TransactionCoinDetailVw.xib in Resources */,
 				238DB3F81F4D4C0700ECA2C4 /* LaunchScreen.storyboard in Resources */,
 				23326A891F57BBF800676CA1 /* ManageWalletsCell.xib in Resources */,
+				232B83561FFB1FA40028FD4E /* sdRefeshView_arrow@2x.png in Resources */,
 				231B355C1FA80DB7003F9CE9 /* CreateMyWalletBar.xib in Resources */,
 				230A04871F67BABC007EF3AB /* IndustryDetailsVC.xib in Resources */,
 				230B8C441F4E6E370003F5D2 /* AssetsViewCell.xib in Resources */,
@@ -1834,6 +1868,7 @@
 				231848FD1FA46928003C1D4E /* MJRefreshStateHeader.m in Sources */,
 				238DB48D1F4D6DF900ECA2C4 /* PopupView.m in Sources */,
 				230AEA961FA2D5DC00D42308 /* TransactionCoinDetailVw.swift in Sources */,
+				232B83551FFB1FA40028FD4E /* SDRefreshHeaderView.m in Sources */,
 				236BF5C21F9F221B0060B622 /* FriendBusinessCardVC.swift in Sources */,
 				2310EFE01FA1722F005744AF /* FindModel.swift in Sources */,
 				236996221F6A61950034C120 /* TransferAccountsVC.swift in Sources */,
@@ -1845,6 +1880,7 @@
 				231B35581FA80D6B003F9CE9 /* CreateMyWalletVC.swift in Sources */,
 				23770C201FA7067A00E4E6B7 /* ForgetMallViewVC.swift in Sources */,
 				238DB4AA1F4D6E7700ECA2C4 /* MASLayoutConstraint.m in Sources */,
+				232B83581FFB1FA40028FD4E /* SDRefreshFooterView.m in Sources */,
 				23683D561F9DE49E00D63638 /* AddMineBusinessCardCell.swift in Sources */,
 				2317C8F01F8B215500EC96AE /* SalesCoinVM.swift in Sources */,
 				23ACA51C1F78B2340010C628 /* PlaceholderTextView.m in Sources */,
@@ -1904,6 +1940,7 @@
 				2369961A1F6A33140034C120 /* TransactionCoinVC.swift in Sources */,
 				238DB43E1F4D4F2100ECA2C4 /* IndustryVC.swift in Sources */,
 				230DD5281F8CB6FA004D1E5E /* PurchaseListVC.swift in Sources */,
+				232B83591FFB1FA40028FD4E /* SDRefreshView.m in Sources */,
 				230937A51F5D29AB00F354ED /* UserInfo.swift in Sources */,
 				2317C8FF1F8B496900EC96AE /* WRProxy.swift in Sources */,
 				230A04831F677C45007EF3AB /* AssetsListDetailsModel.swift in Sources */,
@@ -1922,6 +1959,7 @@
 				230B33601F6689E000408CB6 /* AssetsDetailsCell.swift in Sources */,
 				230EF96A1F6F5B2F006E82E6 /* VariousLanguagesVC.swift in Sources */,
 				236996121F6A1ED70034C120 /* SettingPaypsdVC.swift in Sources */,
+				232B83571FFB1FA40028FD4E /* UIView+SDExtension.m in Sources */,
 				23B8FCE81FA9DAB4000CF4E9 /* MineBusinessCardCodeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

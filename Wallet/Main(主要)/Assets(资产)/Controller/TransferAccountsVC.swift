@@ -32,7 +32,9 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
         self.receiveAddressTF.text = receiveAddressString;
         self.setTransferAccounts()
         self.addDefaultButtonImageLeft("cuowu")
-        self.addDefaultButtonImageRight("saoyisao")
+        if self.coin_no == "0" {
+           self.addDefaultButtonImageRight("saoyisao")
+        }
     }
     
     override func rightImageBtn(_ sender: UIBarButtonItem) {
