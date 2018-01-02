@@ -154,6 +154,16 @@ class ForgetPwdViewController: UIViewController {
                 return
             }
             
+            if !Tools.validatePassword(password: confirmPwd!){
+                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "enter_password_rule"))
+                return
+            }
+            
+            if !Tools.validatePassword(password: pwd!){
+                SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "enter_password_rule"))
+                return
+            }
+            
             let code = self.forgetView.authorizeTextView.textField.text!
             if code.count < 3 {
                 SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "register_code"))
