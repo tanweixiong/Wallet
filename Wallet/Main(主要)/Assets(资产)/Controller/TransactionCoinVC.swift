@@ -133,7 +133,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     //转账
     @IBAction func transferAccountsOnClick(_ sender: UIButton) {
         let vc = TransferAccountsVC()
-        if assetsListModel.coin_no == 0 || assetsListModel.coin_no == 80  {
+        if assetsListModel.coin_no == 0 {
             vc.transferAccountsStatus = .transferAccountsEC
         }else{
             vc.transferAccountsStatus = .transferAccountsOther
@@ -191,7 +191,9 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
             let model = dataScore[indexPath.row - 1] as! TransactionList
             tableViewDetailVw.isHidden = false
             self.tableViewDetailVw.serialNumberRLabel.text = model.serialNumber
-            self.tableViewDetailVw.payeeRLabel.text = model.userId
+            
+            self.tableViewDetailVw.payeeRLabel.text = model.receivables_address
+            
             self.tableViewDetailVw.transactionTypeRLabel.text = model.operate
             self.tableViewDetailVw.transactionAmountRLabel.text = model.money?.stringValue
             self.tableViewDetailVw.dataRLabel.text = model.beginDate

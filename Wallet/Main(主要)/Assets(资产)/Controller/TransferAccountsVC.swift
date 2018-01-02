@@ -16,8 +16,10 @@ enum TransferAccountsStatus {
 }
 class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,ContactsDelegate,UITextFieldDelegate,ZCTradeViewDelegate{
     
+    @IBOutlet weak var chooseButton: UIButton!
     @IBOutlet weak var receiveAddressTF: UITextField!
     @IBOutlet weak var amountTF: UITextField!
+    @IBOutlet weak var chooseImage: UIImageView!
     @IBOutlet weak var remarkTF: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     var transferAccountsStatus = TransferAccountsStatus.transferAccountsEC
@@ -34,6 +36,13 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
         self.addDefaultButtonImageLeft("cuowu")
         if self.coin_no == "0" || self.coin_no == "80" {
            self.addDefaultButtonImageRight("saoyisao")
+        }
+        if self.coin_no == "0" {
+            self.chooseButton.isHidden = false
+            self.chooseImage.isHidden = false
+        }else{
+            self.chooseButton.isHidden = true
+            self.chooseImage.isHidden = true
         }
     }
     
@@ -185,7 +194,7 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
         let phone_shou = self.receiveAddressTF.text!
         let money = self.amountTF.text!
 //        let remark:String = (self.remarkTF?.text!)!
-        let parameter:[String:Any] = ["userId":phone_shou,"phone_shou":userId,"money":money,"remark":"11","flag":"2"]
+        let parameter:[String:Any] = ["userId":userId,"phone_shou":phone_shou,"money":money,"remark":"11","flag":"2"]
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
         NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPITransOrder, parameters: parameter, showIndicator: true, success: { (json) in
             let responseData = Mapper<PayMoneyModel>().map(JSONObject: json)

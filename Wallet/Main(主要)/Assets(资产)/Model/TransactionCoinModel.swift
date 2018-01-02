@@ -28,8 +28,8 @@ class TransactionList: Mappable{
     var state: NSNumber?
     var paymentName: String?
     var paymentNumber: NSNumber?
-    
-    
+    var receivables_address:String?
+
     required init?(map: Map) {
         
     }
@@ -52,6 +52,7 @@ class TransactionList: Mappable{
         state                  <- map["state"]
         paymentName            <- map["paymentName"]
         paymentNumber          <- map["paymentNumber"]
+        receivables_address    <- map["receivables_address"]
     }
 }
 
