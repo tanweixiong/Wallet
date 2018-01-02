@@ -55,7 +55,7 @@ class MineBusinessCardData: Mappable{
 
 class MineBusinessCardModel: Mappable {
     
-    var code: NSNumber?
+    var code: Int?
     var msg: String?
     var data: [MineBusinessCardData]?
     

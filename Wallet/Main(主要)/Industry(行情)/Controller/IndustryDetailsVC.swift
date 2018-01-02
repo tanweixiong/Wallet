@@ -71,7 +71,7 @@ class IndustryDetailsVC: WLMainViewController,UIWebViewDelegate {
                 self.p_lowLabel.text = self.cnyString + p_last
                 self.p_hideLabel.text = self.cnyString + (responseData?.data?.p_high!.stringValue)!
                 self.p_openLabel.text = self.cnyString + (responseData?.data?.p_open!.stringValue)!
-                self.amountLabel.text = self.cnyString + (responseData?.data?.amount!.stringValue)!
+                self.amountLabel.text = self.cnyString + (responseData?.data?.p_open!.stringValue)!
                 self.usdLabel.text = self.usdString + usd
                 self.cnyLabel.text = self.cnyString + cny
                 self.limitLabel.text = (responseData?.data?.limit!.stringValue)! + self.limitString

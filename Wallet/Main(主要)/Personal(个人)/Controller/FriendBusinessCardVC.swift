@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import SVProgressHUD
 
 class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate {
     var delegate:ContactsDelegate?
@@ -33,17 +34,18 @@ class FriendBusinessCardVC: WLMainViewController,UITableViewDelegate,UITableView
         let parameters = ["user_id":user_id,"page":"\(page)"]
         NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIFriendTheCardList, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<MineBusinessCardModel>().map(JSONObject: json)
-            let data:NSDictionary = json as! NSDictionary
-            let code:String = data["code"] as! String
-            if code == "100" {
+            if responseData?.code == 100 {
                 self.page = self.page + 1
                 let array = NSMutableArray()
                 array.addObjects(from: (responseData?.data)!)
                 array.addObjects(from: self.dataSorce as! [Any])
                 self.dataSorce = array
                 self.tableView.reloadData()
-            }else{
-                WLInfo(responseData!.msg)
+            }else if responseData?.code == 200 {
+                SVProgressHUD.showSuccess(withStatus: "请重新登录")
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                   LoginVC.switchRootVCToLoginVC()
+                })
             }
             self.tableView.mj_header.endRefreshing()
         }) { (error) in
