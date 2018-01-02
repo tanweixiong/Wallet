@@ -59,9 +59,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OK5-Ta-swx">
-                                            <rect key="frame" x="20" y="57" width="39" height="17"/>
+                                            <rect key="frame" x="20" y="57" width="80" height="17"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="39" id="aWZ-BW-iRW"/>
+                                                <constraint firstAttribute="width" constant="80" id="aWZ-BW-iRW"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,7 +81,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="askdlaskdalkd" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdR-VI-lfx">
-                                            <rect key="frame" x="69" y="56" width="266" height="17"/>
+                                            <rect key="frame" x="110" y="56" width="225" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -157,7 +157,10 @@
                                     <rect key="frame" x="0.0" y="252" width="355" height="84"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H25-01-9rb">
-                                            <rect key="frame" x="20" y="57" width="49" height="17"/>
+                                            <rect key="frame" x="20" y="57" width="100" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="Rq1-K4-Ul8"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -174,8 +177,8 @@
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJm-e8-zTX">
-                                            <rect key="frame" x="306" y="57" width="29" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付出" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJm-e8-zTX">
+                                            <rect key="frame" x="130" y="57" width="205" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -186,6 +189,7 @@
                                         <constraint firstItem="I1G-6X-4Wo" firstAttribute="leading" secondItem="0Gl-ml-OiA" secondAttribute="leading" constant="20" id="3mc-UW-G0i"/>
                                         <constraint firstAttribute="bottom" secondItem="H25-01-9rb" secondAttribute="bottom" constant="10" id="52p-lf-l6H"/>
                                         <constraint firstAttribute="bottom" secondItem="yJm-e8-zTX" secondAttribute="bottom" constant="10" id="77z-we-aDi"/>
+                                        <constraint firstItem="yJm-e8-zTX" firstAttribute="leading" secondItem="H25-01-9rb" secondAttribute="trailing" constant="10" id="AbZ-jd-6kg"/>
                                         <constraint firstAttribute="trailing" secondItem="NOs-S1-zdN" secondAttribute="trailing" constant="20" id="Jgc-xt-Mhc"/>
                                         <constraint firstItem="H25-01-9rb" firstAttribute="leading" secondItem="0Gl-ml-OiA" secondAttribute="leading" constant="20" id="O8w-RF-SvD"/>
                                         <constraint firstAttribute="trailing" secondItem="yJm-e8-zTX" secondAttribute="trailing" constant="20" id="UKw-Uh-Xxn"/>

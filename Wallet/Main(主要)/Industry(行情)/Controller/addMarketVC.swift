@@ -174,6 +174,9 @@ class addMarketVC: WLMainViewController,UITableViewDelegate,UITableViewDataSourc
             let state = sender.isOn == true ? "1" : "0"
             let coin_no = model.coin_no?.stringValue
             self.chooseCoin(state, coin_no!,sender.tag)
+            
+            model.market_state = sender.isOn == true ? 1 : 0
+            self.dataScore.replaceObject(at: sender.tag, with: model)
         }
         return cell
     }

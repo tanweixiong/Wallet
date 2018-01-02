@@ -10,10 +10,10 @@ import UIKit
 
 class TransactionCoinCell: UITableViewCell {
 
+    @IBOutlet weak var coinLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

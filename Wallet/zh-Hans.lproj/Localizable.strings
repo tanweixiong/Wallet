@@ -266,4 +266,5 @@
 "Added_Successfully" = "新增成功";
 "Payment_Confirmation" = "付款确认";
 "no_connect" = "没有网络连接，请打开您的wifi或者移动网络！";
+"transaction_status" = "币种";
 

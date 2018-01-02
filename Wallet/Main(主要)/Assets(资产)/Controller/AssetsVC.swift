@@ -56,8 +56,10 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
             }
             }
                 self.refreshFooterView.endRefreshing()
+                self.tableView.mj_header.endRefreshing()
         }) { (error) in
                 self.refreshFooterView.endRefreshing()
+                self.tableView.mj_header.endRefreshing()
         }
     }
     
@@ -81,8 +83,10 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
                 SVProgressHUD.showInfo(withStatus: responseData?.msg)
             }
             self.refreshFooterView.endRefreshing()
+            self.tableView.mj_header.endRefreshing()
         }) { (error) in
             self.refreshFooterView.endRefreshing()
+            self.tableView.mj_header.endRefreshing()
         }
     }
     
@@ -242,7 +246,9 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         cell.selectionStyle = .none
         let model = self.dataScore[indexPath.row] as! AssetsListModel
         cell.sumMoneyLabel.text = "≈ ¥ " + (model.sumMoney?.stringValue)!
-        cell.allMoneyLabel.text = model.remainderMoney?.stringValue
+        
+        cell.allMoneyLabel.text = (model.remainderMoney?.stringValue)!
+        
         cell.icon_nameLabel.text = model.coin_name
         cell.iconImageView.sd_setImage(with: NSURL(string: model.coinIcon!)! as URL, placeholderImage: UIImage.init(named: "jiazaimoren"))
         
@@ -287,6 +293,9 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         self.refreshFooterView = SDRefreshFooterView.init()
         self.refreshFooterView.add(toScroll: tableView)
         self.refreshFooterView.addTarget(self, refreshAction: #selector(reloadData))
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            self.reloadData()
+        })
         return tableView
     }()
     
@@ -329,7 +338,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         let offsetY :CGFloat = scrollView.contentOffset.y
     
         if offsetY < 0 {
-            scrollView.contentOffset = CGPoint(x: 0, y: 0)
+//            scrollView.contentOffset = CGPoint(x: 0, y: 0)
         }
         if (offsetY < headHeight)
         {

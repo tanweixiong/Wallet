@@ -266,4 +266,5 @@
 "Added_Successfully" = "Added successfully";
 "Payment_Confirmation" = "Payment Confirmation";
 "no_connect" = "No internet connection, please open your wifi or mobile network!";
+"transaction_status" = "currency";
 

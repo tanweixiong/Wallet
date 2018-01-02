@@ -171,12 +171,14 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: transactionCoinIdentifier, for: indexPath) as! TransactionCoinCell
         cell.selectionStyle = .none
         if indexPath.row == 0 {
+            cell.coinLabel.text = LanguageHelper.getString(key: "transaction_status")
             cell.amountLabel.text = LanguageHelper.getString(key: "transaction_amount")
             cell.dataLabel.text = LanguageHelper.getString(key: "transaction_data")
             cell.typeLabel.text = LanguageHelper.getString(key: "transaction_type")
-            cell.dataLabel.font = UIFont.systemFont(ofSize: 14)
+
         }else{
             let model = dataScore[indexPath.row - 1] as! TransactionList
+            cell.coinLabel.text = assetsListModel.coin_name
             cell.amountLabel.text = model.money?.stringValue
             cell.dataLabel.text =  model.beginDate
             cell.typeLabel.text = model.operate
