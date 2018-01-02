@@ -89,7 +89,6 @@ class PaymentConfirmationVC: WLMainViewController,ZCTradeViewDelegate {
             NetWorkTool.request(requestType: .post, URLString:ConstAPI.kAPITrans, parameters: parameters, showIndicator: true, success: { (json) in
                 SVProgressHUD.dismiss()
                 let responseData = Mapper<PaymentConfirmationModel>().map(JSONObject: json)
-                
                 if let code = responseData?.code {
                     if code == "100" {
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setReloadAssets"), object: nil)

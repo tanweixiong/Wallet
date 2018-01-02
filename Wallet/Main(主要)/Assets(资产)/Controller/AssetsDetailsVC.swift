@@ -107,6 +107,9 @@ class AssetsDetailsVC: WLMainViewController,UITableViewDelegate,UITableViewDataS
             let state = sender.isOn == true ? "0" : "1"
             let coin_no = model.coin_no?.stringValue
             self.chooseCoin(state, coin_no!)
+            
+            model.state = sender.isOn == true ? 0 : 1
+            self.dataScore.replaceObject(at: sender.tag, with: model)
         }
         return cell
     }
