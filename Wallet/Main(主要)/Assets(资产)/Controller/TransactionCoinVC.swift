@@ -130,7 +130,11 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     //转账
     @IBAction func transferAccountsOnClick(_ sender: UIButton) {
         let vc = TransferAccountsVC()
-        vc.transferAccountsStatus = assetsListModel.coin_no == 0 ? .transferAccountsEC : .transferAccountsOther
+        if assetsListModel.coin_no == 0 || assetsListModel.coin_no == 80  {
+            vc.transferAccountsStatus = .transferAccountsEC
+        }else{
+            vc.transferAccountsStatus = .transferAccountsOther
+        }
         vc.coinName = assetsListModel.coin_name!
         vc.coin_no = (assetsListModel.coin_no?.stringValue)!
         self.navigationController?.pushViewController(vc, animated: true)

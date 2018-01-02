@@ -32,7 +32,7 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
         self.receiveAddressTF.text = receiveAddressString;
         self.setTransferAccounts()
         self.addDefaultButtonImageLeft("cuowu")
-        if self.coin_no == "0" {
+        if self.coin_no == "0" || self.coin_no == "80" {
            self.addDefaultButtonImageRight("saoyisao")
         }
     }
