@@ -75,7 +75,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
     func getData(){
         let user_id = UserDefaults.standard.getUserInfo().userId
         let coin_no = (assetsListModel.coin_no)?.stringValue
-        let parameters:[String:Any] = ["userId":user_id,"page":"\(page)","flag":"0","coin_no":coin_no!]
+        let parameters:[String:Any] = ["userId":user_id,"page":"\(page)","flag":coin_no!,"coin_no":coin_no!]
         NetWorkTool.request(requestType: .get, URLString: ConstAPI.kAPIGetBill, parameters: parameters, showIndicator: true, success: { (json) in
             let responseData = Mapper<TransactionCoinModel>().map(JSONObject: json)
             if let code = responseData?.code {

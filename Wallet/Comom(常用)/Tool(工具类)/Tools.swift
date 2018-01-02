@@ -194,9 +194,9 @@ class Tools: NSObject {
         if haveParams {
             params = parameters
         } else {
-            let phoneNo = UserDefaults.standard.value(forKey: "phone") as! String
-            let pwd = UserDefaults.standard.value(forKey: "pwd") as! String
-            params = ["phone" : phoneNo,"password" : pwd]
+            let phoneNo = UserDefaults.standard.getUserInfo().phone
+            let pwd = UserDefaults.standard.getUserInfo().normalPassword
+            params = ["phone" : (phoneNo.stringValue),"password" : pwd]
         }
         
         NetWorkTool.requestData(requestType: .post, URLString: ConstAPI.kAPILogin, parameters: params!, showIndicator: haveParams, success: { (json) in

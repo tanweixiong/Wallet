@@ -202,7 +202,7 @@
 "payment_modified" = "支付密码修改成功";
 "please_wait" = "请稍等";
 "upload_failed" = "上传失败";
-"qrCode_error" = "二维码格式不正确";
+"qrCode_error" = "请确认您的二维码是否正确";
 "please_write_contacts_name" = "请填写联系人姓名";
 "please_write_contacts_address" = "请填写联系人地址";
 "please_enter_phone" = "请输入正确的账号";

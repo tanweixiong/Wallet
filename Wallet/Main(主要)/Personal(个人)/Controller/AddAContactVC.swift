@@ -94,7 +94,7 @@ class AddAContactVC: WLMainViewController,LBXScanViewControllerDelegate {
                 contacts_idTF.text = userid
             }
         } else {
-            SVProgressHUD.showError(withStatus: LanguageHelper.getString(key: "qrCode_error"))
+            SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
             return
         }
     }

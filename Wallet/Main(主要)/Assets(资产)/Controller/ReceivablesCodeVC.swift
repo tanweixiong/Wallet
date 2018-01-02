@@ -46,12 +46,8 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
         let photo = UserDefaults.standard.getUserInfo().photo
         
         //二维码
-        let qrCodeString = "\(R_Theme_QRCode):\(userId)?amount=0&type=2"
-        let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
-        QRCodeImageView.image = image
+        self.userIdLabel.text = "--"
         
-        self.userIdLabel.text = userId
-         
         //头像
         hornImageView.sd_setImage(with: NSURL(string: photo)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
         
@@ -93,10 +89,17 @@ class ReceivablesCodeVC: UIViewController,UITextFieldDelegate {
                   let data = json as! NSDictionary
                   let address = data["data"] as! String
                   self.userIdLabel.text = address
-                    
-                  let qrCodeString = "\(R_Theme_QRCode):\(address)?amount=0&type=2"
-                  let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
-                  self.QRCodeImageView.image = image
+                  if coin_no == "0" {
+                    let qrCodeString = "\(R_Theme_QRCode):\(address)?amount=0&type=2"
+                    let image = Tools.createQRForString(qrString: qrCodeString, qrImageName: "iTunesArtwork")
+                    self.QRCodeImageView.image = image
+                  }else{
+                    let image = Tools.createQRForString(qrString: address, qrImageName: "iTunesArtwork")
+                    self.QRCodeImageView.image = image
+                  }
+                }else{
+                    SVProgressHUD.showInfo(withStatus: "请重新登录")
+                    LoginVC.switchRootVCToLoginVC()
                 }
             }
         }) { (error) in

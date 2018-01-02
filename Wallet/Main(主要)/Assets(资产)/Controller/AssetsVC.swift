@@ -28,6 +28,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         self.getHeadData(true)
         self.getListData()
         self.getMarkertData()
+        self.autoLogin()
         self.view.addSubview(tableView)
         self.view.addSubview(navigationBar)
         NotificationCenter.default.addObserver(self, selector: #selector(AssetsVC.setReloadAssets), name: NSNotification.Name(rawValue: "setReloadAssets"), object: nil)
@@ -84,6 +85,12 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         }) { (error) in
             self.refreshFooterView.endRefreshing()
         }
+    }
+    
+    func autoLogin(){
+        Tools.loginToRefeshToken(parameters: nil, haveParams: false, refreshSuccess: { (code, msg) in
+        }, refreshFailture: { (error) in
+        })
     }
     
     //上传头像
@@ -196,7 +203,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
                 }
             })
         } else {
-            SVProgressHUD.showError(withStatus: LanguageHelper.getString(key: "qrCode_error"))
+            SVProgressHUD.showInfo(withStatus: LanguageHelper.getString(key: "qrCode_error"))
             return
         }
     }

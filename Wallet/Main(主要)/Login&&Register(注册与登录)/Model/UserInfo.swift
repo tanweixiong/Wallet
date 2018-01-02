@@ -32,6 +32,7 @@ class UserInfo: NSObject,NSCoding {
     var username:String = ""
     var isLogin:NSNumber = 0
     var userphoto:String = ""
+    var normalPassword:String = ""
     
     
     //构造方法
@@ -64,6 +65,7 @@ class UserInfo: NSObject,NSCoding {
         username = ""
         isLogin = 0
         userphoto = ""
+        normalPassword = ""
     }
     
 //    从object解析回来
@@ -90,6 +92,7 @@ class UserInfo: NSObject,NSCoding {
         self.username = decoder.decodeObject(forKey: "username") as? String ?? ""
         self.isLogin = decoder.decodeObject(forKey: "isLogin") as? NSNumber ?? 0
         self.userphoto = decoder.decodeObject(forKey: "userphoto") as? String ?? ""
+        self.normalPassword = decoder.decodeObject(forKey: "normalPassword") as? String ?? ""
     }
     
     //编码成object
@@ -116,6 +119,7 @@ class UserInfo: NSObject,NSCoding {
         coder.encode(username, forKey:"username")
         coder.encode(isLogin, forKey:"isLogin")
         coder.encode(userphoto, forKey:"userphoto")
+        coder.encode(normalPassword, forKey:"normalPassword")
     }
     
 }
