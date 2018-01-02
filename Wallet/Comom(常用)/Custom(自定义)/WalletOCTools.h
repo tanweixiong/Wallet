@@ -13,4 +13,5 @@
 +(UIViewController *)getCurrentVC;
 +(NSDictionary *)getDictionaryFromJSONString:(NSString *)jsonStr;
 +(NSString *)getJSONStringFromDictionary:(id)testDict;
++(NSString *)getZZwithString:(NSString *)string;
 @end

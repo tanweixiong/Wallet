@@ -58,7 +58,14 @@
     NSString * jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     return jsonStr;
 }
- 
+
++(NSString *)getZZwithString:(NSString *)string{
+    NSRegularExpression *regularExpretion=[NSRegularExpression regularExpressionWithPattern:@"<[^>]*>|\n"
+                                                                                    options:0
+                                                                                      error:nil];
+    string=[regularExpretion stringByReplacingMatchesInString:string options:NSMatchingReportProgress range:NSMakeRange(0, string.length) withTemplate:@""];
+    return string;
+}
 
 
 //- (NSData *)toJSONData:(id)theData{

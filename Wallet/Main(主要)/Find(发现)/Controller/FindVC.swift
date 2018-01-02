@@ -74,7 +74,7 @@ class FindVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         cell.backgroundColor = R_UIThemeColor
         let model = self.dataScore[indexPath.section] as! FindDetailModel
         cell.titleLabel.text = model.news_title
-        cell.contentLabel.text = model.news_text
+        cell.contentLabel.text = WalletOCTools.getZZwithString(model.news_text!)
         return cell
     }
     

@@ -41,6 +41,9 @@ public let R_UserInfo = "userInfo"
 //行情key
 public let R_UserDefaults_Market_Key = "UserDefaultsMarketKey"
 
+//用户密码的key
+public let R_Theme_UserPwdKey = "UserPwdKey"
+
 //行情详情key
 public let R_UserDefaults_Market_Details_Key = "UserDefaultsMarketDetailsKey"
 

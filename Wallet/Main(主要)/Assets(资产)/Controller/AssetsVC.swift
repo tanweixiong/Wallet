@@ -28,6 +28,7 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         self.getHeadData(true)
         self.getListData()
         self.getMarkertData()
+        self.autoLogin()
         self.view.addSubview(tableView)
         self.view.addSubview(navigationBar)
         NotificationCenter.default.addObserver(self, selector: #selector(AssetsVC.setReloadAssets), name: NSNotification.Name(rawValue: "setReloadAssets"), object: nil)
@@ -91,9 +92,14 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func autoLogin(){
-        Tools.loginToRefeshToken(parameters: nil, haveParams: false, refreshSuccess: { (code, msg) in
-        }, refreshFailture: { (error) in
-        })
+        if (UserDefaults.standard.object(forKey: R_Theme_UserPwdKey) != nil) {
+            let phone = UserDefaults.standard.getUserInfo().phone
+            let password = UserDefaults.standard.object(forKey: R_Theme_UserPwdKey) as! String
+            let parameters = ["phone" :phone,"password" : password]
+            Tools.loginToRefeshToken(parameters: parameters, haveParams: true, refreshSuccess: { (code, msg) in
+            }, refreshFailture: { (error) in
+            })
+        }
     }
     
     //上传头像

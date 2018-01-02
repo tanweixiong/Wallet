@@ -39,8 +39,8 @@ class AddAContactVC: WLMainViewController,LBXScanViewControllerDelegate {
         self.addDefaultButtonTextRight(LanguageHelper.getString(key: "save"))
         self.addDefaultBackBarButtonLeft()
         view.addSubview(hornImageView)
-        let photo = UserDefaults.standard.getUserInfo().photo
-        hornImageView.sd_setImage(with: NSURL(string:photo) as URL? , placeholderImage: UIImage(named: "morentouxiang"))
+//        let photo = UserDefaults.standard.getUserInfo().photo
+//        hornImageView.sd_setImage(with: NSURL(string:photo) as URL? , placeholderImage: UIImage(named: "morentouxiang"))
         hornImageView.snp.makeConstraints { (make) in
             make.centerX.equalTo(backgroundVw.snp.centerX)
             make.top.equalTo(backgroundVw.snp.top).offset(-hornImageSize/2)
