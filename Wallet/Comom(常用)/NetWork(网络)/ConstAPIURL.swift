@@ -10,19 +10,14 @@ import UIKit
 
 struct ConstAPI {
     static let kAPIMYBaseURL: String = "http://47.52.59.119:9099/"
-
     //正式
 //    static let kAPIBaseURL: String = "http://192.168.10.101:9099/dhswallet/"
     static let kAPIBaseURL: String = "http://47.52.59.119:9099/dhswallet/"
-    
 //     static let kAPIBaseURL: String = "http://172.26.87.112:8080/"
-    
     //开发
 //    static let kAPIBaseURL: String = "http://10.0.0.42:80/dhs-wallet/dhswallet/"
-    
     static let kAPIRegister = kAPIBaseURL + "user/add.do"   //注册接口
     static let kAPIEmailAdd = kAPIBaseURL + "user/emailAdd.do"   //注册接口
-    
     static let kAPILogin = kAPIBaseURL + "user/login.do" //登录接口
     static let kAPIGetPersonalInfo = kAPIBaseURL + "user/get.do"   //获取个人信息接口
     static let kAPIRetrieveLoginPwd = kAPIBaseURL + "user/retrievePassword.do" //找回登录密码接口
@@ -123,6 +118,5 @@ struct ConstAPI {
     static let kAPIBillTranSfer = kAPIBaseURL + "bill/TranSfer.do"
     //添加币种列表
     static let kAPIWalletGetBillByCoin = kAPIBaseURL + "bill/getBillByCoin.do"
-    
 }
 

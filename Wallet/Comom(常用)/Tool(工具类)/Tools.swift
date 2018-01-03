@@ -256,6 +256,14 @@ class Tools: NSObject {
 //        }
 //    }
     
+    class func setAccuracy(data:NSNumber) ->String{
+        let dataStr = data.stringValue
+        if dataStr.count > 7 {
+            return String(format: "%.8f",(data.floatValue))
+        }
+        return dataStr
+    }
+    
     //根据ID进行排序
    class func sortByIDs(_ json:Any) -> Any{
         let coinIdArray = UserDefaults.standard.object(forKey:R_UserDefaults_Market_Details_Edit_Key) as! NSArray

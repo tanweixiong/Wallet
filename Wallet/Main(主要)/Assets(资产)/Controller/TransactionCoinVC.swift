@@ -179,7 +179,7 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         }else{
             let model = dataScore[indexPath.row - 1] as! TransactionList
             cell.coinLabel.text = assetsListModel.coin_name
-            cell.amountLabel.text = model.money?.stringValue
+            cell.amountLabel.text = Tools.setAccuracy(data: model.money!)
             cell.dataLabel.text =  model.beginDate
             cell.typeLabel.text = model.operate
         }
@@ -191,11 +191,9 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
             let model = dataScore[indexPath.row - 1] as! TransactionList
             tableViewDetailVw.isHidden = false
             self.tableViewDetailVw.serialNumberRLabel.text = model.serialNumber
-            
             self.tableViewDetailVw.payeeRLabel.text = model.receivables_address
-            
             self.tableViewDetailVw.transactionTypeRLabel.text = model.operate
-            self.tableViewDetailVw.transactionAmountRLabel.text = model.money?.stringValue
+            self.tableViewDetailVw.transactionAmountRLabel.text = Tools.setAccuracy(data: model.money!)
             self.tableViewDetailVw.dataRLabel.text = model.beginDate
             self.tableViewDetailVw.remarkRLabel.text = model.remark
         }

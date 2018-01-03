@@ -251,9 +251,9 @@ class AssetsVC: WLMainViewController, UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: assetsViewCellIdentifier, for: indexPath) as! AssetsViewCell
         cell.selectionStyle = .none
         let model = self.dataScore[indexPath.row] as! AssetsListModel
-        cell.sumMoneyLabel.text = "≈ ¥ " + (model.sumMoney?.stringValue)!
         
-        cell.allMoneyLabel.text = (model.remainderMoney?.stringValue)!
+        cell.sumMoneyLabel.text = "≈ ¥ " + Tools.setAccuracy(data: model.sumMoney!)
+        cell.allMoneyLabel.text = Tools.setAccuracy(data: model.remainderMoney!)
         
         cell.icon_nameLabel.text = model.coin_name
         cell.iconImageView.sd_setImage(with: NSURL(string: model.coinIcon!)! as URL, placeholderImage: UIImage.init(named: "jiazaimoren"))
