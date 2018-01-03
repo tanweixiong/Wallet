@@ -193,8 +193,8 @@ class TransferAccountsVC: WLMainViewController,LBXScanViewControllerDelegate,Con
         let userId = UserDefaults.standard.getUserInfo().userId
         let phone_shou = self.receiveAddressTF.text!
         let money = self.amountTF.text!
-//        let remark:String = (self.remarkTF?.text!)!
-        let parameter:[String:Any] = ["userId":userId,"phone_shou":phone_shou,"money":money,"remark":"11","flag":"2"]
+        let remark:String = (self.remarkTF?.text!)!
+        let parameter:[String:Any] = ["userId":userId,"phone_shou":phone_shou,"money":money,"remark":remark,"flag":"2"]
         SVProgressHUD.show(withStatus: LanguageHelper.getString(key: "please_wait"), maskType: .black)
         NetWorkTool.request(requestType: .post, URLString: ConstAPI.kAPITransOrder, parameters: parameter, showIndicator: true, success: { (json) in
             let responseData = Mapper<PayMoneyModel>().map(JSONObject: json)
