@@ -61,8 +61,8 @@ class TransactionCoinVC: WLMainViewController,UITableViewDelegate,UITableViewDat
         otherReceivablesButton.clipsToBounds = true
         otherReceivablesButton.layer.cornerRadius = corner
         
-        self.remainderMoneyLabel.text = assetsListModel.remainderMoney?.stringValue
-        self.sumMoneyLabel.text = "≈¥" + (assetsListModel.sumMoney?.stringValue)!
+        self.remainderMoneyLabel.text = Tools.setAccuracy(data: assetsListModel.remainderMoney!)
+        self.sumMoneyLabel.text = "≈¥" + Tools.setAccuracy(data: assetsListModel.sumMoney!)
         
         recentRecordsLabel.text = LanguageHelper.getString(key: "recent_records")
         

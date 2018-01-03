@@ -61,11 +61,9 @@ class AssetsCarouselView: UIView,UIScrollViewDelegate {
                 let model = dataArray[item] as! AssetsListModel
                 view.nameLabel.text = model.username?.removingPercentEncoding
                 view.contentLabel.text = model.userId
-                view.asssetsLabel.text = model.allmoney?.stringValue
+                view.asssetsLabel.text = Tools.setAccuracy(data: model.allmoney!)
                 view.userIDString = model.userId!
-                
                 view.asssetsLabel.tag = asssetsLabelTag + item
-                
                 let urlStr:String = model.userphoto!
                 view.hornImageView.sd_setImage(with: NSURL(string: urlStr)! as URL, placeholderImage: UIImage.init(named: "morentouxiang"))
             }
