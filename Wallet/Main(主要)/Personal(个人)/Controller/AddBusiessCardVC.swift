@@ -8,7 +8,7 @@
 
 import UIKit
 import ObjectMapper
-import IQKeyboardManager
+//import IQKeyboardManager
 import SVProgressHUD
 
 enum BusiessCardType {

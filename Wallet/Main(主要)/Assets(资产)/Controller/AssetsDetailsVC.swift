@@ -15,6 +15,14 @@ protocol AssetsDetailsDelegate:NSObjectProtocol{
     func setReloadAssets()
 }
 
+protocol AssetsDetailsSelectDelegate {
+    func assetsDetailsChooseCurrency(coin:String,coinNumber:String)
+}
+
+enum AssetsDetailsStatus{
+    case normal
+    case select
+}
 class AssetsDetailsVC: WLMainViewController,UITableViewDelegate,UITableViewDataSource {
     
     fileprivate let assetsDetailsCellIdentifier = "AssetsDetailsCellIdentifier"
@@ -22,6 +30,8 @@ class AssetsDetailsVC: WLMainViewController,UITableViewDelegate,UITableViewDataS
     fileprivate let dataScore = NSMutableArray()
     fileprivate let headHeight: CGFloat = 10
     var delegate:AssetsDetailsDelegate?
+    var selectDelegate:AssetsDetailsSelectDelegate?
+    var status = AssetsDetailsStatus.normal
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +90,14 @@ class AssetsDetailsVC: WLMainViewController,UITableViewDelegate,UITableViewDataS
         return cellHeight
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if status == .select {
+            let model = dataScore[indexPath.section] as! AssetsListDetailsModel
+            self.selectDelegate?.assetsDetailsChooseCurrency(coin: model.coin_name!, coinNumber: (model.coin_no?.stringValue)!)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: headHeight)
@@ -111,6 +129,7 @@ class AssetsDetailsVC: WLMainViewController,UITableViewDelegate,UITableViewDataS
             model.state = sender.isOn == true ? 0 : 1
             self.dataScore.replaceObject(at: sender.tag, with: model)
         }
+        cell.coinSwitch.isHidden =  status == .select ? true : false
         return cell
     }
     

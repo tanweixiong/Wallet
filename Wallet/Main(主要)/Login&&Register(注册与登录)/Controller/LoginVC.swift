@@ -239,7 +239,7 @@ extension LoginVC {
         forgetpasswordButton.snp.makeConstraints { (make) in
             make.top.equalTo(loginButton.snp.bottom).offset(YMAKE(5))
             make.right.equalTo(self.loginButton.snp.right).offset(XMAKE(5))
-            make.width.equalTo(forgetSize.width)
+            make.width.equalTo(forgetSize.width + 1)
             make.height.equalTo(YMAKE(30))
         }
         
@@ -252,7 +252,7 @@ extension LoginVC {
         foundWallet.snp.makeConstraints { (make) in
             make.top.equalTo(loginButton.snp.bottom).offset(YMAKE(5))
             make.left.equalTo(self.loginButton.snp.left).offset(-XMAKE(5))
-            make.width.equalTo(foundSize.width)
+            make.width.equalTo(foundSize.width + 1)
             make.height.equalTo(YMAKE(30))
         }
         

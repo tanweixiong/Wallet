@@ -21,9 +21,17 @@ class SalesCoinVC: WLMainViewController,UITableViewDataSource,UITableViewDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.title = "交易"
-        
+        self.addDefaultButtonTextRight("发布")
+        self.getData()
+    }
+
+     override func rightTextBtn(_ sender: UIBarButtonItem) {
+        let salesCoinDistributeVC = SalesCoinDistributeVC()
+        self.pushNextViewController(salesCoinDistributeVC, true)
+     }
+    
+    func getData(){
         view.addSubview(self.tableView)
         viewModel.loadDataWithHandler {[weak self] (loadState) in
             guard let `self` = self else { return }
@@ -33,11 +41,6 @@ class SalesCoinVC: WLMainViewController,UITableViewDataSource,UITableViewDelegat
             default: break
             }
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

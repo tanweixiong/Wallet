@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IQKeyboardManager
+//import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.setLanguage()
-//        self.chatSettings()
+        self.setHuanxinIM()
         self.addRootViewController()
         self.window?.backgroundColor = UIColor.white
-        IQKeyboardManager.shared().isEnableAutoToolbar = false
+//        IQKeyboardManager.shared().isEnableAutoToolbar = false
         return true
     }
     
@@ -54,11 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-//    func chatSettings(){
-//        let options = EMOptions(appkey:R_huangXinChatKey)
-//        options?.apnsCertName = "istore_dev"
-//        EMClient.shared().initializeSDK(with: options)
-//    }
+    func setHuanxinIM(){
+        let options = EMOptions(appkey: "1163171010178071#ec")
+        options?.apnsCertName = "ECDelelopmentCertificate"
+        EMClient.shared().initializeSDK(with: options)
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -66,11 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-//        EMClient.shared().applicationDidEnterBackground(application)
+        EMClient.shared().applicationDidEnterBackground(application)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-//        EMClient.shared().applicationWillEnterForeground(application)
+        EMClient.shared().applicationWillEnterForeground(application)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

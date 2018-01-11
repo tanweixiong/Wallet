@@ -16,10 +16,8 @@ enum LoadState {
 class SalesCoinVM: BaseViewModel {
     
     var data: [SalesCoinModel] = []
-    
     func loadDataWithHandler(_ handler: @escaping (_ loadState: LoadState) -> () ) {
             handler(.success)
-        
         self.data = [SalesCoinModel()]
 //        let parameters = ["":""]
 //        NetWorkTool.request(.get, URLString: ConstAPI.kAPIMyWallet, parameters: parameters, showIndicator: true, success: { (json) in

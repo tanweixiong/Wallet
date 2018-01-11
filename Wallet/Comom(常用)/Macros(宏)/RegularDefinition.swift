@@ -15,6 +15,8 @@ let        SCREEN_WIDTH = UIScreen.main.bounds.size.width;
 
 let        SCREEN_HEIGHT = UIScreen.main.bounds.size.height;
 
+let        SCREEN_HEIGHT_INSIDE = UIScreen.main.bounds.size.height - 64;
+
 func       XMAKE(_ x: CGFloat) -> CGFloat {
     return x * UIScreen.main.bounds.size.width/375;
 }
@@ -82,5 +84,8 @@ public let R_UIFontDarkColor = UIColor.R_UIColorFromRGB(color: 0x666666)
 
 //更深色
 public let R_UIFontMoreDarkColor = UIColor.R_UIColorFromRGB(color: 0x333333)
+
+//section分割线颜色
+public let R_UISectionLineColor = UIColor.R_UIRGBColor(red: 251, green: 251, blue: 251, alpha: 1)
 
 

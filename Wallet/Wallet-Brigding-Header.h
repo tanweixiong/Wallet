@@ -12,7 +12,6 @@
 #import "PopupView.h"
 #import "UINavigationController+Cloudox.h"
 #import "UIViewController+Cloudox.h"
-//#import "WRNavigationBar.h"
 #import "ZCTradeView.h"
 #import "LJXPhotoAlbum.h"
 #import "ZFReOrderTableView.h"
@@ -22,4 +21,6 @@
 #import "MJRefresh.h"
 #import "LEEAlert.h"
 #import "SDRefresh.h"
+#import <Hyphenate/Hyphenate.h>
+#import "ChatViewController.h"
 #endif

@@ -210,6 +210,7 @@ class Tools: NSObject {
                         let userInfo = UserInfo(dict: user as [String : AnyObject])
                         UserDefaults.standard.saveCustomObject(customObject: userInfo, key: R_UserInfo)
                         LoginConfiguration.shared.relatedConfiguration()
+                        Tools.loginHuanxinEMClient(username: "17876489945", password: "123456")
                     }
                 }
             }
@@ -217,6 +218,17 @@ class Tools: NSObject {
             
         }) { (error) in
             refreshFailture(error)
+        }
+    }
+    
+    //登录环信账号密码
+   class func loginHuanxinEMClient(username:String,password:String){
+      let isAutoLogin = EMClient.shared().options.isAutoLogin
+        if !isAutoLogin {
+            let error = EMClient.shared().login(withUsername: username, password: password)
+            if error != nil {
+                print(error! as Any)
+            }
         }
     }
     

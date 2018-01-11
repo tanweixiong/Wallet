@@ -29,9 +29,9 @@ class WLNavigationController: UINavigationController,UIGestureRecognizerDelegate
         self.navigationBar.shadowImage = UIImage()
         
         //全局键盘颜色
-        UITextView.appearance().keyboardAppearance = .light
-        UITextField.appearance().keyboardAppearance = .light
-        YYTextView.appearance().keyboardAppearance = .light
+//        UITextView.appearance().keyboardAppearance = .light
+//        UITextField.appearance().keyboardAppearance = .light
+//        YYTextView.appearance().keyboardAppearance = .light
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
